@@ -16,7 +16,7 @@ metadata:
 
 Why "Semantic Operations"? Because semantics is meaning—and meaning is the critical currency in knowledge work. Every business system, every decision process, every AI integration ultimately depends on shared meaning.
 
-For the full narrative, see [SemOps Overview](semops-overview.md).
+For the full narrative, see [SemOps Overview](SEMANTIC_OPERATIONS_FRAMEWORK/semops-overview.md).
 
 ---
 
@@ -158,5 +158,5 @@ The framework emerges from two directions:
 
 ## Related Links
 
-- [SemOps Overview](semops-overview.md) — Narrative introduction to the framework
+- [SemOps Overview](SEMANTIC_OPERATIONS_FRAMEWORK/semops-overview.md) — Narrative introduction to the framework
 - [SemOps.ai Labs](https://github.com/semops-ai) — Open source implementation
