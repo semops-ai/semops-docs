@@ -1,162 +1,116 @@
----
-doc_type: structure
 
-pattern: semantic-operations-framework
+# semops-docs
 
-provenance: 1p
+Framework theory, concept documentation, and research foundations for [Semantic Operations (SemOps)](https://semops.ai). This is the "why" and "what" behind the implementation in the [semops-ai](https://github.com/semops-ai) organization.
 
-metadata:
-  pattern_type: concept
-  brand-strength: high
----
+## What This Is
 
-# Semantic Operations (SemOps) Framework
+This repo owns the theoretical foundations — the frameworks, research, and concept definitions that the implementation repos exhibit. When other repos mention a SemOps concept (Semantic Coherence, Patterns, the Semantic Funnel), links will resolve here.
 
-> A practical, actionable framework for businesses to align their technology and organization to materially benefit from the use of data, AI, and agentic systems.
+The documentation includes several concept documents organized by directory into [Research](RESEARCH/) and three framework pillars: [Strategic Data](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/), [Symbiotic Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/), and [Semantic Optimization](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/). Documents are written for a mixed audience: technical enough for engineers to map concepts to architecture, accessible enough for leadership to understand the strategic rationale.
 
-Why "Semantic Operations"? Because semantics is meaning—and meaning is the critical currency in knowledge work. Every business system, every decision process, every AI integration ultimately depends on shared meaning.
+This repo is not an implementation. There is no code to run, no services to deploy, no dependencies to install. It is structured Markdown with a reading order.
 
-For the full narrative, see [SemOps Overview](SEMANTIC_OPERATIONS_FRAMEWORK/semops-overview.md).
+Part of the [semops-ai](https://github.com/semops-ai) organization. For system-level architecture and how all repos relate, see [semops-dx-orchestrator](https://github.com/semops-ai/semops-dx-orchestrator).
 
----
+**What this repo is NOT:**
 
-## The Framework
+- Not implementation documentation — for how the system is built, see the implementation repos ([semops-core](https://github.com/semops-ai/semops-core), [semops-dx-orchestrator](https://github.com/semops-ai/semops-dx-orchestrator))
+- Not a blog or narrative content — for published articles and thought leadership, see [semops.ai](https://semops.ai) and [timjmitchell.com](https://timjmitchell.com)
+- Not a textbook — concepts are explained at the depth needed to inform architecture and strategy decisions, not for academic completeness
 
-SemOps is built on a mental model and three pillars that create the conditions for humans, AI, and systems to collaborate effectively.
+## Documents as Operational Knowledge
 
-### Semantic Funnel
+These documents are not just files to read — they are structured content designed to be machine-readable and composable. Each document carries YAML frontmatter with metadata (content type, provenance, related concepts) and follows a convention where each H2 section is a self-contained unit of meaning.
 
-Mental model grounding how meaning transforms through progressive stages (Data → Information → Knowledge → Understanding → Wisdom). Each transition increases uncertainty and requires more complex inputs—the framework addresses what's needed at each level.
+The [knowledge base](https://github.com/semops-ai/semops-core) ingests these documents using an atom-hub decomposition model. Each concept document (H1) is a hub — the identity of the concept. Each H2 section within it is an atom — independently embeddable, retrievable, and linkable. When the knowledge base processes this repo, it decomposes documents into atoms, embeds them, and discovers relationships between atoms across documents through structural analysis (markdown cross-references), semantic similarity (vector embeddings), and content analysis.
 
-| Transition | Transform Requirements | Framework Solution |
-|------------|----------------------|-------------------|
-| **D → I** | Structure, relationships, schema | **Strategic Data**: Profiling, schema assignment, modeling |
-| **I → K** | Context, patterns, causal assumptions | **Strategic Data + Symbiotic Architecture**: Analytics, invariants, boundaries |
-| **K → U** | Alignment, shared semantics, coherence | **Semantic Optimization**: Coherence measurement, drift detection |
-| **U → W** | Values, judgment, principles | **Whole Framework**: Patterns encode principles; optimization enables learning |
+This means a query to the knowledge base doesn't return whole documents. It assembles a response from atoms across multiple concept hubs, guided by the edges between them. The documents are the source of truth; the knowledge graph is a derived, queryable view of the same content.
 
-### Framework Pillars
+The practical consequence for authors: each H2 section should be independently coherent. It should make sense when retrieved on its own, outside the context of the surrounding document. Cross-references between sections and documents create the navigational structure that both human readers and the knowledge base use.
 
-**[Strategic Data](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/README.md)** — A playbook for making data a first-class strategic asset for AI and all decision processes.
+## How to Read This Repo
 
-**[Symbiotic Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/README.md)** — Encode your strategy into your systems so humans and AI can operate from shared structure.
+**If you want the executive summary:**
+Start with the [framework introduction](SEMANTIC_OPERATIONS_FRAMEWORK/README.md), which covers what SemOps is, the core value proposition, and how the three pillars fit together.
 
-**[Semantic Optimization](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/README.md)** — Elevate your whole organization to operate like well-designed software—agent-ready, self-validating, and ready for expansion through patterns, not features.
+**If you want the foundational mental model:**
+Read [Semantic Funnel](RESEARCH/FOUNDATIONS/semantic-funnel.md) first. It introduces the three entities (Objects, Agents, Rules) and the knowledge process (Data → Information → Knowledge → Understanding → Wisdom) that ground the entire framework.
 
-Each pillar provides value independent of AI. Together, they create an environment where decisions and state are clear, ideas exist as human-readable patterns that agents can work with directly, and AI performs better because it has wider context and a well-understood domain.
+**If you want to understand one pillar in depth:**
+Each pillar has its own README that serves as a reading guide with recommended order:
+- [Strategic Data](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/README.md) — Data as a first-class strategic asset
+- [Symbiotic Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/README.md) — Encoding strategy into system structure
+- [Semantic Optimization](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/README.md) — Measuring and governing shared meaning
 
----
+**If you're coming from an implementation repo:**
+You likely followed a concept link. Each concept document is self-contained — read it, then follow its cross-references to related concepts. The pillar READMEs provide broader context if you want to understand where the concept fits.
 
-## How We Deliver It
+**If you want the research behind the framework:**
+The [Research](RESEARCH/) section contains theoretical foundations (DIKW theory, DDD, ontology, cognitive science) and a current-context analysis of AI transformation challenges.
 
-SemOps is both theory and practice:
+## What's Here
 
-**Documentation** — Frameworks, concepts, and patterns available as structured GitHub docs. These explain the "why" and "what" at varying levels of depth.
+### Research Foundations
 
-**Open Source Implementation** — Tools and infrastructure for AI-forward organizations, built on SemOps principles.
+| Section | Documents | What It Covers |
+| ------- | --------- | -------------- |
+| [Foundations](RESEARCH/FOUNDATIONS/) | 6 | Semantic Funnel (core mental model), DIKW theory comparison, cognition, data theory, semantic theory, understanding |
+| [Current Context](RESEARCH/CURRENT_CONTEXT/) | AI transformation meta-analysis | Why organizational AI adoption isn't meeting ROI expectations, and what the gap reveals about meaning |
 
-**Proving Ground** — We use this framework to build itself. The repos, processes, and agents that produce SemOps content are themselves implementations of the framework.
+### Semantic Operations Framework
 
-### SemOps.ai Labs
+| Pillar | Documents | What It Covers |
+| ------ | --------- | -------------- |
+| [Strategic Data](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/) | 16 | Data as strategic asset, four data system types, governance as strategy, data physics, analytics evolution |
+| [Symbiotic Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/) | 15 | Domain-Driven Design, explicit architecture, AI-ready systems, semantic flywheel, agentic coding, stable core / flexible edge |
+| [Semantic Optimization](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/) | 7 | Semantic coherence (measurement + governance), Patterns as semantic units, pattern operations, compression |
 
-| Repo | Purpose | Status |
-|------|---------|--------|
-| [semops-dx-orchestrator](https://github.com/semops-ai/semops-dx-orchestrator) | Orchestration layer - process, tooling, global architecture | Active |
-| [semops-core](https://github.com/semops-ai/semops-core) | Schema and infrastructure - knowledge graph, shared services | Active |
-| [semops-publisher](https://github.com/semops-ai/semops-publisher) | AI-assisted content publishing workflow | Active |
-| [semops-data](https://github.com/semops-ai/semops-data) | Data engineering utilities and research RAG pipeline | Active |
-| [semops-sites](https://github.com/semops-ai/semops-sites) | Public-facing websites and deployed applications | Active |
+### How Concepts Connect to Implementation
 
----
+The three pillars map to implementation repos:
 
-## Pillar Details
+| Pillar | Primary Implementation |
+| ------ | --------------------- |
+| Strategic Data | [semops-core](https://github.com/semops-ai/semops-core) — quality tiers, knowledge base, coherence measurement |
+| Symbiotic Architecture | [semops-dx-orchestrator](https://github.com/semops-ai/semops-dx-orchestrator) — DDD repo structure, Pattern as aggregate root, integration patterns |
+| Semantic Optimization | [semops-publisher](https://github.com/semops-ai/semops-publisher) — edit capture for style learning, content coherence |
 
-### Strategic Data
+[semops-data](https://github.com/semops-ai/semops-data) implements measurement capabilities described across all three pillars. [semops-sites](https://github.com/semops-ai/semops-sites) implements the delivery surface where concepts become published web content.
 
-> A playbook for making data a first-class strategic asset for AI and all decision processes.
+## Status
 
-**Core Concepts:**
+| Section | Maturity | Notes |
+| ------- | -------- | ----- |
+| Semantic Funnel | Stable | Core mental model, foundational to everything else |
+| Research Foundations | Stable | Theoretical grounding complete |
+| Current Context | Stable | AI transformation analysis |
+| Strategic Data | Stable | 16 concept documents |
+| Symbiotic Architecture | Stable | 15 concept documents |
+| Semantic Optimization | Maturing | 7 concept documents, coherence measurement evolving with implementation |
 
-- **Organizational Mandate** — Data must be a first-class citizen for leadership, stakeholders, and technical teams
-  - [Governance as Strategy](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/governance-as-strategy.md)
-  - [Silent Analytics Failure](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/silent-analytics-failure.md)
+This is a living documentation set. Concepts stabilize as they are validated through implementation in the semops-ai repos. Documents are updated when implementation reveals new understanding or when the framework's language evolves.
 
-- **Understand Data Systems** — The systems are complex, but principles need not be
-  - [Data Systems Essentials](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/data-systems-essentials.md)
-  - [Surface Analysis](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/surface-analysis.md)
-  - [Four Data System Types](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/four-data-system-types.md)
+## References
 
-- **Structure = Physics** — Dimensional modeling isn't "best practice"—it's physics
-  - [Why Structure Matters](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/why-structure-matters.md)
-  - [Physics of Data](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/physics-of-data.md)
+### Related
 
-**See:** [Strategic Data README](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/README.md)
+- **[semops-dx-orchestrator](https://github.com/semops-ai/semops-dx-orchestrator)** — System architecture, cross-repo coordination, and design principles for the implementation
+- **[semops-core](https://github.com/semops-ai/semops-core)** — Schema, knowledge graph, and shared infrastructure that implements concepts from this repo
+- **[semops-publisher](https://github.com/semops-ai/semops-publisher)** — AI-assisted content creation, where concepts become published content
+- **[semops-data](https://github.com/semops-ai/semops-data)** — Data platform implementing measurement and analytics concepts
+- **[semops-sites](https://github.com/semops-ai/semops-sites)** — Web surfaces where framework content is published
+- **[semops.ai](https://semops.ai)** — Narrative introduction to SemOps for a general audience
+- **[timjmitchell.com](https://timjmitchell.com)** — Blog, thought leadership, and project narrative
 
----
+### Influences
 
-### Symbiotic Architecture
+- **[DIKW Hierarchy](https://en.wikipedia.org/wiki/DIKW_pyramid)** — Data → Information → Knowledge → Wisdom knowledge process
+- **[Domain-Driven Design](https://www.domainlanguage.com/ddd/)** (Eric Evans) — Bounded contexts, ubiquitous language, aggregate roots
+- **[SKOS](https://www.w3.org/2004/02/skos/)** — Simple Knowledge Organization System for concept representation
+- **[PROV-O](https://www.w3.org/TR/prov-o/)** — W3C provenance ontology for lineage tracking
+- **[Schema.org](https://schema.org/)** — Shared vocabulary for structured data on the web
 
-> Encode your strategy into your systems so humans and AI can operate from shared structure.
+## License
 
-**Core Concepts:**
-
-- **DDD as Foundation** — [Domain Driven Design](SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) provides proven patterns for encoding meaning into systems
-- **Architecture as Rules** — Your architecture is your organization and business encoded as a data structure
-  - [Explicit Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/explicit-architecture.md)
-  - [AI-Ready Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/ai-ready-architecture.md)
-- **Semantic Flywheel** — Better structure enables better AI, which enables better structure
-  - [Semantic Flywheel](SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/semantic-flywheel.md)
-
-**Key insight:** Architecture is not about technology choices. It's about encoding organizational meaning into concrete scaffolding so that humans, systems, and AI can maintain shared understanding.
-
-**See:** [Symbiotic Architecture README](SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/README.md)
-
----
-
-### Semantic Optimization
-
-> Elevate your whole organization to operate like well-designed software—agent-ready, self-validating, and ready for expansion through patterns, not features.
-
-**Core Concepts:**
-
-- **Semantic Coherence** — The foundation: achieving shared understanding across an organization
-  - [Semantic Coherence](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/semantic-coherence.md)
-  - [Semantic Coherence Measurement](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/semantic-coherence-measurement.md)
-
-- **Patterns** — Self-contained semantic structures that preserve meaning through transformation
-  - [Patterns](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/patterns.md)
-
-**Key insight:** Semantic coherence is not a project you complete. It's ongoing work—continuous investment to resist natural decay toward fragmentation.
-
-**See:** [Semantic Optimization README](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/README.md)
-
----
-
-## How They Work Together
-
-| Level | Symbiotic Architecture | Strategic Data | Semantic Optimization | AI Role |
-|-------|------------------------|----------------|----------------------|---------|
-| **Data** | Define domain boundaries | Profile raw signals, assign schema | Basic transformations | Automate quality: schema inference, profiling |
-| **Information** | Entity modeling, language stabilization | Modeling, analytics, experiments | Create relationships, generate lineage | Enforce structure, maintain transforms |
-| **Knowledge** | Invariants, lineage constraints | Risk modeling, derived metrics | Hypothesis formation, causal reasoning | Track pattern deviations, detect contradictions |
-| **Understanding** | Context maps, anti-corruption layers | Cross-domain analytics | Semantic coherence, interpretive unification | Agent as experiment: reveal gaps, surface changes |
-| **Wisdom** | Pattern libraries, policy boundaries | Strategic analytics, scenario modeling | Evolution, refactoring, adding domains | Recommend based on encoded principles |
-
----
-
-## Research Foundation
-
-The framework emerges from two directions:
-
-**[Research](RESEARCH/README.md)** — Continuous processing of information and knowledge in relevant domains:
-- [Foundations](RESEARCH/FOUNDATIONS/README.md) — Underlying theories and frameworks
-- [Current Context](RESEARCH/CURRENT_CONTEXT/README.md) — Contemporary research and trend analysis
-
-**Career Experience** — 20+ years as Product Manager building data-driven applications and recent consulting in Data Strategy and AI Integration. See [timjmitchell.com](http://timjmitchell.com)
-
----
-
-## Related Links
-
-- [SemOps Overview](SEMANTIC_OPERATIONS_FRAMEWORK/semops-overview.md) — Narrative introduction to the framework
-- [SemOps.ai Labs](https://github.com/semops-ai) — Open source implementation
+[MIT](LICENSE)
