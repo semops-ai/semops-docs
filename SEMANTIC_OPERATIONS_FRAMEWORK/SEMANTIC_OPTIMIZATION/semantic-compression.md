@@ -72,7 +72,7 @@ A well-designed schema encodes:
 
 ### 2. Domain Patterns / Bounded Contexts {concept: domain-pattern}
 
-[DDD](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) patterns compress organizational knowledge:
+[DDD](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) patterns compress organizational knowledge:
 
 ```
 Tribal knowledge + implicit rules + edge cases
@@ -80,7 +80,7 @@ Tribal knowledge + implicit rules + edge cases
     → Reusable domain model
 ```
 
-A [bounded context](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) does not just organize code—it **compresses the semantics** of a business domain into a form that:
+A [bounded context](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) does not just organize code—it **compresses the semantics** of a business domain into a form that:
 - New team members can learn
 - AI agents can navigate
 - Systems can enforce
@@ -289,7 +289,7 @@ Not everything needs compression. The investment should match the reuse:
 - [everything-is-github.md](everything-is-github.md) - Repos as semantic functions
 
 ### Practice
-- [UBIQUITOUS_LANGUAGE.md](https://github.com/timjmitchell/ike-semantic-ops/blob/main/schemas/UBIQUITOUS_LANGUAGE.md) - Compressed domain definitions
+- [UBIQUITOUS_LANGUAGE.md](https://github.com/semops-ai/ike-semantic-ops/blob/main/schemas/UBIQUITOUS_LANGUAGE.md) - Compressed domain definitions
 
 ### Citations
 - [Semantic Compression with Information Lattice Learning](https://arxiv.org/abs/2404.03131) - Lattice theory framing of "abstraction as lossy semantic compression"

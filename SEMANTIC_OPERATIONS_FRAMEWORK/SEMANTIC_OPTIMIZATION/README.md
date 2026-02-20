@@ -25,7 +25,7 @@ The goal is analogous to well-designed software: processes, decisions, and knowl
 
 ### How Semantic Optimization Maps to the Semantic Funnel
 
-Strategic Data provides the correct objects. Symbiotic Architecture provides the stable rules and scaffolding. Semantic Optimization is then free to measure, optimize, and repeat.
+Strategic Data provides the correct objects. Explicit Architecture provides the stable rules and scaffolding. Semantic Optimization is then free to measure, optimize, and repeat.
 
 ```
   Objects:  DATA ══════> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
@@ -73,17 +73,18 @@ A [Pattern](patterns.md) is a semantic structure with enough self-contained mean
 
 - **Composable without loss** — patterns compose into larger structures without losing individual meaning. An entire domain architecture can be added as a single coherent unit rather than hundreds of disconnected requirements.
 - **AI leverage** — known patterns already exist in AI training data. AI helps identify the right standard, encode its canonical form, and integrate it into the domain model.
-- **Deterministic downstream** — once a pattern is registered in the architecture through [Symbiotic Architecture](../SYMBIOTIC_ARCHITECTURE/README.md) and measured for alignment through [Semantic Coherence](semantic-coherence.md), downstream work (schema, constraints, validation) follows deterministically.
+- **Deterministic downstream** — once a pattern is registered in the architecture through [Explicit Architecture](../EXPLICIT_ARCHITECTURE/README.md) and measured for alignment through [Semantic Coherence](semantic-coherence.md), downstream work (schema, constraints, validation) follows deterministically.
 - **Tracked evolution** — standard (3p = third-party) baselines vs. optimized (1p = first-party) innovations. Deviations are captured in lineage, distinguishing intentional innovation from counterproductive reinvention.
 
 - **[Pattern Operations](pattern-operations.md)** — Patterns evolve through a promotion loop: new patterns emerge at the flexible edge as lightweight [Data Shapes](data-shapes.md), get tested without committing to schema changes, and promote to the stable core when validated.
+- **[Working with Patterns](working-with-patterns.md)** — Practical guidance on finding, sizing, and evolving patterns from 3P adoption through 1P innovation.
 - **[Stable Core, Flexible Edge](stable-core-flexible-edge.md)** — The stable core enforces invariants through versioned schema; the flexible edge experiments with immutable value objects at low cost. The core never changes until a shape proves its value.
 
 ---
 
 ## Pillar Contributions
 
-Semantic Optimization relies on Strategic Data to provide varied and accurate patterns, and on Symbiotic Architecture for the rules of alignment and the pathways for agents to drive decisions and growth.
+Semantic Optimization relies on Strategic Data to provide varied and accurate patterns, and on Explicit Architecture for the rules of alignment and the pathways for agents to drive decisions and growth.
 
 ### Strategic Data
 
@@ -95,15 +96,15 @@ Semantic Optimization relies on Strategic Data to provide varied and accurate pa
 
 Without Strategic Data, Semantic Optimization has nothing reliable to measure or optimize against.
 
-### Symbiotic Architecture
+### Explicit Architecture
 
-[Symbiotic Architecture](../SYMBIOTIC_ARCHITECTURE/README.md) provides the structural rules and boundaries through which semantic objects flow:
+[Explicit Architecture](../EXPLICIT_ARCHITECTURE/README.md) provides the structural rules and boundaries through which semantic objects flow:
 
-- **[Bounded contexts](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md)** — explicit scope boundaries that contain semantic meaning
-- **[Anti-Corruption Layers](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md)** — translation boundaries that protect pattern integrity across contexts
+- **[Bounded contexts](../EXPLICIT_ARCHITECTURE/domain-driven-design.md)** — explicit scope boundaries that contain semantic meaning
+- **[Anti-Corruption Layers](../EXPLICIT_ARCHITECTURE/domain-driven-design.md)** — translation boundaries that protect pattern integrity across contexts
 - **Strategy encoded as structure** — organizational intent embedded in system design, not just documentation
 
-Without Symbiotic Architecture, semantic objects exist but drift freely — no boundaries to enforce, no scaffolding to optimize within.
+Without Explicit Architecture, semantic objects exist but drift freely — no boundaries to enforce, no scaffolding to optimize within.
 
 ---
 
@@ -145,4 +146,4 @@ AI does not solve coherence—it reduces the energy barrier to achieving it.
 ### Related Framework Pillars
 
 - [Strategic Data](../STRATEGIC_DATA/README.md) - Data as strategic asset
-- [Symbiotic Architecture](../SYMBIOTIC_ARCHITECTURE/README.md) - Strategy encoded in systems
+- [Explicit Architecture](../EXPLICIT_ARCHITECTURE/README.md) - Strategy encoded in systems

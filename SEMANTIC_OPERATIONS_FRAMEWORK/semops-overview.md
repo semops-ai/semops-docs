@@ -39,7 +39,7 @@ SemOps is built on a mental model and three pillars that create the conditions f
 
 **[Strategic Data](STRATEGIC_DATA/README.md)** - A playbook for making data a first-class strategic asset for AI and all decision processes.
 
-**[Symbiotic Architecture](SYMBIOTIC_ARCHITECTURE/README.md)** - Encode your strategy into your systems so humans and AI can operate from shared structure.
+**[Explicit Architecture](EXPLICIT_ARCHITECTURE/README.md)** - Encode your strategy into your systems so humans and AI can operate from shared structure.
 
 **[Semantic Optimization](SEMANTIC_OPTIMIZATION/README.md)** - Elevate your whole organization to operate like well-designed software—agent-ready, self-validating, and ready for expansion through patterns, not features.
 

@@ -32,7 +32,7 @@ The "data silos" framing creates confusion because it:
 
 1. **Misdiagnoses the problem** — Treating semantic incoherence as an access/pipeline problem
 2. **Prescribes wrong solutions** — "Break down silos" leads to integration projects that do not fix meaning
-3. **Ignores domain differences** — What looks like a "silo" in one company is a legitimate [bounded context](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) in another
+3. **Ignores domain differences** — What looks like a "silo" in one company is a legitimate [bounded context](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) in another
 4. **Obscures the real issue** — Nobody owns the semantic chain, and "self-serve" creates chaos
 
 ---

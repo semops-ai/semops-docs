@@ -139,19 +139,19 @@ Meaning lives in abstractions. The need to "inject meaning" translates to buildi
 - Example: "Album" concept ← multiple SKUs, editions, remasters, regions
 - Example: "Customer" ← accounts, devices, sessions
 - This is what canonical data models and MDM systems try to formalize
-- **See:** [Semantic Abstractions](../SYMBIOTIC_ARCHITECTURE/abstractions.md)
+- **See:** [Semantic Abstractions](../EXPLICIT_ARCHITECTURE/abstractions.md)
 
 **Metric Abstraction (Epistemic)**
 - Many concrete events → one conceptual summary
 - Example: "Unique Users" depends on identity logic, time window, event types, filters
 - Example: "Revenue" depends on recognition rules, currency, refunds, returns
 - This is what semantic layers and metric stores try to formalize
-- **See:** [Semantic Abstractions](../SYMBIOTIC_ARCHITECTURE/abstractions.md)
+- **See:** [Semantic Abstractions](../EXPLICIT_ARCHITECTURE/abstractions.md)
 
 Both require:
 - Explicit definitions (not inferred from SQL)
 - Versioned contracts (not just documentation)
-- Context-specific meaning ([bounded contexts](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) in DDD)
+- Context-specific meaning ([bounded contexts](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) in DDD)
 - Governance as first-class artifacts
 
 **SQL is not enough** because SQL expresses *how to compute*, not *what it means*. The meaning must exist as a semantic contract above the code.
@@ -365,7 +365,7 @@ Dimensional modeling requires commitment to knowing **what the data means** from
 
 **What they do not do:**
 - Find **business meaning** of each field
-- Use **data profiling tools** (ydata-profiling, Great Expectations, Monte Carlo)
+- Use **data profiling tools** (ysemops-dataofiling, Great Expectations, Monte Carlo)
 - Investigate anomalies profiling would flag
 - Clean garbage data before building models
 
@@ -528,7 +528,7 @@ They share:
 
 **Required skills (must be learned/hired):**
 - Dimensional modeling (Kimball methodology)
-- [Domain-Driven Design](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) (bounded contexts, ubiquitous language)
+- [Domain-Driven Design](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) (bounded contexts, ubiquitous language)
 - Data profiling (understanding what the organization actually has)
 - Semantic modeling (encoding business meaning)
 

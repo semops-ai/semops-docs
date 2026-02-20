@@ -247,10 +247,10 @@ Build coherence into operations:
 
 ### DDD as Foundation
 
-[Domain-Driven Design](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) provides structural coherence:
-- **[Bounded contexts](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md)** contain semantic scope
-- **[Ubiquitous language](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md)** enforces shared vocabulary
-- **[Aggregate Root](../SYMBIOTIC_ARCHITECTURE/semops-aggregate-root.md)** encodes invariants in code
+[Domain-Driven Design](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) provides structural coherence:
+- **[Bounded contexts](../EXPLICIT_ARCHITECTURE/domain-driven-design.md)** contain semantic scope
+- **[Ubiquitous language](../EXPLICIT_ARCHITECTURE/domain-driven-design.md)** enforces shared vocabulary
+- **[Aggregate Root](../EXPLICIT_ARCHITECTURE/semops-aggregate-root.md)** encodes invariants in code
 - **Context maps** manage cross-boundary translation
 
 ---
@@ -259,7 +259,7 @@ Build coherence into operations:
 
 Semantic Coherence is not a new concept—it is the application of fundamental software engineering principles (DRY, consistent abstractions, composability) at organizational scale. The same principles that make codebases maintainable make organizations maintainable.
 
-See [Agentic Coding at Scale: Semantic Coherence as Core CS Principles](../SYMBIOTIC_ARCHITECTURE/agentic-coding-at-scale.md#semantic-coherence-as-core-cs-principles) for how these map from codebase to organization.
+See [Agentic Coding at Scale: Semantic Coherence as Core CS Principles](../EXPLICIT_ARCHITECTURE/agentic-coding-at-scale.md#semantic-coherence-as-core-cs-principles) for how these map from codebase to organization.
 
 ---
 
@@ -293,9 +293,9 @@ See [Agentic Coding at Scale: Semantic Coherence as Core CS Principles](../SYMBI
    - Models trained on inconsistent data produce inconsistent outputs
    - Coherence is prerequisite for trustworthy AI
 
-5. **[DDD](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) provides structural foundation**
-   - [Bounded contexts](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) scope semantics
-   - [Ubiquitous language](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) enforces shared vocabulary
+5. **[DDD](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) provides structural foundation**
+   - [Bounded contexts](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) scope semantics
+   - [Ubiquitous language](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) enforces shared vocabulary
    - Without DDD, coherence requires heroic effort
 
 ---
@@ -348,5 +348,5 @@ For extended examples of coherence dynamics, equilibrium forces, and KPI scenari
 ### See Also
 
 - [Semantic Optimization](README.md) - Process of achieving coherence
-- [Domain-Driven Design](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) - Architectural foundation
+- [Domain-Driven Design](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) - Architectural foundation
 - [Provenance and Lineage](provenance-lineage-semops.md) - Structural encoding of meaning

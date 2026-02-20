@@ -126,7 +126,7 @@ Agentic systems span:
 - Multiple team contexts
 - Multiple time horizons
 
-**[Bounded contexts](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) that worked for humans break down when agents traverse them freely.**
+**[Bounded contexts](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) that worked for humans break down when agents traverse them freely.**
 
 ---
 
@@ -237,5 +237,5 @@ With Strategic Data discipline:
 
 ### See Also
 
-- [AI-Ready Architecture](../SYMBIOTIC_ARCHITECTURE/ai-ready-architecture.md) - Code as data
+- [AI-Ready Architecture](../EXPLICIT_ARCHITECTURE/ai-ready-architecture.md) - Code as data
 - [Surface Analysis](surface-analysis.md) - Instrumentation boundaries expand

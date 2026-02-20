@@ -14,7 +14,7 @@ Key recommendations center on developing collaborative intelligence frameworks t
 
 ## Semopslabs in Action
 
-This meta-analysis was produced using an ephemeral RAG pipeline built in [data-pr](https://github.com/timjmitchell/data-pr) (Issue #18).
+This meta-analysis was produced using an ephemeral RAG pipeline built in [semops-data](https://github.com/semops-ai/semops-data) (Issue #18).
 
 **What the pipeline includes:**
 - Ingestion pipeline using Docling (PDFs) and Crawl4AI (web pages)

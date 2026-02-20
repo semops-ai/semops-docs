@@ -235,7 +235,7 @@ With DDD pattern thinking:
 
 **Result:** AI operates within coherent semantic boundaries, using proven patterns, grounded in organizational meaning.
 
-This is why [Symbiotic Architecture](README.md) emphasizes DDD—it is not just about system design, it is about **semantic architecture** that enables AI to maintain coherence.
+This is why [Explicit Architecture](README.md) emphasizes DDD—it is not just about system design, it is about **semantic architecture** that enables AI to maintain coherence.
 
 ---
 
@@ -372,7 +372,7 @@ DDD provides the **formal technical language** for discussing semantic boundarie
 ## Related Concepts
 
 - [Domain-Driven Design](domain-driven-design.md) — Core DDD concepts and definitions
-- [Symbiotic Architecture](README.md) — Architecture as semantic encoding
+- [Explicit Architecture](README.md) — Architecture as semantic encoding
 - [Semantic Operations](../README.md) — Operational framework for coherence
 - [Semantic Coherence](../SEMANTIC_OPTIMIZATION/semantic-coherence.md) — Measuring organizational alignment
 - [The Regression Paradox](../../RESEARCH/CURRENT_CONTEXT/AI_TRANSFORMATION/regression-paradox.md) — Why "regressing to the mean" might be progress

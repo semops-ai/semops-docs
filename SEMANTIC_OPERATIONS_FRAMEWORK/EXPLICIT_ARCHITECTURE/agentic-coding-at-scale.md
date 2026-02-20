@@ -59,7 +59,7 @@ These are not new ideas—they are Parnas (1972) on information hiding, Dijkstra
 
 ## The Agentic Coding Pattern
 
-> Agentic coding represents an evolution beyond simple "vibe-coding" or chat-based assistance. When all components are properly considered---context engineering, architecture, stack and tool choices, infrastructure---agentic coding may be the best demonstration we have of AI's transformative power. See [AI-Ready Architecture](ai-ready-architecture.md) and [Symbiotic Enterprise](symbiotic-enterprise.md) for related patterns.
+> Agentic coding represents an evolution beyond simple "vibe-coding" or chat-based assistance. When all components are properly considered---context engineering, architecture, stack and tool choices, infrastructure---agentic coding may be the best demonstration we have of AI's transformative power. See [AI-Ready Architecture](ai-ready-architecture.md) and [Explicit Enterprise](explicit-enterprise.md) for related patterns.
 
 What makes agentic coding work? Let's decompose the Claude Code pattern:
 
@@ -85,7 +85,7 @@ ike-semantic-ops/           # Orchestrator
 ├── scripts/classifiers/    # Domain logic
 └── docs/domain-patterns/   # Pattern catalog
 
-docs-pr/        # Knowledge assets
+semops-docs/        # Knowledge assets
 ├── docs/1p-bounded-concepts/   # First-party hypotheses
 ├── docs/atoms/                 # Value objects
 └── docs/_legacy/               # Deprecated but tracked
@@ -378,18 +378,18 @@ coherence_enforcement:
 
 ## The SemOps Architecture as Proof
 
-This project demonstrates the pattern. See [GLOBAL_ARCHITECTURE.md](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/GLOBAL_ARCHITECTURE.md) for the full multi-repo structure modeling an organization with bounded contexts.
+This project demonstrates the pattern. See [GLOBAL_ARCHITECTURE.md](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/GLOBAL_ARCHITECTURE.md) for the full multi-repo structure modeling an organization with bounded contexts.
 
 ```
-dx-hub-pr (Platform/DX)             <- Orchestrator, process docs, global architecture
+semops-dx-orchestrator (Platform/DX)             <- Orchestrator, process docs, global architecture
     │
-    └── semops-hub-pr (Schema/Infrastructure) <- Schema, shared services
+    └── semops-core (Schema/Infrastructure) <- Schema, shared services
             │
-            ├── publisher-pr (Publishing/Content)
-            ├── docs-pr (Documents/Theory) <- You are here
-            ├── data-pr (Product/Data Eng)
+            ├── semops-publisher (Publishing/Content)
+            ├── semops-docs (Documents/Theory) <- You are here
+            ├── semops-data (Product/Data Eng)
             │
-            └── sites-pr (Frontend/Deployment)
+            └── semops-sites (Frontend/Deployment)
 ```
 
 **What makes it work:**
@@ -496,10 +496,10 @@ Why does agentic coding work at dev level but fail at org level?
 
 - [Semantic Optimization Implementation](../SEMANTIC_OPTIMIZATION/semantic-optimization-implementation.md) - SC to DDD mapping
 - [Patterns](../SEMANTIC_OPTIMIZATION/patterns.md) - Patterns as semantic units
-- [UBIQUITOUS_LANGUAGE.md](https://github.com/timjmitchell/semops-hub-pr/blob/main/schemas/UBIQUITOUS_LANGUAGE.md) - Ground truth schema
+- [UBIQUITOUS_LANGUAGE.md](https://github.com/semops-ai/semops-core/blob/main/schemas/UBIQUITOUS_LANGUAGE.md) - Ground truth schema
 
 ### Architecture
 
 - [AI-Ready Architecture](ai-ready-architecture.md) - Requirements for AI-native systems
-- [Symbiotic Enterprise](symbiotic-enterprise.md) - Plain text, git-native organizational model
-- [GLOBAL_ARCHITECTURE.md](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/GLOBAL_ARCHITECTURE.md) - Multi-repo structure
+- [Explicit Enterprise](explicit-enterprise.md) - Plain text, git-native organizational model
+- [GLOBAL_ARCHITECTURE.md](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/GLOBAL_ARCHITECTURE.md) - Multi-repo structure

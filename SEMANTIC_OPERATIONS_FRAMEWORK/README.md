@@ -26,20 +26,23 @@ SemOps is built on a mental model and three pillars that create the conditions f
 
 ### Semantic Funnel
 
-Mental model grounding how meaning transforms through progressive stages (Data → Information → Knowledge → Understanding → Wisdom). Each transition increases uncertainty and requires more complex inputs—the framework addresses what's needed at each level.
+The [Semantic Funnel](../../RESEARCH/FOUNDATIONS/semantic-funnel.md) is the mental model grounding SemOps. It combines **Objects, Agents, Rules (OAR)** with the **DIKW hierarchy** to describe how meaning transforms through progressive stages (Data → Information → Knowledge → Understanding → Wisdom).
 
-| Transition | Transform Requirements | Framework Solution |
-|------------|----------------------|-------------------|
-| **D → I** | Structure, relationships, schema | **Strategic Data**: Profiling, schema assignment, modeling |
-| **I → K** | Context, patterns, causal assumptions | **Strategic Data + Symbiotic Architecture**: Analytics, invariants, boundaries |
-| **K → U** | Alignment, shared semantics, coherence | **Semantic Optimization**: Coherence measurement, drift detection |
-| **U → W** | Values, judgment, principles | **Whole Framework**: Patterns encode principles; optimization enables learning |
+The three framework pillars map to the OAR dimensions of the Semantic Funnel — not to specific DIKW transitions, but as concerns that operate across the entire funnel:
+
+| Pillar | OAR Dimension | Role Across the Funnel |
+| ------ | ------------- | ---------------------- |
+| **Strategic Data** | Objects | Manages the things that flow through every DIKW level — data, information, knowledge artifacts, decisions |
+| **Explicit Architecture** | Rules | Encodes constraints at every level — structural, interpretive, normative, meta — anchored at Wisdom (aggregate root) |
+| **Semantic Optimization** | Understanding (Agents) | Measures coherence, detects drift, packages decisions into Patterns — the active process of meaning-making |
+
+Each pillar spans all DIKW transitions. Strategic Data manages objects whether they are raw data or wisdom artifacts. Explicit Architecture encodes rules from schema definitions (D→I) through governance policies (K→W). Semantic Optimization measures alignment wherever meaning exists.
 
 ### Framework Pillars
 
 **[Strategic Data](STRATEGIC_DATA/README.md)** — A playbook for making data a first-class strategic asset for AI and all decision processes.
 
-**[Symbiotic Architecture](SYMBIOTIC_ARCHITECTURE/README.md)** — Encode your strategy into your systems so humans and AI can operate from shared structure.
+**[Explicit Architecture](EXPLICIT_ARCHITECTURE/README.md)** — Encode your strategy into your systems so humans and AI can operate from shared structure.
 
 **[Semantic Optimization](SEMANTIC_OPTIMIZATION/README.md)** — Elevate your whole organization to operate like well-designed software—agent-ready, self-validating, and ready for expansion through patterns, not features.
 
@@ -94,22 +97,22 @@ SemOps is both theory and practice:
 
 ---
 
-### Symbiotic Architecture
+### Explicit Architecture
 
 > Encode your strategy into your systems so humans and AI can operate from shared structure.
 
 **Core Concepts:**
 
-- **DDD as Foundation** — [Domain Driven Design](SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) provides proven patterns for encoding meaning into systems
+- **DDD as Foundation** — [Domain Driven Design](EXPLICIT_ARCHITECTURE/domain-driven-design.md) provides proven patterns for encoding meaning into systems
 - **Architecture as Rules** — Your architecture is your organization and business encoded as a data structure
-  - [Explicit Architecture](SYMBIOTIC_ARCHITECTURE/explicit-architecture.md)
-  - [AI-Ready Architecture](SYMBIOTIC_ARCHITECTURE/ai-ready-architecture.md)
+  - [Explicit Architecture](EXPLICIT_ARCHITECTURE/what-is-architecture.md)
+  - [AI-Ready Architecture](EXPLICIT_ARCHITECTURE/ai-ready-architecture.md)
 - **Semantic Flywheel** — Better structure enables better AI, which enables better structure
-  - [Semantic Flywheel](SYMBIOTIC_ARCHITECTURE/semantic-flywheel.md)
+  - [Semantic Flywheel](EXPLICIT_ARCHITECTURE/semantic-flywheel.md)
 
 **Key insight:** Architecture is not about technology choices. It's about encoding organizational meaning into concrete scaffolding so that humans, systems, and AI can maintain shared understanding.
 
-**See:** [Symbiotic Architecture README](SYMBIOTIC_ARCHITECTURE/README.md)
+**See:** [Explicit Architecture README](EXPLICIT_ARCHITECTURE/README.md)
 
 ---
 
@@ -134,7 +137,7 @@ SemOps is both theory and practice:
 
 ## How They Work Together
 
-| Level | Symbiotic Architecture | Strategic Data | Semantic Optimization | AI Role |
+| Level | Explicit Architecture | Strategic Data | Semantic Optimization | AI Role |
 |-------|------------------------|----------------|----------------------|---------|
 | **Data** | Define domain boundaries | Profile raw signals, assign schema | Basic transformations | Automate quality: schema inference, profiling |
 | **Information** | Entity modeling, language stabilization | Modeling, analytics, experiments | Create relationships, generate lineage | Enforce structure, maintain transforms |
@@ -152,7 +155,7 @@ The framework emerges from two directions:
 - [Foundations](../RESEARCH/FOUNDATIONS/README.md) — Underlying theories and frameworks
 - [Current Context](../RESEARCH/CURRENT_CONTEXT/README.md) — Contemporary research and trend analysis
 
-**Career Experience** — 20+ years as Product Manager building data-driven applications and recent consulting in Data Strategy and AI Integration. See [timjmitchell.com](http://timjmitchell.com)
+**Career Experience** — 20+ years as Product Manager building data-driven applications and recent consulting in Data Strategy and AI Integration. See [semops-ai.com](http://semops-ai.com)
 
 ---
 

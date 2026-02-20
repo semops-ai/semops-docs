@@ -1,7 +1,7 @@
 ---
 doc_type: hub
 
-pattern: symbiotic-enterprise
+pattern: explicit-enterprise
 
 provenance: 1p
 
@@ -10,9 +10,9 @@ metadata:
     brand-strength: medium
 ---
 
-# Symbiotic Enterprise
+# Explicit Enterprise
 
-**Symbiotic Enterprise** are enterprise systems that treat [architecture](README.md), [data](../STRATEGIC_DATA/README.md), and AI as first class, and infrastructure choices as resulting requirements.
+**Explicit Enterprise** are enterprise systems that treat [architecture](README.md), [data](../STRATEGIC_DATA/README.md), and AI as first class, and infrastructure choices as resulting requirements.
 
 ---
 
@@ -33,7 +33,7 @@ Each has different physics, governance needs, and integration patterns. An "agen
 
 To effectively deploy AI agents, all four system types become operational assets like [Everything is Data](../STRATEGIC_DATA/everything-is-data.md). They require the same [structure](../STRATEGIC_DATA/why-structure-matters.md) and [governance](../STRATEGIC_DATA/governance-as-strategy.md) that make agent collaboration reliable and sustainable.
 
-**The inversion:** Traditional enterprises pick platforms, then contort architecture to fit. Symbiotic Enterprise inverts this — architecture defines data structures, infrastructure serves the architecture.
+**The inversion:** Traditional enterprises pick platforms, then contort architecture to fit. Explicit Enterprise inverts this — architecture defines data structures, infrastructure serves the architecture.
 
 ```text
 Traditional:  Platform → constrains → Architecture → constrains → Data
@@ -51,7 +51,7 @@ The "agentic enterprise" concept is gaining traction across industry. The consen
 
 **The problem:** This describes how agents work, not what makes an enterprise ready for them. Connecting autonomous agents to existing architectures via API integrations adds automation, but does not address the structural prerequisites for agentic operations.
 
-**Symbiotic Enterprise proposes:**
+**Explicit Enterprise proposes:**
 
 1. **Neutral infrastructure over platform** — Build on primitives that provide transparent, composable functionality — not bundled vendor ecosystems that create lock-in
 2. **Architecture over integration** — The right architecture solves system design; integration hacks just align system and vendor compatibility
@@ -68,13 +68,13 @@ Two forces are converging:
 
 This convergence enables the full SemOps Framework:
 
-| Framework Component | What Symbiotic Enterprise Enables |
+| Framework Component | What Explicit Enterprise Enables |
 |---------------------|-----------------------------------|
-| **[Symbiotic Architecture](README.md)** | DDD applied to all enterprise data — bounded contexts, explicit contracts, semantic boundaries |
+| **[Explicit Architecture](README.md)** | DDD applied to all enterprise data — bounded contexts, explicit contracts, semantic boundaries |
 | **[Strategic Data](../STRATEGIC_DATA/README.md)** | All four system types governed as first-class assets with provenance and lineage |
 | **[Semantic Optimization](../SEMANTIC_OPTIMIZATION/README.md)** | Continuous coherence measurement across the enterprise knowledge graph |
 
-| Traditional Enterprise | Symbiotic Enterprise |
+| Traditional Enterprise | Explicit Enterprise |
 |----------------------|-------------------------|
 | SaaS tools with embedded logic | Domain models in version control |
 | Wikis and shared drives | Repos with frontmatter schema |
@@ -90,12 +90,12 @@ This convergence enables the full SemOps Framework:
 - At minimum, **open standards** (git, markdown, YAML, SQL)
 - **No vendor lock-in** for business-critical knowledge
 
-**Key insight:** The stack that enables AI-assisted coding (git, structured text, bounded contexts, CI/CD) is the same stack that enables AI-assisted business operations. Symbiotic Enterprise recognizes this convergence and builds organizations accordingly.
+**Key insight:** The stack that enables AI-assisted coding (git, structured text, bounded contexts, CI/CD) is the same stack that enables AI-assisted business operations. Explicit Enterprise recognizes this convergence and builds organizations accordingly.
 
 
 ## Implementation Generalizations
 
-These infrastructure patterns follow from the architecture-first principle. They're generalizable to any Symbiotic Enterprise implementation.
+These infrastructure patterns follow from the architecture-first principle. They're generalizable to any Explicit Enterprise implementation.
 
 ### Plain Text Over Proprietary Formats
 
@@ -244,7 +244,7 @@ When knowledge lives in repos with proper structure, git functions as the semant
 
 ### Humble Tools as Signal Streams
 
-Enterprise suites (Google Workspace, Microsoft 365, Salesforce) optimize for many humans, compliance, and org charts. Symbiotic Enterprise treats "humble" tools — email, calendars, accounting — as **signal streams** rather than applications.
+Enterprise suites (Google Workspace, Microsoft 365, Salesforce) optimize for many humans, compliance, and org charts. Explicit Enterprise treats "humble" tools — email, calendars, accounting — as **signal streams** rather than applications.
 
 **The principle:** Systems of record should be simple, inspectable, and machine-addressable. Human UIs are projections, not truth.
 
@@ -333,7 +333,7 @@ Deploy (CDN edge delivery)           → Vercel, Netlify, Cloudflare
 Dynamic features (forms, search)     → APIs + serverless functions
 ```
 
-**Why this matters for Symbiotic Enterprise:**
+**Why this matters for Explicit Enterprise:**
 
 - Content is plain text in version control — agents can read, write, and propose changes via PR
 - No database to maintain, no plugins to update, no security patches
@@ -383,8 +383,8 @@ When AI-native organizations manage domains this way:
 ## Related Links
 
 ### Framework Context
-- [Symbiotic Architecture](README.md) - Parent concept
-- [Semantic Optimization](../SEMANTIC_OPTIMIZATION/semantic-optimization.md) - What Symbiotic Enterprise optimizes for
+- [Explicit Architecture](README.md) - Parent concept
+- [Semantic Optimization](../SEMANTIC_OPTIMIZATION/semantic-optimization.md) - What Explicit Enterprise optimizes for
 - [Semantic Coherence](../SEMANTIC_OPTIMIZATION/semantic-coherence.md) - The measurement target
 
 ### Implementation

@@ -22,7 +22,7 @@ For pattern definitions and taxonomy, see [Patterns](patterns.md).
 Promotion criteria determine what gets stabilized:
 
 1. **Frequency** - Does the concept repeatedly appear across tools, teams, or datasets?
-2. **Cross-team relevance** - Does more than one [bounded context](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) or department need this concept?
+2. **Cross-team relevance** - Does more than one [bounded context](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) or department need this concept?
 3. **Predictive/explanatory value** - Does including this concept improve decisions, forecasts, or understanding?
 4. **Stability** - Is the meaning stable over time, with low semantic drift?
 5. **Executability** - Does this concept support workflows, automation, metrics, or APIs?
@@ -241,6 +241,8 @@ When LLMs can:
 - **Validating 1p patterns** (the LLM does not know them yet)
 - **Deciding when to deviate** (risk appetite, strategy)
 
+For practical guidance on these judgment calls — finding the right pattern, sizing it for your architecture, and deciding when to evolve from 3P to 1P — see [Working with Patterns](working-with-patterns.md).
+
 ---
 
 ## Provenance and Lineage in Pattern Operations
@@ -270,10 +272,11 @@ For the full treatment of provenance and lineage as coherence mechanisms, see [P
 ### Theory
 
 - [Patterns](patterns.md) - Pattern definitions, taxonomy, and core properties
+- [Working with Patterns](working-with-patterns.md) - Finding, sizing, adopting, and evolving patterns
 - [Semantic Optimization](semantic-optimization.md) - Why patterns optimize coherence
 - [Provenance and Lineage](provenance-lineage-semops.md) - Provenance/lineage as coherence mechanism
 
 ### Implementation
 
 - [Semantic Optimization Implementation](semantic-optimization-implementation.md) - SC formulas, classifiers, RAG integration
-- [domain-patterns/](https://github.com/timjmitchell/semops-hub-pr/tree/main/docs/domain-patterns) - Pattern catalog
+- [domain-patterns/](https://github.com/semops-ai/semops-core/tree/main/docs/domain-patterns) - Pattern catalog

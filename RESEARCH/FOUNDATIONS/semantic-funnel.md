@@ -50,7 +50,7 @@ This mental model reduces complex systems, processes, and organizations to a ver
 **Key insight:** Regardless of domain, "work" is humans and machines (Agents) acting on documents, products, decisions, money, code (Objects). All Objects that flow through a system of constraints (Rules), which are also Objects, which are also created by Agents.
 
 ### Rules = Understanding
-
+docs/decisions/ADR-0010-database-connectivity-convention.md
 **Rules are crystallized understanding** Rules are decisions that already happened, now encoded so transformation can occur without requiring a fresh decision every time. When rules are insufficient or conflicting, a decision is required, and probability re-enters the system.
 
 | Rule Type | DIKW Level | Example |
@@ -202,7 +202,33 @@ This connects directly to [Semantic Coherence](../../SEMANTIC_OPERATIONS_FRAMEWO
 
 ---
 
-## Applied in Semantic Operations Framework
+## Semantic Operations Framework and the Semantic Funnel
+
+The three [framework pillars](../../SEMANTIC_OPERATIONS_FRAMEWORK/README.md) map to the OAR dimensions of the Semantic Funnel — not to specific DIKW transitions, but as concerns that span the entire funnel. The pillars interact through a cycle: objects produce analytics that feed the understanding process, which produces patterns and decisions that change the rules, which constrain how objects are managed.
+
+```text
+                D            I              K              W
+          ┌───────────┬────────────┬─────────────┬────────────┐
+STRATEGIC │ raw data,  │ structured  │   value     │ aggregate  │  Objects
+DATA      │ streams    │ records     │  objects    │ root ents  │
+          └─────┬─────┴─────┬──────┴──────┬──────┴─────┬──────┘
+                │           │             │            │
+                │  analytics, KPIs, performance, coherence
+                │           ↓             ↓            │
+          ┌─────┴─────┬─────┴──────┬──────┴──────┬─────┴──────┐
+SEMANTIC  │ measure    │──► Patterns │──► Strategic│            │  Understanding
+OPTIM.    │            │    (I→K)    │  Decisions  │            │  (Agents)
+          └─────┬─────┴─────┬──────┴──────┬──────┴─────┬──────┘
+                │           │          (K→W)           │
+                │           │             ↓            │
+          ┌─────┴─────┬─────┴──────┬──────┴──────┬─────┴──────┐
+EXPLICIT  │ structural │  bounded    │   domain    │ aggregate  │  Rules
+ARCH.     │ (flexible) │  contexts   │             │   root     │
+          └─────┬─────┴─────┬──────┴──────┬──────┴──◄── W ────┘
+                │           │             │            │
+                └───── rules, schemas, constraints ────┘
+                            ↑ back to Strategic Data
+```
 
 ### Strategic Data: D→I Transformation
 
@@ -234,20 +260,20 @@ The Information → Knowledge → Understanding transformations require **active
 
 Semantic Operations treats meaning as a **runtime property**, not a design-time decision.
 
-### Symbiotic Architecture: Encoding Wisdom
+### Explicit Architecture: Encoding Wisdom
 
 **Global Architecture:** Encodes Wisdom into systems
 
-[Wisdom as Aggregate Root](../../SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/wisdom-aggregate-root.md) - Wisdom → executable systems:
+[Wisdom as Aggregate Root](../../SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/wisdom-aggregate-root.md) - Wisdom → executable systems:
 
-- [Domain-Driven Design](../../SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) = business semantics as code ([Ubiquitous Language](../../SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/domain-driven-design.md))
-- [Bounded Contexts](../../SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) = managing semantic boundaries
+- [Domain-Driven Design](../../SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/domain-driven-design.md) = business semantics as code ([Ubiquitous Language](../../SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/domain-driven-design.md))
+- [Bounded Contexts](../../SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/domain-driven-design.md) = managing semantic boundaries
 - Conway's Law = organizational structure must align with data architecture
 - Policy-as-code = principles encoded into system constraints
 
 Architecture is fundamentally the most important rules encoded in the scaffolding of the entire organization.
 
-See [Domain-Driven Design](../../SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) for how business wisdom becomes software.
+See [Domain-Driven Design](../../SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/domain-driven-design.md) for how business wisdom becomes software.
 
 ---
 
@@ -365,7 +391,7 @@ See [dikw-theory-comparison.md](supplemental/dikw-theory-comparison.md) for deta
 - [Strategic Data](../../SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/README.md) - D→I transformation in practice
 - [Why Structure Matters](../../SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/why-structure-matters.md) - Physics of structure and meaning
 - [Runtime Emergence](../CURRENT_CONTEXT/AI_TRANSFORMATION/runtime-emergence.md) - Why transformation only exists at runtime
-- [Symbiotic Architecture](../../SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/README.md) - Encoding business wisdom into systems
+- [Explicit Architecture](../../SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/README.md) - Encoding business wisdom into systems
 
 ### Supplemental
 

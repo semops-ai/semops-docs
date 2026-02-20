@@ -16,7 +16,7 @@ metadata:
 
 **Provenance:** 3p (W3C SHACL, JSON Schema community)
 **Derives From:** SHACL, JSON Schema, data modeling practice
-**Pattern Registry:** [ai-workflow-kit/schemas/pattern_v1.yaml](https://github.com/timjmitchell/ai-workflow-kit/blob/main/schemas/pattern_v1.yaml)
+**Pattern Registry:** [ai-workflow-kit/schemas/pattern_v1.yaml](https://github.com/semops-ai/ai-workflow-kit/blob/main/schemas/pattern_v1.yaml)
 
 ---
 

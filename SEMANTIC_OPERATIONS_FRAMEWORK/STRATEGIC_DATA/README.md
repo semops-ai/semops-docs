@@ -72,7 +72,7 @@ Not all "enterprise data" is the same. Understanding four distinct system types 
 
 | System Type | Purpose | Governance Approach |
 |-------------|---------|---------------------|
-| **Application** | Operational, transactional (OLTP) | Respect [bounded contexts](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md); don't try to unify |
+| **Application** | Operational, transactional (OLTP) | Respect [bounded contexts](../EXPLICIT_ARCHITECTURE/domain-driven-design.md); don't try to unify |
 | **Analytics** | Instrumented for analysis (OLAP) | Own source instrumentation; model before ETL |
 | **Enterprise Work** | Unstructured knowledge artifacts | Add structure through SemOps; accept heterogeneity |
 | **Systems of Record** | Canonical truth (Finance, ERP) | Recognize as canonical; learn from their discipline |
@@ -273,7 +273,7 @@ AI needs structured data to operate well—especially autonomous agents—but AI
 
 ### AI as Structure Accelerator
 
-AI can help achieve structure through a [semantic flywheel](../SYMBIOTIC_ARCHITECTURE/semantic-flywheel.md):
+AI can help achieve structure through a [semantic flywheel](../EXPLICIT_ARCHITECTURE/semantic-flywheel.md):
 
 - Extract entities from unstructured text
 - Classify and tag content
@@ -294,7 +294,7 @@ But AI cannot substitute for structure. It can accelerate structure creation, no
 
 - [Data Systems Essentials](data-systems-essentials.md) - Core concepts for data literacy
 - [Four Data System Types](four-data-system-types.md) - Application, Analytics, Work, Record
-- [Three-Five-Seven Data Systems](three-five-seven-data-systems.md) - Reis & Housley framework
+- [Data Engineering Core Framework](data-engineering-core-framework.md) - Reis & Housley framework
 - [Three Forces](three-forces.md) - Physics-based architecture drivers
 - [Surface Analysis](surface-analysis.md) - Data surface area assessment
 - [Physics of Data](physics-of-data.md) - Thermodynamic foundation
@@ -306,7 +306,7 @@ But AI cannot substitute for structure. It can accelerate structure creation, no
 - [Business Analytics Patterns](business-analytics-patterns.md) - BI, Product, Marketing, Customer
 - [Data Shapes](data-shapes.md) - Structural patterns
 - [Everything Is Data](everything-is-data.md) - AI-era scope expansion
-- [Abstractions](../SYMBIOTIC_ARCHITECTURE/abstractions.md) - Meaning layers
+- [Abstractions](../EXPLICIT_ARCHITECTURE/abstractions.md) - Meaning layers
 
 ### Data Challenges
 
@@ -320,10 +320,10 @@ But AI cannot substitute for structure. It can accelerate structure creation, no
 
 - [Governance as Strategy](governance-as-strategy.md) - Value-add compliance
 - [Semantic Optimization Implementation](../SEMANTIC_OPTIMIZATION/semantic-optimization-implementation.md) - Lineage in practice
-- [Anti-Corruption Layer (ACL)](../SYMBIOTIC_ARCHITECTURE/ddd-acl-governance-aas.md) - Architecture patterns
+- [Anti-Corruption Layer (ACL)](../EXPLICIT_ARCHITECTURE/ddd-acl-governance-aas.md) - Architecture patterns
 
 ### Related Framework Pillars
 
-- [Symbiotic Architecture](../SYMBIOTIC_ARCHITECTURE/README.md) - DDD-based structural patterns
+- [Explicit Architecture](../EXPLICIT_ARCHITECTURE/README.md) - DDD-based structural patterns
 - [Semantic Optimization](../SEMANTIC_OPTIMIZATION/README.md) - Measuring and maintaining meaning
-- [Semantic Flywheel](../SYMBIOTIC_ARCHITECTURE/semantic-flywheel.md) - AI as structure accelerator
+- [Semantic Flywheel](../EXPLICIT_ARCHITECTURE/semantic-flywheel.md) - AI as structure accelerator

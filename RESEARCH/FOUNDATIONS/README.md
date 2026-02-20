@@ -50,7 +50,7 @@ The Semantic Funnel underpins the Ike Framework as a mental bridge between data 
 ### Domain-Driven Design (DDD)
 
 **What it is:**
-A software development philosophy emphasizing that software models should be deeply tied to the business domain they serve, using a [ubiquitous language](../../SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) shared between technical and domain experts within explicit [bounded contexts](../../SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/domain-driven-design.md), as defined by [Evans (2003)](https://www.domainlanguage.com/ddd/).
+A software development philosophy emphasizing that software models should be deeply tied to the business domain they serve, using a [ubiquitous language](../../SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/domain-driven-design.md) shared between technical and domain experts within explicit [bounded contexts](../../SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/domain-driven-design.md), as defined by [Evans (2003)](https://www.domainlanguage.com/ddd/).
 
 **Key ideas:**
 - **Ubiquitous Language**: Shared vocabulary between business and technical teams that becomes the code
@@ -74,7 +74,7 @@ The Ike Framework applies this principle throughout—domain models that reflect
 - Evans, E. (2003). *Domain-Driven Design: Tackling Complexity in the Heart of Software*. Addison-Wesley. ISBN: 978-0321125217. https://www.domainlanguage.com/ddd/
 - Vernon, V. (2013). *Implementing Domain-Driven Design*. Addison-Wesley. ISBN: 978-0321834577
 - https://www.domainlanguage.com/
-- See [Symbiotic Architecture](../../SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/README.md) for full treatment
+- See [Explicit Architecture](../../SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/README.md) for full treatment
 
 ### Systems Theory & Cybernetics
 
@@ -211,7 +211,7 @@ This is the theoretical foundation for why data architecture matters and why "fl
 - [Dimensional Modeling](foundations-data.md#dimensional-modeling)
 - [Data Warehouse Architecture](foundations-data.md#data-warehouse-architecture)
 - [Statistical Foundations](foundations-data.md#statistical-foundations)
-- [Data Profiling](foundations-data.md#data-profiling)
+- [Data Profiling](foundations-data.md#semops-dataofiling)
 - [Data Lineage & Provenance](foundations-data.md#data-lineage--provenance)
 - [CAP Theorem](foundations-data.md#cap-theorem)
 - [Data Governance (DAMA-DMBOK)](foundations-data.md#data-governance-dama-dmbok)

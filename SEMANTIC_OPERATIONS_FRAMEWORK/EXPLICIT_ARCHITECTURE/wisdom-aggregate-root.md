@@ -306,7 +306,7 @@ Wisdom shapes domain topology.
 
 ### Framework Components
 
-- [Symbiotic Architecture](README.md) - Parent framework
+- [Explicit Architecture](README.md) - Parent framework
 - [Domain-Driven Design](domain-driven-design.md) - Bounded contexts and ubiquitous language
 - [SemOps Aggregate Root](semops-aggregate-root.md) - Aggregate root pattern for knowledge artifacts
 

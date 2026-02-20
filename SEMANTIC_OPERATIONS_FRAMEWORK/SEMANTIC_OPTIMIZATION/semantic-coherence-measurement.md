@@ -69,7 +69,7 @@ How uniformly a concept is interpreted across systems or domains.
 **Indicators:**
 - Consistent metric logic
 - Aligned grain and keys
-- [DDD](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) boundary compliance
+- [DDD](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) boundary compliance
 - Absence of conflicting usage patterns
 
 ### The Formula
@@ -145,7 +145,7 @@ SC_org = Average(SC_concept)
 ### **Step 7 — Recommend Semantic Optimization**
 Typical actions:
 - glossary refinement
-- [DDD](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) boundary definition
+- [DDD](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) boundary definition
 - schema alignment
 - metric consolidation
 - ontology restructuring

@@ -385,7 +385,7 @@ Functional Data System: Analytical
 
 ## Data Model Everything Lens
 
-Surface Analysis is the interpretive output of **[Discovery Through Data](../SYMBIOTIC_ARCHITECTURE/discovery-through-data.md)** — the practice of tracing actual data flows while ignoring organizational abstractions (teams, systems, vendors).
+Surface Analysis is the interpretive output of **[Discovery Through Data](../EXPLICIT_ARCHITECTURE/discovery-through-data.md)** — the practice of tracing actual data flows while ignoring organizational abstractions (teams, systems, vendors).
 
 ```
 Data Model Everything (method)
@@ -705,7 +705,7 @@ The following mapping shows how Surface Analysis connects to the broader framewo
 | ------------- | ------------------ | --------------------- |
 | **Data** | Strategic Data (physical substrate) | Sources discovered, profiled |
 | **Information** | Strategic Data (modeled, structured) | Source properties cataloged as tuples |
-| **Knowledge** | Symbiotic Architecture (patterns, domains) | Sources positioned in lineage as Surfaces |
+| **Knowledge** | Explicit Architecture (patterns, domains) | Sources positioned in lineage as Surfaces |
 | **Understanding** | Semantic Optimization (coherence, alignment) | Surface Topology reveals actual business interfaces |
 | **Wisdom** | Leadership decisions, strategy | Strategic interpretation — does surface distribution match stated strategy? |
 
@@ -719,7 +719,7 @@ For detailed DIKW-to-architecture mappings and the full conceptual connection fr
 
 ### Method
 
-- [Discovery Through Data](../SYMBIOTIC_ARCHITECTURE/discovery-through-data.md) - The practice that produces surfaces
+- [Discovery Through Data](../EXPLICIT_ARCHITECTURE/discovery-through-data.md) - The practice that produces surfaces
 
 ### Source Data
 
@@ -731,7 +731,7 @@ For detailed DIKW-to-architecture mappings and the full conceptual connection fr
 ### Framework
 
 - [Strategic Data](README.md) - Parent framework
-- [Anti-Corruption Layer (ACL)](../SYMBIOTIC_ARCHITECTURE/ddd-acl-governance-aas.md) - Bounded contexts and boundaries
+- [Anti-Corruption Layer (ACL)](../EXPLICIT_ARCHITECTURE/ddd-acl-governance-aas.md) - Bounded contexts and boundaries
 
 ### Citations
 

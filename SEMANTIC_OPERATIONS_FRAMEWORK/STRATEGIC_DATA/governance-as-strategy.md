@@ -257,7 +257,7 @@ Category	Question	Target
 ## Knowledge ops, provenance, promotion
 
 Knowledge ops, provenance, and promotion
-- idea of promoting data structures to a more structured “hard schema” once some utility threshold has been passed - that is flexible edge, [stable core](../SYMBIOTIC_ARCHITECTURE/stable-core-flexible-edge.md)
+- idea of promoting data structures to a more structured “hard schema” once some utility threshold has been passed - that is flexible edge, [stable core](../EXPLICIT_ARCHITECTURE/stable-core-flexible-edge.md)
 - When an organization onboards information, the goal is constantly to find ways to promote it to shared knowledge
 
 Agile assumes that velocity is good because the problem definition has been granularized enough that there is low probability that the output will be aligned with goals because that granularization and emergent process will “get there” - but, it is also a “body in motion” - keep ppl busy
@@ -284,5 +284,5 @@ When making big decisions this is hard, psychologically and in practice because 
 
 ### Related Concepts
 
-- [Anti-Corruption Layer (ACL)](../SYMBIOTIC_ARCHITECTURE/ddd-acl-governance-aas.md) - Governance encoded at boundaries
+- [Anti-Corruption Layer (ACL)](../EXPLICIT_ARCHITECTURE/ddd-acl-governance-aas.md) - Governance encoded at boundaries
 - [Semantic Coherence](../SEMANTIC_OPTIMIZATION/semantic-coherence.md) - Measuring shared meaning

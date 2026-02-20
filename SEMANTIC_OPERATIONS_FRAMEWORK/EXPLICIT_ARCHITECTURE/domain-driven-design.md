@@ -113,7 +113,7 @@ Patterns help organize how bounded contexts relate to each other at the system l
 
 ## Business Focus
 
-> Business goals can reduce to: grow the inputs (volume and velocity—grow revenue, company) and improve the inputs (quality, reduce uncertainty) of decisions and actions. Close examination of any enterprise will reveal that while oversimplified, it is not untrue. [Symbiotic Architecture](README.md) contributes to both:
+> Business goals can reduce to: grow the inputs (volume and velocity—grow revenue, company) and improve the inputs (quality, reduce uncertainty) of decisions and actions. Close examination of any enterprise will reveal that while oversimplified, it is not untrue. [Explicit Architecture](README.md) contributes to both:
 
 **Growth (volume and velocity):**
 
@@ -210,7 +210,7 @@ edge predicate
 ---
 
 ## Organizational Solution
-<!-- Semantic Operations is about a complete organizational solution and DDD looks at this - reference docs/Publicv1_Candidates/SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/data-is-organizational-challenge.md, docs/Publicv1_Candidates/SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/data-truth-discovery.md -->
+<!-- Semantic Operations is about a complete organizational solution and DDD looks at this - reference docs/Publicv1_Candidates/SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/data-is-organizational-challenge.md, docs/Publicv1_Candidates/SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/data-truth-discovery.md -->
 
 Cultural Challenges
 
@@ -365,7 +365,7 @@ Core Repository:
 
 ## Examples
 
-<!-- we should pull from examples files in this repo, but also look to our own GLOBAL_ARCHITECTURE in dx-hub-pr and semops-hub-pr -->
+<!-- we should pull from examples files in this repo, but also look to our own GLOBAL_ARCHITECTURE in semops-dx-orchestrator and semops-core -->
 
 ### AI Agent Scaling Path
 
@@ -392,7 +392,7 @@ If the transition from 4 to 5 is not clean, the missing element is domain knowle
 
 ### Framework Components
 
-- [Symbiotic Architecture](README.md) - Parent framework
+- [Explicit Architecture](README.md) - Parent framework
 - [Explicit Architecture](explicit-architecture.md) - What architecture actually is
 - [Patterns and Bounded Contexts](patterns-and-bounded-contexts.md) - Growing through patterns
 - [Anti-Corruption Layer (ACL)](ddd-acl-governance-aas.md) - Semantic firewalls at boundaries

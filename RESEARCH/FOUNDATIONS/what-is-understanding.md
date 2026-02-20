@@ -130,7 +130,7 @@ Rules encode the understanding that transforms Objects through DIKW levels:
 1. **Rules reduce uncertainty** - A rule is a pre-computed decision. Instead of facing uncertainty fresh each time, you apply the rule
 2. **Good decisions are assets** - Decisions supported by good data are assets to be captured and stored as rules
 3. **Semantic drift occurs when decisions are not captured** - Important and/or common decisions not encoded into rules lead to inconsistency and drift
-4. **Wisdom = meta-rules** - Strategy and principles are rules that constrain and validate other rules. See [Wisdom as Aggregate Root](../../SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/wisdom-aggregate-root.md)
+4. **Wisdom = meta-rules** - Strategy and principles are rules that constrain and validate other rules. See [Wisdom as Aggregate Root](../../SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/wisdom-aggregate-root.md)
 
 ### Rules and Determinism
 
@@ -146,19 +146,19 @@ This is why [Strategic Data](../../SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/
 
 ## Architecture as Rules
 
-**Symbiotic Architecture Lens:** Architecture is fundamentally the most important rules encoded in the scaffolding of the entire organization.
+**Explicit Architecture Lens:** Architecture is fundamentally the most important rules encoded in the scaffolding of the entire organization.
 
 Architecture answers "what rules govern how the business operates?" It is the entire organization and business encoded as a data structure—defining what entities exist, how they relate, what constraints apply, and where decisions happen.
 
-[DDD](../../SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) makes this explicit:
+[DDD](../../SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/domain-driven-design.md) makes this explicit:
 
-- A **[bounded context](../../SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/domain-driven-design.md)** is a semantic boundary (where certain rules apply)
+- A **[bounded context](../../SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/domain-driven-design.md)** is a semantic boundary (where certain rules apply)
 - An **aggregate** is a consistency rule (what must be true together)
 - A **domain event** is a state change with meaning (rule application recorded)
 
 When architecture is explicit and aligned with domain meaning, AI agents can operate within its rules. When architecture is implicit or misaligned, AI inherits the chaos.
 
-See [Symbiotic Architecture](../../SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/README.md) for how business wisdom becomes encoded structure.
+See [Explicit Architecture](../../SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/README.md) for how business wisdom becomes encoded structure.
 
 ---
 
@@ -338,7 +338,7 @@ Understanding is:
 - The enabler of **aligned execution**
 - The predictor of **organizational effectiveness**
 - The safeguard against "valid but false" reasoning
-- The outcome [DDD](../../SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/domain-driven-design.md), [SemOps](../../SEMANTIC_OPERATIONS_FRAMEWORK/README.md), and Analytics aim to produce
+- The outcome [DDD](../../SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/domain-driven-design.md), [SemOps](../../SEMANTIC_OPERATIONS_FRAMEWORK/README.md), and Analytics aim to produce
 - The only sustainable advantage in a world where *AI makes knowledge cheap*
 
 **Understanding is the primary lever.**
@@ -406,10 +406,10 @@ With these terms, the Semantic Funnel + SemOps model becomes:
 
 - [Semantic Coherence](../../SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/semantic-coherence.md) - Shared understanding at runtime
 - [Semantic Optimization](../../SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/semantic-optimization.md) - Balancing growth vs. stability
-- [Wisdom as Aggregate Root](../../SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/wisdom-aggregate-root.md) - Meta-rules and principles
+- [Wisdom as Aggregate Root](../../SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/wisdom-aggregate-root.md) - Meta-rules and principles
 - [Strategic Data](../../SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/README.md) - D→I transformation in practice
 - [Runtime Emergence](../CURRENT_CONTEXT/AI_TRANSFORMATION/runtime-emergence.md) - Why understanding only exists at runtime
-- [Symbiotic Architecture](../../SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/README.md) - Encoding rules into systems
+- [Explicit Architecture](../../SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/README.md) - Encoding rules into systems
 
 ---
 

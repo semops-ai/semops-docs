@@ -23,7 +23,7 @@ Before diving into formulas, understand the foundational claim:
 
 ### The Pattern as Unit of Meaning
 
-The **pattern** ( = [aggregate root](../SYMBIOTIC_ARCHITECTURE/semops-aggregate-root.md) in the [DDD](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) schema) is the optimal unit for:
+The **pattern** ( = [aggregate root](../EXPLICIT_ARCHITECTURE/semops-aggregate-root.md) in the [DDD](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) schema) is the optimal unit for:
 
 1. **Coherence** - Has clear semantic boundaries, maintains invariants, is broad enough to contain real meaning, and is a real, definable data structure.
 2. **AI collaboration** - LLMs excel at standard patterns; they struggle with atoms that do not compose or amorphous ideas that cannot be concrete
@@ -50,7 +50,7 @@ The **pattern** ( = [aggregate root](../SYMBIOTIC_ARCHITECTURE/semops-aggregate-
 
 ### The Meta-Design
 
-From [SYSTEM_CONTEXT.md](https://github.com/timjmitchell/ike-semantic-ops/blob/main/docs/SYSTEM_CONTEXT.md):
+From [SYSTEM_CONTEXT.md](https://github.com/semops-ai/ike-semantic-ops/blob/main/docs/SYSTEM_CONTEXT.md):
 
 > "Instead of building features, **apply whole patterns**. Start with the best standard, time-tested pattern that fits."
 
@@ -309,7 +309,7 @@ Phase 5: HUB CONSTRUCTION        ← "What aggregate roots emerge?"
 
 This means: **when the RAG solution is upgraded, the semantic optimization solution is being designed simultaneously.**
 
-See [ike-semantic-ops#87](https://github.com/timjmitchell/ike-semantic-ops/issues/87) for detailed RAG architecture research.
+See [ike-semantic-ops#87](https://github.com/semops-ai/ike-semantic-ops/issues/87) for detailed RAG architecture research.
 
 ### The Convergence
 
@@ -666,9 +666,9 @@ Coherence is not a "score"—it is the **operating substrate**. The agents need:
 The **ai-workflow-kit** repo (soon to be `semantic-ops/dx`) is a concrete implementation of the DX Hub pattern. It serves both human developers AND AI agents as the shared context substrate.
 
 **See:**
-- [ai-workflow-kit/docs/PROCESS.md](https://github.com/timjmitchell/ai-workflow-kit/blob/main/docs/PROCESS.md) - Development processes, ADR aggregation
-- [ai-workflow-kit/docs/INFRASTRUCTURE.md](https://github.com/timjmitchell/ai-workflow-kit/blob/main/docs/INFRASTRUCTURE.md) - Shared services, stack decisions
-- [ai-workflow-kit ADR-0001](https://github.com/timjmitchell/ai-workflow-kit/blob/main/docs/decisions/ADR-0001-semops-organization-migration.md) - Multi-repo architecture
+- [ai-workflow-kit/docs/PROCESS.md](https://github.com/semops-ai/ai-workflow-kit/blob/main/docs/PROCESS.md) - Development processes, ADR aggregation
+- [ai-workflow-kit/docs/INFRASTRUCTURE.md](https://github.com/semops-ai/ai-workflow-kit/blob/main/docs/INFRASTRUCTURE.md) - Shared services, stack decisions
+- [ai-workflow-kit ADR-0001](https://github.com/semops-ai/ai-workflow-kit/blob/main/docs/decisions/ADR-0001-semops-organization-migration.md) - Multi-repo architecture
 
 #### How It Works
 
@@ -701,13 +701,13 @@ The **ai-workflow-kit** repo (soon to be `semantic-ops/dx`) is a concrete implem
 
 #### The Multi-Repo Pattern (Like Departments in a Company)
 
-From [ADR-0001](https://github.com/timjmitchell/ai-workflow-kit/blob/main/docs/decisions/ADR-0001-semops-organization-migration.md):
+From [ADR-0001](https://github.com/semops-ai/ai-workflow-kit/blob/main/docs/decisions/ADR-0001-semops-organization-migration.md):
 
 | Repo | Role | Bounded Context |
 |------|------|-----------------|
 | **dx** (ai-workflow-kit) | Developer/Agent experience | Process, tooling, global docs |
 | **orchestrator** (ike-semantic-ops) | Infrastructure owner | Schema, services, knowledge graph |
-| **docs** (docs-pr) | Theory, implementation docs | Concepts, patterns, research |
+| **docs** (semops-docs) | Theory, implementation docs | Concepts, patterns, research |
 | **publisher** (ike-publisher) | Content workflow | Blog agents, publishing |
 | **sites** (resumator) | Frontend, deployed apps | User-facing surfaces |
 | **data-kit** (data-systems-toolkit) | Data eng/DS utilities | Product analytics |
@@ -1168,10 +1168,10 @@ class DeltaClassifier(BaseClassifier):
 
 ### Practice
 
-- [semops-hub-pr domain-patterns/](https://github.com/timjmitchell/semops-hub-pr/tree/main/docs/domain-patterns) - Pattern documentation
-- [semops-hub-pr UBIQUITOUS_LANGUAGE.md](https://github.com/timjmitchell/semops-hub-pr/blob/main/schemas/UBIQUITOUS_LANGUAGE.md) - Schema definitions
+- [semops-core domain-patterns/](https://github.com/semops-ai/semops-core/tree/main/docs/domain-patterns) - Pattern documentation
+- [semops-core UBIQUITOUS_LANGUAGE.md](https://github.com/semops-ai/semops-core/blob/main/schemas/UBIQUITOUS_LANGUAGE.md) - Schema definitions
 
 ### DX Hub
 
-- [dx-hub-pr PROCESS.md](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/PROCESS.md) - Development processes
-- [dx-hub-pr GLOBAL_ARCHITECTURE.md](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/GLOBAL_ARCHITECTURE.md) - Multi-repo architecture
+- [semops-dx-orchestrator PROCESS.md](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/PROCESS.md) - Development processes
+- [semops-dx-orchestrator GLOBAL_ARCHITECTURE.md](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/GLOBAL_ARCHITECTURE.md) - Multi-repo architecture

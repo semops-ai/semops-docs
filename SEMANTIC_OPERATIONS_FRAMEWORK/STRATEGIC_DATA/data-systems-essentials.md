@@ -101,7 +101,7 @@ This makes analytics instrumentation a "political orphan" — analytics wants de
 
 > *Framework adapted from [Reis & Housley (2022)](https://www.oreilly.com/library/view/fundamentals-of-data/9781098108298/), Fundamentals of Data Engineering, O'Reilly Media.*
 
-**For complete coverage:** See [Three Five Seven Data Systems](three-five-seven-data-systems.md) for deep dives on each of the 7 components.
+**For complete coverage:** See [Data Engineering Core Framework](data-engineering-core-framework.md) for deep dives on each of the 7 components.
 
 ---
 
@@ -272,7 +272,7 @@ Some analytical workloads happen at runtime in operational systems:
 ### Deep Dives
 
 - [The Three Forces](three-forces.md) - Volume/Velocity, Latency, Structure
-- [Three Five Seven Data Systems](three-five-seven-data-systems.md) - Components, Lifecycle, Functions
+- [Data Engineering Core Framework](data-engineering-core-framework.md) - Components, Lifecycle, Functions
 
 ### Related Lenses
 

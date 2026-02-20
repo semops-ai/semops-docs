@@ -398,7 +398,7 @@ In traditional software development, architecture and tooling are separate conce
 - **AI → Architecture:** AI generates code that fits the architecture, validates domain models, and suggests refactorings that deepen insight
 - **Feedback loop:** Trust in AI output increases → More structure is added → AI becomes more capable → Trust increases further
 
-**This is [symbiotic architecture](README.md):** Architecture and AI co-evolve. Each makes the other more effective.
+**This is [explicit architecture](README.md):** Architecture and AI co-evolve. Each makes the other more effective.
 
 ---
 

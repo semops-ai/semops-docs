@@ -83,7 +83,7 @@ Root-cause analysis through data modeling reveals issues difficult to uncover an
 Given a company's industry, business model, and basic system details, a **reference architecture** can be generated—what their data landscape *should* look like based on known patterns:
 
 | Domain | Reference Patterns |
-|--------|-------------------|/home/tim/GitHub/docs-pr/docs/Publicv1_Candidates/SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/explicit-architecture.md
+|--------|-------------------|docs/Publicv1_Candidates/SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/explicit-architecture.md
 | **Business model** | Revenue streams, cost structures, value chain |
 | **Customer analytics** | Known surfaces, lifecycle stages, segmentation |
 | **Transactional data** | Standard schemas for orders, invoices, inventory |
@@ -139,13 +139,13 @@ SIMULATION
 - Compare the simulation to reality when access is obtained
 
 This pairs with:
-- **[Agentic Lineage](https://github.com/timjmitchell/data-pr/issues/27)** — Discovers "what actually is" through event logs and lineage tracking
-- **Stack Simulation** ([data-pr branch: 001-stack-simulation-lineage](https://github.com/timjmitchell/data-pr/tree/001-stack-simulation-lineage)) — Provides the simulation infrastructure: synthetic data generation, dbt transforms on DuckDB, OpenLineage events to Marquez
+- **[Agentic Lineage](https://github.com/semops-ai/semops-data/issues/27)** — Discovers "what actually is" through event logs and lineage tracking
+- **Stack Simulation** ([semops-data branch: 001-stack-simulation-lineage](https://github.com/semops-ai/semops-data/tree/001-stack-simulation-lineage)) — Provides the simulation infrastructure: synthetic data generation, dbt transforms on DuckDB, OpenLineage events to Marquez
 
 Together, these provide both the "should be" reference architecture and the "actually is" discovery—plus the ability to simulate the gap before touching real systems.
 
 ### Principles
-/home/tim/GitHub/docs-pr/docs/Publicv1_Candidates/SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/explicit-architecture.md
+docs/Publicv1_Candidates/SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/explicit-architecture.md
 1. **Single Source of Truth at Capture** — Define events once with complete context
 2. **Understand Analytics Patterns** — They share the same source; design instrumentation to serve all types
 3. **Governance at the Source** — Security and compliance are source problems
@@ -271,7 +271,7 @@ Low coherence indicates potential misclassification—the semantic equivalent of
 
 ## Implementation: SemOps Ingestion v2
 
-The [SemOps Ingestion v2 Architecture](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/GLOBAL_ARCHITECTURE.proposed.md) directly implements these concepts:
+The [SemOps Ingestion v2 Architecture](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/GLOBAL_ARCHITECTURE.proposed.md) directly implements these concepts:
 
 | Concept | Implementation |
 |---------|---------------|
@@ -380,8 +380,8 @@ Design instrumentation at the source. Retrofit integration never catches up.
 
 ### Implementation
 
-- [SemOps Ingestion v2 Architecture](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/GLOBAL_ARCHITECTURE.proposed.md) - Episode-centric provenance implementation
-- [Agentic Lineage Project](https://github.com/timjmitchell/data-pr/issues/27) - Open source agent provenance system
+- [SemOps Ingestion v2 Architecture](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/GLOBAL_ARCHITECTURE.proposed.md) - Episode-centric provenance implementation
+- [Agentic Lineage Project](https://github.com/semops-ai/semops-data/issues/27) - Open source agent provenance system
 
 ### Problem Space
 

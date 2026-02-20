@@ -18,7 +18,7 @@ Patterns work in the Semantic Operations Framework because they preserve complet
 
 - **AI leverage:** Known patterns exist in AI training data as proven, validated structures. Implementations can be requested at different levels of rigor — from textbook canonical to pragmatic shortcut — and the approach that fits the context can be selected.
 
-- **Rapid adoption:** Whole patterns can be quickly adopted — validated structures adapted to the domain and systems through [Symbiotic Architecture](../SYMBIOTIC_ARCHITECTURE/README.md) and [Semantic Coherence](semantic-coherence.md). AI accelerates this because the canonical form is already in the model. The friction shifts from implementation to decision: *should* we adopt this, not *can* we.
+- **Rapid adoption:** Whole patterns can be quickly adopted — validated structures adapted to the domain and systems through [Explicit Architecture](../EXPLICIT_ARCHITECTURE/README.md) and [Semantic Coherence](semantic-coherence.md). AI accelerates this because the canonical form is already in the model. The friction shifts from implementation to decision: *should* we adopt this, not *can* we.
 
 - **Evolution:** Standard patterns provide stable baselines; optimized patterns derive from them with tracked, intentional deviations. Nuanced decisions and trade-offs are captured in lineage, enabling distinction between intentional innovation and unintentional (and counterproductive) reinvention. See [Pattern Operations](pattern-operations.md).
 
@@ -104,7 +104,7 @@ This is the practical payoff of self-coherence: AI can be used to retrieve, refi
 
 #### Example: SemOps Entity Constraints
 
-In the SemOps implementation, the [constraints pattern](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/domain-patterns/constraints.md) defines pattern-level invariants — rules that apply to the pattern as a whole, not to individual fields:
+In the SemOps implementation, the [constraints pattern](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/domain-patterns/constraints.md) defines pattern-level invariants — rules that apply to the pattern as a whole, not to individual fields:
 
 ```text
 IF visibility = "private" AND surface.direction = "publish"
@@ -148,6 +148,8 @@ The purpose types below emerged from SemOps's needs—each domain will drive dif
 | **integration** | Cross-boundary connections | Context Maps, ACLs |
 
 Other domains might need different types: **regulatory** patterns for compliance-heavy industries, **transaction** patterns for financial systems, **event** patterns for real-time systems. The principle is the same—type patterns based on what the domain needs to distinguish.
+
+For practical guidance on finding patterns by type, sizing them for your architecture, and evolving from 3P adoption to 1P innovation, see [Working with Patterns](working-with-patterns.md).
 
 ---
 
@@ -226,7 +228,7 @@ Stable Core (operational patterns)
 
 If a shape proves valuable, it gets promoted to a pattern in the stable core. If not, discard it — the core remains untouched.
 
-See [Stable Core, Flexible Edge](../SYMBIOTIC_ARCHITECTURE/stable-core-flexible-edge.md) for the full architectural principle, and [Pattern Operations](pattern-operations.md) for the promotion loop, optimization cycle, and governance workflows.
+See [Stable Core, Flexible Edge](../EXPLICIT_ARCHITECTURE/stable-core-flexible-edge.md) for the full architectural principle, and [Pattern Operations](pattern-operations.md) for the promotion loop, optimization cycle, and governance workflows.
 
 ---
 
@@ -235,7 +237,7 @@ See [Stable Core, Flexible Edge](../SYMBIOTIC_ARCHITECTURE/stable-core-flexible-
 Patterns are the connective tissue across all three pillars of the [Semantic Operations Framework](../README.md):
 
 ```text
-Strategic Data          Symbiotic Architecture       Semantic Optimization
+Strategic Data          Explicit Architecture       Semantic Optimization
      │                          │                            │
      │ creates                  │ operationalizes            │ measures
      ▼                          ▼                            ▼
@@ -262,16 +264,16 @@ Strategic Data ensures organizations have the systems and rigor to create the ri
 
 **Without Strategic Data:** Patterns cannot be created reliably—they emerge accidentally or not at all.
 
-### Symbiotic Architecture → Operationalizes Patterns
+### Explicit Architecture → Operationalizes Patterns
 
-Symbiotic Architecture provides the rules and scaffolding for patterns to function:
+Explicit Architecture provides the rules and scaffolding for patterns to function:
 
-- **[Bounded contexts](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md)** are patterns at the organizational level
-- **[Anti-Corruption Layers](../SYMBIOTIC_ARCHITECTURE/ddd-acl-governance-aas.md)** protect pattern boundaries from external volatility
+- **[Bounded contexts](../EXPLICIT_ARCHITECTURE/domain-driven-design.md)** are patterns at the organizational level
+- **[Anti-Corruption Layers](../EXPLICIT_ARCHITECTURE/ddd-acl-governance-aas.md)** protect pattern boundaries from external volatility
 - **Context maps** define how patterns integrate
 - **[Stable Core, Flexible Edge](stable-core-flexible-edge.md)** governs pattern evolution
 
-**Without Symbiotic Architecture:** Patterns exist but cannot be enforced—drift happens, boundaries erode.
+**Without Explicit Architecture:** Patterns exist but cannot be enforced—drift happens, boundaries erode.
 
 DDD provides "Current state vs. Standard" Pattern diagnostic:
 
@@ -335,7 +337,7 @@ Integration between patterns follows DDD context map patterns:
 | **Open Host Service**     | Stable API             | LOW        |
 | **Published Language**    | Standard governs       | LOW        |
 
-See [Patterns and Bounded Contexts](../SYMBIOTIC_ARCHITECTURE/patterns-and-bounded-contexts.md) for detailed descriptions.
+See [Patterns and Bounded Contexts](../EXPLICIT_ARCHITECTURE/patterns-and-bounded-contexts.md) for detailed descriptions.
 
 ### Semantic Optimization → Measures and Evolves Patterns
 
@@ -354,6 +356,7 @@ Semantic Optimization quantifies pattern health and guides evolution:
 ### Core Concepts
 
 - [Pattern Operations](pattern-operations.md) - Promotion loop, optimization cycle
+- [Working with Patterns](working-with-patterns.md) - Finding, sizing, adopting, and evolving patterns
 - [Provenance and Lineage](provenance-lineage-semops.md) - Provenance/lineage as coherence mechanism
 - [Stable Core, Flexible Edge](stable-core-flexible-edge.md) - Evolution principle
 - [Data Shapes](data-shapes.md) - Edge experimentation mechanism
@@ -361,8 +364,8 @@ Semantic Optimization quantifies pattern health and guides evolution:
 ### Architecture
 
 - [SemOps Aggregate Root](semops-aggregate-root.md) - Why pattern is the aggregate root
-- [Patterns and Bounded Contexts](../SYMBIOTIC_ARCHITECTURE/patterns-and-bounded-contexts.md) - DDD integration
-- [Domain-Driven Design](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) - Foundation patterns
+- [Patterns and Bounded Contexts](../EXPLICIT_ARCHITECTURE/patterns-and-bounded-contexts.md) - DDD integration
+- [Domain-Driven Design](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) - Foundation patterns
 
 ### Implementation & Examples
 

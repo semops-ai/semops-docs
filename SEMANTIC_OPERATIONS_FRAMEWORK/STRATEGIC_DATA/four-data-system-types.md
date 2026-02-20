@@ -93,14 +93,14 @@ The complete operational data ecosystem that powers running business application
 
 **Key properties:**
 - Uses OLTP for low-latency reads/writes (but OLTP is just the query layer)
-- Includes [bounded contexts](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md), microservices, event sourcing, APIs, caching
+- Includes [bounded contexts](../EXPLICIT_ARCHITECTURE/domain-driven-design.md), microservices, event sourcing, APIs, caching
 - Current state + recent history
-- Lives within bounded contexts ([DDD](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md))
+- Lives within bounded contexts ([DDD](../EXPLICIT_ARCHITECTURE/domain-driven-design.md))
 
 **Governance approach:**
 - **Do not try to unify** - Respect bounded contexts
 - Use **context maps** (DDD) to understand relationships
-- Apply **[anti-corruption layers](../SYMBIOTIC_ARCHITECTURE/ddd-acl-governance-aas.md)** for integration
+- Apply **[anti-corruption layers](../EXPLICIT_ARCHITECTURE/ddd-acl-governance-aas.md)** for integration
 - Maintain semantic boundaries explicitly
 
 **Integration pattern:** Feeds Analytics Data System; uses anti-corruption layers for cross-context integration
@@ -234,7 +234,7 @@ Enterprise Record System ─┘
 | **Application** | Bounded context semantics | CDC + dimensional modeling |
 | **Analytics** | Already analytical | Direct integration |
 | **Work** | No schema, high ambiguity | AI extraction + ontologies |
-| **Record** | Canonical but rigid | [Anti-corruption layers](../SYMBIOTIC_ARCHITECTURE/ddd-acl-governance-aas.md) |
+| **Record** | Canonical but rigid | [Anti-corruption layers](../EXPLICIT_ARCHITECTURE/ddd-acl-governance-aas.md) |
 
 ---
 
@@ -318,7 +318,7 @@ From [data-silos](data-silos.md):
 **Common confusion:**
 - Treating all data as if it should be "unified" in one system
 - Expecting same governance approach for operational vs analytical vs unstructured data
-- Missing that "silos" are often appropriate [bounded contexts](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md)
+- Missing that "silos" are often appropriate [bounded contexts](../EXPLICIT_ARCHITECTURE/domain-driven-design.md)
 
 **Reality:**
 - Each system type has different optimization targets
@@ -357,7 +357,7 @@ From the ingestion-boundary diagnostic framework.
 **Problem:** Creating "one unified customer table" across all systems
 
 **Why it fails:**
-- Violates [bounded context](../SYMBIOTIC_ARCHITECTURE/domain-driven-design.md) principles
+- Violates [bounded context](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) principles
 - Forces lowest-common-denominator schema
 - Creates tight coupling
 - Governance nightmare

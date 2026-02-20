@@ -7,7 +7,7 @@ Framework theory, concept documentation, and research foundations for [Semantic 
 
 This repo owns the theoretical foundations — the frameworks, research, and concept definitions that the implementation repos exhibit. When other repos mention a SemOps concept (Semantic Coherence, Patterns, the Semantic Funnel), links will resolve here.
 
-The documentation includes several concept documents organized by directory into [Research](RESEARCH/) and three framework pillars: [Strategic Data](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/), [Symbiotic Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/), and [Semantic Optimization](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/). Documents are written for a mixed audience: technical enough for engineers to map concepts to architecture, accessible enough for leadership to understand the strategic rationale.
+The documentation includes several concept documents organized by directory into [Research](RESEARCH/) and three framework pillars: [Strategic Data](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/), [Explicit Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/), and [Semantic Optimization](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/). Documents are written for a mixed audience: technical enough for engineers to map concepts to architecture, accessible enough for leadership to understand the strategic rationale.
 
 This repo is not an implementation. There is no code to run, no services to deploy, no dependencies to install. It is structured Markdown with a reading order.
 
@@ -16,7 +16,7 @@ Part of the [semops-ai](https://github.com/semops-ai) organization. For system-l
 **What this repo is NOT:**
 
 - Not implementation documentation — for how the system is built, see the implementation repos ([semops-core](https://github.com/semops-ai/semops-core), [semops-dx-orchestrator](https://github.com/semops-ai/semops-dx-orchestrator))
-- Not a blog or narrative content — for published articles and thought leadership, see [semops.ai](https://semops.ai) and [timjmitchell.com](https://timjmitchell.com)
+- Not a blog or narrative content — for published articles and thought leadership, see [semops.ai](https://semops.ai) and [semops-ai.com](https://semops-ai.com)
 - Not a textbook — concepts are explained at the depth needed to inform architecture and strategy decisions, not for academic completeness
 
 ## Documents as Operational Knowledge
@@ -40,7 +40,7 @@ Read [Semantic Funnel](RESEARCH/FOUNDATIONS/semantic-funnel.md) first. It introd
 **If you want to understand one pillar in depth:**
 Each pillar has its own README that serves as a reading guide with recommended order:
 - [Strategic Data](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/README.md) — Data as a first-class strategic asset
-- [Symbiotic Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/README.md) — Encoding strategy into system structure
+- [Explicit Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/README.md) — Encoding strategy into system structure
 - [Semantic Optimization](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/README.md) — Measuring and governing shared meaning
 
 **If you're coming from an implementation repo:**
@@ -63,7 +63,7 @@ The [Research](RESEARCH/) section contains theoretical foundations (DIKW theory,
 | Pillar | Documents | What It Covers |
 | ------ | --------- | -------------- |
 | [Strategic Data](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/) | 16 | Data as strategic asset, four data system types, governance as strategy, data physics, analytics evolution |
-| [Symbiotic Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/SYMBIOTIC_ARCHITECTURE/) | 15 | Domain-Driven Design, explicit architecture, AI-ready systems, semantic flywheel, agentic coding, stable core / flexible edge |
+| [Explicit Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/) | 15 | Domain-Driven Design, explicit architecture, AI-ready systems, semantic flywheel, agentic coding, stable core / flexible edge |
 | [Semantic Optimization](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/) | 7 | Semantic coherence (measurement + governance), Patterns as semantic units, pattern operations, compression |
 
 ### How Concepts Connect to Implementation
@@ -73,7 +73,7 @@ The three pillars map to implementation repos:
 | Pillar | Primary Implementation |
 | ------ | --------------------- |
 | Strategic Data | [semops-core](https://github.com/semops-ai/semops-core) — quality tiers, knowledge base, coherence measurement |
-| Symbiotic Architecture | [semops-dx-orchestrator](https://github.com/semops-ai/semops-dx-orchestrator) — DDD repo structure, Pattern as aggregate root, integration patterns |
+| Explicit Architecture | [semops-dx-orchestrator](https://github.com/semops-ai/semops-dx-orchestrator) — DDD repo structure, Pattern as aggregate root, integration patterns |
 | Semantic Optimization | [semops-publisher](https://github.com/semops-ai/semops-publisher) — edit capture for style learning, content coherence |
 
 [semops-data](https://github.com/semops-ai/semops-data) implements measurement capabilities described across all three pillars. [semops-sites](https://github.com/semops-ai/semops-sites) implements the delivery surface where concepts become published web content.
@@ -86,7 +86,7 @@ The three pillars map to implementation repos:
 | Research Foundations | Stable | Theoretical grounding complete |
 | Current Context | Stable | AI transformation analysis |
 | Strategic Data | Stable | 16 concept documents |
-| Symbiotic Architecture | Stable | 15 concept documents |
+| Explicit Architecture | Stable | 15 concept documents |
 | Semantic Optimization | Maturing | 7 concept documents, coherence measurement evolving with implementation |
 
 This is a living documentation set. Concepts stabilize as they are validated through implementation in the semops-ai repos. Documents are updated when implementation reveals new understanding or when the framework's language evolves.
@@ -101,7 +101,7 @@ This is a living documentation set. Concepts stabilize as they are validated thr
 - **[semops-data](https://github.com/semops-ai/semops-data)** — Data platform implementing measurement and analytics concepts
 - **[semops-sites](https://github.com/semops-ai/semops-sites)** — Web surfaces where framework content is published
 - **[semops.ai](https://semops.ai)** — Narrative introduction to SemOps for a general audience
-- **[timjmitchell.com](https://timjmitchell.com)** — Blog, thought leadership, and project narrative
+- **[semops-ai.com](https://semops-ai.com)** — Blog, thought leadership, and project narrative
 
 ### Influences
 

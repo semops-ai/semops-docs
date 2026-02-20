@@ -1,16 +1,16 @@
 ---
 doc_type: hub
 
-pattern: explicit-architecture
+pattern: what-is-architecture
 
-provenance: 1p
+provenance: 3p
 
 metadata:
     pattern_type: concept
-    brand_strength: medium
+    brand_strength: low
 ---
 
-# Explicit Architecture
+# What is Architecture?
 
 > Architecture is the organization and business encoded as a data structure. Most organizations do not have explicit architecture—they have accumulated infrastructure that has been labeled "architecture."
 
@@ -39,9 +39,54 @@ Many organizations draw diagrams with boxes and arrows and call it architecture.
 - If the boxes are **servers, services, or databases** → That's infrastructure topology
 - If the boxes are **team names or org chart nodes** → That's organizational structure
 - If the boxes are **vendor products** → That's stack inventory
-- If the boxes are **domain boundaries with semantic meaning, invariants, and contracts** → That's architecture
+- If the boxes are **easily identifiable components of the business** → That's architecture. In Domain Driven Design, those boxes would be described as *domain boundaries with semantic meaning, invariants, and contracts*
 
 Most "architecture diagrams" are infrastructure diagrams with business labels attached. The boxes exist because someone deployed them, not because they encode business rules.
+
+### The Industry Proves the Point
+
+This is not a fringe claim. The industry's own definitions confirm the conflation.
+
+**Search "data architecture" and the results describe plumbing:**
+
+| Source | Definition | What It Describes |
+| ------ | ---------- | ----------------- |
+| **Wikipedia** | "Models, policies, rules, and standards that govern which data is collected and how it is stored, arranged, integrated, and put to use" | Storage, movement, collection |
+| **IBM** | "How data is managed — from collection and transformation through distribution and consumption" | Pipeline operations |
+| **Informatica** | "The blueprint for how data is collected, structured, transformed, managed, stored and used" | Data processing verbs |
+| **Dataversity** | "The infrastructure that connects a Business Strategy and Data Strategy with technical execution" | Literally uses the word "infrastructure" |
+
+Wikipedia's software architecture entry is even more direct:
+
+> "Software architecture design focuses on designing the **infrastructure** within which application functionality can be realized."
+
+This creates an explicit binary: architecture = infrastructure, application design = the actual domain functionality. The most widely read definition of software architecture defines it as something other than what it is.
+
+**The closer a source is to selling technology, the more likely it defines architecture as infrastructure.** Cloud vendors (AWS, Snowflake, Databricks) define architecture in terms of their products. Analyst firms (Gartner) are more principled — "principles, guidelines, or rules used by an enterprise." But the vendor definitions dominate search results, training data, and organizational vocabulary.
+
+**Meanwhile, every canonical authority on software architecture disagrees with the mainstream definition:**
+
+| Authority | What Architecture Actually Is |
+| --------- | ----------------------------- |
+| **Grady Booch** | "The significant design decisions that shape a system, where significant is measured by **cost of change**" |
+| **Martin Fowler / Ralph Johnson** | "The **shared understanding** that expert developers have of the system design" / "The decisions you **wish you could get right** early in a project" |
+| **Eric Evans** | "The heart of software is its ability to solve **domain-related problems** for its user" |
+| **Gregor Hohpe** | "I sell **options**" — architecture creates the ability to defer infrastructure commitment |
+| **Mark Richards / Neal Ford** | "**Why** is more important than **how**" (Second Law of Software Architecture) |
+| **Eoin Woods** | "The set of design decisions which, if made incorrectly, may cause your **project to be cancelled**" |
+| **ISO/IEC/IEEE 42010** | "Fundamental **concepts or properties** of a system... and the **principles** of its design and evolution" |
+
+The pattern is consistent: practitioners who *study* architecture define it in terms of decisions, domain meaning, and consequences. Vendors who *sell* infrastructure define it in terms of their products. The word was captured, and most organizations inherited the vendor definition without realizing it.
+
+**Three camps exist in practice:**
+
+1. **"Architecture = infrastructure"** — The vendor-captured definition. Loudest because billions are spent on marketing it. Nobody in this camp has written a foundational text on architecture.
+2. **"Architecture = consequential decisions + domain meaning"** — Where the actual thinking lives. Every canonical book, every IEEE standard, every practitioner who has written seriously about architecture lands here.
+3. **No definition at all** — The implicit position of most organizations. "Architecture" means whatever diagram was last shown in a meeting.
+
+Most organizations are in camp 3, using vocabulary from camp 1, while camp 2 holds the actual answer.
+
+> **Full research with sourced quotes:** [Architecture Definition Research](../../../research/architecture-definition-research.md)
 
 ---
 
@@ -160,7 +205,7 @@ Decentralized data architecture organized around domain ownership.
 - **Self-serve platform:** Infrastructure enabling autonomous domain teams
 - **Federated governance:** Standards without centralization
 
-**Best for:** Large organizations with multiple data-producing domains, analytics-heavy operations.
+**Best for:** Large organizations with multiple semops-dataoducing domains, analytics-heavy operations.
 
 **Relationship to DDD:** Data Mesh applies DDD principles to analytical data, not just operational systems.
 
@@ -398,14 +443,14 @@ Architecture degrades without active governance:
 
 ### Framework Components
 
-- [Symbiotic Architecture](README.md) - Parent framework
+- [Explicit Architecture](README.md) - Parent framework
 - [Domain-Driven Design](domain-driven-design.md) - Detailed DDD treatment
 - [Anti-Corruption Layers](ddd-acl-governance-aas.md) - Semantic firewalls at boundaries
 - [Intentional Architecture](README.md#intentional-architecture) - Pattern vs. anti-pattern
 
 ### Strategic Context
 
-- [Big Picture: Symbiotic Architecture](../../Publicv1_Supplemental/semops-big-picture.md#symbiotic-architecture) - Framework overview
+- [Big Picture: Explicit Architecture](../../Publicv1_Supplemental/semops-big-picture.md#explicit-architecture) - Framework overview
 - [Data Is an Organizational Challenge](../STRATEGIC_DATA/data-is-organizational-challenge.md) - Why architecture fails
 
 ### External References

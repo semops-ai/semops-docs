@@ -296,7 +296,7 @@ For the full pattern emergence narrative, W3C standard mappings, and industry pa
 
 - [Semantic Coherence](../SEMANTIC_OPTIMIZATION/semantic-coherence.md) - What stable core protects
 - [Explicit Architecture](explicit-architecture.md) - Architecture as encoded rules
-- [Symbiotic Architecture](README.md) - Parent framework
+- [Explicit Architecture](README.md) - Parent framework
 
 ### External References
 

@@ -63,7 +63,7 @@ Physics of Data is the thermodynamic grounding of the D→I transition in the [S
 Data systems operate on actual computers with finite resources. These resources have physical properties of mass and energy, and they can all be mathematically calculated given we know starting conditions.
 
 - [Three Forces](three-forces.md) - The fundamental forces shaping data system design
-- [Three-Five-Seven Data Systems](three-five-seven-data-systems.md) - Layered architecture patterns
+- [Data Engineering Core Framework](data-engineering-core-framework.md) - Layered architecture patterns
 
 **The pattern is universal:** All data systems perform these functions because physics requires it. The only variables are implementation details and trade-offs made in response to the 3 Forces.
 
@@ -159,7 +159,7 @@ For concrete format examples (Parquet file structure, Delta Lake transaction log
 
 - [Strategic Data](README.md) - Parent framework
 - [Three Forces](three-forces.md) - Fundamental forces shaping data system design
-- [Three-Five-Seven Data Systems](three-five-seven-data-systems.md) - Layered architecture patterns
+- [Data Engineering Core Framework](data-engineering-core-framework.md) - Layered architecture patterns
 - [Why Structure Matters](why-structure-matters.md) - Analytics and AI require structure
 - [Semantic Funnel](../../RESEARCH/FOUNDATIONS/semantic-funnel.md) - D→I→K→W transformation framework
 

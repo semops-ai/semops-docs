@@ -113,7 +113,7 @@ These concepts map directly to the project lifecycle:
 
 ### Framework
 
-- [Symbiotic Architecture](README.md) - Parent framework
+- [Explicit Architecture](README.md) - Parent framework
 - [AI-Ready Architecture](ai-ready-architecture.md) - Machine-readable architecture patterns
 - [Domain-Driven Design](domain-driven-design.md) - Bounded contexts and ubiquitous language
 - [Semantic Coherence](../SEMANTIC_OPTIMIZATION/semantic-coherence.md) - Coherence measurement and optimization
