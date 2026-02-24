@@ -6,8 +6,8 @@ pattern: everything-is-data
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: medium
+ pattern_type: concept
+ brand_strength: medium
 ---
 
 # Everything is Data
@@ -82,10 +82,10 @@ The [Four Data System Types](four-data-system-types.md) framework remains valid,
 
 ```
 Traditional coherence scope:
-  Database ↔ Dashboard ↔ Report ↔ Human interpretation
+ Database ↔ Dashboard ↔ Report ↔ Human interpretation
 
 AI-era coherence scope:
-  Code ↔ Docs ↔ Schema ↔ Model ↔ Agent ↔ Human ↔ Decision ↔ Outcome
+ Code ↔ Docs ↔ Schema ↔ Model ↔ Agent ↔ Human ↔ Decision ↔ Outcome
 
 Every node is a potential entry point for an agent.
 Every edge is a potential semantic mismatch.
@@ -139,21 +139,21 @@ Source-up thinking applies to all artifacts:
 ```yaml
 # Traditional: instrument application events
 event: checkout_completed
-  user_id: required
-  order_id: required
+ user_id: required
+ order_id: required
 
 # AI-era: instrument ALL semantic artifacts
 decision:
-  id: pricing-model-v2
-  rationale: "A/B test showed 15% lift"
-  context: [experiment-123, stakeholder-review-2024-01]
-  outcome: pending
+ id: pricing-model-v2
+ rationale: "A/B test showed 15% lift"
+ context: [experiment-123, stakeholder-review-2024-01]
+ outcome: pending
 
 code_change:
-  id: commit-abc123
-  intent: "Optimize query performance"
-  patterns_applied: [caching, index-optimization]
-  semantic_impact: [latency-reduction, cost-reduction]
+ id: commit-abc123
+ intent: "Optimize query performance"
+ patterns_applied: [caching, index-optimization]
+ semantic_impact: [latency-reduction, cost-reduction]
 ```
 
 ### 2. Schema Everything
@@ -185,14 +185,14 @@ This is why Strategic Data is foundational to the [Semantic Operations Framework
 
 ```
 Without Strategic Data discipline:
-  Traditional data is messy
-  + AI treats everything as data
-  = Exponential semantic chaos
+ Traditional data is messy
+ + AI treats everything as data
+ = Exponential semantic chaos
 
 With Strategic Data discipline:
-  Traditional data is coherent
-  + AI treats everything as data
-  = Coherent AI operations
+ Traditional data is coherent
+ + AI treats everything as data
+ = Coherent AI operations
 ```
 
 **The bottom line:** If an organization cannot manage databases, it certainly cannot manage the expanded scope of AI-era data. Strategic Data is table stakes—not an optimization, but a prerequisite.
@@ -202,24 +202,24 @@ With Strategic Data discipline:
 ## Key Takeaways
 
 1. **AI collapses the data boundary**
-   - Code, docs, models, patterns, decisions—all are data now
-   - Traditional data management scope was always too narrow
+ - Code, docs, models, patterns, decisions—all are data now
+ - Traditional data management scope was always too narrow
 
 2. **Existing debt compounds**
-   - Every semantic gap becomes a failure mode
-   - Undocumented knowledge = agent blind spots
+ - Every semantic gap becomes a failure mode
+ - Undocumented knowledge = agent blind spots
 
 3. **Enterprise Work becomes central**
-   - The 95% of meaning in "dark data" is now primary input
-   - Structure through [SemOps](../README.md) is no longer optional
+ - The 95% of meaning in "dark data" is now primary input
+ - Structure through [SemOps](../README.md) is no longer optional
 
 4. **Coherence scope expands**
-   - Not just database ↔ dashboard
-   - Code ↔ docs ↔ schema ↔ model ↔ agent ↔ human ↔ decision
+ - Not just database ↔ dashboard
+ - Code ↔ docs ↔ schema ↔ model ↔ agent ↔ human ↔ decision
 
 5. **Strategic Data is prerequisite**
-   - Get the basics right before AI amplifies existing problems
-   - Source-up thinking, schema everything, own lineage
+ - Get the basics right before AI amplifies existing problems
+ - Source-up thinking, schema everything, own lineage
 
 ---
 

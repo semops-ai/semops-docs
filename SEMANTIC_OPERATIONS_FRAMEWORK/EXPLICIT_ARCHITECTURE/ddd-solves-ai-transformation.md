@@ -6,8 +6,8 @@ pattern: ddd-solves-ai-transformation
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: medium
+ pattern_type: concept
+ brand_strength: medium
 ---
 
 # Domain-Driven Design Solves the AI Transformation Problem
@@ -308,27 +308,27 @@ When outlining DDD's value very quickly:
 **Domain-Driven Design enables AI transformation by:**
 
 1. **Managing complexity** through **segregating core** and **bounded contexts**
-   - Clear semantic boundaries prevent AI from operating outside its domain of competence
-   - Core domain focus aligns strategic AI investment with competitive value
+ - Clear semantic boundaries prevent AI from operating outside its domain of competence
+ - Core domain focus aligns strategic AI investment with competitive value
 
 2. **Clarity through Ubiquitous Language**
-   - Shared vocabulary between humans and AI eliminates translation loss
-   - Ubiquitous language becomes the corpus for training and grounding AI
+ - Shared vocabulary between humans and AI eliminates translation loss
+ - Ubiquitous language becomes the corpus for training and grounding AI
 
 3. **Architectural control through Aggregates**
-   - Aggregates define transactional boundaries and invariants
-   - Natural API boundaries for AI integration
-   - Self-validating domain logic prevents AI from violating business rules
+ - Aggregates define transactional boundaries and invariants
+ - Natural API boundaries for AI integration
+ - Self-validating domain logic prevents AI from violating business rules
 
 4. **Organizational control through Bounded Contexts**
-   - Conway's Law: System structure mirrors organizational structure
-   - Explicit context maps prevent semantic drift at integration points
-   - Clear ownership of canonical definitions
+ - Conway's Law: System structure mirrors organizational structure
+ - Explicit context maps prevent semantic drift at integration points
+ - Clear ownership of canonical definitions
 
 5. **Long-term agility through Constant Domain Refinement**
-   - Supple design enables continuous refactoring as business knowledge evolves
-   - Semantic optimization as a practice, not a one-time design
-   - [Stable core, flexible edge](stable-core-flexible-edge.md) allows rapid, safe iteration
+ - Supple design enables continuous refactoring as business knowledge evolves
+ - Semantic optimization as a practice, not a one-time design
+ - [Stable core, flexible edge](stable-core-flexible-edge.md) allows rapid, safe iteration
 
 **The key insight:** DDD was always the right answer—AI just makes it tractable.
 
@@ -415,23 +415,23 @@ DDD forces explicitness:
 **Example from ike-semantic-ops:**
 ```python
 class Entity:
-    """
-    Aggregate root representing a semantic entity in the knowledge graph.
+ """
+ Aggregate root representing a semantic entity in the knowledge graph.
 
-    Invariants:
-    - entity_id must be unique
-    - All edges must reference existing entities
-    - Attributes must conform to entity_type schema
-    """
-    entity_id: str
-    entity_type: str
-    attributes: dict
-    edges: list[Edge]
+ Invariants:
+ - entity_id must be unique
+ - All edges must reference existing entities
+ - Attributes must conform to entity_type schema
+ """
+ entity_id: str
+ entity_type: str
+ attributes: dict
+ edges: list[Edge]
 
-    def add_edge(self, edge: Edge):
-        assert edge.source == self.entity_id
-        assert edge.predicate in VALID_PREDICATES
-        self.edges.append(edge)
+ def add_edge(self, edge: Edge):
+ assert edge.source == self.entity_id
+ assert edge.predicate in VALID_PREDICATES
+ self.edges.append(edge)
 ```
 
 **Why this is "high structure":** Type annotations are explicit, docstrings explain domain meaning, invariants are documented and enforced, method names reveal intent.
@@ -445,20 +445,20 @@ LLMs thrive on explicit context. They struggle with ambiguity.
 **Without structure (low context):**
 ```python
 def process(data):
-    # What is 'data'? What does 'process' mean?
-    result = do_something(data)
-    return result
+ # What is 'data'? What does 'process' mean?
+ result = do_something(data)
+ return result
 ```
 AI must guess types, constraints, and valid operations. **Result:** High hallucination rate.
 
 **With DDD structure (high context):**
 ```python
 def create_edge_with_predicate(
-    source: Entity,
-    target: Entity,
-    predicate: EdgePredicate
+ source: Entity,
+ target: Entity,
+ predicate: EdgePredicate
 ) -> Edge:
-    """Create a semantic edge between two entities."""
+ """Create a semantic edge between two entities."""
 ```
 AI understands types, constraints, and domain vocabulary from the code itself. **Result:** Low hallucination rate.
 
@@ -480,18 +480,18 @@ Because AI understands system boundaries:
 **AI Output (with DDD structure):**
 ```python
 def calculate_semantic_coherence_score(
-    self,
-    corpus: dict[str, set[str]]
+ self,
+ corpus: dict[str, set[str]]
 ) -> float:
-    """
-    Calculate semantic coherence score by comparing entity terminology
-    against canonical corpus for its entity_type.
+ """
+ Calculate semantic coherence score by comparing entity terminology
+ against canonical corpus for its entity_type.
 
-    Returns: Float in [0, 1] where 1 = perfect alignment
-    """
-    entity_terms = self._extract_terms_from_attributes()
-    canonical_terms = corpus.get(self.entity_type, set())
-    return jaccard_similarity(entity_terms, canonical_terms)
+ Returns: Float in [0, 1] where 1 = perfect alignment
+ """
+ entity_terms = self._extract_terms_from_attributes
+ canonical_terms = corpus.get(self.entity_type, set)
+ return jaccard_similarity(entity_terms, canonical_terms)
 ```
 
 **Why this works:** AI knows Entity has entity_type and attributes (structure), follows existing patterns (intention-revealing names), and uses domain vocabulary (semantic coherence, canonical corpus).

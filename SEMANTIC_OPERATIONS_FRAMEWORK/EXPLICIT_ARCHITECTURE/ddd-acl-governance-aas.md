@@ -6,8 +6,8 @@ pattern: ddd-acl-governance-aas
 provenance: 3p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 
 # Anti-Corruption Layer (ACL)
@@ -73,13 +73,13 @@ ACLs document integration contracts:
 
 From DDD's Context Mapping patterns:
 
-| Pattern                   | When to Use                                           | Coupling | Corruption Risk              |
+| Pattern | When to Use | Coupling | Corruption Risk |
 | ------------------------- | ----------------------------------------------------- | -------- | ---------------------------- |
-| **Anti-Corruption Layer** | External system not under team control, poor model quality | Low      | None - ACL protects          |
-| **Conformist**            | External system, downstream adopts their model as-is          | High     | High - no protection         |
-| **Customer/Supplier**     | Upstream owns model, downstream adapts                | Medium   | Medium - some influence      |
-| **Shared Kernel**         | Two contexts share common model subset                | High     | Medium - coordination needed |
-| **Open Host Service**     | Downstream exposes API, others integrate                      | Low      | None - downstream controls           |
+| **Anti-Corruption Layer** | External system not under team control, poor model quality | Low | None - ACL protects |
+| **Conformist** | External system, downstream adopts their model as-is | High | High - no protection |
+| **Customer/Supplier** | Upstream owns model, downstream adapts | Medium | Medium - some influence |
+| **Shared Kernel** | Two contexts share common model subset | High | Medium - coordination needed |
+| **Open Host Service** | Downstream exposes API, others integrate | Low | None - downstream controls |
 
 **Use ACL when:**
 - Upstream model is poorly designed
@@ -94,20 +94,20 @@ ACLs add complexity—use them only when necessary:
 ### Do Not Use ACL If:
 
 1. **The team controls the upstream system**
-   - Fix the upstream model instead
-   - Use Shared Kernel or Customer/Supplier pattern
+ - Fix the upstream model instead
+ - Use Shared Kernel or Customer/Supplier pattern
 
 2. **Upstream model is high quality**
-   - If their model is good, adopt it (Conformist pattern)
-   - Example: Stripe API, Twilio API (well-designed)
+ - If their model is good, adopt it (Conformist pattern)
+ - Example: Stripe API, Twilio API (well-designed)
 
 3. **Integration is trivial**
-   - Simple 1:1 field mapping does not need ACL
-   - Overhead is not worth the complexity
+ - Simple 1:1 field mapping does not need ACL
+ - Overhead is not worth the complexity
 
 4. **The team is the upstream**
-   - Expose an Open Host Service instead
-   - Let downstream contexts build their own ACLs if needed
+ - Expose an Open Host Service instead
+ - Let downstream contexts build their own ACLs if needed
 
 **The test:** If upstream model corruption would damage the domain model's integrity, use an ACL.
 
@@ -148,31 +148,31 @@ Create a service that provides internal domain operations using external system:
 
 ```python
 class ExternalSystemACL:
-    """Provides domain operations by translating external system."""
+ """Provides domain operations by translating external system."""
 
-    def __init__(self, external_api_client):
-        self.external_api = external_api_client
+ def __init__(self, external_api_client):
+ self.external_api = external_api_client
 
-    def fetch_customer_entity(self, customer_id: str) -> Entity:
-        """Fetch customer as internal Entity."""
-        external_customer = self.external_api.get_customer(customer_id)
-        return self._translate_to_entity(external_customer)
+ def fetch_customer_entity(self, customer_id: str) -> Entity:
+ """Fetch customer as internal Entity."""
+ external_customer = self.external_api.get_customer(customer_id)
+ return self._translate_to_entity(external_customer)
 
-    def create_customer_entity(self, entity: Entity) -> str:
-        """Create customer in external system from Entity."""
-        external_payload = self._translate_from_entity(entity)
-        response = self.external_api.create_customer(external_payload)
-        return response['customer_id']
+ def create_customer_entity(self, entity: Entity) -> str:
+ """Create customer in external system from Entity."""
+ external_payload = self._translate_from_entity(entity)
+ response = self.external_api.create_customer(external_payload)
+ return response['customer_id']
 
-    def _translate_to_entity(self, external_record: dict) -> Entity:
-        """Internal translation logic."""
-        # Validation, transformation, mapping
-        pass
+ def _translate_to_entity(self, external_record: dict) -> Entity:
+ """Internal translation logic."""
+ # Validation, transformation, mapping
+ pass
 
-    def _translate_from_entity(self, entity: Entity) -> dict:
-        """Internal translation logic."""
-        # Validation, transformation, reverse mapping
-        pass
+ def _translate_from_entity(self, entity: Entity) -> dict:
+ """Internal translation logic."""
+ # Validation, transformation, reverse mapping
+ pass
 ```
 
 ### Step 5: Test Translation Correctness
@@ -264,37 +264,37 @@ The `ike-semantic-ops` repository uses ACLs when integrating external semantic s
 
 ```python
 class EdgePredicate(str, Enum):
-    """Internal ubiquitous language for relationships."""
-    CITES = "cites"
-    DEPENDS_ON = "depends_on"
-    DERIVED_FROM = "derived_from"
-    VERSION_OF = "version_of"
-    RELATED_TO = "related_to"
+ """Internal ubiquitous language for relationships."""
+ CITES = "cites"
+ DEPENDS_ON = "depends_on"
+ DERIVED_FROM = "derived_from"
+ VERSION_OF = "version_of"
+ RELATED_TO = "related_to"
 
 class SemanticStandardsACL:
-    """Translate between internal predicates and external ontologies."""
+ """Translate between internal predicates and external ontologies."""
 
-    SCHEMA_ORG_MAPPING = {
-        "cites": "schema:citation",
-        "depends_on": "schema:isBasedOn",
-        "derived_from": "prov:wasDerivedFrom",
-        "version_of": "schema:isVariantOf"
-    }
+ SCHEMA_ORG_MAPPING = {
+ "cites": "schema:citation",
+ "depends_on": "schema:isBasedOn",
+ "derived_from": "prov:wasDerivedFrom",
+ "version_of": "schema:isVariantOf"
+ }
 
-    PROV_O_MAPPING = {
-        "derived_from": "prov:wasDerivedFrom",
-        "cites": "prov:wasAttributedTo"
-    }
+ PROV_O_MAPPING = {
+ "derived_from": "prov:wasDerivedFrom",
+ "cites": "prov:wasAttributedTo"
+ }
 
-    def to_schema_org(self, predicate: EdgePredicate) -> str:
-        """Translate internal predicate to Schema.org vocabulary."""
-        return self.SCHEMA_ORG_MAPPING.get(predicate.value, "schema:relatedLink")
+ def to_schema_org(self, predicate: EdgePredicate) -> str:
+ """Translate internal predicate to Schema.org vocabulary."""
+ return self.SCHEMA_ORG_MAPPING.get(predicate.value, "schema:relatedLink")
 
-    def from_schema_org(self, schema_org_term: str) -> EdgePredicate:
-        """Translate Schema.org term to internal predicate."""
-        reverse_map = {v: k for k, v in self.SCHEMA_ORG_MAPPING.items()}
-        internal = reverse_map.get(schema_org_term, "related_to")
-        return EdgePredicate(internal)
+ def from_schema_org(self, schema_org_term: str) -> EdgePredicate:
+ """Translate Schema.org term to internal predicate."""
+ reverse_map = {v: k for k, v in self.SCHEMA_ORG_MAPPING.items}
+ internal = reverse_map.get(schema_org_term, "related_to")
+ return EdgePredicate(internal)
 ```
 
 **Benefits:**
@@ -310,19 +310,19 @@ From the Ike Framework concept [Governance as Strategy](../STRATEGIC_DATA/govern
 **ACLs are the enforcement mechanism for semantic governance:**
 
 1. **Offense, not defense**
-   - ACLs actively prevent bad models from entering the domain
-   - Governance enables pattern adoption (not just compliance)
-   - Semantic state is versioned and measurable
+ - ACLs actively prevent bad models from entering the domain
+ - Governance enables pattern adoption (not just compliance)
+ - Semantic state is versioned and measurable
 
 2. **Schema = Meaning**
-   - ACL is a schema transformation layer
-   - Every data transformation is a first-class process
-   - Lineage tracks how external data becomes internal entities
+ - ACL is a schema transformation layer
+ - Every data transformation is a first-class process
+ - Lineage tracks how external data becomes internal entities
 
 3. **Semantic coherence at runtime**
-   - ACLs enforce ubiquitous language at integration points
-   - Translation rules are explicit and testable
-   - Drift is detectable (external model vs. ACL mapping)
+ - ACLs enforce ubiquitous language at integration points
+ - Translation rules are explicit and testable
+ - Drift is detectable (external model vs. ACL mapping)
 
 **The pattern:** ACLs allow teams to **acquire patterns and apply them through AI confidently** because the semantic state is protected from external corruption.
 
@@ -339,23 +339,23 @@ External schema → ACL → Internal schema
 ```python
 # External schema (upstream API)
 {
-    "customer_id": "C12345",
-    "full_name": "Jane Doe",
-    "contact_email": "jane@example.com",
-    "status_code": "ACTIVE",
-    "created_timestamp": "2024-01-15T10:30:00Z"
+ "customer_id": "C12345",
+ "full_name": "Jane Doe",
+ "contact_email": "jane@example.com",
+ "status_code": "ACTIVE",
+ "created_timestamp": "2024-01-15T10:30:00Z"
 }
 
 # ACL transforms to internal schema
 Entity(
-    entity_id="customer-C12345",
-    entity_type=EntityType.CUSTOMER,
-    attributes={
-        "name": "Jane Doe",
-        "email": "jane@example.com",
-        "status": "active",
-        "created_at": datetime(2024, 1, 15, 10, 30, 0)
-    }
+ entity_id="customer-C12345",
+ entity_type=EntityType.CUSTOMER,
+ attributes={
+ "name": "Jane Doe",
+ "email": "jane@example.com",
+ "status": "active",
+ "created_at": datetime(2024, 1, 15, 10, 30, 0)
+ }
 )
 ```
 
@@ -369,18 +369,18 @@ ACLs translate to **domain-focused** schemas (ubiquitous language, value objects
 ```python
 # External: Technical implementation details
 {
-    "rec_id": 78493,
-    "rec_type": 3,
-    "field_1": "Product A",
-    "field_2": 29.99,
-    "field_3": "USD"
+ "rec_id": 78493,
+ "rec_type": 3,
+ "field_1": "Product A",
+ "field_2": 29.99,
+ "field_3": "USD"
 }
 
 # ACL translates to domain semantics
 Product(
-    product_id="product-78493",
-    name="Product A",
-    price=Money(amount=29.99, currency="USD")
+ product_id="product-78493",
+ name="Product A",
+ price=Money(amount=29.99, currency="USD")
 )
 ```
 
@@ -395,15 +395,15 @@ ACLs make **data provenance explicit**:
 **Example:**
 ```python
 Entity(
-    entity_id="customer-C12345",
-    entity_type=EntityType.CUSTOMER,
-    attributes={
-        "name": "Jane Doe",
-        "email": "jane@example.com",
-        "_external_source": "legacy_crm",
-        "_external_id": "C12345",
-        "_imported_at": "2024-11-27T14:22:00Z"
-    }
+ entity_id="customer-C12345",
+ entity_type=EntityType.CUSTOMER,
+ attributes={
+ "name": "Jane Doe",
+ "email": "jane@example.com",
+ "_external_source": "legacy_crm",
+ "_external_id": "C12345",
+ "_imported_at": "2024-11-27T14:22:00Z"
+ }
 )
 ```
 
@@ -424,9 +424,9 @@ ACLs make semantic drift **measurable**:
 ```python
 # Compare external model to internal model via ACL
 coherence_score = measure_translation_fidelity(
-    external_records=external_api.get_all_customers(),
-    acl=CustomerACL,
-    internal_entities=entity_repository.get_all_customers()
+ external_records=external_api.get_all_customers,
+ acl=CustomerACL,
+ internal_entities=entity_repository.get_all_customers
 )
 ```
 
@@ -437,29 +437,29 @@ If ACL translation is lossy or distorting, coherence score drops.
 ## Key Takeaways
 
 1. **ACLs protect domain model integrity**
-   - External systems cannot corrupt internal ubiquitous language
-   - Translation is explicit and controlled
-   - Internal model remains stable despite external changes
+ - External systems cannot corrupt internal ubiquitous language
+ - Translation is explicit and controlled
+ - Internal model remains stable despite external changes
 
 2. **ACLs are semantic firewalls**
-   - Governance as strategy: active prevention of corruption
-   - Schema = meaning: ACL transforms external schema to internal semantics
-   - Lineage: ACL is the provenance layer for external data
+ - Governance as strategy: active prevention of corruption
+ - Schema = meaning: ACL transforms external schema to internal semantics
+ - Lineage: ACL is the provenance layer for external data
 
 3. **ACLs enable pattern adoption**
-   - Integrate with poorly-designed systems without inheriting bad design
-   - Acquire external patterns confidently (ACL isolates risk)
-   - AI can generate ACLs when domain model is well-defined
+ - Integrate with poorly-designed systems without inheriting bad design
+ - Acquire external patterns confidently (ACL isolates risk)
+ - AI can generate ACLs when domain model is well-defined
 
 4. **Use ACLs selectively**
-   - Do not add complexity for trivial integrations
-   - Use when upstream model quality is poor or the team lacks control
-   - One ACL per external system
+ - Do not add complexity for trivial integrations
+ - Use when upstream model quality is poor or the team lacks control
+ - One ACL per external system
 
 5. **ACLs are testable contracts**
-   - Translation rules are explicit
-   - Validation enforces invariants
-   - Tests verify correctness
+ - Translation rules are explicit
+ - Validation enforces invariants
+ - Tests verify correctness
 
 **The core insight:** Semantic coherence cannot be maintained if external chaos enters the domain unchecked—ACLs are the boundary defense.
 
@@ -472,49 +472,49 @@ If ACL translation is lossy or distorting, coherence score drops.
 # Internal system (downstream) uses "Entity"
 
 class CustomerACL:
-    def fetch_entity(self, external_id: str) -> Entity:
-        """Translate external customer record to internal Entity."""
-        customer_record = external_api.get_customer(external_id)
+ def fetch_entity(self, external_id: str) -> Entity:
+ """Translate external customer record to internal Entity."""
+ customer_record = external_api.get_customer(external_id)
 
-        # Translation layer
-        return Entity(
-            entity_id=f"customer-{customer_record['id']}",
-            entity_type=EntityType.CUSTOMER,
-            attributes={
-                "name": customer_record['full_name'],
-                "email": customer_record['contact_email'],
-                "status": self._map_status(customer_record['status'])
-            }
-        )
+ # Translation layer
+ return Entity(
+ entity_id=f"customer-{customer_record['id']}",
+ entity_type=EntityType.CUSTOMER,
+ attributes={
+ "name": customer_record['full_name'],
+ "email": customer_record['contact_email'],
+ "status": self._map_status(customer_record['status'])
+ }
+ )
 
-    def _map_status(self, external_status: str) -> str:
-        """Map external status codes to internal domain language."""
-        mapping = {
-            "ACTIVE": "active",
-            "SUSPENDED": "inactive",
-            "DELETED": "churned"
-        }
-        return mapping.get(external_status, "unknown")
+ def _map_status(self, external_status: str) -> str:
+ """Map external status codes to internal domain language."""
+ mapping = {
+ "ACTIVE": "active",
+ "SUSPENDED": "inactive",
+ "DELETED": "churned"
+ }
+ return mapping.get(external_status, "unknown")
 ```
 ### Example 2
 ```python
 def create_order_from_external(self, external_order: dict) -> Order:
-    """Create internal Order from external system."""
+ """Create internal Order from external system."""
 
-    # ACL enforces internal invariants
-    if external_order['total_amount'] <= 0:
-        raise ValueError("Order total must be positive")
+ # ACL enforces internal invariants
+ if external_order['total_amount'] <= 0:
+ raise ValueError("Order total must be positive")
 
-    if not external_order.get('customer_id'):
-        raise ValueError("Order must have customer")
+ if not external_order.get('customer_id'):
+ raise ValueError("Order must have customer")
 
-    # Transform to internal model
-    return Order(
-        order_id=generate_order_id(),
-        customer=self.customer_acl.fetch_entity(external_order['customer_id']),
-        line_items=self._transform_line_items(external_order['items']),
-        total=Money(external_order['total_amount'], external_order['currency'])
-    )
+ # Transform to internal model
+ return Order(
+ order_id=generate_order_id,
+ customer=self.customer_acl.fetch_entity(external_order['customer_id']),
+ line_items=self._transform_line_items(external_order['items']),
+ total=Money(external_order['total_amount'], external_order['currency'])
+ )
 ```
 
 

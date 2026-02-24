@@ -6,8 +6,8 @@ pattern: semantic-compression
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: high
+ pattern_type: concept
+ brand_strength: high
 ---
 
 # Semantic Compression
@@ -55,8 +55,8 @@ The canonical example of semantic compression:
 
 ```
 Raw events (billions of rows)
-    → Star schema (facts + dimensions)
-    → Efficient aggregation, joins, time intelligence
+ → Star schema (facts + dimensions)
+ → Efficient aggregation, joins, time intelligence
 ```
 
 A well-designed schema encodes:
@@ -76,8 +76,8 @@ A well-designed schema encodes:
 
 ```
 Tribal knowledge + implicit rules + edge cases
-    → Bounded context with explicit invariants
-    → Reusable domain model
+ → Bounded context with explicit invariants
+ → Reusable domain model
 ```
 
 A [bounded context](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) does not just organize code—it **compresses the semantics** of a business domain into a form that:
@@ -95,8 +95,8 @@ Repositories compress organizational knowledge:
 
 ```
 Decisions, discussions, experiments, rollbacks
-    → Git history with PRs, commits, branches
-    → Queryable lineage graph
+ → Git history with PRs, commits, branches
+ → Queryable lineage graph
 ```
 
 Each repository is a **semantic function** that compresses:
@@ -115,8 +115,8 @@ Object-oriented and functional abstractions:
 
 ```
 Repeated logic + edge cases + variations
-    → Class hierarchy or function library
-    → Reusable, testable, composable
+ → Class hierarchy or function library
+ → Reusable, testable, composable
 ```
 
 A well-designed class encodes:
@@ -148,8 +148,8 @@ Mathematical compression of domain logic:
 
 ```
 Complex multi-step reasoning
-    → Formula or algorithm
-    → Executable, testable, reusable
+ → Formula or algorithm
+ → Executable, testable, reusable
 ```
 
 Examples:
@@ -289,7 +289,7 @@ Not everything needs compression. The investment should match the reuse:
 - [everything-is-github.md](everything-is-github.md) - Repos as semantic functions
 
 ### Practice
-- [UBIQUITOUS_LANGUAGE.md](https://github.com/semops-ai/ike-semantic-ops/blob/main/schemas/UBIQUITOUS_LANGUAGE.md) - Compressed domain definitions
+- [UBIQUITOUS_LANGUAGE.md](https://github.com/timjmitchell/ike-semantic-ops/blob/main/schemas/UBIQUITOUS_LANGUAGE.md) - Compressed domain definitions
 
 ### Citations
 - [Semantic Compression with Information Lattice Learning](https://arxiv.org/abs/2404.03131) - Lattice theory framing of "abstraction as lossy semantic compression"

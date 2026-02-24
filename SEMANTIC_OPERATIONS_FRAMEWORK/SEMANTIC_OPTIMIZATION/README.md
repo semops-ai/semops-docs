@@ -6,13 +6,13 @@ pattern: semantic-optimization
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand-strength: high
+ pattern_type: concept
+ brand-strength: high
 ---
 
 # Semantic Optimization
 
-> **Semantic Optimization** is business growth through the conversion of shared, coherent meaning into concrete systems optimized for human and AI collaboration.
+> **Semantic Optimization** is business growth through agentic execution with rich semantic Patterns, while continually aligning semantic coherence of systems, goals, and organizations towards goals and optimal decisions.
 
 When organizational knowledge is structured as explicit, validated patterns:
 
@@ -28,13 +28,13 @@ The goal is analogous to well-designed software: processes, decisions, and knowl
 Strategic Data provides the correct objects. Explicit Architecture provides the stable rules and scaffolding. Semantic Optimization is then free to measure, optimize, and repeat.
 
 ```
-  Objects:  DATA ══════> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
-               │                │                  │
-  Rules:  Structural       Interpretive        Normative
-          (Strategic Data)  (Sem. Optimization) (Sem. Optimization)
-               │                │                  │
-  Agents: Domain agents    Teams, AI           Governance,
-                                                leadership
+ Objects: DATA ══════> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
+ │ │ │
+ Rules: Structural Interpretive Normative
+ (Strategic Data) (Sem. Optimization) (Sem. Optimization)
+ │ │ │
+ Agents: Domain agents Teams, AI Governance,
+ leadership
 ```
 
 | Element | I → K | K → W |

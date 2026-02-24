@@ -6,8 +6,8 @@ pattern: patterns
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: high
+ pattern_type: concept
+ brand_strength: high
 ---
 
 # Patterns
@@ -29,14 +29,14 @@ Patterns work in the Semantic Operations Framework because they preserve complet
 Patterns are Knowledge-level **Objects** in the [Semantic Funnel](../../RESEARCH/FOUNDATIONS/semantic-funnel.md) — self-contained semantic structures that encode meaning beyond raw relationships (Information). The pattern taxonomy spans all levels, but the primary transition is I→K: transforming structured information into actionable, domain-grounded knowledge.
 
 ```text
-  Objects:  DATA -------> INFORMATION ══════> KNOWLEDGE -------> WISDOM
-                                         │
-  Rules:                           Interpretive
-                                   (domain-grounded
-                                    semantic units)
-                                         │
-  Agents:                          Domain experts,
-                                   AI (for 3p patterns)
+ Objects: DATA -------> INFORMATION ══════> KNOWLEDGE -------> WISDOM
+ │
+ Rules: Interpretive
+ (domain-grounded
+ semantic units)
+ │
+ Agents: Domain experts,
+ AI (for 3p patterns)
 ```
 
 | Element | I → K |
@@ -94,7 +94,7 @@ Because patterns are concrete data objects with defined boundaries, they can be 
 - **Edge case handling** - Does the pattern hold up when exercised across varied scenarios?
 - **System integration** - Does the pattern fit into data schemas, pipelines, and downstream consumers?
 
-**Modeling and prediction:**  Changes can be modeled before making them.
+**Modeling and prediction:** Changes can be modeled before making them.
 - Generate synthetic data conforming to a pattern
 - Simulate how a new domain pattern integrates with existing architecture 
 - Predict governance impacts. 
@@ -108,10 +108,10 @@ In the SemOps implementation, the [constraints pattern](https://github.com/semop
 
 ```text
 IF visibility = "private" AND surface.direction = "publish"
-  THEN surface MUST be internal/private (knowledge base, RAG, etc.)
+ THEN surface MUST be internal/private (knowledge base, RAG, etc.)
 
 IF visibility = "public" AND surface.direction = "publish"
-  THEN surface CAN be public platform (blog, YouTube, etc.)
+ THEN surface CAN be public platform (blog, YouTube, etc.)
 ```
 
 These constraints are testable because the pattern is structured: visibility, surface direction, and delivery status are all defined attributes with bounded values. Every entity can be validated against these rules automatically — and violations can be caught before they reach production.
@@ -128,10 +128,10 @@ Patterns are typed based on their purpose and provenance. The specific types nee
 
 The provenance distinction is fundamental to any pattern-based system:
 
-| Type                  | Provenance                        | Lineage                                | Definition                                       | Role            |
+| Type | Provenance | Lineage | Definition | Role |
 | --------------------- | --------------------------------- | -------------------------------------- | ------------------------------------------------ | --------------- |
-| **Standard Pattern**  | 3p (third-party: external source) | —                                      | Proven solution adopted as-is                    | Baseline        |
-| **Optimized Pattern** | 3p                                | Tracked deltas from standard → yours   | Intentional, understood deviations from baseline | Differentiation |
+| **Standard Pattern** | 3p (third-party: external source) | — | Proven solution adopted as-is | Baseline |
+| **Optimized Pattern** | 3p | Tracked deltas from standard → yours | Intentional, understood deviations from baseline | Differentiation |
 
 **Why this matters:** The provenance split determines how AI can help. For 3p patterns, AI can implement, validate, and optimize toward the canonical form. For 1p patterns, AI must be more cautious—these are organization-specific innovations that the model has not seen.
 
@@ -204,16 +204,16 @@ New patterns do not emerge fully formed. They follow the [Stable Core, Flexible 
 
 ```text
 Flexible Edge (experimentation)
-        │
-        │ classify, validate
-        ▼
+ │
+ │ classify, validate
+ ▼
 Decision Point
-        │
-        ├── PROMOTE to stable core
-        ├── REJECT (not a useful pattern)
-        └── KEEP EXPLORING (needs more work)
-        │
-        ▼
+ │
+ ├── PROMOTE to stable core
+ ├── REJECT (not a useful pattern)
+ └── KEEP EXPLORING (needs more work)
+ │
+ ▼
 Stable Core (operational patterns)
 ```
 
@@ -237,20 +237,20 @@ See [Stable Core, Flexible Edge](../EXPLICIT_ARCHITECTURE/stable-core-flexible-e
 Patterns are the connective tissue across all three pillars of the [Semantic Operations Framework](../README.md):
 
 ```text
-Strategic Data          Explicit Architecture       Semantic Optimization
-     │                          │                            │
-     │ creates                  │ operationalizes            │ measures
-     ▼                          ▼                            ▼
+Strategic Data Explicit Architecture Semantic Optimization
+ │ │ │
+ │ creates │ operationalizes │ measures
+ ▼ ▼ ▼
 ┌─────────────────────────────────────────────────────────────────────┐
-│                          PATTERNS                                   │
-│                                                                     │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐               │
-│  │ Standard (3p)│  │ Optimized(1p)│  │ Emerging     │               │
-│  │ SKOS, PROV-O │  │ Org IP       │  │ (edge)       │               │
-│  │ DAM, DDD     │  │ innovations  │  │ candidates   │               │
-│  └──────────────┘  └──────────────┘  └──────────────┘               │
-│                                                                     │
-│  Properties: self-contained, recognizable, composable, measurable   │
+│ PATTERNS │
+│ │
+│ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ │
+│ │ Standard (3p)│ │ Optimized(1p)│ │ Emerging │ │
+│ │ SKOS, PROV-O │ │ Org IP │ │ (edge) │ │
+│ │ DAM, DDD │ │ innovations │ │ candidates │ │
+│ └──────────────┘ └──────────────┘ └──────────────┘ │
+│ │
+│ Properties: self-contained, recognizable, composable, measurable │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -328,14 +328,14 @@ In DDD terms: **Domain Pattern = Asserted Bounded Context**
 
 Integration between patterns follows DDD context map patterns:
 
-| Pattern                   | Power Dynamic          | Drift Risk |
+| Pattern | Power Dynamic | Drift Risk |
 | ------------------------- | ---------------------- | ---------- |
-| **Partnership**           | Equal                  | LOW        |
-| **Customer-Supplier**     | Upstream > Downstream  | MEDIUM     |
-| **Conformist**            | Upstream >> Downstream | HIGH       |
-| **Anti-Corruption Layer** | Isolated               | LOW        |
-| **Open Host Service**     | Stable API             | LOW        |
-| **Published Language**    | Standard governs       | LOW        |
+| **Partnership** | Equal | LOW |
+| **Customer-Supplier** | Upstream > Downstream | MEDIUM |
+| **Conformist** | Upstream >> Downstream | HIGH |
+| **Anti-Corruption Layer** | Isolated | LOW |
+| **Open Host Service** | Stable API | LOW |
+| **Published Language** | Standard governs | LOW |
 
 See [Patterns and Bounded Contexts](../EXPLICIT_ARCHITECTURE/patterns-and-bounded-contexts.md) for detailed descriptions.
 

@@ -6,8 +6,8 @@ pattern: what-is-architecture
 provenance: 3p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 
 # What is Architecture?
@@ -255,11 +255,11 @@ DDD is the **general-purpose foundation**; other approaches are **specialized la
 Organization's Domain Model (DDD as foundation):
 ├── Sales Bounded Context
 ├── Product Bounded Context (uses PIM pattern)
-│   ├── Product aggregate root (DDD)
-│   ├── Channel syndication (PIM)
-│   └── Attribute management (PIM)
+│ ├── Product aggregate root (DDD)
+│ ├── Channel syndication (PIM)
+│ └── Attribute management (PIM)
 ├── Fulfillment Bounded Context
-│   └── Event-driven integration (EDA)
+│ └── Event-driven integration (EDA)
 └── Analytics Domain (Data Mesh principles)
 ```
 
@@ -420,22 +420,22 @@ Architecture degrades without active governance:
 ## Key Takeaways
 
 1. **Architecture is not infrastructure, stack, or topology**
-   - These are implementation choices, not business rules
+ - These are implementation choices, not business rules
 
 2. **Most "architecture diagrams" are infrastructure diagrams**
-   - If the boxes are servers or services, it is not architecture
+ - If the boxes are servers or services, it is not architecture
 
 3. **Architecture is explicit rules about entities, relationships, and constraints**
-   - If it is not documented and inspectable, it is not architecture
+ - If it is not documented and inspectable, it is not architecture
 
 4. **Multiple design approaches exist, but all require explicitness**
-   - DDD, EDA, Data Mesh, Ontology-first, PIM—choose based on domain
+ - DDD, EDA, Data Mesh, Ontology-first, PIM—choose based on domain
 
 5. **Implicit architecture is the default; explicit architecture is a choice**
-   - Every system has architecture; the question is whether it was designed
+ - Every system has architecture; the question is whether it was designed
 
 6. **AI amplifies architecture quality—good or bad**
-   - [Semantic coherence](../SEMANTIC_OPTIMIZATION/semantic-coherence.md) enables AI; ambiguity creates hallucination
+ - [Semantic coherence](../SEMANTIC_OPTIMIZATION/semantic-coherence.md) enables AI; ambiguity creates hallucination
 
 ---
 

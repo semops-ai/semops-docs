@@ -6,8 +6,8 @@ pattern: data-shapes
 provenance: 3p
 
 metadata: 
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 
 # Data Shape
@@ -16,7 +16,7 @@ metadata:
 
 **Provenance:** 3p (W3C SHACL, JSON Schema community)
 **Derives From:** SHACL, JSON Schema, data modeling practice
-**Pattern Registry:** [ai-workflow-kit/schemas/pattern_v1.yaml](https://github.com/semops-ai/ai-workflow-kit/blob/main/schemas/pattern_v1.yaml)
+**Pattern Registry:** [ai-workflow-kit/schemas/pattern_v1.yaml](https://github.com/timjmitchell/ai-workflow-kit/blob/main/schemas/pattern_v1.yaml)
 
 ---
 
@@ -132,13 +132,13 @@ Our schema implements the SHACL pattern through **JSONB metadata columns** with 
 
 ```json
 {
-  "type": "object",
-  "properties": {
-    "word_count": { "type": "integer" },
-    "reading_time_minutes": { "type": "integer" },
-    "language": { "type": "string", "pattern": "^[a-z]{2}$" }
-  },
-  "additionalProperties": false  // Closed World
+ "type": "object",
+ "properties": {
+ "word_count": { "type": "integer" },
+ "reading_time_minutes": { "type": "integer" },
+ "language": { "type": "string", "pattern": "^[a-z]{2}$" }
+ },
+ "additionalProperties": false // Closed World
 }
 ```
 
@@ -150,12 +150,12 @@ In `ai-workflow-kit/schemas/pattern_v1.yaml`, each pattern has a `shape` field:
 
 ```yaml
 pattern:
-  id: provenance-first-design
-  name: Provenance-First Design (1P/2P/3P)
-  provenance: 1p
-  derives_from: [prov-o]
-  shape: TBD  # Concrete data structure pending
-  # ...
+ id: provenance-first-design
+ name: Provenance-First Design (1P/2P/3P)
+ provenance: 1p
+ derives_from: [prov-o]
+ shape: TBD # Concrete data structure pending
+ # ...
 ```
 
 The shape will define:
@@ -178,16 +178,16 @@ The shape will define:
 
 ```yaml
 shape:
-  fields:
-    - name: provenance
-      type: enum
-      values: [1p, 2p, 3p]
-      required: true
-  constraints:
-    - "3p entities cannot have delivery records"
-  contributes_to:
-    - table: entity
-      column: provenance
+ fields:
+ - name: provenance
+ type: enum
+ values: [1p, 2p, 3p]
+ required: true
+ constraints:
+ - "3p entities cannot have delivery records"
+ contributes_to:
+ - table: entity
+ column: provenance
 ```
 
 ---

@@ -6,8 +6,8 @@ pattern: stable-core-flexible-edge
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: high
+ pattern_type: concept
+ brand_strength: high
 ---
 
 # Stable Core, Flexible Edge
@@ -132,11 +132,11 @@ This allows **experimentation without commitment** — the core remains stable w
 
 ```text
 Abstraction emerges (edge)
-    ↓
+ ↓
 Test via data shapes (edge)
-    ↓
+ ↓
 Validate semantic representation (edge)
-    ↓
+ ↓
 Promote to schema/pattern (core)
 ```
 
@@ -150,9 +150,9 @@ Abstractions that survive this lifecycle and reach the stable core become **cano
 
 - **The coherent state** is what you're protecting
 - **Changes happen via the flexible edge:**
-  - Metadata can get promoted into schema
-  - Pattern alterations can become the new operating pattern
-  - New value objects are created and given meaning
+ - Metadata can get promoted into schema
+ - Pattern alterations can become the new operating pattern
+ - New value objects are created and given meaning
 
 ### Coherence Maintenance
 
@@ -186,9 +186,9 @@ Anti-Corruption Layers enforce the boundary:
 
 ```text
 External System → ACL → Stable Core
-                  ↑
-            Flexible Edge
-            (translation, validation)
+ ↑
+ Flexible Edge
+ (translation, validation)
 ```
 
 The ACL is where edge volatility gets translated into core stability.
@@ -197,18 +197,18 @@ The ACL is where edge volatility gets translated into core stability.
 
 ```text
 ┌─────────────────────────────────────┐
-│         Stable Core                 │
-│   (Schema, Canonical Patterns)      │
+│ Stable Core │
+│ (Schema, Canonical Patterns) │
 └─────────────────────────────────────┘
-              ↑ promote
+ ↑ promote
 ┌─────────────────────────────────────┐
-│         Flexible Edge               │
-│   (Shapes, Candidate Patterns)      │
+│ Flexible Edge │
+│ (Shapes, Candidate Patterns) │
 └─────────────────────────────────────┘
-              ↑ experiment
+ ↑ experiment
 ┌─────────────────────────────────────┐
-│         Raw/External                │
-│   (Unstructured, External APIs)     │
+│ Raw/External │
+│ (Unstructured, External APIs) │
 └─────────────────────────────────────┘
 ```
 
@@ -295,7 +295,7 @@ For the full pattern emergence narrative, W3C standard mappings, and industry pa
 ### Strategic Context
 
 - [Semantic Coherence](../SEMANTIC_OPTIMIZATION/semantic-coherence.md) - What stable core protects
-- [Explicit Architecture](explicit-architecture.md) - Architecture as encoded rules
+- [Explicit Architecture](what-is-architecture.md) - Architecture as encoded rules
 - [Explicit Architecture](README.md) - Parent framework
 
 ### External References

@@ -4,8 +4,8 @@ pattern: research-foundations
 provenance: 3p
 
 metadata: 
-    doc_type: structure
-    brand-strength: low
+ doc_type: structure
+ brand-strength: low
 # this doc is a fairly straight ahead structure doc that's synthesizing 3p concepts - reviewed and merged content from semantic-foundations.md and hub-first-principles.md (now deleted)
 ---
 

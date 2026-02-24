@@ -6,8 +6,8 @@ pattern: data-silos-explained
 provenance: 3p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 
 # Data Silos Explained
@@ -207,20 +207,20 @@ All enterprise data originates from [four Data System Types](four-data-system-ty
 ### The Semantic Gradient
 
 ```
-          HIGH SEMANTIC STRUCTURE
-                (finance)
-                    │
-                    │
-   ┌────────────────┴───────────────┐
-   │                                │
-APPLICATION DATA          ANALYTICS DATA
-(stable, local meaning)    (flattened meaning)
-   │                                │
-   └────────────────┬───────────────┘
-                    │
-              ENTERPRISE WORK DATA
-              ("dark data" = no structure)
-          LOW SEMANTIC STRUCTURE
+ HIGH SEMANTIC STRUCTURE
+ (finance)
+ │
+ │
+ ┌────────────────┴───────────────┐
+ │ │
+APPLICATION DATA ANALYTICS DATA
+(stable, local meaning) (flattened meaning)
+ │ │
+ └────────────────┬───────────────┘
+ │
+ ENTERPRISE WORK DATA
+ ("dark data" = no structure)
+ LOW SEMANTIC STRUCTURE
 ```
 
 ---
@@ -265,19 +265,19 @@ For each business event:
 event: purchase_completed
 owner: Product Engineering (with Analytics/Marketing input)
 attributes:
-  - user_id (required)
-  - order_id (required)
-  - product_id (required)
-  - revenue (required)
-  - utm_source (required for Marketing)
-  - utm_campaign (required for Marketing)
-  - customer_segment (required for Customer Analytics)
-  - device_type (required for Product Analytics)
-  - timestamp (canonical)
+ - user_id (required)
+ - order_id (required)
+ - product_id (required)
+ - revenue (required)
+ - utm_source (required for Marketing)
+ - utm_campaign (required for Marketing)
+ - customer_segment (required for Customer Analytics)
+ - device_type (required for Product Analytics)
+ - timestamp (canonical)
 governance:
-  - PII: [user_id, email] → encrypted at rest
-  - Retention: 7 years per compliance
-  - Access: restricted to approved systems
+ - PII: [user_id, email] → encrypted at rest
+ - Retention: 7 years per compliance
+ - Access: restricted to approved systems
 ```
 
 ### Principle 2: Understand the Analytics Patterns
@@ -342,11 +342,11 @@ Then: Marketing, Product, Customer Analytics all use the **same definitions** be
 
 ```
 Product DB → checkout events → Product Analytics
-     ↓
+ ↓
 Marketing pixels → ad platforms → Marketing Analytics
-     ↓
+ ↓
 CRM sync → Salesforce → Customer Analytics
-     ↓
+ ↓
 Order DB → ETL → Data Warehouse → BI Reports
 ```
 
@@ -360,21 +360,21 @@ Order DB → ETL → Data Warehouse → BI Reports
 
 ```
 User clicks "Buy Now"
-     ↓
+ ↓
 Single instrumentation layer captures:
-  - event_type: checkout_initiated
-  - user_id, session_id, product_id
-  - utm_source, utm_campaign (marketing)
-  - device, platform (product)
-  - customer_segment (customer analytics)
-  - timestamp (canonical)
-     ↓
+ - event_type: checkout_initiated
+ - user_id, session_id, product_id
+ - utm_source, utm_campaign (marketing)
+ - device, platform (product)
+ - customer_segment (customer analytics)
+ - timestamp (canonical)
+ ↓
 Event streams to all downstream systems:
-  - Product Analytics (for funnel analysis)
-  - Marketing Analytics (for attribution)
-  - Customer Analytics (for LTV)
-  - Data Warehouse (for BI)
-     ↓
+ - Product Analytics (for funnel analysis)
+ - Marketing Analytics (for attribution)
+ - Customer Analytics (for LTV)
+ - Data Warehouse (for BI)
+ ↓
 Same semantic definition everywhere
 ```
 

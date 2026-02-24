@@ -6,8 +6,8 @@ pattern: silent-analytics-failure
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 
 # Silent Analytics Failure
@@ -215,25 +215,25 @@ metadata:
 
 ```text
 Phase 1: Honeymoon
-  - New dashboards launched
-  - Stakeholders excited
-  - "Finally we have data!"
+ - New dashboards launched
+ - Stakeholders excited
+ - "Finally we have data!"
 
 Phase 2: Quiet Doubt
-  - Numbers don't quite match intuition
-  - "Must be my misunderstanding"
-  - Some teams build shadow spreadsheets
+ - Numbers don't quite match intuition
+ - "Must be my misunderstanding"
+ - Some teams build shadow spreadsheets
 
 Phase 3: Discovery
-  - Major error found
-  - Executives embarrassed
-  - "How long has this been wrong?"
+ - Major error found
+ - Executives embarrassed
+ - "How long has this been wrong?"
 
 Phase 4: Collapse
-  - "We can't trust any of these dashboards"
-  - Data team credibility destroyed
-  - Shadow analytics proliferate
-  - Investment in "new data platform" (cycle repeats)
+ - "We can't trust any of these dashboards"
+ - Data team credibility destroyed
+ - Shadow analytics proliferate
+ - Investment in "new data platform" (cycle repeats)
 ```
 
 **The recurring pattern:** Organizations invest in new tools and platforms, but the root cause—lack of semantic governance—persists. The cycle repeats.
@@ -268,9 +268,9 @@ WHERE event_date >= CURRENT_DATE - 30
 -- Implementation B (what stakeholder meant)
 SELECT COUNT(DISTINCT user_id)
 FROM events
-WHERE event_type = 'login'  -- Not just any event
-  AND event_date >= CURRENT_DATE - 30
-  AND user_status = 'active'  -- Exclude churned users
+WHERE event_type = 'login' -- Not just any event
+ AND event_date >= CURRENT_DATE - 30
+ AND user_status = 'active' -- Exclude churned users
 ```
 
 **Both queries:**

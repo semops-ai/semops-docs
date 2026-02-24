@@ -3,8 +3,8 @@ doc_type: hub
 pattern: semantic-coherence-measurement
 provenance: 1p
 metadata:
-  pattern_type: concept
-  brand-strength: high
+ pattern_type: concept
+ brand-strength: high
 # 
 ---
 # Semantic Coherence Measurement
@@ -86,37 +86,37 @@ The geometric mean ensures that a low score in one dimension lowers overall cohe
 
 ### **Step 1 — Inventory Core Concepts**
 Collect:
-- glossary nodes  
-- metric definitions  
-- schema entities  
-- events/features  
-- ontology classes  
+- glossary nodes 
+- metric definitions 
+- schema entities 
+- events/features 
+- ontology classes 
 
 ---
 
 ### **Step 2 — Score Semantic Stability (0–1)**
 Check:
-- definition drift  
-- schema changes  
-- semantic deltas across artifacts  
+- definition drift 
+- schema changes 
+- semantic deltas across artifacts 
 
 ---
 
 ### **Step 3 — Score Semantic Availability (0–1)**
 Check:
-- catalog presence  
-- clarity & completeness  
-- discoverability  
-- clear lineage  
+- catalog presence 
+- clarity & completeness 
+- discoverability 
+- clear lineage 
 
 ---
 
 ### **Step 4 — Score Semantic Consistency (0–1)**
 Check:
-- cross-team alignment  
-- semantic layer definitions  
-- schema congruence  
-- metric standardization  
+- cross-team alignment 
+- semantic layer definitions 
+- schema congruence 
+- metric standardization 
 
 ---
 
@@ -136,9 +136,9 @@ SC_org = Average(SC_concept)
 ---
 
 ### **Step 6 — Identify Hotspots**
-- SC < 0.4 → High semantic risk  
-- SC 0.4–0.7 → Needs governance  
-- SC > 0.7 → Healthy  
+- SC < 0.4 → High semantic risk 
+- SC 0.4–0.7 → Needs governance 
+- SC > 0.7 → Healthy 
 
 ---
 
@@ -196,22 +196,22 @@ Where:
 ### Prioritization Matrix
 
 ```
-                    HIGH DECISION WEIGHT
-                           │
-         ┌─────────────────┼─────────────────┐
-         │                 │                 │
-         │   MEDIUM        │   CRITICAL      │
-         │   (Schedule)    │   (Continuous)  │
-         │                 │                 │
-LOW      ├─────────────────┼─────────────────┤ HIGH
-VISIBILITY                 │                   VISIBILITY
-         │                 │                 │
-         │   LOW           │   HIGH          │
-         │   (On-change)   │   (Monthly)     │
-         │                 │                 │
-         └─────────────────┼─────────────────┘
-                           │
-                    LOW DECISION WEIGHT
+ HIGH DECISION WEIGHT
+ │
+ ┌─────────────────┼─────────────────┐
+ │ │ │
+ │ MEDIUM │ CRITICAL │
+ │ (Schedule) │ (Continuous) │
+ │ │ │
+LOW ├─────────────────┼─────────────────┤ HIGH
+VISIBILITY │ VISIBILITY
+ │ │ │
+ │ LOW │ HIGH │
+ │ (On-change) │ (Monthly) │
+ │ │ │
+ └─────────────────┼─────────────────┘
+ │
+ LOW DECISION WEIGHT
 ```
 
 ### Application to Audit Steps
@@ -254,14 +254,14 @@ The audit methodology can be operationalized using a RAG pipeline architecture w
 
 ```
 CORPUS (Source of Truth)
-    │
-    ▼
+ │
+ ▼
 EMBEDDING PIPELINE (chunk, embed, store)
-    │
-    ▼
+ │
+ ▼
 CLASSIFIER PIPELINE (4-tier: Rule → Embed → Graph → LLM)
-    │
-    ▼
+ │
+ ▼
 SC MEASUREMENT (A × C × S)^(1/3)
 ```
 
@@ -301,8 +301,8 @@ For analytics systems, standard lineage monitoring is not enough. High-visibilit
 Traditional data audits work forward:
 ```
 Source → Transform → Aggregate → Dashboard
-  ↓         ↓           ↓           ↓
- ✓         ✓           ✓           ?
+ ↓ ↓ ↓ ↓
+ ✓ ✓ ✓ ?
 ```
 
 But semantic errors compound. A dashboard metric can be "correct" (pipeline runs, numbers appear) while being **semantically wrong** (the number does not mean what people think it means).
@@ -313,17 +313,17 @@ Start from high-surface-area outputs and trace back:
 
 ```
 Dashboard/Report (what executives see)
-       │
-       ▼
+ │
+ ▼
 Aggregation Logic (how it is computed)
-       │
-       ▼
+ │
+ ▼
 Transform Layer (business rules applied)
-       │
-       ▼
+ │
+ ▼
 Schema Definition (what the fields mean)
-       │
-       ▼
+ │
+ ▼
 Source Data (where it actually comes from)
 ```
 
@@ -396,57 +396,57 @@ For each high-surface-area metric:
 
 ```python
 def working_backwards_audit(dashboard_metric_id: str) -> AuditReport:
-    """
-    Trace a metric backwards from dashboard to source.
-    Validate semantic correctness at each layer.
-    """
-    report = AuditReport(metric_id=dashboard_metric_id)
+ """
+ Trace a metric backwards from dashboard to source.
+ Validate semantic correctness at each layer.
+ """
+ report = AuditReport(metric_id=dashboard_metric_id)
 
-    # 1. Get the metric as displayed
-    metric = get_dashboard_metric(dashboard_metric_id)
-    report.display_label = metric.label
-    report.display_description = metric.description
+ # 1. Get the metric as displayed
+ metric = get_dashboard_metric(dashboard_metric_id)
+ report.display_label = metric.label
+ report.display_description = metric.description
 
-    # 2. Get canonical definition
-    canonical = get_glossary_definition(metric.concept_id)
-    report.definition_match = semantic_match(
-        metric.description,
-        canonical.definition
-    )
+ # 2. Get canonical definition
+ canonical = get_glossary_definition(metric.concept_id)
+ report.definition_match = semantic_match(
+ metric.description,
+ canonical.definition
+ )
 
-    # 3. Trace aggregation logic
-    agg_logic = get_aggregation_logic(metric.source_query)
-    report.aggregation_documented = agg_logic.has_documentation
-    report.aggregation_matches_definition = validate_aggregation(
-        agg_logic,
-        canonical
-    )
+ # 3. Trace aggregation logic
+ agg_logic = get_aggregation_logic(metric.source_query)
+ report.aggregation_documented = agg_logic.has_documentation
+ report.aggregation_matches_definition = validate_aggregation(
+ agg_logic,
+ canonical
+ )
 
-    # 4. Trace transform layer
-    transforms = get_upstream_transforms(agg_logic.source_table)
-    for t in transforms:
-        transform_check = TransformValidation(
-            name=t.name,
-            has_documentation=t.has_docs,
-            rules_match_glossary=validate_transform_rules(t, canonical)
-        )
-        report.transforms.append(transform_check)
+ # 4. Trace transform layer
+ transforms = get_upstream_transforms(agg_logic.source_table)
+ for t in transforms:
+ transform_check = TransformValidation(
+ name=t.name,
+ has_documentation=t.has_docs,
+ rules_match_glossary=validate_transform_rules(t, canonical)
+ )
+ report.transforms.append(transform_check)
 
-    # 5. Trace to source
-    sources = get_source_tables(transforms)
-    for s in sources:
-        source_check = SourceValidation(
-            name=s.name,
-            is_authoritative=s.is_authoritative_for(canonical.concept_id),
-            extraction_documented=s.has_extraction_docs,
-            semantic_translation_documented=s.has_translation_docs
-        )
-        report.sources.append(source_check)
+ # 5. Trace to source
+ sources = get_source_tables(transforms)
+ for s in sources:
+ source_check = SourceValidation(
+ name=s.name,
+ is_authoritative=s.is_authoritative_for(canonical.concept_id),
+ extraction_documented=s.has_extraction_docs,
+ semantic_translation_documented=s.has_translation_docs
+ )
+ report.sources.append(source_check)
 
-    # 6. Compute overall semantic validity
-    report.semantic_validity_score = compute_validity_score(report)
+ # 6. Compute overall semantic validity
+ report.semantic_validity_score = compute_validity_score(report)
 
-    return report
+ return report
 ```
 
 ### Red Flags in Working Backwards Audit

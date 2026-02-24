@@ -6,8 +6,8 @@ pattern: foundations-cognition
 provenance: 3p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 # Foundations: Human Cognition and Organization
 

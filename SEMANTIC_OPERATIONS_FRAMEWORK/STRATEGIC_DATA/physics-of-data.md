@@ -6,8 +6,8 @@ pattern: the-physics-of-data
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: medium
+ pattern_type: concept
+ brand_strength: medium
 
 ---
 
@@ -25,14 +25,14 @@ Data is not abstract—it obeys thermodynamic laws, has energy costs, and requir
 Physics of Data is the thermodynamic grounding of the D→I transition in the [Semantic Funnel](../../RESEARCH/FOUNDATIONS/semantic-funnel.md). It proves that structure requires energy, entropy degrades meaning, and the transformation has a physical lower bound.
 
 ```
-  Objects:  DATA ══════> INFORMATION -------> KNOWLEDGE -------> WISDOM
-               │
-  Rules:  Structural
-          (schemas, entropy
-           reduction)
-               │
-  Agents: Data engineers,
-          modelers
+ Objects: DATA ══════> INFORMATION -------> KNOWLEDGE -------> WISDOM
+ │
+ Rules: Structural
+ (schemas, entropy
+ reduction)
+ │
+ Agents: Data engineers,
+ modelers
 ```
 
 | Element | D → I |
@@ -89,7 +89,7 @@ Unlike general-purpose software (which can be non-deterministic), data operation
 ### In Contrast
 
 ```
-AI Systems:      Non-deterministic (same input → different outputs)
+AI Systems: Non-deterministic (same input → different outputs)
 Data Operations: Deterministic (same input → same output)
 
 This is why data pipelines are reliable.

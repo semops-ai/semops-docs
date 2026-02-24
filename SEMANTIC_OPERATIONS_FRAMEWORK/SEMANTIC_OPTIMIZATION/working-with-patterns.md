@@ -6,8 +6,8 @@ pattern: working-with-patterns
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: high
+ pattern_type: concept
+ brand_strength: high
 ---
 
 # Working with Patterns
@@ -167,17 +167,17 @@ You may also find that you need to discover more patterns to solve more defined 
 
 ```text
 3P Adopted → Used in Context → Change Needed?
-                                      │
-                    ┌─────────────────┼─────────────────┐
-                    │                 │                   │
-               Already Handled   Vendor Aligns      Genuine 1P Need
-               (stay 3P)         (3P + vendor)      (tracked deviation)
-                                                          │
-                                                    Fits Architecture?
-                                                    Well-defined goal?
-                                                          │
-                                                    1P Pattern Created
-                                                    (lineage: derives from 3P)
+ │
+ ┌─────────────────┼─────────────────┐
+ │ │ │
+ Already Handled Vendor Aligns Genuine 1P Need
+ (stay 3P) (3P + vendor) (tracked deviation)
+ │
+ Fits Architecture?
+ Well-defined goal?
+ │
+ 1P Pattern Created
+ (lineage: derives from 3P)
 ```
 
 | Trigger | Result | Provenance | Risk |

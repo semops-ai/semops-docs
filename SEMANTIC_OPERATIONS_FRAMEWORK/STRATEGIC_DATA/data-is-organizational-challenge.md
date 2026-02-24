@@ -6,8 +6,8 @@ pattern: data-is-organizational-challenge
 provenance: 3p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 
 # Data Is an Organizational Challenge
@@ -166,21 +166,21 @@ Unlike software bugs that crash visibly, analytics failures produce plausible-lo
 
 ```text
 Phase 1: Honeymoon
-  → New dashboards launched
-  → "Finally we have data!"
+ → New dashboards launched
+ → "Finally we have data!"
 
 Phase 2: Quiet Doubt
-  → Numbers don't match intuition
-  → Some teams build shadow spreadsheets
+ → Numbers don't match intuition
+ → Some teams build shadow spreadsheets
 
 Phase 3: Discovery
-  → Major error found
-  → "How long has this been wrong?"
+ → Major error found
+ → "How long has this been wrong?"
 
 Phase 4: Collapse
-  → "We can't trust any dashboards"
-  → Shadow analytics proliferate
-  → Investment in "new data platform" (cycle repeats)
+ → "We can't trust any dashboards"
+ → Shadow analytics proliferate
+ → Investment in "new data platform" (cycle repeats)
 ```
 
 ### Why Finance Works (And Analytics Does Not)
@@ -280,27 +280,27 @@ Every node is a potential entry point for an agent. Every edge is a potential se
 ## Key Takeaways
 
 1. **Data failures are organizational, not technical**
-   - Technology exists. Ownership, literacy, and trust do not.
+ - Technology exists. Ownership, literacy, and trust do not.
 
 2. **Business domain determines data reality**
-   - Strategies cannot be imported from different domains
-   - Start from what the business model produces
+ - Strategies cannot be imported from different domains
+ - Start from what the business model produces
 
 3. **The DBA function dissolved without replacement**
-   - Role fragmentation created semantic void
-   - Nobody owns meaning across operational and analytical systems
+ - Role fragmentation created semantic void
+ - Nobody owns meaning across operational and analytical systems
 
 4. **Skills shifted to tools, away from modeling**
-   - Modern education emphasizes frameworks, not semantics
-   - Leaders lack data system literacy
+ - Modern education emphasizes frameworks, not semantics
+ - Leaders lack data system literacy
 
 5. **Trust collapses silently**
-   - Analytics failures look like successes until they do not
-   - Finance works because of constraints, not technology
+ - Analytics failures look like successes until they do not
+ - Finance works because of constraints, not technology
 
 6. **AI amplifies all of this**
-   - Expanded scope + unchanged organizational capability = amplified chaos
-   - Every semantic gap becomes an agent failure mode
+ - Expanded scope + unchanged organizational capability = amplified chaos
+ - Every semantic gap becomes an agent failure mode
 
 ---
 

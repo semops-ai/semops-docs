@@ -6,8 +6,8 @@ pattern: data-engineering-core-framework
 provenance: 3p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 
 # Data Engineering Core Framework
@@ -60,20 +60,20 @@ metadata:
 ## How They Relate
 
 ```
-              UNDERCURRENTS (disciplines - the "how")
-   ┌────────────────────────────────────────────────────────┐
-   │ Security │ Data Mgmt │ DataOps │ Arch │ Tic │ SWE     │
-   └────────────────────────────────────────────────────────┘
-                         ↕ ↕ ↕ ↕ ↕
-   ┌────────────────────────────────────────────────────────┐
-   │ Generation → Ingestion → Storage → Transform → Serving │
-   └────────────────────────────────────────────────────────┘
-                    LIFECYCLE (process - the "what")
-                         ↕ ↕ ↕ ↕ ↕
-   ┌────────────────────────────────────────────────────────┐
-   │ Ingestion │ Storage │ Table │ Compute │ Catalog │ ML  │
-   └────────────────────────────────────────────────────────┘
-                 COMPONENTS (layers - the "with what")
+ UNDERCURRENTS (disciplines - the "how")
+ ┌────────────────────────────────────────────────────────┐
+ │ Security │ Data Mgmt │ DataOps │ Arch │ Tic │ SWE │
+ └────────────────────────────────────────────────────────┘
+ ↕ ↕ ↕ ↕ ↕
+ ┌────────────────────────────────────────────────────────┐
+ │ Generation → Ingestion → Storage → Transform → Serving │
+ └────────────────────────────────────────────────────────┘
+ LIFECYCLE (process - the "what")
+ ↕ ↕ ↕ ↕ ↕
+ ┌────────────────────────────────────────────────────────┐
+ │ Ingestion │ Storage │ Table │ Compute │ Catalog │ ML │
+ └────────────────────────────────────────────────────────┘
+ COMPONENTS (layers - the "with what")
 ```
 
 Components are assembled into a platform. Lifecycle flows through those components. Undercurrents ensure quality at every intersection. Vendor differentiation tends to be execution quality rather than fundamental capability.
@@ -88,14 +88,14 @@ Components are assembled into a platform. Lifecycle flows through those componen
 
 **Purpose:** Move data from source systems into the platform, often in real time.
 
-| Aspect                   | Description                                                                         |
+| Aspect | Description |
 | ------------------------ | ----------------------------------------------------------------------------------- |
-| **Core functions**       | Event collection, message queuing, CDC replication, API ingestion, stream buffering |
-| **Data latency**         | Real-time (sub-second) → Near real-time (seconds–minutes)                           |
-| **Key patterns**         | Publish/subscribe, append-only logs, exactly-once semantics                         |
-| **Representative tools** | Kafka, Kinesis, Pulsar, Azure Event Hubs, Confluent Cloud, Debezium                 |
-| **Outputs**              | Structured event streams, change logs, incremental files                            |
-| **AI/ML link**           | Real-time feature generation, online prediction streams                             |
+| **Core functions** | Event collection, message queuing, CDC replication, API ingestion, stream buffering |
+| **Data latency** | Real-time (sub-second) → Near real-time (seconds–minutes) |
+| **Key patterns** | Publish/subscribe, append-only logs, exactly-once semantics |
+| **Representative tools** | Kafka, Kinesis, Pulsar, Azure Event Hubs, Confluent Cloud, Debezium |
+| **Outputs** | Structured event streams, change logs, incremental files |
+| **AI/ML link** | Real-time feature generation, online prediction streams |
 
 **Example pipeline:**
 Operational DB → CDC stream (Debezium → Kafka topic) → Lakehouse landing zone
@@ -106,14 +106,14 @@ Operational DB → CDC stream (Debezium → Kafka topic) → Lakehouse landing z
 
 **Purpose:** Store any form of data—structured, semi-structured, unstructured—in cheap, durable storage.
 
-| Aspect                   | Description                                                                 |
+| Aspect | Description |
 | ------------------------ | --------------------------------------------------------------------------- |
-| **Core functions**       | Blob/object storage, hierarchical partitioning, lifecycle management        |
-| **Data types**           | CSV, JSON, Avro, Parquet, images, video, logs                               |
-| **Typical latency**      | Minutes to hours; append or batch writes                                    |
+| **Core functions** | Blob/object storage, hierarchical partitioning, lifecycle management |
+| **Data types** | CSV, JSON, Avro, Parquet, images, video, logs |
+| **Typical latency** | Minutes to hours; append or batch writes |
 | **Representative tools** | AWS S3, Azure Data Lake Storage (ADLS), Google Cloud Storage (GCS), OneLake |
-| **Outputs**              | Immutable objects, raw files awaiting transformation                        |
-| **AI/ML link**           | Foundation for training data lakes and unstructured model inputs            |
+| **Outputs** | Immutable objects, raw files awaiting transformation |
+| **AI/ML link** | Foundation for training data lakes and unstructured model inputs |
 
 ---
 
@@ -121,13 +121,13 @@ Operational DB → CDC stream (Debezium → Kafka topic) → Lakehouse landing z
 
 **Purpose:** Add structure, schema, and ACID transactions on top of object storage.
 
-| Aspect                   | Description                                                                            |
+| Aspect | Description |
 | ------------------------ | -------------------------------------------------------------------------------------- |
-| **Core functions**       | Table metadata management, schema evolution, snapshot isolation, time travel           |
-| **Data latency**         | Minutes; micro-batch updates possible                                                  |
-| **Representative tools** | Apache Iceberg, Delta Lake, Apache Hudi, AWS S3 Tables                                 |
-| **Outputs**              | Logical "tables" referencing Parquet/ORC files with manifest/log metadata              |
-| **AI/ML link**           | Enables reproducible training sets, feature history, consistent input-output semantics |
+| **Core functions** | Table metadata management, schema evolution, snapshot isolation, time travel |
+| **Data latency** | Minutes; micro-batch updates possible |
+| **Representative tools** | Apache Iceberg, Delta Lake, Apache Hudi, AWS S3 Tables |
+| **Outputs** | Logical "tables" referencing Parquet/ORC files with manifest/log metadata |
+| **AI/ML link** | Enables reproducible training sets, feature history, consistent input-output semantics |
 
 ---
 
@@ -135,13 +135,13 @@ Operational DB → CDC stream (Debezium → Kafka topic) → Lakehouse landing z
 
 **Purpose:** Execute computation—SQL, Spark, or vector operations—on structured or semi-structured data.
 
-| Aspect                   | Description                                                                                       |
+| Aspect | Description |
 | ------------------------ | ------------------------------------------------------------------------------------------------- |
-| **Core functions**       | Query parsing, optimization, distributed execution, caching                                       |
-| **Data latency**         | Seconds to minutes                                                                                |
+| **Core functions** | Query parsing, optimization, distributed execution, caching |
+| **Data latency** | Seconds to minutes |
 | **Representative tools** | Databricks Spark/Photon, Snowflake virtual warehouses, BigQuery engine, Trino/Presto, Synapse SQL |
-| **Outputs**              | Query results, materialized views, analytic aggregates                                            |
-| **AI/ML link**           | Data prep and feature extraction; vector functions for embeddings; ML model scoring within SQL    |
+| **Outputs** | Query results, materialized views, analytic aggregates |
+| **AI/ML link** | Data prep and feature extraction; vector functions for embeddings; ML model scoring within SQL |
 
 ---
 
@@ -149,13 +149,13 @@ Operational DB → CDC stream (Debezium → Kafka topic) → Lakehouse landing z
 
 **Purpose:** Define, schedule, and monitor data transformations and workflows.
 
-| Aspect                   | Description                                                                              |
+| Aspect | Description |
 | ------------------------ | ---------------------------------------------------------------------------------------- |
-| **Core functions**       | Job scheduling, dependency graphs, DAG execution, failure recovery                       |
-| **Data latency**         | Seconds (streaming) → Hours (batch)                                                      |
+| **Core functions** | Job scheduling, dependency graphs, DAG execution, failure recovery |
+| **Data latency** | Seconds (streaming) → Hours (batch) |
 | **Representative tools** | Apache Airflow, Databricks Workflows, Fabric Data Factory, AWS Glue, n8n, Step Functions |
-| **Outputs**              | Managed dataflows, ETL/ELT pipelines, transformation jobs                                |
-| **AI/ML link**           | Feature engineering workflows; retraining and evaluation jobs                            |
+| **Outputs** | Managed dataflows, ETL/ELT pipelines, transformation jobs |
+| **AI/ML link** | Feature engineering workflows; retraining and evaluation jobs |
 
 ---
 
@@ -163,12 +163,12 @@ Operational DB → CDC stream (Debezium → Kafka topic) → Lakehouse landing z
 
 **Purpose:** Provide discoverability, lineage, access control, and policy enforcement.
 
-| Aspect                   | Description                                                                                    |
+| Aspect | Description |
 | ------------------------ | ---------------------------------------------------------------------------------------------- |
-| **Core functions**       | Metadata catalog, RBAC/ABAC, lineage tracking, audit logging, compliance                       |
+| **Core functions** | Metadata catalog, RBAC/ABAC, lineage tracking, audit logging, compliance |
 | **Representative tools** | Unity Catalog (Databricks), Purview (Microsoft), AWS Lake Formation, Google Dataplex, Collibra |
-| **Outputs**              | Certified datasets, data dictionaries, access policies                                         |
-| **AI/ML link**           | Essential for trustworthy AI — data provenance, bias detection, reproducibility                |
+| **Outputs** | Certified datasets, data dictionaries, access policies |
+| **AI/ML link** | Essential for trustworthy AI — data provenance, bias detection, reproducibility |
 
 ---
 
@@ -176,13 +176,13 @@ Operational DB → CDC stream (Debezium → Kafka topic) → Lakehouse landing z
 
 **Purpose:** Operationalize data for predictive and generative applications.
 
-| Aspect                   | Description                                                                                                  |
+| Aspect | Description |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| **Core functions**       | Feature stores, model training, experiment tracking, model deployment, vector search                         |
-| **Representative tools** | MLflow, SageMaker, Vertex AI, Databricks Model Serving, Snowpark ML, Azure ML                                |
-| **Outputs**              | Trained models, inference endpoints, feature vectors                                                         |
-| **Dependent layers**     | Requires high-quality, governed, structured data from previous capabilities                                  |
-| **Bidirectional link**   | Models can also *produce* new data (embeddings, labels, synthetic records) that feed back into the lakehouse |
+| **Core functions** | Feature stores, model training, experiment tracking, model deployment, vector search |
+| **Representative tools** | MLflow, SageMaker, Vertex AI, Databricks Model Serving, Snowpark ML, Azure ML |
+| **Outputs** | Trained models, inference endpoints, feature vectors |
+| **Dependent layers** | Requires high-quality, governed, structured data from previous capabilities |
+| **Bidirectional link** | Models can also *produce* new data (embeddings, labels, synthetic records) that feed back into the lakehouse |
 
 ---
 
@@ -194,17 +194,17 @@ A typical pipeline illustrates how Components, Lifecycle, and Undercurrents inte
 
 ```text
 [Operational DB] --(CDC)--> [Kafka Topic]
-     │                         │
-     ▼                         ▼
-   [Raw Storage (S3)] ← [Stream Processor]
-     │
-     ▼
+ │ │
+ ▼ ▼
+ [Raw Storage (S3)] ← [Stream Processor]
+ │
+ ▼
  [Table Layer (Iceberg / Delta)]
-     │
-     ▼
+ │
+ ▼
  [Analytic Engine (Spark / SQL / Trino)]
-     │
-     ▼
+ │
+ ▼
  [AI & BI Tools (MLflow / Power BI / Snowflake Cortex)]
 ```
 

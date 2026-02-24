@@ -6,8 +6,8 @@ pattern: semantic-operations-framework
 provenance: 1p
 
 metadata:
-  pattern_type: concept
-  brand-strength: high
+ pattern_type: concept
+ brand-strength: high
 ---
 
 # Semantic Operations (SemOps) Framework
@@ -81,17 +81,17 @@ SemOps is both theory and practice:
 **Core Concepts:**
 
 - **Organizational Mandate** — Data must be a first-class citizen for leadership, stakeholders, and technical teams
-  - [Governance as Strategy](STRATEGIC_DATA/governance-as-strategy.md)
-  - [Silent Analytics Failure](STRATEGIC_DATA/silent-analytics-failure.md)
+ - [Governance as Strategy](STRATEGIC_DATA/governance-as-strategy.md)
+ - [Silent Analytics Failure](STRATEGIC_DATA/silent-analytics-failure.md)
 
 - **Understand Data Systems** — The systems are complex, but principles need not be
-  - [Data Systems Essentials](STRATEGIC_DATA/data-systems-essentials.md)
-  - [Surface Analysis](STRATEGIC_DATA/surface-analysis.md)
-  - [Four Data System Types](STRATEGIC_DATA/four-data-system-types.md)
+ - [Data Systems Essentials](STRATEGIC_DATA/data-systems-essentials.md)
+ - [Surface Analysis](STRATEGIC_DATA/surface-analysis.md)
+ - [Four Data System Types](STRATEGIC_DATA/four-data-system-types.md)
 
 - **Structure = Physics** — Dimensional modeling isn't "best practice"—it's physics
-  - [Why Structure Matters](STRATEGIC_DATA/why-structure-matters.md)
-  - [Physics of Data](STRATEGIC_DATA/physics-of-data.md)
+ - [Why Structure Matters](STRATEGIC_DATA/why-structure-matters.md)
+ - [Physics of Data](STRATEGIC_DATA/physics-of-data.md)
 
 **See:** [Strategic Data README](STRATEGIC_DATA/README.md)
 
@@ -105,10 +105,10 @@ SemOps is both theory and practice:
 
 - **DDD as Foundation** — [Domain Driven Design](EXPLICIT_ARCHITECTURE/domain-driven-design.md) provides proven patterns for encoding meaning into systems
 - **Architecture as Rules** — Your architecture is your organization and business encoded as a data structure
-  - [Explicit Architecture](EXPLICIT_ARCHITECTURE/what-is-architecture.md)
-  - [AI-Ready Architecture](EXPLICIT_ARCHITECTURE/ai-ready-architecture.md)
+ - [Explicit Architecture](EXPLICIT_ARCHITECTURE/what-is-architecture.md)
+ - [AI-Ready Architecture](EXPLICIT_ARCHITECTURE/ai-ready-architecture.md)
 - **Semantic Flywheel** — Better structure enables better AI, which enables better structure
-  - [Semantic Flywheel](EXPLICIT_ARCHITECTURE/semantic-flywheel.md)
+ - [Semantic Flywheel](EXPLICIT_ARCHITECTURE/semantic-flywheel.md)
 
 **Key insight:** Architecture is not about technology choices. It's about encoding organizational meaning into concrete scaffolding so that humans, systems, and AI can maintain shared understanding.
 
@@ -123,11 +123,11 @@ SemOps is both theory and practice:
 **Core Concepts:**
 
 - **Semantic Coherence** — The foundation: achieving shared understanding across an organization
-  - [Semantic Coherence](SEMANTIC_OPTIMIZATION/semantic-coherence.md)
-  - [Semantic Coherence Measurement](SEMANTIC_OPTIMIZATION/semantic-coherence-measurement.md)
+ - [Semantic Coherence](SEMANTIC_OPTIMIZATION/semantic-coherence.md)
+ - [Semantic Coherence Measurement](SEMANTIC_OPTIMIZATION/semantic-coherence-measurement.md)
 
 - **Patterns** — Self-contained semantic structures that preserve meaning through transformation
-  - [Patterns](SEMANTIC_OPTIMIZATION/patterns.md)
+ - [Patterns](SEMANTIC_OPTIMIZATION/patterns.md)
 
 **Key insight:** Semantic coherence is not a project you complete. It's ongoing work—continuous investment to resist natural decay toward fragmentation.
 
@@ -155,7 +155,7 @@ The framework emerges from two directions:
 - [Foundations](../RESEARCH/FOUNDATIONS/README.md) — Underlying theories and frameworks
 - [Current Context](../RESEARCH/CURRENT_CONTEXT/README.md) — Contemporary research and trend analysis
 
-**Career Experience** — 20+ years as Product Manager building data-driven applications and recent consulting in Data Strategy and AI Integration. See [semops-ai.com](http://semops-ai.com)
+**Career Experience** — 20+ years as Product Manager building data-driven applications and recent consulting in Data Strategy and AI Integration. See [timjmitchell.com](http://timjmitchell.com)
 
 ---
 

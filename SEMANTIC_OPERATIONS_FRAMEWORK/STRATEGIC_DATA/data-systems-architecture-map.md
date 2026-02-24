@@ -6,8 +6,8 @@ pattern: data-systems-architecture-map
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 
 # Data Systems & Domain Architecture Map
@@ -30,14 +30,14 @@ Three documents in Strategic Data operate at different zoom levels on the same s
 
 ```
 Four Data System Types (the WHAT — 4 categories)
-    │
-    ├── Application Data ──┐
-    ├── Analytics Data ────┤── Surface Analysis (the WHERE — boundaries between them)
-    ├── Enterprise Work ───┤
-    └── Enterprise Record ─┘
-         │
-         └── Analytics Data ── Data Engineering Core Framework (the HOW — internal architecture)
-                               7 components, 5 lifecycle stages, 6 undercurrents
+ │
+ ├── Application Data ──┐
+ ├── Analytics Data ────┤── Surface Analysis (the WHERE — boundaries between them)
+ ├── Enterprise Work ───┤
+ └── Enterprise Record ─┘
+ │
+ └── Analytics Data ── Data Engineering Core Framework (the HOW — internal architecture)
+ 7 components, 5 lifecycle stages, 6 undercurrents
 ```
 
 ### Four Data System Types → Data Engineering Core Framework
@@ -142,16 +142,16 @@ Surface Analysis's **provenance position** maps directly to DDD upstream/downstr
 
 ```
 Aggregate (Application Data)
-    │
-    └── Domain Event
-            │
-            ├── Surface Analysis: this is a boundary source
-            │                     for the Analytics Data System
-            │
-            └── CDC → Ingestion → Storage → Transform → Serving
-                       │
-                       └── Data Engineering Core Framework: this is the lifecycle
-                           the event follows through Analytics
+ │
+ └── Domain Event
+ │
+ ├── Surface Analysis: this is a boundary source
+ │ for the Analytics Data System
+ │
+ └── CDC → Ingestion → Storage → Transform → Serving
+ │
+ └── Data Engineering Core Framework: this is the lifecycle
+ the event follows through Analytics
 ```
 
 The DDD concept (Domain Event) becomes the Surface Analysis concept (boundary source) which enters the Data Engineering Core Framework pipeline (lifecycle stages). Three frameworks, one flow.
@@ -162,34 +162,72 @@ The DDD concept (Domain Event) becomes the Surface Analysis concept (boundary so
 
 ```
 Domain (the business reality — same events everywhere)
-    │
-    ├── Manifests in 4 System Types ─────────── four-data-system-types.md
-    │   │
-    │   ├── Application Data ── Bounded Contexts (DDD)
-    │   │   │                   Repository pattern (data access)
-    │   │   │                   OLTP query interface
-    │   │   └── Aggregates, Domain Events, Services
-    │   │
-    │   ├── Analytics Data ──── data-engineering-core-framework.md
-    │   │   │                   OLAP query interface
-    │   │   └── 7 Components, 5 Lifecycle, 6 Undercurrents
-    │   │
-    │   ├── Enterprise Work ── SemOps / Knowledge Graphs
-    │   │   └── Unstructured, needs semantic scaffolding
-    │   │
-    │   └── Enterprise Record ── Canonical truth
-    │       └── Constraint enforcement, regulatory compliance
-    │
-    ├── Boundaries between types ─── surface-analysis.md
-    │   ├── Sources (technical tuples)
-    │   ├── Surfaces (sources in lineage context)
-    │   ├── Provenance position → DDD upstream/downstream
-    │   └── Surface Topology (strategic map)
-    │
-    └── Integration patterns ──────── DDD Context Mapping
-        ├── ACL, Published Language, Open Host Service
-        ├── CDC: Application → Analytics (domain events changing physics)
-        └── AI extraction: Work → Knowledge Graph
+ │
+ ├── Manifests in 4 System Types ─────────── four-data-system-types.md
+ │ │
+ │ ├── Application Data ── Bounded Contexts (DDD)
+ │ │ │ Repository pattern (data access)
+ │ │ │ OLTP query interface
+ │ │ └── Aggregates, Domain Events, Services
+ │ │
+ │ ├── Analytics Data ──── data-engineering-core-framework.md
+ │ │ │ OLAP query interface
+ │ │ └── 7 Components, 5 Lifecycle, 6 Undercurrents
+ │ │
+ │ ├── Enterprise Work ── SemOps / Knowledge Graphs
+ │ │ └── Unstructured, semi-structured
+ │ │
+ │ └── Enterprise Record ── Canonical truth
+ │ └── Constraint enforcement, regulatory compliance
+ │
+ ├── Boundaries between types ─── surface-analysis.md
+ │ ├── Sources (technical tuples)
+ │ ├── Surfaces (sources in lineage context)
+ │ ├── Provenance position → DDD upstream/downstream
+ │ └── Surface Topology (strategic map)
+ │
+ └── Integration patterns ──────── DDD Context Mapping
+ ├── ACL, Published Language, Open Host Service
+ ├── CDC: Application → Analytics (domain events changing physics)
+ └── AI extraction: Work → Knowledge Graph
+```
+
+---
+
+## The Unified View (Neutral)
+
+The same architecture without DDD overlay — pure data engineering terms.
+
+```
+Data Domain (the business reality — same events across all systems)
+ │
+ ├── Manifests in 4 System Types
+ │ │
+ │ ├── Application Data ──── Transactional systems
+ │ │ │ Data access layer
+ │ │ │ OLTP query interface
+ │ │ └── Entities, change events, business logic - org alignment critical
+ │ │
+ │ ├── Analytical Data ───── Pipeline architecture
+ │ │ │ OLAP query interface
+ │ │ └── Ingestion, Storage, Transform, Serving, Governance- where AI lives
+ │ │
+ │ ├── Enterprise Work ───── Knowledge & content systems
+ │ │ └── Unstructured, semi‑structured content, now focus for AI
+ │ │
+ │ └── Enterprise Record ── System of record
+ │ └── Constraint enforcement, compliance, now focus for AI
+ │
+ ├── Boundaries between types
+ │ ├── Data sources (origin points)
+ │ ├── Integration surfaces (sources in lineage context)
+ │ ├── Flow direction → producer / consumer relationships
+ │ └── System topology (strategic map)
+ │
+ └── Integration patterns
+ ├── Translation layers, shared schemas, standard APIs
+ ├── CDC: Operational → Analytical (change events crossing system boundaries)
+ └── AI extraction: Work → Knowledge graph, Record → Validation, Analytical → Governance
 ```
 
 ---

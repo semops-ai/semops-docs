@@ -6,8 +6,8 @@ pattern: explicit-enterprise
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand-strength: medium
+ pattern_type: concept
+ brand-strength: medium
 ---
 
 # Explicit Enterprise
@@ -36,8 +36,8 @@ To effectively deploy AI agents, all four system types become operational assets
 **The inversion:** Traditional enterprises pick platforms, then contort architecture to fit. Explicit Enterprise inverts this — architecture defines data structures, infrastructure serves the architecture.
 
 ```text
-Traditional:  Platform → constrains → Architecture → constrains → Data
-Symbiotic:    Architecture → defines → Data structures → selects → Infrastructure
+Traditional: Platform → constrains → Architecture → constrains → Data
+Explicit: Architecture → defines → Data structures → selects → Infrastructure
 ```
 
 ### Agentic Enterprise: Consensus vs. Substance
@@ -170,12 +170,12 @@ When business artifacts live in repos, business operations become code operation
 The same architecture scales from local development to cloud deployment:
 
 ```text
-LOCAL DEVELOPMENT              CLOUD DEPLOYMENT
-laptop                         AWS / GCP / Azure
-└── docker compose up          └── kubernetes / ECS
-      ├── postgres:5432              ├── RDS Postgres
-      ├── neo4j:7474                 ├── Neo4j Aura
-      └── qdrant:6333                └── Qdrant Cloud
+LOCAL DEVELOPMENT CLOUD DEPLOYMENT
+laptop AWS / GCP / Azure
+└── docker compose up └── kubernetes / ECS
+ ├── postgres:5432 ├── RDS Postgres
+ ├── neo4j:7474 ├── Neo4j Aura
+ └── qdrant:6333 └── Qdrant Cloud
 
 Same architecture, swap implementations
 ```
@@ -192,11 +192,11 @@ The [SemOps-ai](https://github.com/semops-ai) organization demonstrates these pa
 ### Multi-Repo Structure
 
 ```text
-semops-dx-orchestrator/  → Platform/DX (process, tooling, global architecture)
-semops-core/             → Schema/Infrastructure (knowledge graph, shared services)
-semops-publisher/        → Publishing (content workflow)
-semops-data/             → Product (data engineering, research RAG)
-semops-sites/            → Frontend (deployed apps)
+semops-dx-orchestrator/ → Platform/DX (process, tooling, global architecture)
+semops-core/ → Schema/Infrastructure (knowledge graph, shared services)
+semops-publisher/ → Publishing (content workflow)
+semops-data/ → Product (data engineering, research RAG)
+semops-sites/ → Frontend (deployed apps)
 ```
 
 Each repo = bounded context = semantic function.
@@ -253,10 +253,10 @@ Enterprise suites (Google Workspace, Microsoft 365, Salesforce) optimize for man
 Email aliases become routing keys, not inboxes:
 
 ```text
-signals@domain.com   → agent ingestion queue
-alerts@domain.com    → monitoring pipeline
-finances@domain.com  → financial data extraction
-forms@domain.com     → website form submissions
+signals@domain.com → agent ingestion queue
+alerts@domain.com → monitoring pipeline
+finances@domain.com → financial data extraction
+forms@domain.com → website form submissions
 ```
 
 Agents:
@@ -283,17 +283,17 @@ The calendar stays in Fastmail (CalDAV). Agents read it; they don't own it.
 Bank alerts and invoices arrive as email → agents extract structured data → PostgreSQL stores transactions → monthly export to beancount.
 
 ```text
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│ Fastmail        │     │ Agent Pipeline  │     │ PostgreSQL      │
-│ finances/bofa/  │ ──▶ │ Parse alerts    │ ──▶ │ transactions    │
-│ finances/inv/   │     │ Extract amounts │     │ invoices        │
-└─────────────────┘     └─────────────────┘     └─────────────────┘
-                                                       │
-                                                       ▼
-                                               ┌─────────────────┐
-                                               │ beancount       │
-                                               │ (git-versioned) │
-                                               └─────────────────┘
+┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+│ Fastmail │ │ Agent Pipeline │ │ PostgreSQL │
+│ finances/bofa/ │ ──▶ │ Parse alerts │ ──▶ │ transactions │
+│ finances/inv/ │ │ Extract amounts │ │ invoices │
+└─────────────────┘ └─────────────────┘ └─────────────────┘
+ │
+ ▼
+ ┌─────────────────┐
+ │ beancount │
+ │ (git-versioned) │
+ └─────────────────┘
 ```
 
 Bank transaction alerts combined with vendor invoices, a parser agent, and beancount provide:
@@ -314,8 +314,8 @@ Instead:
 
 ```text
 contacts/
-  person_jane_doe.yaml- 
-  org_acme_corp.yaml
+ person_jane_doe.yaml- 
+ org_acme_corp.yaml
 ```
 
 Contacts apps (CardDAV, OS address books) become projections, not truth.
@@ -327,10 +327,10 @@ Traditional CMS platforms (WordPress, Drupal) bundle content, logic, and present
 Jamstack (JavaScript, APIs, Markup) separates concerns:
 
 ```text
-Content (markdown + frontmatter)     → Git repo (publisher)
-Build (static site generation)       → Astro, Next.js, Hugo
-Deploy (CDN edge delivery)           → Vercel, Netlify, Cloudflare
-Dynamic features (forms, search)     → APIs + serverless functions
+Content (markdown + frontmatter) → Git repo (publisher)
+Build (static site generation) → Astro, Next.js, Hugo
+Deploy (CDN edge delivery) → Vercel, Netlify, Cloudflare
+Dynamic features (forms, search) → APIs + serverless functions
 ```
 
 **Why this matters for Explicit Enterprise:**
@@ -350,8 +350,8 @@ description: "Meta description for search engines"
 canonical: "https://example.com/article"
 og_image: "/images/article-og.png"
 structured_data:
-  type: Article
-  author: person_jane_doe
+ type: Article
+ author: person_jane_doe
 ---
 ```
 
@@ -364,19 +364,19 @@ SEO metadata becomes part of the content schema rather than requiring separate p
 When AI-native organizations manage domains this way:
 
 1. **Interoperability becomes possible**
-   - Standard frontmatter schemas
-   - Shared ontologies
-   - Cross-org semantic alignment
+ - Standard frontmatter schemas
+ - Shared ontologies
+ - Cross-org semantic alignment
 
 2. **AI agents can operate across organizations**
-   - Same repo pattern everywhere
-   - Same provenance model
-   - Same governance structure
+ - Same repo pattern everywhere
+ - Same provenance model
+ - Same governance structure
 
 3. **Knowledge becomes tradeable**
-   - Domain models as exportable artifacts
-   - Business patterns as shareable templates
-   - AI-ready knowledge infrastructure as competitive advantage
+ - Domain models as exportable artifacts
+ - Business patterns as shareable templates
+ - AI-ready knowledge infrastructure as competitive advantage
 
 ---
 

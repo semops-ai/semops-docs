@@ -6,8 +6,8 @@ pattern: four-data-system-types
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 
 # The Four Data System Types
@@ -33,7 +33,7 @@ Understanding these four types clarifies where system boundaries naturally fall,
 - **Traditional Analytics** - BI, reports, dashboards, exploratory analysis
 - **ML & AI Training** - Model development, feature engineering, fine-tuning, RLHF
 - **Runtime Analytics** - A/B testing, experiments, real-time predictions, online learning
-  - **Dual nature:** Operational delivery (serve to customer) + Analytical feedback (improve models)
+ - **Dual nature:** Operational delivery (serve to customer) + Analytical feedback (improve models)
 
 **Full concept:** Analytics Data System
 
@@ -62,9 +62,9 @@ The complete analytical data ecosystem - including ingestion, storage, transform
 
 ```
 Application Data System (OLTP interface)
-  ↓ Extract (CDC, batch, streaming)
-  ↓ Transform (normalize → dimensional)
-  ↓ Load
+ ↓ Extract (CDC, batch, streaming)
+ ↓ Transform (normalize → dimensional)
+ ↓ Load
 Analytics Data System (OLAP interface)
 ```
 
@@ -107,7 +107,7 @@ The complete operational data ecosystem that powers running business application
 
 ```
 Application Context A ──┐
-                        ├── Anti-Corruption Layer ──→ Application Context B
+ ├── Anti-Corruption Layer ──→ Application Context B
 Application Context C ──┘
 
 Application Data System ──→ CDC/ETL ──→ Analytics Data System
@@ -150,9 +150,9 @@ Unstructured knowledge artifacts created by knowledge workers - documents, commu
 
 ```
 Enterprise Work System (unstructured)
-  ↓ AI extraction (NER, relationships)
-  ↓ Ontology mapping
-  ↓ Governance validation
+ ↓ AI extraction (NER, relationships)
+ ↓ Ontology mapping
+ ↓ Governance validation
 Knowledge Graph / Semantic Layer
 ```
 
@@ -195,8 +195,8 @@ Canonical systems of record where semantics are tightest and most formally encod
 
 ```
 Analytics Data System metrics
-  ↓ Reconcile
-  ↓ Compare
+ ↓ Reconcile
+ ↓ Compare
 Enterprise Record System (canonical truth)
 ```
 
@@ -220,9 +220,9 @@ Finance data works because:
 When all four systems need to feed a unified analytical layer:
 
 ```
-Application Data System  ─┐
-Analytics Data System    ─┤
-Enterprise Work System   ─├──→ Data Warehouse/Lake ──→ Semantic Layer ──→ BI Tools
+Application Data System ─┐
+Analytics Data System ─┤
+Enterprise Work System ─├──→ Data Warehouse/Lake ──→ Semantic Layer ──→ BI Tools
 Enterprise Record System ─┘
 ```
 
@@ -429,17 +429,17 @@ A concrete example of how data moves through system types, gaining properties at
 
 ```text
 [Operational DB] --(CDC)--> [Kafka Topic]
-     │                         │
-     ▼                         ▼
-   [Raw Storage (S3)] ← [Stream Processor]
-     │
-     ▼
+ │ │
+ ▼ ▼
+ [Raw Storage (S3)] ← [Stream Processor]
+ │
+ ▼
  [Table Layer (Iceberg / Delta)]
-     │
-     ▼
+ │
+ ▼
  [Analytic Engine (Spark / SQL / Trino)]
-     │
-     ▼
+ │
+ ▼
  [AI & BI Tools (MLflow / Power BI)]
 ```
 

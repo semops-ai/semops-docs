@@ -3,8 +3,8 @@ doc_type: structure
 pattern: research
 provenance: 1p
 metadata: 
-    pattern_type: concept
-    pattern-context: synthesis
+ pattern_type: concept
+ pattern-context: synthesis
 ---
 # Current Research and Trends
 >A critical input to the project is understanding of current and relevant current developments and trends in AI, data, and related domains. This is accomplished through agentic ingestion and semantic operations methods for contextualization.

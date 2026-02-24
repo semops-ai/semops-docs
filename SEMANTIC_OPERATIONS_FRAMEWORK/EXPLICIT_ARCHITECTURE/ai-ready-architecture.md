@@ -6,8 +6,8 @@ pattern: ai-ready-architecture
 provenance: 3p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 
 # AI-Ready Architecture
@@ -55,16 +55,16 @@ When code quality improves, AI effectiveness tends to improve correspondingly—
 - Hallucinations are reduced (LLM can't invent constraints that don't exist)
 
 ---
-<!--  all examples should go to the end of the doc and should just be linked to and described with one line -->
+<!-- all examples should go to the end of the doc and should just be linked to and described with one line -->
 **Example: Implicit constraints**
 ```python
 # Bad: Implicit constraints
 def create_user(name, age):
-    # Hidden: name must be non-empty
-    # Hidden: age must be 0-120
-    # Hidden: returns User object or None
-    user = User(name, age)
-    return user
+ # Hidden: name must be non-empty
+ # Hidden: age must be 0-120
+ # Hidden: returns User object or None
+ user = User(name, age)
+ return user
 ```
 
 **AI struggles:**
@@ -78,24 +78,24 @@ def create_user(name, age):
 ```python
 # Good: Explicit constraints
 def create_user(name: str, age: int) -> User:
-    """
-    Create a new user.
+ """
+ Create a new user.
 
-    Args:
-        name: Non-empty user name
-        age: User age in years (0-120)
+ Args:
+ name: Non-empty user name
+ age: User age in years (0-120)
 
-    Returns:
-        User object
+ Returns:
+ User object
 
-    Raises:
-        ValueError: If name is empty or age is out of range
-    """
-    if not name:
-        raise ValueError("Name cannot be empty")
-    if not (0 <= age <= 120):
-        raise ValueError("Age must be between 0 and 120")
-    return User(name, age)
+ Raises:
+ ValueError: If name is empty or age is out of range
+ """
+ if not name:
+ raise ValueError("Name cannot be empty")
+ if not (0 <= age <= 120):
+ raise ValueError("Age must be between 0 and 120")
+ return User(name, age)
 ```
 
 **AI understands:**
@@ -125,11 +125,11 @@ def create_user(name: str, age: int) -> User:
 ```python
 # Bad: Needs external docs to understand
 def proc(e, t, p):
-    # What are e, t, p? What does this do?
-    r = db.get(e, t)
-    if r and r.p == p:
-        return r
-    return None
+ # What are e, t, p? What does this do?
+ r = db.get(e, t)
+ if r and r.p == p:
+ return r
+ return None
 ```
 
 **AI has no context:**
@@ -143,19 +143,19 @@ def proc(e, t, p):
 ```python
 # Good: Code explains itself
 def get_entity_by_type_and_predicate(
-    entity_id: str,
-    entity_type: str,
-    predicate: EdgePredicate
+ entity_id: str,
+ entity_type: str,
+ predicate: EdgePredicate
 ) -> Optional[Entity]:
-    """
-    Retrieve entity if it has the specified type and predicate.
+ """
+ Retrieve entity if it has the specified type and predicate.
 
-    Returns None if entity doesn't exist or doesn't match criteria.
-    """
-    entity = entity_repository.get(entity_id)
-    if entity and entity.entity_type == entity_type:
-        return entity
-    return None
+ Returns None if entity doesn't exist or doesn't match criteria.
+ """
+ entity = entity_repository.get(entity_id)
+ if entity and entity.entity_type == entity_type:
+ return entity
+ return None
 ```
 
 **AI understands:**
@@ -184,14 +184,14 @@ def get_entity_by_type_and_predicate(
 ```python
 # Bad: No clear patterns or boundaries
 class System:
-    def do_everything(self, data):
-        # Mixes: validation, business logic, persistence, external API calls
-        if not data:
-            return False
-        result = calculate(data)
-        save_to_db(result)
-        notify_external_service(result)
-        return True
+ def do_everything(self, data):
+ # Mixes: validation, business logic, persistence, external API calls
+ if not data:
+ return False
+ result = calculate(data)
+ save_to_db(result)
+ notify_external_service(result)
+ return True
 ```
 
 **AI struggles:**
@@ -200,7 +200,7 @@ class System:
 - What can be changed safely? (Everything is coupled)
 
 ---
-<!--there should be just one big lens which is how this aligns  -->
+<!--there should be just one big lens which is how this aligns -->
 ## Domain Driven Design Lens
 
 **The DDD Connection:** Defining Aggregates and Value Objects creates structured interfaces that LLMs can leverage. This restricts the search space, making it statistically more likely that AI outputs correct logic.
@@ -209,37 +209,37 @@ class System:
 **Example: Structured with DDD**
 ```python
 # Good: Clear patterns and boundaries
-class Order:  # Aggregate Root
-    def __init__(self, order_id: str, customer_id: str):
-        self.order_id = order_id
-        self.customer_id = customer_id
-        self.line_items: list[OrderLineItem] = []
-        self.status = OrderStatus.DRAFT
+class Order: # Aggregate Root
+ def __init__(self, order_id: str, customer_id: str):
+ self.order_id = order_id
+ self.customer_id = customer_id
+ self.line_items: list[OrderLineItem] = []
+ self.status = OrderStatus.DRAFT
 
-    def add_line_item(self, product: Product, quantity: int):
-        """Add line item to order. Validates quantity > 0."""
-        if quantity <= 0:
-            raise ValueError("Quantity must be positive")
-        line_item = OrderLineItem(product, quantity)
-        self.line_items.append(line_item)
+ def add_line_item(self, product: Product, quantity: int):
+ """Add line item to order. Validates quantity > 0."""
+ if quantity <= 0:
+ raise ValueError("Quantity must be positive")
+ line_item = OrderLineItem(product, quantity)
+ self.line_items.append(line_item)
 
-    def finalize(self):
-        """Transition order to finalized status. Cannot add items after."""
-        if not self.line_items:
-            raise ValueError("Cannot finalize empty order")
-        self.status = OrderStatus.FINALIZED
+ def finalize(self):
+ """Transition order to finalized status. Cannot add items after."""
+ if not self.line_items:
+ raise ValueError("Cannot finalize empty order")
+ self.status = OrderStatus.FINALIZED
 
 # Repository (persistence boundary)
 class OrderRepository:
-    def save(self, order: Order):
-        """Persist order to database."""
-        ...
+ def save(self, order: Order):
+ """Persist order to database."""
+ ...
 
 # Domain Service (external integration boundary)
 class OrderNotificationService:
-    def notify_order_finalized(self, order: Order):
-        """Send notification to external service."""
-        ...
+ def notify_order_finalized(self, order: Order):
+ """Send notification to external service."""
+ ...
 ```
 
 **AI understands:**
@@ -290,13 +290,13 @@ Several established patterns implement stable core/flexible edge at the code lev
 
 ```text
 ┌─────────────────────────────────────┐
-│            Adapters                 │  ← Flexible Edge
-│  (REST, CLI, DB, External APIs)     │
+│ Adapters │ ← Flexible Edge
+│ (REST, CLI, DB, External APIs) │
 └─────────────────────────────────────┘
-              ↕ Ports
+ ↕ Ports
 ┌─────────────────────────────────────┐
-│         Application Core            │  ← Stable Core
-│    (Domain Logic, Use Cases)        │
+│ Application Core │ ← Stable Core
+│ (Domain Logic, Use Cases) │
 └─────────────────────────────────────┘
 ```
 
@@ -316,17 +316,17 @@ Several established patterns implement stable core/flexible edge at the code lev
 
 ```text
 ┌─────────────────────────────────────┐
-│        Frameworks & Drivers         │  ← Outermost (Flexible)
+│ Frameworks & Drivers │ ← Outermost (Flexible)
 └─────────────────────────────────────┘
 ┌─────────────────────────────────────┐
-│       Interface Adapters            │
+│ Interface Adapters │
 └─────────────────────────────────────┘
 ┌─────────────────────────────────────┐
-│        Application Business         │
-│              Rules                  │
+│ Application Business │
+│ Rules │
 └─────────────────────────────────────┘
 ┌─────────────────────────────────────┐
-│     Enterprise Business Rules       │  ← Innermost (Stable)
+│ Enterprise Business Rules │ ← Innermost (Stable)
 └─────────────────────────────────────┘
 ```
 
@@ -345,18 +345,18 @@ Several established patterns implement stable core/flexible edge at the code lev
 **Structure:**
 
 ```text
-        ┌─────────────────┐
-        │  Infrastructure │  ← Outer (Flexible)
-        └─────────────────┘
-      ┌───────────────────────┐
-      │    Application        │
-      └───────────────────────┘
-    ┌───────────────────────────┐
-    │      Domain Services      │
-    └───────────────────────────┘
-  ┌───────────────────────────────┐
-  │        Domain Model           │  ← Center (Stable)
-  └───────────────────────────────┘
+ ┌─────────────────┐
+ │ Infrastructure │ ← Outer (Flexible)
+ └─────────────────┘
+ ┌───────────────────────┐
+ │ Application │
+ └───────────────────────┘
+ ┌───────────────────────────┐
+ │ Domain Services │
+ └───────────────────────────┘
+ ┌───────────────────────────────┐
+ │ Domain Model │ ← Center (Stable)
+ └───────────────────────────────┘
 ```
 
 **Key insight:** Domain model at the center has no dependencies. Everything depends on the domain.
@@ -405,17 +405,17 @@ All three patterns share the same principle:
 ```python
 # Bad: Invariants only in comments
 class Money:
-    def __init__(self, amount, currency):
-        # Amount should be non-negative
-        # Currency should be ISO 4217 code
-        self.amount = amount
-        self.currency = currency
+ def __init__(self, amount, currency):
+ # Amount should be non-negative
+ # Currency should be ISO 4217 code
+ self.amount = amount
+ self.currency = currency
 ```
 
 **AI can violate:**
 ```python
 # AI generates this (violates invariants)
-money = Money(-100, "INVALID")  # No error!
+money = Money(-100, "INVALID") # No error!
 ```
 
 ---
@@ -424,21 +424,21 @@ money = Money(-100, "INVALID")  # No error!
 ```python
 # Good: Invariants enforced in code
 class Money:
-    VALID_CURRENCIES = {"USD", "EUR", "GBP", "JPY"}
+ VALID_CURRENCIES = {"USD", "EUR", "GBP", "JPY"}
 
-    def __init__(self, amount: Decimal, currency: str):
-        if amount < 0:
-            raise ValueError("Amount cannot be negative")
-        if currency not in self.VALID_CURRENCIES:
-            raise ValueError(f"Invalid currency: {currency}")
-        self.amount = amount
-        self.currency = currency
+ def __init__(self, amount: Decimal, currency: str):
+ if amount < 0:
+ raise ValueError("Amount cannot be negative")
+ if currency not in self.VALID_CURRENCIES:
+ raise ValueError(f"Invalid currency: {currency}")
+ self.amount = amount
+ self.currency = currency
 ```
 
 **AI cannot violate:**
 ```python
 # AI tries to generate this
-money = Money(-100, "INVALID")  # ValueError: Amount cannot be negative
+money = Money(-100, "INVALID") # ValueError: Amount cannot be negative
 ```
 
 **The pattern:** Self-validating objects (value objects, specifications) prevent AI from generating "bad data" without the compiler catching it immediately.
@@ -512,35 +512,35 @@ Example: [Aggregate Root](semops-aggregate-root.md) represented in Python class:
 
 ```python
 class Entity:
-    """
-    Aggregate root representing a semantic entity in the knowledge graph.
+ """
+ Aggregate root representing a semantic entity in the knowledge graph.
 
-    Invariants:
-    - entity_id must be unique
-    - All edges must reference existing entities
-    - Attributes must conform to entity_type schema
-    """
-    entity_id: str
-    entity_type: str
-    attributes: dict
-    edges: list[Edge]
+ Invariants:
+ - entity_id must be unique
+ - All edges must reference existing entities
+ - Attributes must conform to entity_type schema
+ """
+ entity_id: str
+ entity_type: str
+ attributes: dict
+ edges: list[Edge]
 
-    def add_edge(self, edge: Edge):
-        """
-        Add an edge to this entity.
+ def add_edge(self, edge: Edge):
+ """
+ Add an edge to this entity.
 
-        Args:
-            edge: The edge to add
+ Args:
+ edge: The edge to add
 
-        Raises:
-            ValueError: If edge source doesn't match entity_id
-            ValueError: If edge predicate is invalid
-        """
-        if edge.source != self.entity_id:
-            raise ValueError("Edge source must match entity_id")
-        if edge.predicate not in VALID_PREDICATES:
-            raise ValueError(f"Invalid predicate: {edge.predicate}")
-        self.edges.append(edge)
+ Raises:
+ ValueError: If edge source doesn't match entity_id
+ ValueError: If edge predicate is invalid
+ """
+ if edge.source != self.entity_id:
+ raise ValueError("Edge source must match entity_id")
+ if edge.predicate not in VALID_PREDICATES:
+ raise ValueError(f"Invalid predicate: {edge.predicate}")
+ self.edges.append(edge)
 ```
 
 **Why this is AI-Ready:**
@@ -556,18 +556,18 @@ class Entity:
 **AI Output:**
 ```python
 def remove_edge_by_target(self, target_entity_id: str) -> bool:
-    """
-    Remove all edges pointing to the specified target entity.
+ """
+ Remove all edges pointing to the specified target entity.
 
-    Args:
-        target_entity_id: The entity_id of the target
+ Args:
+ target_entity_id: The entity_id of the target
 
-    Returns:
-        True if at least one edge was removed, False otherwise
-    """
-    original_count = len(self.edges)
-    self.edges = [e for e in self.edges if e.target != target_entity_id]
-    return len(self.edges) < original_count
+ Returns:
+ True if at least one edge was removed, False otherwise
+ """
+ original_count = len(self.edges)
+ self.edges = [e for e in self.edges if e.target != target_entity_id]
+ return len(self.edges) < original_count
 ```
 
 **Why AI succeeded:**
@@ -630,9 +630,9 @@ This isn't surprising—the same properties that help humans understand code (mo
 **Before (monolithic):**
 ```python
 class System:
-    def process(self, data):
-        # 500 lines mixing validation, business logic,
-        # persistence, notifications, error handling...
+ def process(self, data):
+ # 500 lines mixing validation, business logic,
+ # persistence, notifications, error handling...
 ```
 
 **After (concept-based):**
@@ -640,18 +640,18 @@ class System:
 ```python
 # Concept: Order (with explicit invariants)
 class Order:
-    """Order must have at least one line item before finalization."""
-    ...
+ """Order must have at least one line item before finalization."""
+ ...
 
 # Concept: OrderValidation (explicit rules)
 class OrderValidator:
-    """Validates order against business rules."""
-    ...
+ """Validates order against business rules."""
+ ...
 
 # Synchronization: How concepts interact
 class OrderService:
-    """Coordinates Order and OrderValidator concepts."""
-    ...
+ """Coordinates Order and OrderValidator concepts."""
+ ...
 ```
 
 **AI benefit:** When asked to "add discount validation," AI knows exactly which concept to modify and what synchronizations might be affected.
@@ -661,27 +661,27 @@ class OrderService:
 ## Key Takeaways
 
 1. **Clean Code IS AI-Ready Code**
-   - Same principles apply to humans and machines
-   - No separate "AI optimization" needed
+ - Same principles apply to humans and machines
+ - No separate "AI optimization" needed
 
 2. **The Four Pillars**
-   - **Explicit over implicit:** Types, constraints, invariants stated
-   - **Self-documenting:** Code uses domain vocabulary
-   - **Structured:** Clear patterns, boundaries (DDD)
-   - **Validated:** Invariants enforced, not assumed
+ - **Explicit over implicit:** Types, constraints, invariants stated
+ - **Self-documenting:** Code uses domain vocabulary
+ - **Structured:** Clear patterns, boundaries (DDD)
+ - **Validated:** Invariants enforced, not assumed
 
 3. **Avoid Prompt-Engineering Debt**
-   - Don't compensate for poor architecture with complex prompts
-   - Write clear code → Use simple prompts
+ - Don't compensate for poor architecture with complex prompts
+ - Write clear code → Use simple prompts
 
 4. **The Validation Test**
-   - Good architecture works well regardless of AI
-   - If code requires AI-specific changes, the architecture may need improvement
+ - Good architecture works well regardless of AI
+ - If code requires AI-specific changes, the architecture may need improvement
 
 5. **AI as Quality Signal**
-   - If AI struggles with your code, humans will too
-   - AI capability correlates with code quality
-   - Use AI confusion as a warning sign
+ - If AI struggles with your code, humans will too
+ - AI capability correlates with code quality
+ - Use AI confusion as a warning sign
 
 The optimization target is clarity, structure, and explicit meaning—not AI specifically. AI makes the benefits of good architecture more visible.
 

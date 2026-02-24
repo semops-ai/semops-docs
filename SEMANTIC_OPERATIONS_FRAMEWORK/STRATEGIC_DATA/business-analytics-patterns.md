@@ -6,8 +6,8 @@ pattern: business-analytics-patterns
 provenance: 3p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 
 # Business Analytics Patterns
@@ -198,7 +198,7 @@ Events Fact Table:
 
 **Standard Models:**
 - Multi-Touch Attribution (MTA)
-  - Linear, Time-decay, Position-based, Data-driven
+ - Linear, Time-decay, Position-based, Data-driven
 - Marketing Mix Modeling (MMM)
 - Customer Journey Analytics
 - Channel performance dashboards
@@ -266,8 +266,8 @@ Touchpoints Fact Table:
 **Standard Models:**
 - RFM Segmentation
 - Customer Lifetime Value (CLV) prediction
-  - Historical CLV (sum of past purchases)
-  - Predictive CLV (forecast future value)
+ - Historical CLV (sum of past purchases)
+ - Predictive CLV (forecast future value)
 - Customer Health Scoring
 - Churn Prediction Models
 - Next Best Offer/Action
@@ -455,11 +455,11 @@ While **Business Analytics** covers the core commercial analysis needs (includin
 ### Metric Standards
 
 - **SaaS Metrics** (Christoph Janz, David Skok)
-  - ARR, MRR, Churn, CAC, LTV
+ - ARR, MRR, Churn, CAC, LTV
 - **E-commerce Metrics**
-  - GMV, AOV, Conversion Rate, Cart Abandonment
+ - GMV, AOV, Conversion Rate, Cart Abandonment
 - **Consumer Apps**
-  - DAU/MAU, Retention, Session Duration
+ - DAU/MAU, Retention, Session Duration
 
 ### Open Schemas & Standards
 
@@ -473,28 +473,28 @@ While **Business Analytics** covers the core commercial analysis needs (includin
 ## Key Takeaways
 
 1. **Business Analytics shares common foundations:**
-   - All aggregate from transactional/event sources
-   - All use dimensional modeling (Star schema, conformed dimensions)
-   - All rely on time-series analysis with common patterns
-   - All center around Customer, Product, Time, Channel dimensions
+ - All aggregate from transactional/event sources
+ - All use dimensional modeling (Star schema, conformed dimensions)
+ - All rely on time-series analysis with common patterns
+ - All center around Customer, Product, Time, Channel dimensions
 
 2. **Sub-categories differ in:**
-   - **Focus/Perspective** - What question they answer
-   - **Unique dimensions** - Domain-specific attributes
-   - **Unique metrics** - Category-specific KPIs
-   - **Time patterns** - Analysis cadences and windows
+ - **Focus/Perspective** - What question they answer
+ - **Unique dimensions** - Domain-specific attributes
+ - **Unique metrics** - Category-specific KPIs
+ - **Time patterns** - Analysis cadences and windows
 
 3. **The pattern is reusable:**
-   - Start with common dimensional foundation
-   - Add category-specific extensions
-   - Use same modeling techniques
-   - Leverage shared infrastructure (ETL, BI tools, data warehouse)
+ - Start with common dimensional foundation
+ - Add category-specific extensions
+ - Use same modeling techniques
+ - Leverage shared infrastructure (ETL, BI tools, data warehouse)
 
 4. **Modern data stack enables:**
-   - Single source of truth (data warehouse)
-   - Shared semantic layer (dbt, Looker, MetricFlow)
-   - Consistent metric definitions across categories
-   - Cross-functional analysis (combining Product + Marketing + Customer)
+ - Single source of truth (data warehouse)
+ - Shared semantic layer (dbt, Looker, MetricFlow)
+ - Consistent metric definitions across categories
+ - Cross-functional analysis (combining Product + Marketing + Customer)
 
 This commonality is why organizations can achieve **[semantic coherence](../SEMANTIC_OPTIMIZATION/semantic-coherence.md)** across business analytics - the underlying patterns are consistent, allowing for shared understanding and reusable components.
 

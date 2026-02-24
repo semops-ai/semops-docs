@@ -3,8 +3,8 @@ doc_type: hub
 pattern: pattern-operations
 provenance: 1p
 metadata:
-  pattern_type: concept
-  brand-strength: high
+ pattern_type: concept
+ brand-strength: high
 ---
 
 # Pattern Operations
@@ -56,31 +56,31 @@ This directly improves:
 
 ```
 FLEXIBLE EDGE (low structure)
-  ↓ detect signal
-  ↓ evaluate recurrence & meaning
-  ↓ cluster candidates
+ ↓ detect signal
+ ↓ evaluate recurrence & meaning
+ ↓ cluster candidates
 
 PROMOTION CRITERIA (SemOps)
-  ↓ cross-team adoption?
-  ↓ stable meaning?
-  ↓ predictive/explanatory power?
+ ↓ cross-team adoption?
+ ↓ stable meaning?
+ ↓ predictive/explanatory power?
 
 HARD SCHEMA (high structure)
-  ↓ added to DDD model
-  ↓ added to metrics layer
-  ↓ added to canonical docs
-  ↓ assigned ownership
+ ↓ added to DDD model
+ ↓ added to metrics layer
+ ↓ added to canonical docs
+ ↓ assigned ownership
 
 SHARED DOMAIN KNOWLEDGE
-  ↓ explainability
-  ↓ projection
-  ↓ coordination
+ ↓ explainability
+ ↓ projection
+ ↓ coordination
 
 ORGANIZATIONAL UNDERSTANDING
-  ↓ decisions improve
-  ↓ prioritization sharpens
-  ↓ politics decrease
-  ↓ execution accelerates
+ ↓ decisions improve
+ ↓ prioritization sharpens
+ ↓ politics decrease
+ ↓ execution accelerates
 ```
 
 ---
@@ -91,55 +91,55 @@ ORGANIZATIONAL UNDERSTANDING
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  FLEXIBLE EDGE (Experimentation Zone)                                        │
-│                                                                              │
-│  • Orphan entities (no concept reference)                                    │
-│  • Tentative relationships (edges with low strength)                         │
-│  • Soft metadata (JSONB fields, not schema columns)                          │
-│  • approval_status = 'pending'                                               │
-│  • provenance = undefined or tentative                                       │
-│                                                                              │
-│  What lives here:                                                            │
-│  • New ideas being explored                                                  │
-│  • Content not yet classified                                                │
-│  • Experiments, drafts, hypotheses                                           │
-│  • Potential new patterns (not yet named)                                    │
-│                                                                              │
+│ FLEXIBLE EDGE (Experimentation Zone) │
+│ │
+│ • Orphan entities (no concept reference) │
+│ • Tentative relationships (edges with low strength) │
+│ • Soft metadata (JSONB fields, not schema columns) │
+│ • approval_status = 'pending' │
+│ • provenance = undefined or tentative │
+│ │
+│ What lives here: │
+│ • New ideas being explored │
+│ • Content not yet classified │
+│ • Experiments, drafts, hypotheses │
+│ • Potential new patterns (not yet named) │
+│ │
 └─────────────────────────────────────┬───────────────────────────────────────┘
-                                      │
-                                      │ CLASSIFICATION + AUDIT
-                                      │ (classifier pipeline, human review)
-                                      │
-                                      ▼
+ │
+ │ CLASSIFICATION + AUDIT
+ │ (classifier pipeline, human review)
+ │
+ ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  DECISION POINT                                                              │
-│                                                                              │
-│  Options:                                                                    │
-│  1. PROMOTE to stable core (approve concept, assign primary_concept_id)      │
-│  2. REJECT (delete or archive)                                               │
-│  3. KEEP EXPLORING (needs more work, stay at edge)                           │
-│  4. CREATE NEW PATTERN (this reveals a new bounded context → 1p concept)     │
-│                                                                              │
+│ DECISION POINT │
+│ │
+│ Options: │
+│ 1. PROMOTE to stable core (approve concept, assign primary_concept_id) │
+│ 2. REJECT (delete or archive) │
+│ 3. KEEP EXPLORING (needs more work, stay at edge) │
+│ 4. CREATE NEW PATTERN (this reveals a new bounded context → 1p concept) │
+│ │
 └─────────────────────────────────────┬───────────────────────────────────────┘
-                                      │
-                                      │ APPROVAL
-                                      │
-                                      ▼
+ │
+ │ APPROVAL
+ │
+ ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  STABLE CORE (Semantically Coherent State)                                   │
-│                                                                              │
-│  • Concepts with approval_status = 'approved'                                │
-│  • Entities with primary_concept_id set                                      │
-│  • Explicit provenance (1p/3p)                                               │
-│  • Strong edges (SKOS relationships, high strength)                          │
-│  • Schema-level fields (not just JSONB)                                      │
-│                                                                              │
-│  What lives here:                                                            │
-│  • Approved patterns (3p standards, 1p innovations)                          │
-│  • Ubiquitous language definitions                                           │
-│  • Stable bounded contexts                                                   │
-│  • The "mean" you want LLMs to converge to                                   │
-│                                                                              │
+│ STABLE CORE (Semantically Coherent State) │
+│ │
+│ • Concepts with approval_status = 'approved' │
+│ • Entities with primary_concept_id set │
+│ • Explicit provenance (1p/3p) │
+│ • Strong edges (SKOS relationships, high strength) │
+│ • Schema-level fields (not just JSONB) │
+│ │
+│ What lives here: │
+│ • Approved patterns (3p standards, 1p innovations) │
+│ • Ubiquitous language definitions │
+│ • Stable bounded contexts │
+│ • The "mean" you want LLMs to converge to │
+│ │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -151,49 +151,49 @@ ORGANIZATIONAL UNDERSTANDING
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────┐
-│  THE OPTIMIZATION CYCLE                                                     │
-│                                                                             │
-│                     ┌──────────────────┐                                    │
-│                     │  STABLE CORE     │                                    │
-│                     │  SC ≥ threshold  │                                    │
-│                     │  (can grow now)  │                                    │
-│                     └────────┬─────────┘                                    │
-│                              │                                              │
-│                              │ ADD NEW STUFF                                │
-│                              │ (orphans, experiments)                       │
-│                              ▼                                              │
-│                     ┌──────────────────┐                                    │
-│                     │  FLEXIBLE EDGE   │                                    │
-│                     │  SC drops        │                                    │
-│                     │  (exploring)     │                                    │
-│                     └────────┬─────────┘                                    │
-│                              │                                              │
-│                              │ CLASSIFY + AUDIT                             │
-│                              │ (promote, reject, create new patterns)       │
-│                              ▼                                              │
-│                     ┌──────────────────┐                                    │
-│                     │  DECISION        │                                    │
-│                     │  SC < threshold? │                                    │
-│                     └────────┬─────────┘                                    │
-│                              │                                              │
-│              ┌───────────────┼───────────────┐                              │
-│              │               │               │                              │
-│              ▼               ▼               ▼                              │
-│     ┌────────────┐   ┌────────────┐   ┌────────────┐                        │
-│     │ OPTIMIZE   │   │ GROW MORE  │   │ PAUSE      │                        │
-│     │ (promote   │   │ (SC still  │   │ (SC too    │                        │
-│     │ or reject) │   │ above)     │   │ low, fix)  │                        │
-│     └──────┬─────┘   └──────┬─────┘   └──────┬─────┘                        │
-│            │                │                │                              │
-│            └────────────────┴────────────────┘                              │
-│                              │                                              │
-│                              ▼                                              │
-│                     ┌──────────────────┐                                    │
-│                     │  STABLE CORE     │                                    │
-│                     │  SC ≥ threshold  │                                    │
-│                     │  (repeat)        │                                    │
-│                     └──────────────────┘                                    │
-│                                                                             │
+│ THE OPTIMIZATION CYCLE │
+│ │
+│ ┌──────────────────┐ │
+│ │ STABLE CORE │ │
+│ │ SC ≥ threshold │ │
+│ │ (can grow now) │ │
+│ └────────┬─────────┘ │
+│ │ │
+│ │ ADD NEW STUFF │
+│ │ (orphans, experiments) │
+│ ▼ │
+│ ┌──────────────────┐ │
+│ │ FLEXIBLE EDGE │ │
+│ │ SC drops │ │
+│ │ (exploring) │ │
+│ └────────┬─────────┘ │
+│ │ │
+│ │ CLASSIFY + AUDIT │
+│ │ (promote, reject, create new patterns) │
+│ ▼ │
+│ ┌──────────────────┐ │
+│ │ DECISION │ │
+│ │ SC < threshold? │ │
+│ └────────┬─────────┘ │
+│ │ │
+│ ┌───────────────┼───────────────┐ │
+│ │ │ │ │
+│ ▼ ▼ ▼ │
+│ ┌────────────┐ ┌────────────┐ ┌────────────┐ │
+│ │ OPTIMIZE │ │ GROW MORE │ │ PAUSE │ │
+│ │ (promote │ │ (SC still │ │ (SC too │ │
+│ │ or reject) │ │ above) │ │ low, fix) │ │
+│ └──────┬─────┘ └──────┬─────┘ └──────┬─────┘ │
+│ │ │ │ │
+│ └────────────────┴────────────────┘ │
+│ │ │
+│ ▼ │
+│ ┌──────────────────┐ │
+│ │ STABLE CORE │ │
+│ │ SC ≥ threshold │ │
+│ │ (repeat) │ │
+│ └──────────────────┘ │
+│ │
 └────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -207,12 +207,12 @@ Agile operates on **tickets** (stories, tasks, bugs).
 
 [Semantic Operations](../README.md) operates on **patterns** (bounded contexts, aggregates).
 
-| Agile                           | Semantic Ops                            |
+| Agile | Semantic Ops |
 | ------------------------------- | --------------------------------------- |
-| Sprint backlog of stories       | Pattern adoption queue                  |
-| Story points (effort)           | Pattern complexity (semantic scope)     |
-| Velocity (stories/sprint)       | Coherence delta (patterns integrated)   |
-| Definition of Done (checklist)  | Pattern validation (invariants hold)    |
+| Sprint backlog of stories | Pattern adoption queue |
+| Story points (effort) | Pattern complexity (semantic scope) |
+| Velocity (stories/sprint) | Coherence delta (patterns integrated) |
+| Definition of Done (checklist) | Pattern validation (invariants hold) |
 
 ### The Agile Replacement Hypothesis
 

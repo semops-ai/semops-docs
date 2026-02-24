@@ -6,8 +6,8 @@ pattern: semantic-flywheel
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: medium
+ pattern_type: concept
+ brand_strength: medium
 ---
 
 # Semantic Flywheel
@@ -22,16 +22,16 @@ metadata:
 **industrialize the "Refactoring" loop**. 
 * **The Phenomenon:** The architecture (DDD) supports the AI, and the AI supports the architecture.
 * **The Loop:**
-    1.  **High Structure (Input):** DDD forces developers to be explicit about intent, types, and boundaries.
-    2.  **High Context (AI Process):** LLMs thrive on explicit context. They struggle with ambiguity. DDD code provides "High-Context" prompts by default.
-    3.  **High Capability (Output):** Because the AI understands the system boundaries (Bounded Contexts), it can generate code that actually compiles and fits the logic.
-    4.  **Reinforcement:** Increased trust in the AI leads to building *more* structure, which further improves the AI.
-| DDD Concept                 | AI / LLM Equivalent Value                                                                                                                                                                 |
+ 1. **High Structure (Input):** DDD forces developers to be explicit about intent, types, and boundaries.
+ 2. **High Context (AI Process):** LLMs thrive on explicit context. They struggle with ambiguity. DDD code provides "High-Context" prompts by default.
+ 3. **High Capability (Output):** Because the AI understands the system boundaries (Bounded Contexts), it can generate code that actually compiles and fits the logic.
+ 4. **Reinforcement:** Increased trust in the AI leads to building *more* structure, which further improves the AI.
+| DDD Concept | AI / LLM Equivalent Value |
 | :-------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Ubiquitous Language**     | **System Prompt / Context:** A pre-defined dictionary creates semantic consistency. The AI does not have to guess if it is a "User," "Customer," or "Client."                 |
-| **Bounded Contexts**        | **Context Window Management:** The AI does not need the *entire* codebase. Only the relevant Bounded Context is required. This reduces noise and hallucinations.                 |
+| **Ubiquitous Language** | **System Prompt / Context:** A pre-defined dictionary creates semantic consistency. The AI does not have to guess if it is a "User," "Customer," or "Client." |
+| **Bounded Contexts** | **Context Window Management:** The AI does not need the *entire* codebase. Only the relevant Bounded Context is required. This reduces noise and hallucinations. |
 | **Invariants / Aggregates** | **Guardrails:** The AI cannot easily break the database or logic if it is forced to operate through the methods of an Aggregate Root. The architecture "protects the core" from AI drift. |
-| **Value Objects**           | **Type Safety / Validation:** Self-validating objects mean the AI cannot generate "bad data" without the compiler catching it immediately.
+| **Value Objects** | **Type Safety / Validation:** Self-validating objects mean the AI cannot generate "bad data" without the compiler catching it immediately.
 
 ### Semantic Coherence $\approx$ The Ubiquitous Language (The State)
 [Semantic Coherence](../SEMANTIC_OPTIMIZATION/semantic-coherence.md) is defined as: *"All actors (humans + machines) interpret concepts, data, and rules consistently."*
@@ -39,7 +39,7 @@ metadata:
 In this context:
 * **The DDD Match:** This is the definition of the **Ubiquitous Language** within a **Bounded Context**.
 * **The AI Multiplier:** In a traditional team, "Semantic Coherence" is maintained by meetings, wiki pages (that go out of date), and code reviews. This is "lossy."
-    * *With this approach:* The Code/Schema *is* the strict ontology. Because LLMs are semantic engines, they require high Semantic Coherence to function.
+ * *With this approach:* The Code/Schema *is* the strict ontology. Because LLMs are semantic engines, they require high Semantic Coherence to function.
 
 ## Derived from 
 
@@ -93,12 +93,12 @@ In traditional software, this is called "Technical Debt," and it is measured by 
 
 These concepts map directly to the project lifecycle:
 
-1.  **Input (Growth):** A new idea/feature introduces **Entropy**.
-2.  **Check:** Does this fit the current Model?
-3.  **Low Coherence Detected:** The concept conflicts with existing definitions.
-4.  **Semantic Optimization (The Action):** AI is used to restructure the schema/logic (DDD) to accommodate the new truth.
-5.  **High Coherence Restored:** The "Corpus" is updated.
-6.  **Result:** The AI can now autonomously build on top of this new structure.
+1. **Input (Growth):** A new idea/feature introduces **Entropy**.
+2. **Check:** Does this fit the current Model?
+3. **Low Coherence Detected:** The concept conflicts with existing definitions.
+4. **Semantic Optimization (The Action):** AI is used to restructure the schema/logic (DDD) to accommodate the new truth.
+5. **High Coherence Restored:** The "Corpus" is updated.
+6. **Result:** The AI can now autonomously build on top of this new structure.
 
 
 **Citations:**

@@ -6,8 +6,8 @@ pattern: strategic-data
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: medium
+ pattern_type: concept
+ brand_strength: medium
 # This structure doc needs a re-write, see inline comments. This pattern name does not have strong unique "name" brand-strenght, but it is one of the FRAMEWORK pillars, and I believe it is novel enough as a synthesis of best practices. 
 ---
 
@@ -39,14 +39,14 @@ Data and analytics should be a first-class citizen in any organization wishing t
 Strategic Data owns the D→I transformation — the most deterministic, energy-bounded transition in the [Semantic Funnel](../../RESEARCH/FOUNDATIONS/semantic-funnel.md).
 
 ```
-  Objects:  DATA ══════> INFORMATION -------> KNOWLEDGE -------> WISDOM
-               │
-  Rules:  Structural
-          (schemas, types,
-           dimensional models)
-               │
-  Agents: Data engineers,
-          modelers
+ Objects: DATA ══════> INFORMATION -------> KNOWLEDGE -------> WISDOM
+ │
+ Rules: Structural
+ (schemas, types,
+ dimensional models)
+ │
+ Agents: Data engineers,
+ modelers
 ```
 
 | Element | D → I |
@@ -236,13 +236,13 @@ AI transformation requires Strategic Data foundation:
 > In the AI era, the boundary between "data" and "everything else" collapses. Code, documents, models, patterns, decisions, and conversations all become inputs to agentic systems.
 
 ```text
-Traditional "Data"              AI-Era "Data"
-─────────────────              ─────────────
-• Database records      →      • + Code (patterns, structure, intent)
-• Analytics/metrics     →      • + Models (weights, provenance)
-• Files/documents       →      • + Decisions (rationale, outcomes)
-                               • + Conversations (prompts, feedback)
-                               • + Patterns (reusable structures)
+Traditional "Data" AI-Era "Data"
+───────────────── ─────────────
+• Database records → • + Code (patterns, structure, intent)
+• Analytics/metrics → • + Models (weights, provenance)
+• Files/documents → • + Decisions (rationale, outcomes)
+ • + Conversations (prompts, feedback)
+ • + Patterns (reusable structures)
 ```
 
 **Why this matters for Strategic Data:**

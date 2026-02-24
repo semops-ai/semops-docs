@@ -2,7 +2,7 @@
 
 > **Purpose:** Evidence base for Issue #110 — backing the claim that most organizations (and the industry itself) conflate architecture with infrastructure.
 > **Date:** 2026-02-18
-> **Related Issue:** [semops-docs#110](https://github.com/semops-ai/semops-docs/issues/110)
+> **Related Issue:** [](https://github.com/semops-ai/semops-docs/issues/110)
 
 ---
 
@@ -15,8 +15,8 @@ The industry's own definitions prove the point: mainstream sources define "archi
 ```text
 INFRASTRUCTURE ◄──────────────────────────────────► DOMAIN MEANING
 
-Snowflake     Informatica    AWS/IBM    TOGAF/Gartner    Fowler/Booch/Evans
-(pure infra)  (data verbs)   (mixed)    (principles)     (decisions, rules, domain)
+Snowflake Informatica AWS/IBM TOGAF/Gartner Fowler/Booch/Evans
+(pure infra) (data verbs) (mixed) (principles) (decisions, rules, domain)
 ```
 
 ---

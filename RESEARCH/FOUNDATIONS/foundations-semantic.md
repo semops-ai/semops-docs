@@ -6,8 +6,8 @@ pattern: foundations-semantic
 provenance: 3p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 # Foundations: Semantic Systems and Architecture
 

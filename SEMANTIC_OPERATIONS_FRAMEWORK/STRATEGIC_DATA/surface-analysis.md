@@ -6,8 +6,8 @@ pattern: surface-analysis
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: medium
+ pattern_type: concept
+ brand_strength: medium
 ---
 # Surface Analysis
 
@@ -22,14 +22,14 @@ metadata:
 ## Technical Definition
 Surface does have a technical definition in the digital analytics domain, and this framework merely extends it to include other domains and types of data sources. The standard [GA4 platform/device dimensions](https://support.google.com/analytics/answer/9143382?hl=en) define surface as a tuple:
 
-| Dimension         | Definition         | Examples                           |
+| Dimension | Definition | Examples |
 | :---------------- | :----------------- | :--------------------------------- |
-| Platform          | Method of access   | Web, iOS, Android                  |
-| Device Category   | Hardware class     | Desktop, Mobile, Tablet            |
-| Operating System  | OS                 | Windows, macOS, iOS, Android       |
-| Browser           | Client application | Chrome, Safari, Firefox (web only) |
-| App Version       | Release identifier | v2.3.1 (native apps)               |
-| Screen Resolution | Display dimensions | 1920x1080, 375x812                 |
+| Platform | Method of access | Web, iOS, Android |
+| Device Category | Hardware class | Desktop, Mobile, Tablet |
+| Operating System | OS | Windows, macOS, iOS, Android |
+| Browser | Client application | Chrome, Safari, Firefox (web only) |
+| App Version | Release identifier | v2.3.1 (native apps) |
+| Screen Resolution | Display dimensions | 1920x1080, 375x812 |
 
 **Surface as API Analogy**
 
@@ -67,13 +67,13 @@ A **Source** is a `value object` — a tuple of technical properties that descri
 
 ```yaml
 source:
-  platform: web | mobile | api | pos | erp | slack | ...
-  os: ios | android | windows | macos | n/a | ...
-  app_type: browser | native | pwa | integration | manual | ...
-  interaction_mode: event_stream | batch | manual_entry | query | ...
-  actor_type: customer | employee | system | partner | ai_agent | ...
-  direction: inbound | outbound | bidirectional
-  schema: <data shape>
+ platform: web | mobile | api | pos | erp | slack | ...
+ os: ios | android | windows | macos | n/a | ...
+ app_type: browser | native | pwa | integration | manual | ...
+ interaction_mode: event_stream | batch | manual_entry | query | ...
+ actor_type: customer | employee | system | partner | ai_agent | ...
+ direction: inbound | outbound | bidirectional
+ schema: <data shape>
 ```
 
 Sources can be described standalone — teams can profile and catalog sources without understanding where they fit in the larger system.
@@ -95,31 +95,31 @@ A **Surface** is a Source positioned in the lineage graph. Surface adds:
 
 ```yaml
 surface:
-  # Source (the tuple)
-  source:
-    platform: web
-    app_type: browser
-    interaction_mode: event_stream
-    actor_type: customer
-    direction: inbound
+ # Source (the tuple)
+ source:
+ platform: web
+ app_type: browser
+ interaction_mode: event_stream
+ actor_type: customer
+ direction: inbound
 
-  # Position (lineage context)
-  data_world: oltp
-  boundary_type: boundary
-  upstream: []  # Boundary source — nothing upstream
-  downstream:
-    - event-stream-raw
-    - marketing-pixel-relay
-    - product-analytics
+ # Position (lineage context)
+ data_world: oltp
+ boundary_type: boundary
+ upstream: [] # Boundary source — nothing upstream
+ downstream:
+ - event-stream-raw
+ - marketing-pixel-relay
+ - product-analytics
 
-  # Lineage metadata
-  analytics_outputs:
-    - conversion-funnel
-    - attribution-model
-  systems_touched:
-    - product-db
-    - marketing-platform
-    - warehouse
+ # Lineage metadata
+ analytics_outputs:
+ - conversion-funnel
+ - attribution-model
+ systems_touched:
+ - product-db
+ - marketing-platform
+ - warehouse
 ```
 
 **Surface = Source + Lineage**
@@ -302,25 +302,25 @@ OAuth flows, token refresh, multi-tenant auth — managed platforms handle these
 
 ```
 1. Is there a mature connector in Fivetran/Airbyte?
-   ├─ Yes → Is cost acceptable at the expected volume?
-   │        ├─ Yes → Use managed platform
-   │        └─ No → Consider self-hosted Airbyte or code-first
-   └─ No → Continue...
+ ├─ Yes → Is cost acceptable at the expected volume?
+ │ ├─ Yes → Use managed platform
+ │ └─ No → Consider self-hosted Airbyte or code-first
+ └─ No → Continue...
 
 2. Is this a database source needing CDC?
-   ├─ Yes → Fivetran (if budget) or Debezium + custom
-   └─ No → Continue...
+ ├─ Yes → Fivetran (if budget) or Debezium + custom
+ └─ No → Continue...
 
 3. Is this a REST/GraphQL API?
-   ├─ Yes → DLT excels here; also Airbyte connector builder
-   └─ No → Continue...
+ ├─ Yes → DLT excels here; also Airbyte connector builder
+ └─ No → Continue...
 
 4. Is this a file source (S3, SFTP)?
-   ├─ Yes → DLT or managed platforms both handle this
-   └─ No → Continue...
+ ├─ Yes → DLT or managed platforms both handle this
+ └─ No → Continue...
 
 5. Is this a proprietary/legacy system?
-   └─ Custom pipeline (consider DLT as framework)
+ └─ Custom pipeline (consider DLT as framework)
 ```
 
 ### Hybrid Approaches in Practice
@@ -365,20 +365,20 @@ The dominant sources reveal the company's theory of value creation:
 The [Four Data System Types](four-data-system-types.md) each have characteristic surface patterns:
 
 Functional Data System: Operational
-         │
-         ├── Query Surface: OLTP (transactional queries)
-         ├── Event Surface: Kafka, CDC streams
-         ├── API Surface: REST/GraphQL endpoints
-         ├── State Surface: Application databases
-         └── Cache Surface: Redis, in-memory
-         
-Functional Data System: Analytical  
-         │
-         ├── Query Surface: OLAP (analytical queries)
-         ├── Storage Surface: Data lake, warehouse
-         ├── Semantic Surface: Metrics layer, cube
-         ├── ML Surface: Feature store, model serving
-         └── BI Surface: Dashboards, reports
+ │
+ ├── Query Surface: OLTP (transactional queries)
+ ├── Event Surface: Kafka, CDC streams
+ ├── API Surface: REST/GraphQL endpoints
+ ├── State Surface: Application databases
+ └── Cache Surface: Redis, in-memory
+ 
+Functional Data System: Analytical 
+ │
+ ├── Query Surface: OLAP (analytical queries)
+ ├── Storage Surface: Data lake, warehouse
+ ├── Semantic Surface: Metrics layer, cube
+ ├── ML Surface: Feature store, model serving
+ └── BI Surface: Dashboards, reports
 
 
 ---
@@ -389,19 +389,19 @@ Surface Analysis is the interpretive output of **[Discovery Through Data](../EXP
 
 ```
 Data Model Everything (method)
-         │
-         ▼
-    Sources discovered
-    Flows traced
-    Lineage mapped
-         │
-         ▼
-    Surface Analysis (interpretation)
-         │
-         ▼
-    "This source is a boundary into OLTP"
-    "This source feeds these analytics outputs"
-    "This is where the business actually touches customers"
+ │
+ ▼
+ Sources discovered
+ Flows traced
+ Lineage mapped
+ │
+ ▼
+ Surface Analysis (interpretation)
+ │
+ ▼
+ "This source is a boundary into OLTP"
+ "This source feeds these analytics outputs"
+ "This is where the business actually touches customers"
 ```
 
 | Activity | Output | Audience |
@@ -426,22 +426,22 @@ The four data worlds each have characteristic surface types:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    4 DATA WORLDS                             │
-│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────┐│
-│  │    OLTP     │ │    OLAP     │ │  Enterprise │ │ Systems ││
-│  │  (Product)  │ │  (Query)    │ │    Work     │ │ of Rec  ││
-│  └──────┬──────┘ └──────┬──────┘ └──────┬──────┘ └────┬────┘│
-│         │              │               │              │     │
-│    External +     Internal        Internal       Internal   │
-│    Boundary       (derived)    (unstructured)  (structured) │
+│ 4 DATA WORLDS │
+│ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────┐│
+│ │ OLTP │ │ OLAP │ │ Enterprise │ │ Systems ││
+│ │ (Product) │ │ (Query) │ │ Work │ │ of Rec ││
+│ └──────┬──────┘ └──────┬──────┘ └──────┬──────┘ └────┬────┘│
+│ │ │ │ │ │
+│ External + Internal Internal Internal │
+│ Boundary (derived) (unstructured) (structured) │
 └─────────┼──────────────┼───────────────┼──────────────┼─────┘
-          │              │               │              │
-          ▼              ▼               ▼              ▼
-    ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
-    │ Web/Mobile│   │ BI Dash  │   │  Slack   │   │ SAP GL   │
-    │ Checkout │   │ Query    │   │  Notion  │   │ Workday  │
-    │ API Call │   │ Semantic │   │  Email   │   │ Finance  │
-    └──────────┘   └──────────┘   └──────────┘   └──────────┘
+ │ │ │ │
+ ▼ ▼ ▼ ▼
+ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐
+ │ Web/Mobile│ │ BI Dash │ │ Slack │ │ SAP GL │
+ │ Checkout │ │ Query │ │ Notion │ │ Workday │
+ │ API Call │ │ Semantic │ │ Email │ │ Finance │
+ └──────────┘ └──────────┘ └──────────┘ └──────────┘
 ```
 
 **Key insight:** Understanding which surfaces extend across which data worlds — and where they overlap — reveals what's actually happening in the business.
@@ -454,28 +454,28 @@ When all surfaces in an organization are mapped, the result is the **Surface Top
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    SURFACE TOPOLOGY                          │
-│        (where the business actually happens)                 │
-│                                                              │
-│   External surfaces ◄──────────────► Internal surfaces       │
-│   (customer/partner)                 (employee/system)       │
-│                                                              │
-│   ┌─────────────────────────────────────────────────────┐   │
-│   │                    BOUNDARY                          │   │
-│   │  Web ─── Mobile ─── API ─── POS ─── Call Center     │   │
-│   └───────────────────────┬─────────────────────────────┘   │
-│                           │                                  │
-│                           ▼                                  │
-│   ┌─────────────────────────────────────────────────────┐   │
-│   │                    INTERNAL                          │   │
-│   │  Event Streams ─► Warehouse ─► Analytics ─► BI      │   │
-│   │        │                                             │   │
-│   │        └──► ML Features ─► Models ─► Predictions    │   │
-│   │                                                      │   │
-│   │  Slack ─── Notion ─── Email ─── Docs (dark)         │   │
-│   │                                                      │   │
-│   │  ERP ─── HRIS ─── Finance ─── Compliance            │   │
-│   └─────────────────────────────────────────────────────┘   │
+│ SURFACE TOPOLOGY │
+│ (where the business actually happens) │
+│ │
+│ External surfaces ◄──────────────► Internal surfaces │
+│ (customer/partner) (employee/system) │
+│ │
+│ ┌─────────────────────────────────────────────────────┐ │
+│ │ BOUNDARY │ │
+│ │ Web ─── Mobile ─── API ─── POS ─── Call Center │ │
+│ └───────────────────────┬─────────────────────────────┘ │
+│ │ │
+│ ▼ │
+│ ┌─────────────────────────────────────────────────────┐ │
+│ │ INTERNAL │ │
+│ │ Event Streams ─► Warehouse ─► Analytics ─► BI │ │
+│ │ │ │ │
+│ │ └──► ML Features ─► Models ─► Predictions │ │
+│ │ │ │
+│ │ Slack ─── Notion ─── Email ─── Docs (dark) │ │
+│ │ │ │
+│ │ ERP ─── HRIS ─── Finance ─── Compliance │ │
+│ └─────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -512,23 +512,23 @@ AI introduces new surface types that fit the same model:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    AI SURFACE TOPOLOGY                       │
-│                                                              │
-│   User ─────► Chat Interface (boundary)                      │
-│                      │                                       │
-│                      ▼                                       │
-│               ┌─────────────┐                                │
-│               │   Agent     │                                │
-│               │ (orchestr.) │                                │
-│               └──────┬──────┘                                │
-│                      │                                       │
-│         ┌────────────┼────────────┐                         │
-│         ▼            ▼            ▼                         │
-│   ┌──────────┐ ┌──────────┐ ┌──────────┐                   │
-│   │   RAG    │ │  Tools   │ │ External │                   │
-│   │ Pipeline │ │  (MCP)   │ │   APIs   │                   │
-│   │(internal)│ │ (spans)  │ │(boundary)│                   │
-│   └──────────┘ └──────────┘ └──────────┘                   │
+│ AI SURFACE TOPOLOGY │
+│ │
+│ User ─────► Chat Interface (boundary) │
+│ │ │
+│ ▼ │
+│ ┌─────────────┐ │
+│ │ Agent │ │
+│ │ (orchestr.) │ │
+│ └──────┬──────┘ │
+│ │ │
+│ ┌────────────┼────────────┐ │
+│ ▼ ▼ ▼ │
+│ ┌──────────┐ ┌──────────┐ ┌──────────┐ │
+│ │ RAG │ │ Tools │ │ External │ │
+│ │ Pipeline │ │ (MCP) │ │ APIs │ │
+│ │(internal)│ │ (spans) │ │(boundary)│ │
+│ └──────────┘ └──────────┘ └──────────┘ │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -538,55 +538,55 @@ AI introduces new surface types that fit the same model:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    DATA MODEL EVERYTHING                     │
-│         (trace flows, ignore systems/teams/vendors)          │
-│                                                              │
-│                        METHOD                                │
+│ DATA MODEL EVERYTHING │
+│ (trace flows, ignore systems/teams/vendors) │
+│ │
+│ METHOD │
 └─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
+ │
+ ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                         SOURCES                              │
-│                   (technical, precise)                       │
-│                                                              │
-│   The tuple: platform, mode, actor, direction, schema        │
-│                                                              │
-│   Provenance: Boundary ◄────────────────► Internal           │
-│               (enters system)              (derived)         │
-│                                                              │
-│                    TECHNICAL OUTPUT                          │
+│ SOURCES │
+│ (technical, precise) │
+│ │
+│ The tuple: platform, mode, actor, direction, schema │
+│ │
+│ Provenance: Boundary ◄────────────────► Internal │
+│ (enters system) (derived) │
+│ │
+│ TECHNICAL OUTPUT │
 └─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
+ │
+ ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    SURFACE ANALYSIS                          │
-│            (interpret sources in context)                    │
-│                                                              │
-│   Surface = Source + Lineage Position                        │
-│                                                              │
-│   • Which data world?                                        │
-│   • What's upstream/downstream?                              │
-│   • Boundary or internal?                                    │
-│   • What analytics outputs depend on this?                   │
-│                                                              │
-│                   INTERPRETED OUTPUT                         │
+│ SURFACE ANALYSIS │
+│ (interpret sources in context) │
+│ │
+│ Surface = Source + Lineage Position │
+│ │
+│ • Which data world? │
+│ • What's upstream/downstream? │
+│ • Boundary or internal? │
+│ • What analytics outputs depend on this? │
+│ │
+│ INTERPRETED OUTPUT │
 └─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
+ │
+ ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                   SURFACE TOPOLOGY                           │
-│        (the map of where business actually happens)          │
-│                                                              │
-│   External surfaces ◄──────────────► Internal surfaces       │
-│   (customer/partner)                 (employee/system)       │
-│                                                              │
-│   4 Data Worlds positioned:                                  │
-│   • OLTP → Product surfaces (external)                       │
-│   • OLAP → Query surfaces (internal)                         │
-│   • Enterprise Work → Collaboration surfaces (internal)      │
-│   • Systems of Record → Back-office surfaces (internal)      │
-│                                                              │
-│                    STRATEGIC MAP                             │
+│ SURFACE TOPOLOGY │
+│ (the map of where business actually happens) │
+│ │
+│ External surfaces ◄──────────────► Internal surfaces │
+│ (customer/partner) (employee/system) │
+│ │
+│ 4 Data Worlds positioned: │
+│ • OLTP → Product surfaces (external) │
+│ • OLAP → Query surfaces (internal) │
+│ • Enterprise Work → Collaboration surfaces (internal) │
+│ • Systems of Record → Back-office surfaces (internal) │
+│ │
+│ STRATEGIC MAP │
 └─────────────────────────────────────────────────────────────┘
 ```
 

@@ -6,8 +6,8 @@ pattern: what-is-understanding
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand-strength: medium
+ pattern_type: concept
+ brand-strength: medium
 # This is a further exploration of the "understanding" component of the Semantic Funnel. Brand strength is medium because of the emphasis SemOps puts on understanding and how we convert into concrete tech solutions and data. Now includes uncertainty content (merged from uncertainty.md).
 ---
 

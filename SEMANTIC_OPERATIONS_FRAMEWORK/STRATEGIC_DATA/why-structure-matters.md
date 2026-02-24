@@ -6,8 +6,8 @@ pattern: why-structure-matters
 provenance: 3p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 
 # Why Structure Matters: Analytics, AI
@@ -52,22 +52,22 @@ This is not a preference or best practice - it is **mathematical necessity**:
 **Why AI makes structure critical:**
 
 1. **LLMs cannot infer meaning from chaos**
-   - RAG systems need queryable, structured data
-   - AI agents must understand relationships between entities
-   - Hallucinations increase when semantic relationships are unclear
-   - "Just throw unstructured data at AI" fails with significant consequences
+ - RAG systems need queryable, structured data
+ - AI agents must understand relationships between entities
+ - Hallucinations increase when semantic relationships are unclear
+ - "Just throw unstructured data at AI" fails with significant consequences
 
 2. **ML models require correct labels**
-   - Training data must have consistent semantics
-   - Feature engineering depends on dimensional model
-   - Prediction accuracy requires understanding grain
-   - Wrong structure → wrong labels → wrong predictions
+ - Training data must have consistent semantics
+ - Feature engineering depends on dimensional model
+ - Prediction accuracy requires understanding grain
+ - Wrong structure → wrong labels → wrong predictions
 
 3. **AI amplifies semantic errors**
-   - Inconsistent definitions → AI learns inconsistent patterns
-   - Missing relationships → AI makes incorrect inferences
-   - Ambiguous meaning → AI produces ambiguous outputs
-   - Garbage in, exponentially amplified garbage out
+ - Inconsistent definitions → AI learns inconsistent patterns
+ - Missing relationships → AI makes incorrect inferences
+ - Ambiguous meaning → AI produces ambiguous outputs
+ - Garbage in, exponentially amplified garbage out
 
 **Example:**
 ```
@@ -112,23 +112,23 @@ Without structure:
 **What "injecting meaning" actually requires:**
 
 1. **Understanding the business**
-   - What is a "customer" in the organization's model?
-   - What events matter for outcomes?
-   - What relationships exist in the domain?
-   - What does "revenue" mean (recognized, deferred, booking)?
+ - What is a "customer" in the organization's model?
+ - What events matter for outcomes?
+ - What relationships exist in the domain?
+ - What does "revenue" mean (recognized, deferred, booking)?
 
 2. **Modeling the semantics**
-   - Define entities and their attributes
-   - Map relationships and hierarchies
-   - Establish grain for fact tables
-   - Create conformed dimensions
-   - Document business rules
+ - Define entities and their attributes
+ - Map relationships and hierarchies
+ - Establish grain for fact tables
+ - Create conformed dimensions
+ - Document business rules
 
 3. **Enforcing coherence**
-   - Single source of truth at capture
-   - Governance at the source
-   - Schema evolution with versioning
-   - Continuous validation
+ - Single source of truth at capture
+ - Governance at the source
+ - Schema evolution with versioning
+ - Continuous validation
 
 **The two types of semantic abstraction:**
 
@@ -230,14 +230,14 @@ Both require:
 **Role fragmentation:**
 ```
 Software Engineering:
-  SDE I → SDE II → Senior → Staff → Principal
-  (One ladder, full ownership of system design including schema)
+ SDE I → SDE II → Senior → Staff → Principal
+ (One ladder, full ownership of system design including schema)
 
 Data Roles:
-  Data Engineer (moves data, doesn't model)
-  Data Scientist (builds models, ignores structure)
-  BI Analyst (consumes models, can't build)
-  Analytics Engineer (invented to fix the gap)
+ Data Engineer (moves data, doesn't model)
+ Data Scientist (builds models, ignores structure)
+ BI Analyst (consumes models, can't build)
+ Analytics Engineer (invented to fix the gap)
 ```
 
 **The structural flaw:**
@@ -375,11 +375,11 @@ Column: customer_tier
 Total rows: 1,000,000
 Distinct values: 50,237 (!!!)
 Top 5 values:
-  - "Standard": 450,000 (45%)
-  - "Premium": 300,000 (30%)
-  - "Basic": 100,000 (10%)
-  - "Enterprise": 45,000 (4.5%)
-  - "Trial": 5,000 (0.5%)
+ - "Standard": 450,000 (45%)
+ - "Premium": 300,000 (30%)
+ - "Basic": 100,000 (10%)
+ - "Enterprise": 45,000 (4.5%)
+ - "Trial": 5,000 (0.5%)
 Other values: 100,000 (10%) ← RED FLAG
 ```
 
@@ -486,15 +486,15 @@ Other values: 100,000 (10%) ← RED FLAG
 event: purchase_completed
 owner: Product Engineering (with Analytics/Marketing input)
 attributes:
-  - user_id, order_id, product_id, revenue (required)
-  - utm_source, utm_campaign (for Marketing)
-  - customer_segment (for Customer Analytics)
-  - device_type (for Product Analytics)
-  - timestamp (canonical)
+ - user_id, order_id, product_id, revenue (required)
+ - utm_source, utm_campaign (for Marketing)
+ - customer_segment (for Customer Analytics)
+ - device_type (for Product Analytics)
+ - timestamp (canonical)
 governance:
-  - PII: [user_id, email] → encrypted at rest
-  - Retention: 7 years per compliance
-  - Access: restricted to approved systems
+ - PII: [user_id, email] → encrypted at rest
+ - Retention: 7 years per compliance
+ - Access: restricted to approved systems
 ```
 
 ---
@@ -549,20 +549,20 @@ They share:
 
 **In practice:**
 1. **Start with business meaning:**
-   - What is "customer" in the organization's model?
-   - What events matter for outcomes?
-   - What relationships exist?
+ - What is "customer" in the organization's model?
+ - What events matter for outcomes?
+ - What relationships exist?
 
 2. **Model organization semantically:**
-   - Map teams to bounded contexts (DDD)
-   - Define interfaces between contexts
-   - Establish semantic contracts
-   - Make ownership explicit
+ - Map teams to bounded contexts (DDD)
+ - Define interfaces between contexts
+ - Establish semantic contracts
+ - Make ownership explicit
 
 3. **Then design systems:**
-   - Source instrumentation captures domain events
-   - Systems enforce domain boundaries
-   - Data flows follow semantic relationships
+ - Source instrumentation captures domain events
+ - Systems enforce domain boundaries
+ - Data flows follow semantic relationships
 
 **Conway's Law:** The architecture will mirror the organization. Model the org around [semantic coherence](../SEMANTIC_OPTIMIZATION/semantic-coherence.md) first.
 
@@ -586,10 +586,10 @@ They share:
 □ Technical design complete
 □ Security review done
 □ Instrumentation schema defined ← BEFORE shipping
-  - What events fire?
-  - What attributes captured?
-  - PII/compliance handling?
-  - Who owns definition?
+ - What events fire?
+ - What attributes captured?
+ - PII/compliance handling?
+ - Who owns definition?
 □ Code + instrumentation written together
 □ Tests include event validation
 □ Ship
@@ -721,10 +721,10 @@ With a star schema, RFM (Recency, Frequency, Monetary) customer segmentation req
 
 ```sql
 SELECT
-    c.CustomerKey,
-    DATEDIFF(CURRENT_DATE, MAX(t.TransactionDate)) as Recency,
-    COUNT(DISTINCT t.TransactionID) as Frequency,
-    SUM(t.Amount) as Monetary
+ c.CustomerKey,
+ DATEDIFF(CURRENT_DATE, MAX(t.TransactionDate)) as Recency,
+ COUNT(DISTINCT t.TransactionID) as Frequency,
+ SUM(t.Amount) as Monetary
 FROM fact_transactions t
 JOIN dim_customer c ON t.CustomerKey = c.CustomerKey
 GROUP BY c.CustomerKey

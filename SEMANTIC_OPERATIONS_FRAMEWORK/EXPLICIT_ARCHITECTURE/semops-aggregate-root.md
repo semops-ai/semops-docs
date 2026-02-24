@@ -3,8 +3,8 @@ doc_type: hub
 pattern: aggregate-root
 provenance: 1p
 metadata:
-    pattern_type: concept
-    brand_strength: medium
+ pattern_type: concept
+ brand_strength: medium
 ---
 
 # Aggregate Root for SemOps Agentic Enterprise
@@ -50,12 +50,12 @@ In [Semantic Operations](../README.md), the Aggregate Root pattern ensures that 
 The Aggregate Root is an **Object** that enforces Rules across all DIKW levels within a bounded domain — but it doesn't decide. Human and AI **Agents** interact with the aggregate through the root; the root constrains how Agents can act on its internal Objects.
 
 ```
-  Objects:  DATA ══════> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
-               │                │                  │               │
-  Rules:  Structural       Interpretive        Normative       Meta
-          (boundary)       (invariants)        (validity)      (identity)
-               │                │                  │               │
-  Agents:     —                —            Domain experts    Leadership
+ Objects: DATA ══════> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
+ │ │ │ │
+ Rules: Structural Interpretive Normative Meta
+ (boundary) (invariants) (validity) (identity)
+ │ │ │ │
+ Agents: — — Domain experts Leadership
 ```
 
 | Element | D → I | I → K | K → W |
@@ -74,30 +74,30 @@ In SemOps, the **Concept** entity serves as the aggregate root for knowledge art
 **Examples:**
 ```text
 Entity (has identity)
-├── Concept    ← identity = id + foundations (the hypothesis)
-└── Surface    ← identity = platform + destination
+├── Concept ← identity = id + foundations (the hypothesis)
+└── Surface ← identity = platform + destination
 ```
 
 ```
 Value Object (no identity, replaceable)
-├── concept_content  ← belongs to concept, versioned, deletable
-├── filespec         ← just describes a file
-├── attribution      ← just describes authorship
-└── delivery         ← just a record of publication event
+├── concept_content ← belongs to concept, versioned, deletable
+├── filespec ← just describes a file
+├── attribution ← just describes authorship
+└── delivery ← just a record of publication event
 ```
 
 ```yaml
 concept:
-  id: semantic-coherence
-  provenance: 1p
-  
-  # CONSTITUTIVE (identity)
-  foundations:
-    - dikw
-    - information-theory
-    - lineage
-    - ubiquitous-language
-  claim: "Semantic alignment requires these foundations working together"
+ id: semantic-coherence
+ provenance: 1p
+ 
+ # CONSTITUTIVE (identity)
+ foundations:
+ - dikw
+ - information-theory
+ - lineage
+ - ubiquitous-language
+ claim: "Semantic alignment requires these foundations working together"
 ```
 
 ## General Examples
@@ -107,13 +107,13 @@ concept:
 A pivot is identity change, not state change.
 ```
 Pre-pivot:
-  concept: "we-sell-dvds-by-mail"
-  foundations: [logistics, inventory, physical-media]
+ concept: "we-sell-dvds-by-mail"
+ foundations: [logistics, inventory, physical-media]
 ```
 ```
 Post-pivot:
-  concept: "we-stream-content"
-  foundations: [licensing, bandwidth, recommendation-algo]
+ concept: "we-stream-content"
+ foundations: [licensing, bandwidth, recommendation-algo]
 ```
 That's not the same company in a DDD sense - it's a new aggregate root. The legal entity persists (Netflix Inc.), but the bounded synthesis is entirely different. The old hypothesis was falsified or abandoned; a new one was asserted. This is why pivots are so hard and risky - you're not iterating on state, you're tearing down identity and rebuilding. All your value objects (processes, code, content, team skills) were built for the old foundations. They don't transfer cleanly. A "pivot" that doesn't change foundations isn't really a pivot - it's just strategy adjustment. State change, not identity change.
 
@@ -124,27 +124,27 @@ That's not the same company in a DDD sense - it's a new aggregate root. The lega
 ```python
 # Order is the Aggregate Root
 class Order:
-    order_id: str                       # Entity identity
-    line_items: list[OrderLineItem]     # Internal entities
-    shipping_address: Address           # Value object
-    total: Money                        # Computed value object
+ order_id: str # Entity identity
+ line_items: list[OrderLineItem] # Internal entities
+ shipping_address: Address # Value object
+ total: Money # Computed value object
 
-    def add_line_item(self, product_id: str, quantity: int, price: Money):
-        # Root enforces invariants
-        if quantity <= 0:
-            raise InvalidOrder("Quantity must be positive")
-        line_item = OrderLineItem(product_id, quantity, price)
-        self.line_items.append(line_item)
-        self.total = self._calculate_total()
+ def add_line_item(self, product_id: str, quantity: int, price: Money):
+ # Root enforces invariants
+ if quantity <= 0:
+ raise InvalidOrder("Quantity must be positive")
+ line_item = OrderLineItem(product_id, quantity, price)
+ self.line_items.append(line_item)
+ self.total = self._calculate_total
 
-    def _calculate_total(self) -> Money:
-        return sum(item.subtotal for item in self.line_items)
+ def _calculate_total(self) -> Money:
+ return sum(item.subtotal for item in self.line_items)
 ```
 
 **Why Aggregate Root:**
 - `Order` is the only externally accessible object
 - `OrderLineItem` cannot be accessed directly
-- `add_line_item()` enforces quantity > 0
+- `add_line_item` enforces quantity > 0
 - `total` is always recalculated (invariant maintained)
 
 **Rule 1: Reference only the root**

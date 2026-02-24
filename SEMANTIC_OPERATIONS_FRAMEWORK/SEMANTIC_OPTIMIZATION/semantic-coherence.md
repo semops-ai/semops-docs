@@ -3,8 +3,8 @@ doc_type: hub
 pattern: semantic-coherence
 provenance: 1p
 metadata:
-  pattern_type: concept
-  brand-strength: high
+ pattern_type: concept
+ brand-strength: high
 # 
 ---
 # Semantic Coherence
@@ -29,14 +29,14 @@ metadata:
 Semantic Coherence is the runtime measurement of whether meaning is being maintained across [Semantic Funnel](../../RESEARCH/FOUNDATIONS/semantic-funnel.md) transitions. It spans I→K→W — the transitions where uncertainty increases and meaning is most fragile.
 
 ```
-  Objects:  DATA -------> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
-                                         │                 │
-  Rules:                           Interpretive        Normative
-                                   (definitions,       (governance,
-                                    shared vocabulary)  drift control)
-                                         │                 │
-  Agents:                          Teams, AI agents    Governance teams,
-                                                       leadership
+ Objects: DATA -------> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
+ │ │
+ Rules: Interpretive Normative
+ (definitions, (governance,
+ shared vocabulary) drift control)
+ │ │
+ Agents: Teams, AI agents Governance teams,
+ leadership
 ```
 
 | Element | I → K | K → W |
@@ -51,7 +51,7 @@ Semantic Coherence is the runtime measurement of whether meaning is being mainta
 ---
 
 ## Metric Definition
-<!--  
+<!-- 
 mostly from semantic-coherence-measurement.md
 - artifact vs. corpus
 - standard pattern vs. alteration
@@ -213,10 +213,10 @@ Example:
 ```yaml
 # UBIQUITOUS_LANGUAGE.md
 active_user:
-  definition: "User with at least one login in past 30 days"
-  owner: "Product Analytics Team"
-  version: "2.1"
-  last_updated: "2024-01-15"
+ definition: "User with at least one login in past 30 days"
+ owner: "Product Analytics Team"
+ version: "2.1"
+ last_updated: "2024-01-15"
 ```
 
 ### Implement Semantic Layer
@@ -278,25 +278,25 @@ See [Agentic Coding at Scale: Semantic Coherence as Core CS Principles](../EXPLI
 ## Key Takeaways
 
 1. **Coherence = Availability × Consistency × Stability**
-   - Geometric mean because all three required
-   - If any collapses, coherence collapses
+ - Geometric mean because all three required
+ - If any collapses, coherence collapses
 
 2. **Coherence is runtime, not storage**
-   - Coherence is not stored—conditions for it are created
-   - Exists when humans and machines coordinate using shared semantics
+ - Coherence is not stored—conditions for it are created
+ - Exists when humans and machines coordinate using shared semantics
 
 3. **Corpus-Artifact Delta diagnoses coherence health**
-   - Gap between definitions and usage reveals drift
-   - Regular audits catch problems before they compound
+ - Gap between definitions and usage reveals drift
+ - Regular audits catch problems before they compound
 
 4. **AI amplifies incoherence**
-   - Models trained on inconsistent data produce inconsistent outputs
-   - Coherence is prerequisite for trustworthy AI
+ - Models trained on inconsistent data produce inconsistent outputs
+ - Coherence is prerequisite for trustworthy AI
 
 5. **[DDD](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) provides structural foundation**
-   - [Bounded contexts](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) scope semantics
-   - [Ubiquitous language](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) enforces shared vocabulary
-   - Without DDD, coherence requires heroic effort
+ - [Bounded contexts](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) scope semantics
+ - [Ubiquitous language](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) enforces shared vocabulary
+ - Without DDD, coherence requires heroic effort
 
 ---
 

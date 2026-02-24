@@ -6,8 +6,8 @@ pattern: data-collection-el-methods
 provenance: 3p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 
 # Data Collection & EL Methods: A Comprehensive Guide
@@ -100,26 +100,26 @@ A structured approach to choosing the appropriate EL method:
 
 ```
 1. Is there a mature, maintained connector in Fivetran/Airbyte?
-   ├─ Yes → Is cost acceptable at your volume? 
-   │        ├─ Yes → Use managed platform
-   │        └─ No → Consider self-hosted Airbyte or DLT recreation
-   └─ No → Continue...
+ ├─ Yes → Is cost acceptable at your volume? 
+ │ ├─ Yes → Use managed platform
+ │ └─ No → Consider self-hosted Airbyte or DLT recreation
+ └─ No → Continue...
 
 2. Is this a database source needing CDC?
-   ├─ Yes → Fivetran (if budget allows) or Debezium + custom
-   └─ No → Continue...
+ ├─ Yes → Fivetran (if budget allows) or Debezium + custom
+ └─ No → Continue...
 
 3. Is this a REST/GraphQL API?
-   ├─ Yes → DLT is excellent here
-   │        (Also consider: Airbyte low-code connector builder)
-   └─ No → Continue...
+ ├─ Yes → DLT is excellent here
+ │ (Also consider: Airbyte low-code connector builder)
+ └─ No → Continue...
 
 4. Is this a file source (S3, SFTP, etc.)?
-   ├─ Yes → DLT handles this; so do managed platforms
-   └─ No → Continue...
+ ├─ Yes → DLT handles this; so do managed platforms
+ └─ No → Continue...
 
 5. Is this a proprietary/legacy system?
-   └─ Custom pipeline time (but consider DLT as the framework)
+ └─ Custom pipeline time (but consider DLT as the framework)
 ```
 
 ---
@@ -237,10 +237,10 @@ The choice of EL method determines the quality of downstream ML workflows. With 
 
 ```sql
 SELECT
-    c.CustomerKey,
-    DATEDIFF(CURRENT_DATE, MAX(t.TransactionDate)) as Recency,
-    COUNT(DISTINCT t.TransactionID) as Frequency,
-    SUM(t.Amount) as Monetary
+ c.CustomerKey,
+ DATEDIFF(CURRENT_DATE, MAX(t.TransactionDate)) as Recency,
+ COUNT(DISTINCT t.TransactionID) as Frequency,
+ SUM(t.Amount) as Monetary
 FROM fact_transactions t
 JOIN dim_customer c ON t.CustomerKey = c.CustomerKey
 GROUP BY c.CustomerKey

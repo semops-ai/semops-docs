@@ -6,8 +6,8 @@ pattern: scale-projection
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: medium
+ pattern_type: concept
+ brand_strength: medium
 ---
 
 # Scale Projection

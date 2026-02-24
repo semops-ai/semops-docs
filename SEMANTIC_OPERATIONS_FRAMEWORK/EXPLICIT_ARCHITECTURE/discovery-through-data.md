@@ -3,8 +3,8 @@ doc_type: hub
 pattern: discovery-through-data
 provenance: 1p
 metadata:
-  pattern_type: concept
-  brand_strength: medium
+ pattern_type: concept
+ brand_strength: medium
 ---
 
 # Discovery Through Data
@@ -83,7 +83,7 @@ Root-cause analysis through data modeling reveals issues difficult to uncover an
 Given a company's industry, business model, and basic system details, a **reference architecture** can be generated—what their data landscape *should* look like based on known patterns:
 
 | Domain | Reference Patterns |
-|--------|-------------------|docs/Publicv1_Candidates/SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/explicit-architecture.md
+|--------|-------------------|
 | **Business model** | Revenue streams, cost structures, value chain |
 | **Customer analytics** | Known surfaces, lifecycle stages, segmentation |
 | **Transactional data** | Standard schemas for orders, invoices, inventory |
@@ -108,23 +108,23 @@ INPUTS
 ├── Known ERP/system patterns (SAP, Salesforce, Shopify, etc.)
 ├── Industry-specific schemas (healthcare claims, retail POS, SaaS usage)
 └── Platform documentation (Databricks, Snowflake, AWS, etc.)
-         │
-         ▼
+ │
+ ▼
 KNOWLEDGE BASE
 ├── Core business metrics by industry
 ├── ERP data patterns
 ├── Transaction data schemas
 ├── Standard transformation patterns
 └── Platform-specific architectures
-         │
-         ▼
+ │
+ ▼
 REFERENCE ARCHITECTURE
 ├── Expected data systems
 ├── Expected data flows
 ├── Expected schemas and metrics
 ├── Expected integration points
-         │
-         ▼
+ │
+ ▼
 SIMULATION
 ├── Synthetic data generation
 ├── Transform execution
@@ -145,7 +145,7 @@ This pairs with:
 Together, these provide both the "should be" reference architecture and the "actually is" discovery—plus the ability to simulate the gap before touching real systems.
 
 ### Principles
-docs/Publicv1_Candidates/SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/explicit-architecture.md
+
 1. **Single Source of Truth at Capture** — Define events once with complete context
 2. **Understand Analytics Patterns** — They share the same source; design instrumentation to serve all types
 3. **Governance at the Source** — Security and compliance are source problems
@@ -186,7 +186,7 @@ Compare reality against expectation:
 
 ```text
 Expected: entity → classify → validate → store
-Actual:   entity → store (skipped validation!)
+Actual: entity → store (skipped validation!)
 ```
 
 **Conformance checking = auditing at the process level.**
@@ -205,22 +205,22 @@ Every significant operation is an **episode** within a bounded **run**:
 
 ```text
 ingestion_run
-│   id: uuid
-│   started_at: timestamp
-│   source: string
-│   config: jsonb
+│ id: uuid
+│ started_at: timestamp
+│ source: string
+│ config: jsonb
 │
 └── episode (1:many)
-    │
-    ├── operation: enum (INGEST, CLASSIFY, VALIDATE, PUBLISH, ...)
-    ├── target_type: enum (entity | pattern | delivery)
-    ├── target_id: string
-    │
-    ├── context_patterns[]: string[]  ← What patterns were retrieved
-    ├── coherence_score: float        ← How well did output align?
-    │
-    ├── model_info: jsonb             ← Which model made the decision
-    └── created_at: timestamp
+ │
+ ├── operation: enum (INGEST, CLASSIFY, VALIDATE, PUBLISH, ...)
+ ├── target_type: enum (entity | pattern | delivery)
+ ├── target_id: string
+ │
+ ├── context_patterns[]: string[] ← What patterns were retrieved
+ ├── coherence_score: float ← How well did output align?
+ │
+ ├── model_info: jsonb ← Which model made the decision
+ └── created_at: timestamp
 ```
 
 This structure captures:
@@ -260,8 +260,8 @@ SC = (Availability × Consistency × Stability)^(1/3)
 
 ```text
 coherence_score = cosine_similarity(
-    entity_embedding,
-    mean(context_pattern_embeddings)
+ entity_embedding,
+ mean(context_pattern_embeddings)
 )
 ```
 
@@ -284,13 +284,13 @@ The [SemOps Ingestion v2 Architecture](https://github.com/semops-ai/semops-dx-or
 ### The Closed Loop
 
 ```text
-READINESS (SOKPI)              SUCCESS (Analytics)
-─────────────────              ──────────────────
-Knowledge Complete?    ───►    Engagement Metrics
-Semantically Coherent? ───►    Conversion Rate
-Assumptions Valid?     ───►    Retention/Resonance
-                       ◄───
-Drift Cost            ◄───────  Feedback: Did it work?
+READINESS (SOKPI) SUCCESS (Analytics)
+───────────────── ──────────────────
+Knowledge Complete? ───► Engagement Metrics
+Semantically Coherent? ───► Conversion Rate
+Assumptions Valid? ───► Retention/Resonance
+ ◄───
+Drift Cost ◄─────── Feedback: Did it work?
 ```
 
 Pattern effectiveness can be measured: "Content with pattern X converts at Y%." If coherence correlates with success, optimizing for coherence optimizes for outcomes.

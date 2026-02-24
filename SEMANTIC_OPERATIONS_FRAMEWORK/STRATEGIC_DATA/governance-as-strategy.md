@@ -6,8 +6,8 @@ pattern: governance-as-a-strategy
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: high
+ pattern_type: concept
+ brand_strength: high
 ---
 
 # Governance as Strategy
@@ -38,13 +38,13 @@ that definitions, methods, and tools related to technical systems managing data
 
 **Example:**
 
-| Field                    | Example                      |
+| Field | Example |
 | ------------------------ | ---------------------------- |
-| `creator`                | “U.S. Census Bureau”         |
-| `collection_method`      | “Web form survey, API v2.3”  |
-| `license`                | “CC-BY 4.0”                  |
-| `acquisition_date`       | “2025-05-12T10:34:00Z”       |
-| `data_subject_scope`     | “U.S. residents aged 18+”    |
+| `creator` | “U.S. Census Bureau” |
+| `collection_method` | “Web form survey, API v2.3” |
+| `license` | “CC-BY 4.0” |
+| `acquisition_date` | “2025-05-12T10:34:00Z” |
+| `data_subject_scope` | “U.S. residents aged 18+” |
 | `ethical_considerations` | “GDPR compliant, anonymized” |
 
 **Common Tools:**
@@ -68,14 +68,14 @@ that definitions, methods, and tools related to technical systems managing data
 
 **Example:**
 
-| Field            | Example                                        |
+| Field | Example |
 | ---------------- | ---------------------------------------------- |
-| `input_dataset`  | `raw.orders`                                   |
+| `input_dataset` | `raw.orders` |
 | `transformation` | `SELECT ... FROM raw.orders JOIN ref.products` |
-| `output_dataset` | `analytics.sales_summary`                      |
-| `job_id`         | `airflow_dag_2025_10_31`                       |
-| `schema_version` | `v3.2`                                         |
-| `engine`         | `dbt + Snowflake`                              |
+| `output_dataset` | `analytics.sales_summary` |
+| `job_id` | `airflow_dag_2025_10_31` |
+| `schema_version` | `v3.2` |
+| `engine` | `dbt + Snowflake` |
 
 **Common Tools:**
 
@@ -88,48 +88,48 @@ that definitions, methods, and tools related to technical systems managing data
 
 ## Provenance vs. Lineage — Clarified
 
-| Aspect                        | **Provenance**                                                                                                                                                                                             | **Lineage**                                                                                                                                                    |
+| Aspect | **Provenance** | **Lineage** |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Core Question**             | *“Where did this data come from, and why does it exist?”*                                                                                                                                                  | *“What happened to this data as it moved through our systems?”*                                                                                                |
-| **Primary Scope**             | Origin, source context, purpose, acquisition method                                                                                                                                                        | Transformations, dependencies, schema and system evolution                                                                                                     |
-| **Temporal Focus**            | **Before** the data entered the system                                                                                                                                                                     | **After** the data entered the system                                                                                                                         |
-| **Granularity**               | Dataset or record-level metadata, often external                                                                                                                                                           | Field-, table-, job-, or column-level metadata inside the stack                                                                                               |
-| **Governance Role**           | Supports trust, compliance, and ethical sourcing                                                                                                                                                           | Supports reproducibility, impact analysis, debugging                                                                                                           |
-| **Typical Questions**         | "Who collected it?" "When and where was it created?" "What is the license or consent model?"                                                                                                               | "Which pipeline produced this table?" "What SQL or model transformed this column?" "What will break if this schema changes?"                                   |
-| **Analogy**                   | The *biography* of the data                                                                                                                                                                                | The *audit trail* of the data within the environment                                                                                                          |
-| **Common Metadata Standards** | W3C PROV, FAIR data principles (Findable, Accessible, Interoperable, Reusable)                                                                                                                             | OpenLineage, Marquez, DataHub, Apache Atlas                                                                                                                    |
-| **Example Tools / Systems**   | • Data catalogs capturing external metadata (Collibra, Alation, Harvester.io)  <br>• Research / scientific datasets (e.g., Dataverse, Dryad)  <br>• Metadata embedded in file headers (EXIF, XML, JSON-LD) | • Pipeline-aware systems (Apache Atlas, DataHub, OpenLineage, Amundsen, Purview, Unity Catalog) <br>• ETL orchestration metadata (Airflow, dbt, Spark lineage) |
+| **Core Question** | *“Where did this data come from, and why does it exist?”* | *“What happened to this data as it moved through our systems?”* |
+| **Primary Scope** | Origin, source context, purpose, acquisition method | Transformations, dependencies, schema and system evolution |
+| **Temporal Focus** | **Before** the data entered the system | **After** the data entered the system |
+| **Granularity** | Dataset or record-level metadata, often external | Field-, table-, job-, or column-level metadata inside the stack |
+| **Governance Role** | Supports trust, compliance, and ethical sourcing | Supports reproducibility, impact analysis, debugging |
+| **Typical Questions** | "Who collected it?" "When and where was it created?" "What is the license or consent model?" | "Which pipeline produced this table?" "What SQL or model transformed this column?" "What will break if this schema changes?" |
+| **Analogy** | The *biography* of the data | The *audit trail* of the data within the environment |
+| **Common Metadata Standards** | W3C PROV, FAIR data principles (Findable, Accessible, Interoperable, Reusable) | OpenLineage, Marquez, DataHub, Apache Atlas |
+| **Example Tools / Systems** | • Data catalogs capturing external metadata (Collibra, Alation, Harvester.io) <br>• Research / scientific datasets (e.g., Dataverse, Dryad) <br>• Metadata embedded in file headers (EXIF, XML, JSON-LD) | • Pipeline-aware systems (Apache Atlas, DataHub, OpenLineage, Amundsen, Purview, Unity Catalog) <br>• ETL orchestration metadata (Airflow, dbt, Spark lineage) |
 
 ---
 
-                ┌───────────────────────────────┐
-                │        External World         │
-                │ (sensors, partners, surveys)  │
-                └──────────────┬────────────────┘
-                               │
-                     Provenance metadata
-                  ("where did this data come from?")
-                               │
-                               ▼
-           ┌────────────────────────────────────────┐
-           │    Internal Data Ecosystem (Pipelines) │
-           │ Ingest → Transform → Store → Consume   │
-           └────────────────┬───────────────────────┘
-                            │
-                    Lineage metadata
-           ("what happened to the data internally?")
+ ┌───────────────────────────────┐
+ │ External World │
+ │ (sensors, partners, surveys) │
+ └──────────────┬────────────────┘
+ │
+ Provenance metadata
+ ("where did this data come from?")
+ │
+ ▼
+ ┌────────────────────────────────────────┐
+ │ Internal Data Ecosystem (Pipelines) │
+ │ Ingest → Transform → Store → Consume │
+ └────────────────┬───────────────────────┘
+ │
+ Lineage metadata
+ ("what happened to the data internally?")
 
 ---
 
 ## Relationship Between Them
 
-| Layer                  | Provenance Focus                                    | Lineage Focus                                  |
+| Layer | Provenance Focus | Lineage Focus |
 | ---------------------- | --------------------------------------------------- | ---------------------------------------------- |
-| **Outside the system** | Data source, sensor, collection, ownership, license | —                                              |
-| **Ingestion / ETL**    | Source system ID, ingestion method                  | Pipeline job, transform scripts                |
-| **Storage / Table**    | Dataset creation date, retention policy             | Table joins, schema evolution                  |
-| **Analytics / ML**     | Training data origin, consent, labeling rationale   | Model versioning, feature transformation graph |
-| **Governance layer**   | Ethical & regulatory compliance                     | Operational reproducibility and auditability   |
+| **Outside the system** | Data source, sensor, collection, ownership, license | — |
+| **Ingestion / ETL** | Source system ID, ingestion method | Pipeline job, transform scripts |
+| **Storage / Table** | Dataset creation date, retention policy | Table joins, schema evolution |
+| **Analytics / ML** | Training data origin, consent, labeling rationale | Model versioning, feature transformation graph |
+| **Governance layer** | Ethical & regulatory compliance | Operational reproducibility and auditability |
 
 
 ### Combined Example
@@ -140,12 +140,12 @@ Imagine a dataset `customer_feedback` used to train a sentiment model.
 
 ```json
 {
-  "source": "Mobile App Reviews API",
-  "collected_by": "DataOps ingestion service",
-  "collection_date": "2025-10-30T23:00:00Z",
-  "license": "Internal use only",
-  "data_subject_region": "US, EU",
-  "consent": "Implied user consent per TOS"
+ "source": "Mobile App Reviews API",
+ "collected_by": "DataOps ingestion service",
+ "collection_date": "2025-10-30T23:00:00Z",
+ "license": "Internal use only",
+ "data_subject_region": "US, EU",
+ "consent": "Implied user consent per TOS"
 }
 ```
 
@@ -153,51 +153,51 @@ Imagine a dataset `customer_feedback` used to train a sentiment model.
 
 ```json
 {
-  "input_dataset": "raw.app_reviews",
-  "transformation": "clean_text(reviews) -> sentiment_score",
-  "output_dataset": "ml.training_reviews_v3",
-  "executed_by": "Airflow DAG sentiment_train_v3",
-  "engine": "Spark on Databricks",
-  "schema_change": {"added_column": "sentiment_score"}
+ "input_dataset": "raw.app_reviews",
+ "transformation": "clean_text(reviews) -> sentiment_score",
+ "output_dataset": "ml.training_reviews_v3",
+ "executed_by": "Airflow DAG sentiment_train_v3",
+ "engine": "Spark on Databricks",
+ "schema_change": {"added_column": "sentiment_score"}
 }
 ```
 
 ### Why the Distinction Matters
 
-| Purpose                        | Provenance                             | Lineage                                            |
+| Purpose | Provenance | Lineage |
 | ------------------------------ | -------------------------------------- | -------------------------------------------------- |
-| **Data Trust & Ethics**        | Ensures data was obtained legitimately | Ensures transformations are transparent            |
-| **Compliance (GDPR, HIPAA)**   | Tracks consent, license, region        | Tracks data subject fields through transformations |
-| **Scientific Reproducibility** | Recreate experiment setup              | Reproduce computational results                    |
-| **Operational Reliability**    | Validate source authenticity           | Diagnose data breaks or drift                      |
-| **AI Governance**              | “Why do we have this data?”            | “How did this model get these features?”           |
+| **Data Trust & Ethics** | Ensures data was obtained legitimately | Ensures transformations are transparent |
+| **Compliance (GDPR, HIPAA)** | Tracks consent, license, region | Tracks data subject fields through transformations |
+| **Scientific Reproducibility** | Recreate experiment setup | Reproduce computational results |
+| **Operational Reliability** | Validate source authenticity | Diagnose data breaks or drift |
+| **AI Governance** | “Why do we have this data?” | “How did this model get these features?” |
 
 ---
 
 ## Emerging Standards and Integration
 
 * **W3C PROV-O** (Provenance Ontology):
-  Used by scientific and government orgs for formal provenance graphs.
-  Relationships: `Entity → Activity → Agent`.
+ Used by scientific and government orgs for formal provenance graphs.
+ Relationships: `Entity → Activity → Agent`.
 
 * **OpenLineage** (Lineage Standard):
-  Defines event schemas for jobs, datasets, and runs; supported by Airflow, Spark, dbt, and Marquez.
+ Defines event schemas for jobs, datasets, and runs; supported by Airflow, Spark, dbt, and Marquez.
 
 * **Integration Trend:**
-  Modern catalogs (DataHub, Purview, Unity Catalog) are starting to **merge provenance + lineage** in unified metadata graphs —
-  provenance nodes (external sources) link to lineage graphs (internal flows).
+ Modern catalogs (DataHub, Purview, Unity Catalog) are starting to **merge provenance + lineage** in unified metadata graphs —
+ provenance nodes (external sources) link to lineage graphs (internal flows).
 
 ---
 
 ### Summary
 
-| Category          | Provenance                           | Lineage                                |
+| Category | Provenance | Lineage |
 | ----------------- | ------------------------------------ | -------------------------------------- |
-| **Scope**         | Outside → data entry                 | Inside → data flow                     |
-| **Focus**         | Source, ownership, collection method | Transformation, dependency, versioning |
-| **Granularity**   | Dataset-level                        | Column/job-level                       |
-| **Typical Tools** | Collibra, Alation, CKAN, W3C PROV    | DataHub, Atlas, Purview, OpenLineage   |
-| **Output**        | Source metadata                      | DAG of data transformations            |
+| **Scope** | Outside → data entry | Inside → data flow |
+| **Focus** | Source, ownership, collection method | Transformation, dependency, versioning |
+| **Granularity** | Dataset-level | Column/job-level |
+| **Typical Tools** | Collibra, Alation, CKAN, W3C PROV | DataHub, Atlas, Purview, OpenLineage |
+| **Output** | Source metadata | DAG of data transformations |
 
 ---
 
@@ -226,7 +226,7 @@ Tool	Purpose	Highlights
 - Airflow + OpenLineage	Orchestration + lineage	Tracks data flows programmatically
 - Power BI Lineage View	Dashboard-level lineage	Native support if using Power BI service
 - Metabase	Dashboarding with SQL lineage	Lightweight, good for startups
-  
+ 
 ### Enterprise / Large-Scale Teams
 Tool	Purpose	Highlights
 DataHub (by LinkedIn)	Data catalog + lineage	Open-source, supports Airflow/dbt/Snowflake
@@ -262,7 +262,7 @@ Knowledge ops, provenance, and promotion
 
 Agile assumes that velocity is good because the problem definition has been granularized enough that there is low probability that the output will be aligned with goals because that granularization and emergent process will “get there” - but, it is also a “body in motion” - keep ppl busy
 
-### Tradeoffs  and Lineage
+### Tradeoffs and Lineage
 
 When lineage and provenance are applied up the stack into operating knowledge ops, some areas where they could help become apparent
 

@@ -5,8 +5,8 @@ pattern: data-systems-essentials
 
 provenance: 3p
 metadata:
-  pattern_type: concept
-  brand-strength: low
+ pattern_type: concept
+ brand-strength: low
 ---
 
 # Analytics Data Systems Essentials
@@ -77,20 +77,20 @@ This makes analytics instrumentation a "political orphan" — analytics wants de
 | **Functions** (6) | Engineering discipline | "How do we do it well?" | Practices (cross-cutting) |
 
 ```
-                        Functions ("how")
-   ┌────────────────────────────────────────────────────────┐
-   │ Security │ Data Mgmt │ DataOps │ Arch │ Tic │ SWE     │
-   └────────────────────────────────────────────────────────┘
-                         ↕ ↕ ↕ ↕ ↕
-   ┌────────────────────────────────────────────────────────┐
-   │ Generation → Ingestion → Storage → Transform → Serving │
-   └────────────────────────────────────────────────────────┘
-                    LIFECYCLE (process - the "what")
-                         ↕ ↕ ↕ ↕ ↕
-   ┌────────────────────────────────────────────────────────┐
-   │ Ingestion │ Storage │ Table │ Compute │ Catalog │ ML  │
-   └────────────────────────────────────────────────────────┘
-                 COMPONENTS (layers - the "with what")
+ Functions ("how")
+ ┌────────────────────────────────────────────────────────┐
+ │ Security │ Data Mgmt │ DataOps │ Arch │ Tic │ SWE │
+ └────────────────────────────────────────────────────────┘
+ ↕ ↕ ↕ ↕ ↕
+ ┌────────────────────────────────────────────────────────┐
+ │ Generation → Ingestion → Storage → Transform → Serving │
+ └────────────────────────────────────────────────────────┘
+ LIFECYCLE (process - the "what")
+ ↕ ↕ ↕ ↕ ↕
+ ┌────────────────────────────────────────────────────────┐
+ │ Ingestion │ Storage │ Table │ Compute │ Catalog │ ML │
+ └────────────────────────────────────────────────────────┘
+ COMPONENTS (layers - the "with what")
 ```
 
 **Key insights:**

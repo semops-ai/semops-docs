@@ -6,8 +6,8 @@ pattern: explicit-architecture
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: medium
+ pattern_type: concept
+ brand_strength: medium
 ---
 
 # Explicit Architecture
@@ -25,14 +25,14 @@ Every system has architecture — rules that govern behavior. The question is wh
 Architecture represents the most important rules encoded in the scaffolding of an organization. Explicit Architecture spans all three transitions of the [Semantic Funnel](../../RESEARCH/FOUNDATIONS/semantic-funnel.md) — it provides the structural scaffolding through which data objects flow and meaning is constructed.
 
 ```text
-  Objects:  DATA ══════> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
-               │                │                  │               │
-  Rules:  Structural       Interpretive        Normative       Meta
-          (schemas,        (business logic,    (policies,      (principles,
-           contracts)       patterns)           governance)     strategy)
-               │                │                  │               │
-  Agents:     —           Domain Services    Architects,     Leadership
-                                              governance
+ Objects: DATA ══════> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
+ │ │ │ │
+ Rules: Structural Interpretive Normative Meta
+ (schemas, (business logic, (policies, (principles,
+ contracts) patterns) governance) strategy)
+ │ │ │ │
+ Agents: — Domain Services Architects, Leadership
+ governance
 ```
 
 | Element | D → I | I → K | K → W |
@@ -180,7 +180,7 @@ Explicit Architecture creates a full traceability chain from meaning to implemen
 
 ```text
 Pattern → Capability → Script → Library → Service → Port
-(why)      (what)       (how)    (with)    (where)   (address)
+(why) (what) (how) (with) (where) (address)
 ```
 
 - **Pattern → Capability** — every capability must trace to at least one pattern. Gaps indicate missing patterns or unjustified capabilities.
@@ -194,13 +194,13 @@ This chain is a measurable coherence signal: a script without capability traceab
 The chain makes the architecture-infrastructure boundary visible:
 
 ```text
-                    ARCHITECTURE              │  INFRASTRUCTURE
-                                              │
-Pattern → Capability → Script                 │  Library → Service → Port
-(domain meaning, boundaries, rules)           │  (tools, deployment, networking)
-                                              │
-Changes here = domain changes                 │  Changes here = operational changes
-Require semantic review                       │  Require ops review
+ ARCHITECTURE │ INFRASTRUCTURE
+ │
+Pattern → Capability → Script │ Library → Service → Port
+(domain meaning, boundaries, rules) │ (tools, deployment, networking)
+ │
+Changes here = domain changes │ Changes here = operational changes
+Require semantic review │ Require ops review
 ```
 
 If a change to the right side of the boundary forces a change to the left side, that is an architectural problem — domain logic has leaked into infrastructure. [Scale Projection](scale-projection.md) formalizes this as a diagnostic.
@@ -218,13 +218,13 @@ If a change to the right side of the boundary forces a change to the left side, 
 | **Blocking** | Wrong boundaries, entity definitions coupled to infrastructure | Architecture was never explicit — fix abstractions before scaling |
 
 ```text
-LOCAL DEVELOPMENT              CLOUD DEPLOYMENT
-laptop                         AWS / GCP / Azure
-└── docker compose up          └── kubernetes / ECS
-      ├── postgres:5434              ├── RDS Postgres
-      ├── neo4j:7474                 ├── Neo4j Aura
-      ├── qdrant:6333                └── Qdrant Cloud
-      └── docling:5001
+LOCAL DEVELOPMENT CLOUD DEPLOYMENT
+laptop AWS / GCP / Azure
+└── docker compose up └── kubernetes / ECS
+ ├── postgres:5434 ├── RDS Postgres
+ ├── neo4j:7474 ├── Neo4j Aura
+ ├── qdrant:6333 └── Qdrant Cloud
+ └── docling:5001
 
 What changes: connection strings, scaling parameters
 What doesn't change: architecture, data flows, API contracts, business logic

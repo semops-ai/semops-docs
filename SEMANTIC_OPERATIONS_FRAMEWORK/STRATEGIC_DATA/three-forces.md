@@ -6,8 +6,8 @@ pattern: three-forces
 provenance: 3p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 # The Three Forces of Data Architecture
 
@@ -66,7 +66,7 @@ Volume and velocity determine whether you need distributed systems, how you part
 **Example:**
 ```
 # Without partitioning
-/data/events.parquet  (10TB, must scan all to find yesterday's data)
+/data/events.parquet (10TB, must scan all to find yesterday's data)
 
 # With partitioning by date
 /data/events/date=2025-01-15/*.parquet
@@ -103,9 +103,9 @@ Query: `SELECT * FROM events WHERE date = '2025-01-17'`
 **Hidden partitioning example (Iceberg):**
 ```sql
 CREATE TABLE events (
-  event_time TIMESTAMP,
-  user_id STRING,
-  event_type STRING
+ event_time TIMESTAMP,
+ user_id STRING,
+ event_type STRING
 )
 PARTITIONED BY (days(event_time))
 ```
@@ -273,21 +273,21 @@ Structure determines your schema strategy, storage formats, and how much energy 
 ### The Structure Gradient
 
 ```
-          HIGH STRUCTURE
-     (deterministic operations)
-              │
-    ┌─────────┴─────────┐
-    │                   │
-Structured        Semi-Structured
-(Star Schema)     (JSON, Nested)
-    │                   │
-    └─────────┬─────────┘
-              │
-        Unstructured
-     (Text, Images, Audio)
-              │
-          LOW STRUCTURE
-   (requires feature extraction)
+ HIGH STRUCTURE
+ (deterministic operations)
+ │
+ ┌─────────┴─────────┐
+ │ │
+Structured Semi-Structured
+(Star Schema) (JSON, Nested)
+ │ │
+ └─────────┬─────────┘
+ │
+ Unstructured
+ (Text, Images, Audio)
+ │
+ LOW STRUCTURE
+ (requires feature extraction)
 ```
 
 **Key insight from physics:** The Data → Information transformation requires energy. The more variable the source structure, the more energy required to reach consistent, queryable state.
@@ -312,9 +312,9 @@ The three forces interact to create architecture patterns:
 
 ```
 [App] → Kafka (50 partitions) → Spark Streaming (50 executors) → S3 (partitioned by date)
-       ─────────────────────   ───────────────────────────────   ────────────────────────
-       Force 2: Real-time      Force 1: Horizontal scale         Force 1: Partitioning
-       Force 3: Semi-struct    Force 1: Parallelism              Force 3: Columnar (Parquet)
+ ───────────────────── ─────────────────────────────── ────────────────────────
+ Force 2: Real-time Force 1: Horizontal scale Force 1: Partitioning
+ Force 3: Semi-struct Force 1: Parallelism Force 3: Columnar (Parquet)
 ```
 
 ### Example: Warehouse Query
@@ -332,9 +332,9 @@ SELECT region, SUM(revenue) FROM sales WHERE date >= '2025-01-01' GROUP BY regio
 
 ```
 [Feature Store (partitioned by user_id)] → Spark (100 workers) → Training (4 GPUs)
-─────────────────────────────────────────   ──────────────────   ─────────────────
-Force 1: Partitioned for parallel read      Force 1: Scale out   Force 1: GPU parallelism
-Force 3: Structured features                Force 1: 100x parallel
+───────────────────────────────────────── ────────────────── ─────────────────
+Force 1: Partitioned for parallel read Force 1: Scale out Force 1: GPU parallelism
+Force 3: Structured features Force 1: 100x parallel
 ```
 
 ---
@@ -419,33 +419,33 @@ Force 3: Structured features                Force 1: 100x parallel
 ## Key Takeaways
 
 1. **The three forces are physics, not preferences**
-   - Volume/Velocity → determines distribution and parallelism
-   - Latency → determines batch vs. streaming
-   - Structure → determines schema strategy and storage format
+ - Volume/Velocity → determines distribution and parallelism
+ - Latency → determines batch vs. streaming
+ - Structure → determines schema strategy and storage format
 
 2. **Match architecture to your actual forces**
-   - Do not over-engineer for forces that do not apply
-   - Do not under-engineer for forces that do
+ - Do not over-engineer for forces that do not apply
+ - Do not under-engineer for forces that do
 
 3. **Partitioning is not optional at scale**
-   - Directly impacts query performance, pipeline efficiency, and cost
-   - Target 100MB–1GB per partition file
+ - Directly impacts query performance, pipeline efficiency, and cost
+ - Target 100MB–1GB per partition file
 
 4. **Horizontal scaling is the norm**
-   - Modern data systems scale by adding nodes, not bigger machines
-   - Auto-scaling balances cost and performance
+ - Modern data systems scale by adding nodes, not bigger machines
+ - Auto-scaling balances cost and performance
 
 5. **Schema strategy has energy costs**
-   - Schema-on-write pays once; schema-on-read pays repeatedly
-   - "Flexible" schemas hide the cost; they do not eliminate it
+ - Schema-on-write pays once; schema-on-read pays repeatedly
+ - "Flexible" schemas hide the cost; they do not eliminate it
 
 6. **Forces interact**
-   - High volume + real-time + semi-structured = most complex architecture
-   - Low volume + batch + structured = simplest architecture
+ - High volume + real-time + semi-structured = most complex architecture
+ - Low volume + batch + structured = simplest architecture
 
 7. **Platforms differ in implementation, not fundamentals**
-   - All platforms respond to the same three forces
-   - Vendor choice is execution quality, not capability
+ - All platforms respond to the same three forces
+ - Vendor choice is execution quality, not capability
 
 ---
 

@@ -3,8 +3,8 @@ doc_type: hub
 pattern: semantic-optimization-implementation
 provenance: 1p
 metadata:
-  pattern_type: concept
-  brand-strength: high
+ pattern_type: concept
+ brand-strength: high
 ---
 
 # Semantic Optimization Implementation
@@ -50,7 +50,7 @@ The **pattern** ( = [aggregate root](../EXPLICIT_ARCHITECTURE/semops-aggregate-r
 
 ### The Meta-Design
 
-From [SYSTEM_CONTEXT.md](https://github.com/semops-ai/ike-semantic-ops/blob/main/docs/SYSTEM_CONTEXT.md):
+From [SYSTEM_CONTEXT.md](https://github.com/timjmitchell/ike-semantic-ops/blob/main/docs/SYSTEM_CONTEXT.md):
 
 > "Instead of building features, **apply whole patterns**. Start with the best standard, time-tested pattern that fits."
 
@@ -169,7 +169,7 @@ Consistency (C) should check across systems (code, docs, dashboards).
 
 4. SOKPI Calculator
 
-SOKPI components measured separately by different classifiers. `compute_sokpi()` aggregating classifier outputs into single readiness score.
+SOKPI components measured separately by different classifiers. `compute_sokpi` aggregating classifier outputs into single readiness score.
 
 5. Corpus-Artifact Delta
 defined in [Semantic Coherence](semantic-coherence.md):
@@ -186,46 +186,46 @@ This is the concrete bridge:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  THEORETICAL FORMULA                                                 │
-│                                                                      │
-│  SC = (Availability × Consistency × Stability)^(1/3)                 │
-│                                                                      │
+│ THEORETICAL FORMULA │
+│ │
+│ SC = (Availability × Consistency × Stability)^(1/3) │
+│ │
 └─────────────────────────────────────────────────────────────────────┘
-                                │
-                                ▼
+ │
+ ▼
 ┌─────────────────────────────────────────────────────────────────────┐
-│  CLASSIFIER OUTPUTS → FORMULA INPUTS                                 │
-│                                                                      │
-│  Availability (A) =                                                  │
-│    weighted_avg(                                                     │
-│      RuleBasedClassifier.completeness,      # definition exists      │
-│      GraphClassifier.connectivity,          # reachable in graph     │
-│      has_embedding                          # queryable              │
-│    )                                                                 │
-│                                                                      │
-│  Consistency (C) =                                                   │
-│    weighted_avg(                                                     │
-│      EmbeddingClassifier.coherence,         # similar to related     │
-│      1 - EmbeddingClassifier.duplicate_sim, # not a duplicate        │
-│      RuleBasedClassifier.has_relationships  # SKOS edges exist       │
-│    )                                                                 │
-│                                                                      │
-│  Stability (S) =                                                     │
-│    weighted_avg(                                                     │
-│      1 - drift_score,                       # NOT YET IMPLEMENTED    │
-│      approval_status == 'approved',         # governance gate        │
-│      GraphClassifier.has_hierarchy_cycle    # structural integrity   │
-│    )                                                                 │
-│                                                                      │
+│ CLASSIFIER OUTPUTS → FORMULA INPUTS │
+│ │
+│ Availability (A) = │
+│ weighted_avg( │
+│ RuleBasedClassifier.completeness, # definition exists │
+│ GraphClassifier.connectivity, # reachable in graph │
+│ has_embedding # queryable │
+│ ) │
+│ │
+│ Consistency (C) = │
+│ weighted_avg( │
+│ EmbeddingClassifier.coherence, # similar to related │
+│ 1 - EmbeddingClassifier.duplicate_sim, # not a duplicate │
+│ RuleBasedClassifier.has_relationships # SKOS edges exist │
+│ ) │
+│ │
+│ Stability (S) = │
+│ weighted_avg( │
+│ 1 - drift_score, # NOT YET IMPLEMENTED │
+│ approval_status == 'approved', # governance gate │
+│ GraphClassifier.has_hierarchy_cycle # structural integrity │
+│ ) │
+│ │
 └─────────────────────────────────────────────────────────────────────┘
-                                │
-                                ▼
+ │
+ ▼
 ┌─────────────────────────────────────────────────────────────────────┐
-│  COMPUTED SCORE                                                      │
-│                                                                      │
-│  SC_concept = (A × C × S)^(1/3)                                      │
-│  SC_corpus = mean(SC_concept for all approved concepts)              │
-│                                                                      │
+│ COMPUTED SCORE │
+│ │
+│ SC_concept = (A × C × S)^(1/3) │
+│ SC_corpus = mean(SC_concept for all approved concepts) │
+│ │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -248,15 +248,15 @@ The classifier pipeline operationalizes the pattern/provenance model:
 ### Content Classify Pattern: 5-Phase Pipeline
 
 ```
-Phase 1: OWNERSHIP DETECTION     ← "Is this 3p or 1p?"
-    ↓
-Phase 2: ATOMIC EXTRACTION       ← "What patterns are here?"
-    ↓
-Phase 3: DEDUP & MATCHING        ← "Does this match existing 3p patterns?"
-    ↓
-Phase 4: EDGE CLASSIFICATION     ← "How does 1p relate to 3p foundations?"
-    ↓
-Phase 5: HUB CONSTRUCTION        ← "What aggregate roots emerge?"
+Phase 1: OWNERSHIP DETECTION ← "Is this 3p or 1p?"
+ ↓
+Phase 2: ATOMIC EXTRACTION ← "What patterns are here?"
+ ↓
+Phase 3: DEDUP & MATCHING ← "Does this match existing 3p patterns?"
+ ↓
+Phase 4: EDGE CLASSIFICATION ← "How does 1p relate to 3p foundations?"
+ ↓
+Phase 5: HUB CONSTRUCTION ← "What aggregate roots emerge?"
 ```
 
 **Key insight:** Phase 1 (ownership detection) comes FIRST because provenance changes everything downstream:
@@ -279,21 +279,21 @@ Phase 5: HUB CONSTRUCTION        ← "What aggregate roots emerge?"
 ### The Promotion Workflow: Orphan → Stable Core
 
 ```
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│  FLEXIBLE EDGE  │────▶│   CLASSIFIERS   │────▶│   STABLE CORE   │
-│                 │     │                 │     │                 │
-│  Orphan content │     │  Score against  │     │  Approved       │
-│  New ideas      │     │  3p patterns    │     │  concepts       │
-│  Messy input    │     │  Detect 1p      │     │  Pattern graph  │
-└─────────────────┘     └─────────────────┘     └─────────────────┘
-        ↑                       │
-        │                       ↓
-        │               ┌─────────────────┐
-        │               │  HUMAN REVIEW   │
-        │               │                 │
-        └───────────────│  1p flagged     │
-            (iterate)   │  for judgment   │
-                        └─────────────────┘
+┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+│ FLEXIBLE EDGE │────▶│ CLASSIFIERS │────▶│ STABLE CORE │
+│ │ │ │ │ │
+│ Orphan content │ │ Score against │ │ Approved │
+│ New ideas │ │ 3p patterns │ │ concepts │
+│ Messy input │ │ Detect 1p │ │ Pattern graph │
+└─────────────────┘ └─────────────────┘ └─────────────────┘
+ ↑ │
+ │ ↓
+ │ ┌─────────────────┐
+ │ │ HUMAN REVIEW │
+ │ │ │
+ └───────────────│ 1p flagged │
+ (iterate) │ for judgment │
+ └─────────────────┘
 ```
 
 **This is [Semantic Optimization](README.md) in action:**
@@ -309,7 +309,7 @@ Phase 5: HUB CONSTRUCTION        ← "What aggregate roots emerge?"
 
 This means: **when the RAG solution is upgraded, the semantic optimization solution is being designed simultaneously.**
 
-See [ike-semantic-ops#87](https://github.com/semops-ai/ike-semantic-ops/issues/87) for detailed RAG architecture research.
+See for detailed RAG architecture research.
 
 ### The Convergence
 
@@ -370,49 +370,49 @@ Beyond basic RAG metrics, the ingestion pipeline can feed purpose-built ML proce
 ### Architecture: Ingestion with ML Branches
 
 ```
-                                    ┌─────────────────────────┐
-                                    │  SENTIMENT / TONE       │
-                                    │  ANALYZER               │
-                                    │                         │
-                                    │  → Consistency of voice │
-                                    │  → Confidence signals   │
-                                    └─────────────────────────┘
-                                              ▲
-                                              │
-┌──────────┐     ┌──────────┐     ┌──────────┴──────────┐     ┌──────────┐
-│  INGEST  │────▶│  CHUNK   │────▶│  EMBEDDING +        │────▶│  STORE   │
-│          │     │          │     │  CLASSIFICATION     │     │          │
-│  docs    │     │  split   │     │                     │     │  SQL     │
-│  code    │     │  by      │     │  ownership (1p/3p)  │     │  Vector  │
-│  assets  │     │  pattern │     │  SKOS edges         │     │  Graph   │
-└──────────┘     └──────────┘     └──────────┬──────────┘     └──────────┘
-                                              │
-                                              ▼
-                                    ┌─────────────────────────┐
-                                    │  SEMANTIC DRIFT         │
-                                    │  DETECTOR               │
-                                    │                         │
-                                    │  → Compare to baseline  │
-                                    │  → Flag definition changes│
-                                    └─────────────────────────┘
-                                              │
-                                              ▼
-                                    ┌─────────────────────────┐
-                                    │  CONTRADICTION          │
-                                    │  DETECTOR               │
-                                    │                         │
-                                    │  → Cross-chunk conflict │
-                                    │  → Definition variance  │
-                                    └─────────────────────────┘
-                                              │
-                                              ▼
-                                    ┌─────────────────────────┐
-                                    │  COHERENCE METRICS      │
-                                    │  AGGREGATOR             │
-                                    │                         │
-                                    │  → Compute A, C, S      │
-                                    │  → Compute SC score     │
-                                    └─────────────────────────┘
+ ┌─────────────────────────┐
+ │ SENTIMENT / TONE │
+ │ ANALYZER │
+ │ │
+ │ → Consistency of voice │
+ │ → Confidence signals │
+ └─────────────────────────┘
+ ▲
+ │
+┌──────────┐ ┌──────────┐ ┌──────────┴──────────┐ ┌──────────┐
+│ INGEST │────▶│ CHUNK │────▶│ EMBEDDING + │────▶│ STORE │
+│ │ │ │ │ CLASSIFICATION │ │ │
+│ docs │ │ split │ │ │ │ SQL │
+│ code │ │ by │ │ ownership (1p/3p) │ │ Vector │
+│ assets │ │ pattern │ │ SKOS edges │ │ Graph │
+└──────────┘ └──────────┘ └──────────┬──────────┘ └──────────┘
+ │
+ ▼
+ ┌─────────────────────────┐
+ │ SEMANTIC DRIFT │
+ │ DETECTOR │
+ │ │
+ │ → Compare to baseline │
+ │ → Flag definition changes│
+ └─────────────────────────┘
+ │
+ ▼
+ ┌─────────────────────────┐
+ │ CONTRADICTION │
+ │ DETECTOR │
+ │ │
+ │ → Cross-chunk conflict │
+ │ → Definition variance │
+ └─────────────────────────┘
+ │
+ ▼
+ ┌─────────────────────────┐
+ │ COHERENCE METRICS │
+ │ AGGREGATOR │
+ │ │
+ │ → Compute A, C, S │
+ │ → Compute SC score │
+ └─────────────────────────┘
 ```
 
 ### ML Processes and Their SC Signals
@@ -436,22 +436,22 @@ Beyond basic RAG metrics, the ingestion pipeline can feed purpose-built ML proce
 ```python
 # Pseudocode
 def detect_drift(concept_id: str) -> float:
-    """
-    Compare current embedding to historical baseline.
-    Returns drift score 0.0 (stable) to 1.0 (completely changed).
-    """
-    current_embedding = get_current_embedding(concept_id)
-    baseline_embedding = get_baseline_embedding(concept_id)  # From approval date
+ """
+ Compare current embedding to historical baseline.
+ Returns drift score 0.0 (stable) to 1.0 (completely changed).
+ """
+ current_embedding = get_current_embedding(concept_id)
+ baseline_embedding = get_baseline_embedding(concept_id) # From approval date
 
-    # Cosine distance
-    drift = 1 - cosine_similarity(current_embedding, baseline_embedding)
+ # Cosine distance
+ drift = 1 - cosine_similarity(current_embedding, baseline_embedding)
 
-    # Optional: Compare definition text with sentence-level similarity
-    current_def = get_current_definition(concept_id)
-    baseline_def = get_baseline_definition(concept_id)
-    text_drift = semantic_similarity(current_def, baseline_def)
+ # Optional: Compare definition text with sentence-level similarity
+ current_def = get_current_definition(concept_id)
+ baseline_def = get_baseline_definition(concept_id)
+ text_drift = semantic_similarity(current_def, baseline_def)
 
-    return weighted_average(drift, text_drift)
+ return weighted_average(drift, text_drift)
 ```
 
 **Tools:** sentence-transformers, custom embedding comparison
@@ -463,26 +463,26 @@ def detect_drift(concept_id: str) -> float:
 ```python
 # Pseudocode
 def find_contradictions(concept_id: str) -> list[Contradiction]:
-    """
-    Find chunks tagged with same concept that make conflicting claims.
-    """
-    chunks = get_chunks_for_concept(concept_id)
+ """
+ Find chunks tagged with same concept that make conflicting claims.
+ """
+ chunks = get_chunks_for_concept(concept_id)
 
-    contradictions = []
-    for chunk_a, chunk_b in combinations(chunks, 2):
-        # Use NLI model (Natural Language Inference)
-        # Labels: entailment, neutral, contradiction
-        result = nli_model.predict(chunk_a.text, chunk_b.text)
+ contradictions = []
+ for chunk_a, chunk_b in combinations(chunks, 2):
+ # Use NLI model (Natural Language Inference)
+ # Labels: entailment, neutral, contradiction
+ result = nli_model.predict(chunk_a.text, chunk_b.text)
 
-        if result.label == "contradiction" and result.confidence > 0.8:
-            contradictions.append(Contradiction(
-                concept=concept_id,
-                chunk_a=chunk_a,
-                chunk_b=chunk_b,
-                confidence=result.confidence
-            ))
+ if result.label == "contradiction" and result.confidence > 0.8:
+ contradictions.append(Contradiction(
+ concept=concept_id,
+ chunk_a=chunk_a,
+ chunk_b=chunk_b,
+ confidence=result.confidence
+ ))
 
-    return contradictions
+ return contradictions
 ```
 
 **Tools:** transformers (DeBERTa-v3 for NLI), cross-encoder models
@@ -494,23 +494,23 @@ def find_contradictions(concept_id: str) -> list[Contradiction]:
 ```python
 # Pseudocode
 def analyze_confidence(chunk: str) -> ConfidenceSignals:
-    """
-    Detect linguistic signals of certainty/uncertainty.
-    """
-    # Hedging words: "might", "perhaps", "possibly", "seems"
-    hedging_score = count_hedging_words(chunk) / word_count(chunk)
+ """
+ Detect linguistic signals of certainty/uncertainty.
+ """
+ # Hedging words: "might", "perhaps", "possibly", "seems"
+ hedging_score = count_hedging_words(chunk) / word_count(chunk)
 
-    # Assertion strength: "is", "must", "always" vs "could", "sometimes"
-    assertion_ratio = strong_assertions(chunk) / total_claims(chunk)
+ # Assertion strength: "is", "must", "always" vs "could", "sometimes"
+ assertion_ratio = strong_assertions(chunk) / total_claims(chunk)
 
-    # Sentiment polarity (positive/negative/neutral)
-    sentiment = sentiment_model.predict(chunk)
+ # Sentiment polarity (positive/negative/neutral)
+ sentiment = sentiment_model.predict(chunk)
 
-    return ConfidenceSignals(
-        hedging=hedging_score,
-        assertion_strength=assertion_ratio,
-        sentiment=sentiment
-    )
+ return ConfidenceSignals(
+ hedging=hedging_score,
+ assertion_strength=assertion_ratio,
+ sentiment=sentiment
+ )
 ```
 
 **Tools:** VADER, TextBlob, custom hedging lexicon, fine-tuned classifiers
@@ -521,27 +521,27 @@ def analyze_confidence(chunk: str) -> ConfidenceSignals:
 
 ```python
 # Pseudocode
-def measure_topic_coherence() -> TopicCoherenceReport:
-    """
-    Use topic modeling to see if concept clusters match SKOS hierarchy.
-    """
-    # Extract topics from corpus
-    topics = bertopic_model.fit_transform(all_chunks)
+def measure_topic_coherence -> TopicCoherenceReport:
+ """
+ Use topic modeling to see if concept clusters match SKOS hierarchy.
+ """
+ # Extract topics from corpus
+ topics = bertopic_model.fit_transform(all_chunks)
 
-    # Compare to expected clusters (from SKOS broader/narrower)
-    expected_clusters = get_skos_clusters()
+ # Compare to expected clusters (from SKOS broader/narrower)
+ expected_clusters = get_skos_clusters
 
-    # Measure alignment
-    alignment_score = compare_clusters(topics, expected_clusters)
+ # Measure alignment
+ alignment_score = compare_clusters(topics, expected_clusters)
 
-    # Identify misaligned concepts
-    misaligned = find_misaligned_concepts(topics, expected_clusters)
+ # Identify misaligned concepts
+ misaligned = find_misaligned_concepts(topics, expected_clusters)
 
-    return TopicCoherenceReport(
-        alignment=alignment_score,
-        misaligned_concepts=misaligned,
-        suggested_reclassifications=suggest_fixes(misaligned)
-    )
+ return TopicCoherenceReport(
+ alignment=alignment_score,
+ misaligned_concepts=misaligned,
+ suggested_reclassifications=suggest_fixes(misaligned)
+ )
 ```
 
 **Tools:** BERTopic, Top2Vec, coherence scoring (Gensim)
@@ -552,31 +552,31 @@ All ML signals feed into the coherence aggregator:
 
 ```python
 def compute_semantic_coherence(concept_id: str) -> float:
-    """
-    Aggregate all signals into SC = (A × C × S)^(1/3)
-    """
-    # Availability (A)
-    a_coverage = coverage_analyzer.score(concept_id)      # Is it documented?
-    a_complexity = 1 - complexity_analyzer.score(concept_id)  # Is it readable?
-    a_retrievable = retrieval_tester.score(concept_id)    # Can RAG find it?
-    A = weighted_avg([a_coverage, a_complexity, a_retrievable])
+ """
+ Aggregate all signals into SC = (A × C × S)^(1/3)
+ """
+ # Availability (A)
+ a_coverage = coverage_analyzer.score(concept_id) # Is it documented?
+ a_complexity = 1 - complexity_analyzer.score(concept_id) # Is it readable?
+ a_retrievable = retrieval_tester.score(concept_id) # Can RAG find it?
+ A = weighted_avg([a_coverage, a_complexity, a_retrievable])
 
-    # Consistency (C)
-    c_contradictions = 1 - contradiction_detector.score(concept_id)
-    c_topic_alignment = topic_coherence.score(concept_id)
-    c_provenance_clarity = provenance_classifier.confidence(concept_id)
-    C = weighted_avg([c_contradictions, c_topic_alignment, c_provenance_clarity])
+ # Consistency (C)
+ c_contradictions = 1 - contradiction_detector.score(concept_id)
+ c_topic_alignment = topic_coherence.score(concept_id)
+ c_provenance_clarity = provenance_classifier.confidence(concept_id)
+ C = weighted_avg([c_contradictions, c_topic_alignment, c_provenance_clarity])
 
-    # Stability (S)
-    s_drift = 1 - drift_detector.score(concept_id)
-    s_confidence = confidence_analyzer.assertion_strength(concept_id)
-    s_approved = 1.0 if concept.approval_status == 'approved' else 0.5
-    S = weighted_avg([s_drift, s_confidence, s_approved])
+ # Stability (S)
+ s_drift = 1 - drift_detector.score(concept_id)
+ s_confidence = confidence_analyzer.assertion_strength(concept_id)
+ s_approved = 1.0 if concept.approval_status == 'approved' else 0.5
+ S = weighted_avg([s_drift, s_confidence, s_approved])
 
-    # Geometric mean
-    SC = (A * C * S) ** (1/3)
+ # Geometric mean
+ SC = (A * C * S) ** (1/3)
 
-    return SC
+ return SC
 ```
 
 ### Implementation Phases
@@ -666,42 +666,42 @@ Coherence is not a "score"—it is the **operating substrate**. The agents need:
 The **ai-workflow-kit** repo (soon to be `semantic-ops/dx`) is a concrete implementation of the DX Hub pattern. It serves both human developers AND AI agents as the shared context substrate.
 
 **See:**
-- [ai-workflow-kit/docs/PROCESS.md](https://github.com/semops-ai/ai-workflow-kit/blob/main/docs/PROCESS.md) - Development processes, ADR aggregation
-- [ai-workflow-kit/docs/INFRASTRUCTURE.md](https://github.com/semops-ai/ai-workflow-kit/blob/main/docs/INFRASTRUCTURE.md) - Shared services, stack decisions
-- [ai-workflow-kit ADR-0001](https://github.com/semops-ai/ai-workflow-kit/blob/main/docs/decisions/ADR-0001-semops-organization-migration.md) - Multi-repo architecture
+- [ai-workflow-kit/docs/PROCESS.md](https://github.com/timjmitchell/ai-workflow-kit/blob/main/docs/PROCESS.md) - Development processes, ADR aggregation
+- [ai-workflow-kit/docs/INFRASTRUCTURE.md](https://github.com/timjmitchell/ai-workflow-kit/blob/main/docs/INFRASTRUCTURE.md) - Shared services, stack decisions
+- [ai-workflow-kit ADR-0001](https://github.com/timjmitchell/ai-workflow-kit/blob/main/docs/decisions/ADR-0001-semops-organization-migration.md) - Multi-repo architecture
 
 #### How It Works
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  DX HUB (ai-workflow-kit / semantic-ops/dx)                          │
+│ DX HUB (ai-workflow-kit / semantic-ops/dx) │
 ├─────────────────────────────────────────────────────────────────────┤
-│                                                                      │
-│  AGGREGATED CONTEXT (from all repos):                                │
-│  ├── ADR_INDEX.md - Cross-repo architecture decisions                │
-│  ├── INFRASTRUCTURE.md - Services, ports, stack preferences          │
-│  ├── UBIQUITOUS_LANGUAGE.md - Domain term definitions                │
-│  ├── GLOBAL_ARCHITECTURE.md - System map, bounded contexts           │
-│  └── PROCESS.md - Workflows, naming conventions, audit processes     │
-│                                                                      │
-│  DISTRIBUTION (to all repos via CLI):                                │
-│  ├── `workflow init` - Install slash commands + experiment templates │
-│  ├── `/prime-global` - Load DX Hub context into agent session        │
-│  ├── `/plan` - Reference global docs when planning                   │
-│  └── `/fixauth` - Troubleshoot with reference to PROCESS.md          │
-│                                                                      │
-│  COHERENCE ENFORCEMENT:                                              │
-│  ├── Stack decision tree (when to use what)                          │
-│  ├── Naming conventions (entity IDs, predicates, branches)           │
-│  ├── Schema change process (high-impact, all repos affected)         │
-│  └── Deprecated repo warnings (audit for stale references)           │
-│                                                                      │
+│ │
+│ AGGREGATED CONTEXT (from all repos): │
+│ ├── ADR_INDEX.md - Cross-repo architecture decisions │
+│ ├── INFRASTRUCTURE.md - Services, ports, stack preferences │
+│ ├── UBIQUITOUS_LANGUAGE.md - Domain term definitions │
+│ ├── GLOBAL_ARCHITECTURE.md - System map, bounded contexts │
+│ └── PROCESS.md - Workflows, naming conventions, audit processes │
+│ │
+│ DISTRIBUTION (to all repos via CLI): │
+│ ├── `workflow init` - Install slash commands + experiment templates │
+│ ├── `/prime-global` - Load DX Hub context into agent session │
+│ ├── `/plan` - Reference global docs when planning │
+│ └── `/fixauth` - Troubleshoot with reference to PROCESS.md │
+│ │
+│ COHERENCE ENFORCEMENT: │
+│ ├── Stack decision tree (when to use what) │
+│ ├── Naming conventions (entity IDs, predicates, branches) │
+│ ├── Schema change process (high-impact, all repos affected) │
+│ └── Deprecated repo warnings (audit for stale references) │
+│ │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
 #### The Multi-Repo Pattern (Like Departments in a Company)
 
-From [ADR-0001](https://github.com/semops-ai/ai-workflow-kit/blob/main/docs/decisions/ADR-0001-semops-organization-migration.md):
+From [ADR-0001](https://github.com/timjmitchell/ai-workflow-kit/blob/main/docs/decisions/ADR-0001-semops-organization-migration.md):
 
 | Repo | Role | Bounded Context |
 |------|------|-----------------|
@@ -787,23 +787,23 @@ The theoretical SC formula operates on abstract "concepts." The practical system
 **Aggregate A Score:**
 ```python
 def compute_availability(concept_id: str) -> float:
-    concept = get_concept(concept_id)
+ concept = get_concept(concept_id)
 
-    # Discoverable: has definition
-    discoverable = 1.0 if concept.definition else 0.0
+ # Discoverable: has definition
+ discoverable = 1.0 if concept.definition else 0.0
 
-    # Accessible: has embedding
-    accessible = 1.0 if concept.embedding is not None else 0.0
+ # Accessible: has embedding
+ accessible = 1.0 if concept.embedding is not None else 0.0
 
-    # Retrievable: connected to approved graph
-    retrievable = graph_classifier.connectivity_score(concept_id)
+ # Retrievable: connected to approved graph
+ retrievable = graph_classifier.connectivity_score(concept_id)
 
-    # Documented: has entities
-    entity_count = count_entities_for_concept(concept_id)
-    documented = min(1.0, entity_count / 3)  # 3+ entities = fully documented
+ # Documented: has entities
+ entity_count = count_entities_for_concept(concept_id)
+ documented = min(1.0, entity_count / 3) # 3+ entities = fully documented
 
-    return weighted_avg([discoverable, accessible, retrievable, documented],
-                        weights=[0.3, 0.2, 0.3, 0.2])
+ return weighted_avg([discoverable, accessible, retrievable, documented],
+ weights=[0.3, 0.2, 0.3, 0.2])
 ```
 
 #### Consistency (C): "Do different systems interpret concepts the same way?"
@@ -818,22 +818,22 @@ def compute_availability(concept_id: str) -> float:
 **Aggregate C Score:**
 ```python
 def compute_consistency(concept_id: str) -> float:
-    # Cross-context alignment: similar to neighbors
-    coherence = embedding_classifier.coherence_score(concept_id)
+ # Cross-context alignment: similar to neighbors
+ coherence = embedding_classifier.coherence_score(concept_id)
 
-    # No duplicates: not suspiciously similar to another concept
-    duplicate_penalty = embedding_classifier.max_duplicate_similarity(concept_id)
-    no_duplicates = 1.0 if duplicate_penalty < 0.95 else 0.0
+ # No duplicates: not suspiciously similar to another concept
+ duplicate_penalty = embedding_classifier.max_duplicate_similarity(concept_id)
+ no_duplicates = 1.0 if duplicate_penalty < 0.95 else 0.0
 
-    # SKOS structure: has relationships
-    has_skos = 1.0 if rule_classifier.has_relationships(concept_id) else 0.5
+ # SKOS structure: has relationships
+ has_skos = 1.0 if rule_classifier.has_relationships(concept_id) else 0.5
 
-    # Entity alignment: entities for this concept cluster together
-    entity_variance = compute_entity_embedding_variance(concept_id)
-    entity_aligned = 1.0 - min(1.0, entity_variance)
+ # Entity alignment: entities for this concept cluster together
+ entity_variance = compute_entity_embedding_variance(concept_id)
+ entity_aligned = 1.0 - min(1.0, entity_variance)
 
-    return weighted_avg([coherence, no_duplicates, has_skos, entity_aligned],
-                        weights=[0.4, 0.2, 0.2, 0.2])
+ return weighted_avg([coherence, no_duplicates, has_skos, entity_aligned],
+ weights=[0.4, 0.2, 0.2, 0.2])
 ```
 
 #### Stability (S): "Does meaning stay constant over time?"
@@ -848,51 +848,51 @@ def compute_consistency(concept_id: str) -> float:
 **Aggregate S Score:**
 ```python
 def compute_stability(concept_id: str) -> float:
-    concept = get_concept(concept_id)
+ concept = get_concept(concept_id)
 
-    # Governance: is approved
-    approved = 1.0 if concept.approval_status == 'approved' else 0.5
+ # Governance: is approved
+ approved = 1.0 if concept.approval_status == 'approved' else 0.5
 
-    # Version stability: not frequently changing
-    entity_versions = get_version_history(concept_id)
-    version_stability = 1.0 - min(1.0, len(entity_versions) / 10)  # Many versions = instability
+ # Version stability: not frequently changing
+ entity_versions = get_version_history(concept_id)
+ version_stability = 1.0 - min(1.0, len(entity_versions) / 10) # Many versions = instability
 
-    # Drift: embedding hasn't moved since approval
-    drift_score = drift_detector.compute_drift(concept_id)  # 0.0 = stable, 1.0 = drifted
-    drift_resistance = 1.0 - drift_score
+ # Drift: embedding hasn't moved since approval
+ drift_score = drift_detector.compute_drift(concept_id) # 0.0 = stable, 1.0 = drifted
+ drift_resistance = 1.0 - drift_score
 
-    # Structural: no cycles
-    no_cycles = 0.0 if graph_classifier.has_hierarchy_cycle(concept_id) else 1.0
+ # Structural: no cycles
+ no_cycles = 0.0 if graph_classifier.has_hierarchy_cycle(concept_id) else 1.0
 
-    return weighted_avg([approved, version_stability, drift_resistance, no_cycles],
-                        weights=[0.3, 0.2, 0.3, 0.2])
+ return weighted_avg([approved, version_stability, drift_resistance, no_cycles],
+ weights=[0.3, 0.2, 0.3, 0.2])
 ```
 
 ### Composite SC Calculation
 
 ```python
 def compute_semantic_coherence(concept_id: str) -> SemanticCoherenceScore:
-    A = compute_availability(concept_id)
-    C = compute_consistency(concept_id)
-    S = compute_stability(concept_id)
+ A = compute_availability(concept_id)
+ C = compute_consistency(concept_id)
+ S = compute_stability(concept_id)
 
-    # Geometric mean - if any collapses, coherence collapses
-    SC = (A * C * S) ** (1/3)
+ # Geometric mean - if any collapses, coherence collapses
+ SC = (A * C * S) ** (1/3)
 
-    return SemanticCoherenceScore(
-        concept_id=concept_id,
-        availability=A,
-        consistency=C,
-        stability=S,
-        coherence=SC,
-        threshold_met=SC >= 0.80
-    )
+ return SemanticCoherenceScore(
+ concept_id=concept_id,
+ availability=A,
+ consistency=C,
+ stability=S,
+ coherence=SC,
+ threshold_met=SC >= 0.80
+ )
 
-def compute_corpus_coherence() -> float:
-    """Aggregate SC across all approved concepts."""
-    approved_concepts = get_concepts_by_status('approved')
-    scores = [compute_semantic_coherence(c.id).coherence for c in approved_concepts]
-    return mean(scores)
+def compute_corpus_coherence -> float:
+ """Aggregate SC across all approved concepts."""
+ approved_concepts = get_concepts_by_status('approved')
+ scores = [compute_semantic_coherence(c.id).coherence for c in approved_concepts]
+ return mean(scores)
 ```
 
 ---
@@ -933,12 +933,12 @@ From UBIQUITOUS_LANGUAGE.md:
 #### Step 1: Define Corpus (Source of Truth)
 
 ```python
-def get_corpus() -> list[Concept]:
-    """Canonical definitions = approved concepts with definitions."""
-    return db.query(Concept).filter(
-        Concept.approval_status == 'approved',
-        Concept.definition.isnot(None)
-    ).all()
+def get_corpus -> list[Concept]:
+ """Canonical definitions = approved concepts with definitions."""
+ return db.query(Concept).filter(
+ Concept.approval_status == 'approved',
+ Concept.definition.isnot(None)
+ ).all
 ```
 
 #### Step 2: Sample Artifacts
@@ -954,72 +954,72 @@ Artifacts come from multiple sources:
 
 ```python
 def sample_artifacts(concept_id: str) -> list[ArtifactSample]:
-    """Get real-world usage samples for a concept."""
-    samples = []
+ """Get real-world usage samples for a concept."""
+ samples = []
 
-    # 1. Linked entities (already in system)
-    entities = get_entities_for_concept(concept_id)
-    for entity in entities:
-        content = read_file(entity.filespec.uri)
-        samples.append(ArtifactSample(
-            source="entity",
-            source_id=entity.id,
-            text=content,
-            embedding=embed(content)
-        ))
+ # 1. Linked entities (already in system)
+ entities = get_entities_for_concept(concept_id)
+ for entity in entities:
+ content = read_file(entity.filespec.uri)
+ samples.append(ArtifactSample(
+ source="entity",
+ source_id=entity.id,
+ text=content,
+ embedding=embed(content)
+ ))
 
-    # 2. Code mentions (external scan)
-    code_mentions = scan_codebase_for_concept(concept_id)
-    for mention in code_mentions:
-        samples.append(ArtifactSample(
-            source="code",
-            source_id=mention.file_path,
-            text=mention.context,
-            embedding=embed(mention.context)
-        ))
+ # 2. Code mentions (external scan)
+ code_mentions = scan_codebase_for_concept(concept_id)
+ for mention in code_mentions:
+ samples.append(ArtifactSample(
+ source="code",
+ source_id=mention.file_path,
+ text=mention.context,
+ embedding=embed(mention.context)
+ ))
 
-    # 3. Add more sources as needed...
+ # 3. Add more sources as needed...
 
-    return samples
+ return samples
 ```
 
 #### Step 3: Compute Delta
 
 ```python
 def compute_corpus_artifact_delta(concept_id: str) -> DeltaScore:
-    """
-    Measure semantic distance between canonical definition and actual usage.
-    Low delta = artifacts match corpus (good)
-    High delta = drift between definition and reality (bad)
-    """
-    concept = get_concept(concept_id)
-    corpus_embedding = concept.embedding  # Canonical definition
+ """
+ Measure semantic distance between canonical definition and actual usage.
+ Low delta = artifacts match corpus (good)
+ High delta = drift between definition and reality (bad)
+ """
+ concept = get_concept(concept_id)
+ corpus_embedding = concept.embedding # Canonical definition
 
-    artifacts = sample_artifacts(concept_id)
-    if not artifacts:
-        return DeltaScore(delta=0.0, sample_count=0, warning="No artifacts sampled")
+ artifacts = sample_artifacts(concept_id)
+ if not artifacts:
+ return DeltaScore(delta=0.0, sample_count=0, warning="No artifacts sampled")
 
-    # Compute distance from each artifact to corpus
-    distances = []
-    for artifact in artifacts:
-        # Cosine distance: 0.0 = identical, 2.0 = opposite
-        distance = cosine_distance(corpus_embedding, artifact.embedding)
-        distances.append(distance)
+ # Compute distance from each artifact to corpus
+ distances = []
+ for artifact in artifacts:
+ # Cosine distance: 0.0 = identical, 2.0 = opposite
+ distance = cosine_distance(corpus_embedding, artifact.embedding)
+ distances.append(distance)
 
-    # Aggregate: mean distance
-    mean_delta = mean(distances)
-    max_delta = max(distances)
+ # Aggregate: mean distance
+ mean_delta = mean(distances)
+ max_delta = max(distances)
 
-    # Identify outliers (high delta = drifted artifacts)
-    outliers = [a for a, d in zip(artifacts, distances) if d > 0.5]
+ # Identify outliers (high delta = drifted artifacts)
+ outliers = [a for a, d in zip(artifacts, distances) if d > 0.5]
 
-    return DeltaScore(
-        concept_id=concept_id,
-        delta=mean_delta,
-        max_delta=max_delta,
-        sample_count=len(artifacts),
-        outliers=outliers
-    )
+ return DeltaScore(
+ concept_id=concept_id,
+ delta=mean_delta,
+ max_delta=max_delta,
+ sample_count=len(artifacts),
+ outliers=outliers
+ )
 ```
 
 #### Step 4: Integrate into SC (Enhanced Formula)
@@ -1032,16 +1032,16 @@ Coherence_KPI = (A × C × S)^(1/3) × (1 - Delta_normalized)
 
 ```python
 def compute_full_coherence_kpi(concept_id: str) -> float:
-    sc = compute_semantic_coherence(concept_id)
-    delta = compute_corpus_artifact_delta(concept_id)
+ sc = compute_semantic_coherence(concept_id)
+ delta = compute_corpus_artifact_delta(concept_id)
 
-    # Normalize delta to 0-1 (assuming max practical delta is 1.0)
-    delta_normalized = min(1.0, delta.delta)
+ # Normalize delta to 0-1 (assuming max practical delta is 1.0)
+ delta_normalized = min(1.0, delta.delta)
 
-    # Apply delta penalty
-    coherence_kpi = sc.coherence * (1 - delta_normalized)
+ # Apply delta penalty
+ coherence_kpi = sc.coherence * (1 - delta_normalized)
 
-    return coherence_kpi
+ return coherence_kpi
 ```
 
 ### Classification Pipeline: Where Delta Fits
@@ -1058,71 +1058,71 @@ The classifier pipeline already writes to the `classification` table. Delta can 
 
 ```python
 class DeltaClassifier(BaseClassifier):
-    """Measures corpus-artifact delta for concepts."""
+ """Measures corpus-artifact delta for concepts."""
 
-    classifier_id = "delta-v1"
+ classifier_id = "delta-v1"
 
-    def classify(self, concept_id: str) -> Classification:
-        delta = compute_corpus_artifact_delta(concept_id)
+ def classify(self, concept_id: str) -> Classification:
+ delta = compute_corpus_artifact_delta(concept_id)
 
-        return Classification(
-            target_type="concept",
-            target_id=concept_id,
-            classifier_id=self.classifier_id,
-            scores={
-                "delta_mean": delta.delta,
-                "delta_max": delta.max_delta,
-                "sample_count": delta.sample_count,
-                "promotion_ready": delta.delta < 0.3  # Low delta = healthy
-            },
-            rationale=f"Sampled {delta.sample_count} artifacts. Mean delta: {delta.delta:.2f}"
-        )
+ return Classification(
+ target_type="concept",
+ target_id=concept_id,
+ classifier_id=self.classifier_id,
+ scores={
+ "delta_mean": delta.delta,
+ "delta_max": delta.max_delta,
+ "sample_count": delta.sample_count,
+ "promotion_ready": delta.delta < 0.3 # Low delta = healthy
+ },
+ rationale=f"Sampled {delta.sample_count} artifacts. Mean delta: {delta.delta:.2f}"
+ )
 ```
 
 ### Visual: SC + Delta → DDD Objects
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  SEMANTIC COHERENCE MEASUREMENT                                              │
-│                                                                              │
-│  CORPUS (Stable Core)              ARTIFACTS (Flexible Edge + External)      │
-│  ┌────────────────────┐            ┌────────────────────────────────────┐   │
-│  │ concept            │            │ entity (linked)                     │   │
-│  │  - id              │◄──delta───▶│  - primary_concept_id = concept.id │   │
-│  │  - definition      │            │  - filespec.uri → content           │   │
-│  │  - embedding       │            │  - embedding                        │   │
-│  │  - approval_status │            ├────────────────────────────────────┤   │
-│  │                    │            │ entity (orphan)                     │   │
-│  │ Measured by:       │◄──delta───▶│  - primary_concept_id = NULL        │   │
-│  │  • A (Availability)│            │  - (potential new pattern)          │   │
-│  │  • C (Consistency) │            ├────────────────────────────────────┤   │
-│  │  • S (Stability)   │            │ external files                      │   │
-│  └────────────────────┘◄──delta───▶│  - code repos                       │   │
-│                                    │  - dashboards                        │   │
-│  SC = (A × C × S)^(1/3)            │  - conversations                    │   │
-│                                    └────────────────────────────────────┘   │
-│                                                                              │
-│  COHERENCE_KPI = SC × (1 - Delta)                                            │
-│                                                                              │
-│  ──────────────────────────────────────────────────────────────────────────  │
-│                                                                              │
-│  CLASSIFICATION TABLE (Audit Trail)                                          │
-│  ┌────────────────────────────────────────────────────────────────────────┐  │
-│  │ target_id | classifier_id | scores                | rationale          │  │
-│  │───────────┼───────────────┼───────────────────────┼────────────────────│  │
-│  │ semantic- │ rule-based-v1 │ {completeness: 0.95}  │ "Definition..."    │  │
-│  │ coherence │ embedding-v1  │ {coherence: 0.88}     │ "Similar to..."    │  │
-│  │           │ graph-v1      │ {connectivity: 0.92}  │ "4 hops to..."     │  │
-│  │           │ delta-v1      │ {delta_mean: 0.15}    │ "Sampled 12..."    │  │
-│  └────────────────────────────────────────────────────────────────────────┘  │
-│                                                                              │
-│  Aggregate into:                                                             │
-│  • A = avg(completeness, connectivity, ...)                                  │
-│  • C = avg(coherence, has_relationships, ...)                                │
-│  • S = avg(approved, no_cycles, drift_resistance, ...)                       │
-│  • Delta = delta_mean                                                        │
-│  • COHERENCE_KPI = (A × C × S)^(1/3) × (1 - Delta)                           │
-│                                                                              │
+│ SEMANTIC COHERENCE MEASUREMENT │
+│ │
+│ CORPUS (Stable Core) ARTIFACTS (Flexible Edge + External) │
+│ ┌────────────────────┐ ┌────────────────────────────────────┐ │
+│ │ concept │ │ entity (linked) │ │
+│ │ - id │◄──delta───▶│ - primary_concept_id = concept.id │ │
+│ │ - definition │ │ - filespec.uri → content │ │
+│ │ - embedding │ │ - embedding │ │
+│ │ - approval_status │ ├────────────────────────────────────┤ │
+│ │ │ │ entity (orphan) │ │
+│ │ Measured by: │◄──delta───▶│ - primary_concept_id = NULL │ │
+│ │ • A (Availability)│ │ - (potential new pattern) │ │
+│ │ • C (Consistency) │ ├────────────────────────────────────┤ │
+│ │ • S (Stability) │ │ external files │ │
+│ └────────────────────┘◄──delta───▶│ - code repos │ │
+│ │ - dashboards │ │
+│ SC = (A × C × S)^(1/3) │ - conversations │ │
+│ └────────────────────────────────────┘ │
+│ │
+│ COHERENCE_KPI = SC × (1 - Delta) │
+│ │
+│ ────────────────────────────────────────────────────────────────────────── │
+│ │
+│ CLASSIFICATION TABLE (Audit Trail) │
+│ ┌────────────────────────────────────────────────────────────────────────┐ │
+│ │ target_id | classifier_id | scores | rationale │ │
+│ │───────────┼───────────────┼───────────────────────┼────────────────────│ │
+│ │ semantic- │ rule-based-v1 │ {completeness: 0.95} │ "Definition..." │ │
+│ │ coherence │ embedding-v1 │ {coherence: 0.88} │ "Similar to..." │ │
+│ │ │ graph-v1 │ {connectivity: 0.92} │ "4 hops to..." │ │
+│ │ │ delta-v1 │ {delta_mean: 0.15} │ "Sampled 12..." │ │
+│ └────────────────────────────────────────────────────────────────────────┘ │
+│ │
+│ Aggregate into: │
+│ • A = avg(completeness, connectivity, ...) │
+│ • C = avg(coherence, has_relationships, ...) │
+│ • S = avg(approved, no_cycles, drift_resistance, ...) │
+│ • Delta = delta_mean │
+│ • COHERENCE_KPI = (A × C × S)^(1/3) × (1 - Delta) │
+│ │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -1134,7 +1134,7 @@ class DeltaClassifier(BaseClassifier):
 | **No external artifact ingestion** | Only measure internal entities | Build code/dashboard scanners |
 | **No composite SC view** | Must aggregate manually | Create `semantic_coherence_scores` view |
 | **No drift baseline** | Cannot compute temporal S | Store embedding snapshots at `approved_at` |
-| **Classification scores not aggregated** | Individual scores, no composite | Build `compute_sc()` function |
+| **Classification scores not aggregated** | Individual scores, no composite | Build `compute_sc` function |
 
 ---
 

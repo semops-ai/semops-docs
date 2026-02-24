@@ -6,8 +6,8 @@ pattern: domain-driven-design
 provenance: 3p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 
 # this doc requires rewrite - please look to the inline comments
 ---
@@ -27,13 +27,13 @@ metadata:
 DDD spans all three transitions of the [Semantic Funnel](../../RESEARCH/FOUNDATIONS/semantic-funnel.md) — it provides the scaffolding for encoding rules at every DIKW level.
 
 ```
-  Objects:  DATA ══════> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
-               │                │                  │
-  Rules:  Structural       Interpretive        Normative
-          (entity schemas)  (specifications)    (policies)
-               │                │                  │
-  Agents:     —           Domain Services    Leadership,
-                                              architects
+ Objects: DATA ══════> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
+ │ │ │
+ Rules: Structural Interpretive Normative
+ (entity schemas) (specifications) (policies)
+ │ │ │
+ Agents: — Domain Services Leadership,
+ architects
 ```
 
 | Element | D → I | I → K | K → W |
@@ -66,7 +66,7 @@ See [What is Understanding?](../../RESEARCH/FOUNDATIONS/what-is-understanding.md
 
 **Example:** Project SemOps uses DDD as the core, but the "Branded Product" domain uses PIM patterns for branded surfaces, delivery channels, and published product entities. The PIM pattern specializes one "bounded context"—it does not replace the overall architecture.
 
-See [Explicit Architecture: Why DDD is the Foundation](explicit-architecture.md#why-ddd-is-the-foundation) for when to add specialized approaches like Data Mesh, Event-Driven, or PIM.
+See [Explicit Architecture: Why DDD is the Foundation](what-is-architecture.md#why-ddd-is-the-foundation) for when to add specialized approaches like Data Mesh, Event-Driven, or PIM.
 
 ## Key Concepts
 
@@ -174,14 +174,14 @@ aggregate root
 
 - Aggregate = a cluster of domain objects treated as one unit for data changes.
 - Aggregate Root (AR) = the gatekeeper of that cluster:
-  - Only the root can be loaded/saved via a repository.
-  - Outside code references only the root’s ID (never child IDs).
-  - All invariants that must be true atomically live inside the aggregate boundary.
-  - Think: one transaction, one invariant bubble, one repository.
+ - Only the root can be loaded/saved via a repository.
+ - Outside code references only the root’s ID (never child IDs).
+ - All invariants that must be true atomically live inside the aggregate boundary.
+ - Think: one transaction, one invariant bubble, one repository.
 - Why it matters:
-  - Safety: critical rules (e.g., "exactly one default plan") cannot be violated because changes go through the root.
-  - Performance: small, bounded objects → fewer lock/contention problems.
-  - Integration: cross-aggregate work is event-driven (eventual consistency) instead of giant distributed transactions.
+ - Safety: critical rules (e.g., "exactly one default plan") cannot be violated because changes go through the root.
+ - Performance: small, bounded objects → fewer lock/contention problems.
+ - Integration: cross-aggregate work is event-driven (eventual consistency) instead of giant distributed transactions.
 
 ### Value Objects
 `value object`
@@ -197,11 +197,11 @@ mime_type = "application/pdf"
 
 # You have ONE variable that contains ALL of it:
 filespec = FileSpec(
-    uri="s3://bucket/file.pdf",
-    format="pdf",
-    hash="sha256:abc123...",
-    size_bytes=104857600,
-    mime_type="application/pdf"
+ uri="s3://bucket/file.pdf",
+ format="pdf",
+ hash="sha256:abc123...",
+ size_bytes=104857600,
+ mime_type="application/pdf"
 )
 
 edge entity
@@ -231,7 +231,7 @@ Traditional DDD is very hard to implement because humans actively disagree on la
 ---
 
 ## DDD and Semantic Operations
-<!-- need a more structured explanation as to why DDD is our choice. We start with a DIKW model to show how we have to create a coherent smeantic state and then optimize through pattern application and innovation  -- DDD allows us to do this by providing a scafolding for all of the data structures and corpuses needed for Ai and agentic use and for defining and using patterns which are much more business and domain aware than granular "features" or single concepts -->
+<!-- need a more structured explanation as to why DDD is our choice. We start with a DIKW model to show how we have to create a coherent smeantic state and then optimize through pattern application and innovation -- DDD allows us to do this by providing a scafolding for all of the data structures and corpuses needed for Ai and agentic use and for defining and using patterns which are much more business and domain aware than granular "features" or single concepts -->
 
 [Semantic Operations](../README.md) uses DDD as its architectural foundation. DDD provides a systematic method to increase the probability that knowledge infrastructure is organized around the [domain patterns](../../SEMANTIC_OPTIMIZATION/patterns.md) and rules of the core business domain.
 
@@ -240,7 +240,7 @@ Systems, Org, Product all the same
 
 DDD is essentially a bridge layer: it ensures that the way information is structured in software reflects real-world domain knowledge. Conversely, it ensures that the way the organization operates does not conflict with the domain knowledge as designed. If something is missing, the system is fixed rather than running a "parallel" operating model outside of the systems.
 
-- DDD provides  "Domain Structuring" or "Knowledge Encoding" to knowledge operations. It ensures that organizational information and knowledge is not structured arbitrarily, but encoded in a way that directly mirrors business knowledge.
+- DDD provides "Domain Structuring" or "Knowledge Encoding" to knowledge operations. It ensures that organizational information and knowledge is not structured arbitrarily, but encoded in a way that directly mirrors business knowledge.
 
 DDD is organizational as much as technical — it enforces collaboration between domain experts and engineers (knowledge governance).
 
@@ -266,10 +266,10 @@ For semantic operations, clarity matters because it enables thinking clearly and
 "Understanding" is achieved when anything can be described in terms of what it is and what it does in neutral, precise, and the simplest language possible.
 
 ### 3.1 Bounded Contexts as Semantic Containers
-Each concept must be understood **within its specific bounded context**.  
+Each concept must be understood **within its specific bounded context**. 
 This avoids:
-- term collisions  
-- inconsistent meaning  
+- term collisions 
+- inconsistent meaning 
 - [semantic drift](../../SEMANTIC_OPTIMIZATION/semantic-drift.md)
 
 [SemOps](../../README.md) uses these boundaries for governance.
@@ -277,12 +277,12 @@ This avoids:
 ---
 
 ### Ubiquitous Language as Semantic Governance
-All teams use the same terminology for domain concepts.  
+All teams use the same terminology for domain concepts. 
 This becomes the **semantic catalog** used by:
-- schemas  
-- metrics  
-- AI prompts  
-- contracts  
+- schemas 
+- metrics 
+- AI prompts 
+- contracts 
 
 Without Ubiquitous Language, neither humans nor AI can maintain consistency.
 
@@ -290,12 +290,12 @@ Without Ubiquitous Language, neither humans nor AI can maintain consistency.
 
 ### Aggregates and Entities as Ontology Anchors
 In DDD:
-- entities and aggregates define identity, invariants, and rules  
+- entities and aggregates define identity, invariants, and rules 
 These directly correspond to:
-- ontology nodes  
-- schema objects  
-- event definitions  
-- metric entities  
+- ontology nodes 
+- schema objects 
+- event definitions 
+- metric entities 
 
 DDD provides the domain model; [Semantic Operations](../README.md) operationalizes it.
 
@@ -303,9 +303,9 @@ DDD provides the domain model; [Semantic Operations](../README.md) operationaliz
 
 ### Context Maps as Semantic Contracts
 Context maps define:
-- translation rules  
-- relationships between domain areas  
-- anti-corruption layers  
+- translation rules 
+- relationships between domain areas 
+- anti-corruption layers 
 
 Essential because AI and analytics must respect these boundaries.
 
@@ -359,8 +359,8 @@ Core Repository:
 - In the age of AI, a data-centric approach will become increasingly critical for AI-driven success, because AI models are heavily reliant on the availability, quality, quantity, and structure of data for context, training, analysis, and agentic systems. As AI is increasingly integrated into software, aligning AI development with a well-understood and modeled domain (as per DDD) becomes more important. DDD enforces starting with the data model to ensure that the necessary data is identified, understood, and made available for AI applications, as necessary.
 - Inputs flow to Outputs: The data flows all touch and not just theoretically. Goals, KPIs, roadmaps, sprint planning are all treated as hypotheses being continually tested and decisions
 - "Data First Framing" is an analysis approach that looks only at the data that exists and flows between systems as a way of understanding any complex system, organization, or problem space. Related to "Reference Architecture". A company is its data, and a reference architecture may become a universal artifact that companies use internally to understand their own operation and externally to understand competitors, their industry, vendors, acquisition targets, etc.
-    - Case-study: An analyst can examine the data schema of any company in any industry and determine important detail about the company without extensive prior knowledge - similar to what an investor does when investigating a company before an offer or during due diligence - they focus on high level financial metrics and understanding the industry and position through that framing because this is the universal language of M&A and investing - this can be extended to all of the enterprise and even public data (reviews, sentiment, etc.) about the company to understand at a deep level
-    - Thought experiment: A galactic analyst is assigned to help an alien civilization fix their production of a product they do not understand - in fact, the analyst also does not understand the culture or anything. The plumbus - fleeb. The analyst has a real-time translator device that does a great job of managing conversation and basic communication, but when it comes to specific technical components and proprietary company terminology, not so much. So, the analyst starts interviewing people and is constantly having to look up terms and formulate a dictionary of terms.
+ - Case-study: An analyst can examine the data schema of any company in any industry and determine important detail about the company without extensive prior knowledge - similar to what an investor does when investigating a company before an offer or during due diligence - they focus on high level financial metrics and understanding the industry and position through that framing because this is the universal language of M&A and investing - this can be extended to all of the enterprise and even public data (reviews, sentiment, etc.) about the company to understand at a deep level
+ - Thought experiment: A galactic analyst is assigned to help an alien civilization fix their production of a product they do not understand - in fact, the analyst also does not understand the culture or anything. The plumbus - fleeb. The analyst has a real-time translator device that does a great job of managing conversation and basic communication, but when it comes to specific technical components and proprietary company terminology, not so much. So, the analyst starts interviewing people and is constantly having to look up terms and formulate a dictionary of terms.
 - The ideal state is that everyone who should have access to any data (access control) has the
 
 ## Examples
@@ -373,14 +373,14 @@ The following is a common example of how an "AI Agent" scales through the stages
 
 The levels aren’t about operational maturity. They’re about **domain legibility**:
 
-|Level                 |What it actually represents                                    |
+|Level |What it actually represents |
 |----------------------|---------------------------------------------------------------|
-|0. Chat Bot           |“I’m exploring what this even is”                              |
-|1. Slash commands     |“I can name and use a group of operations”                     |
-|2. Manifest           |“I can externalize the rules”                                  |
-|3. Event triggers     |“I know the boundaries and entry points”                       |
-|4. Contracts / schemas|“I can specify inputs and outputs precisely”                   |
-|5. Clean scaling      |“The domain model is stable enough that infra is just plumbing”|
+|0. Chat Bot |“I’m exploring what this even is” |
+|1. Slash commands |“I can name and use a group of operations” |
+|2. Manifest |“I can externalize the rules” |
+|3. Event triggers |“I know the boundaries and entry points” |
+|4. Contracts / schemas|“I can specify inputs and outputs precisely” |
+|5. Clean scaling |“The domain model is stable enough that infra is just plumbing”|
 
 The **reverse test**: If I go backwards from 5 down to 0, does the logic still work as a prompt?
 
@@ -393,7 +393,7 @@ If the transition from 4 to 5 is not clean, the missing element is domain knowle
 ### Framework Components
 
 - [Explicit Architecture](README.md) - Parent framework
-- [Explicit Architecture](explicit-architecture.md) - What architecture actually is
+- [Explicit Architecture](what-is-architecture.md) - What architecture actually is
 - [Patterns and Bounded Contexts](patterns-and-bounded-contexts.md) - Growing through patterns
 - [Anti-Corruption Layer (ACL)](ddd-acl-governance-aas.md) - Semantic firewalls at boundaries
 - [SemOps Aggregate Root](semops-aggregate-root.md) - Aggregate root pattern applied to SemOps

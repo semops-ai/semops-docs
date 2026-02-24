@@ -6,8 +6,8 @@ pattern: dikw-theory-comparison
 provenance: 3p
 
 metadata: 
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 # this doc provides more detail and backgroun to FOUNDATIONS/semantic-funnel.md
 ---
 
@@ -25,10 +25,10 @@ All three theorists agree on the core hierarchical structure and transformation 
 2. **Distinct stages**: Each level is qualitatively different, not merely quantitative accumulation
 3. **Transformational process**: Moving up requires active processing, not passive accumulation
 4. **The "knowing" framework**:
-   - **Data**: Raw facts with no inherent meaning ("know-nothing")
-   - **Information**: Contextualized data answering *who, what, where, when* ("know-what")
-   - **Knowledge**: Actionable patterns and instructions answering *how* ("know-how")
-   - **Wisdom**: Judgment about values, ethics, and effectiveness answering *why* ("know-why")
+ - **Data**: Raw facts with no inherent meaning ("know-nothing")
+ - **Information**: Contextualized data answering *who, what, where, when* ("know-what")
+ - **Knowledge**: Actionable patterns and instructions answering *how* ("know-how")
+ - **Wisdom**: Judgment about values, ethics, and effectiveness answering *why* ("know-why")
 5. **Human judgment essential**: Wisdom requires uniquely human capabilities—values, ethics, and long-term contextual reasoning.
 
 ---
@@ -71,9 +71,9 @@ Understanding is a **discrete level** with its own properties, not just a transf
 **Key characteristics:**
 - **Understanding as connective transformation**, not a separate tier
 - Understanding is the *process* that enables each transition:
-  - Data → Information: understanding **relationships**
-  - Information → Knowledge: understanding **patterns**
-  - Knowledge → Wisdom: understanding **principles**
+ - Data → Information: understanding **relationships**
+ - Information → Knowledge: understanding **patterns**
+ - Knowledge → Wisdom: understanding **principles**
 - Popularized the visual pyramid representation
 - More practical/systems-thinking orientation: understanding as the mechanism of ascent through the hierarchy
 

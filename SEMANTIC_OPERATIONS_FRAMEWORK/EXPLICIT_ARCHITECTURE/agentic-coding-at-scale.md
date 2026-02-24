@@ -6,8 +6,8 @@ pattern: agentic-coding-at-scale
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: medium
+ pattern_type: concept
+ brand_strength: medium
 ---
 
 # Agentic Coding at Scale
@@ -80,15 +80,15 @@ What makes agentic coding work? Let's decompose the Claude Code pattern:
 ### 2. DDD Scaffolding
 
 ```
-ike-semantic-ops/           # Orchestrator
-├── schemas/                # Ground truth definitions
-├── scripts/classifiers/    # Domain logic
-└── docs/domain-patterns/   # Pattern catalog
+ike-semantic-ops/ # Orchestrator
+├── schemas/ # Ground truth definitions
+├── scripts/classifiers/ # Domain logic
+└── docs/domain-patterns/ # Pattern catalog
 
-semops-docs/        # Knowledge assets
-├── docs/1p-bounded-concepts/   # First-party hypotheses
-├── docs/atoms/                 # Value objects
-└── docs/_legacy/               # Deprecated but tracked
+semops-docs/ # Knowledge assets
+├── docs/1p-bounded-concepts/ # First-party hypotheses
+├── docs/atoms/ # Value objects
+└── docs/_legacy/ # Deprecated but tracked
 ```
 
 **Why it works:** Clear boundaries, explicit ownership, [stable core](stable-core-flexible-edge.md) vs. flexible edge. The AI knows where to look and what can change.
@@ -151,8 +151,8 @@ From Claude Code operation:
 
 ```
 User request → Read context → Plan → Execute → Validate → Commit
-                    ↑                              │
-                    └──────── Feedback loop ───────┘
+ ↑ │
+ └──────── Feedback loop ───────┘
 ```
 
 This loop only works because:
@@ -164,8 +164,8 @@ This loop only works because:
 
 ```
 Business need → Read semantics → Plan → Execute → Validate → Commit
-                     ↑                                 │
-                     └───────── SC monitoring ─────────┘
+ ↑ │
+ └───────── SC monitoring ─────────┘
 ```
 
 But this requires:
@@ -314,64 +314,64 @@ The [Semantic Coherence](../SEMANTIC_OPTIMIZATION/semantic-coherence.md) formula
 
 ```yaml
 context:
-  source: CLAUDE.md + codebase
-  boundaries: repository
-  feedback: immediate (same session)
-  lineage: git
+ source: CLAUDE.md + codebase
+ boundaries: repository
+ feedback: immediate (same session)
+ lineage: git
 
 coherence_enforcement:
-  - type_system
-  - tests
-  - linting
-  - pre-commit hooks
+ - type_system
+ - tests
+ - linting
+ - pre-commit hooks
 ```
 
 ### Level 1: Team (Knowledge Graph)
 
 ```yaml
 context:
-  source: Team's bounded context
-  boundaries: domain model
-  feedback: CI/CD + PR reviews
-  lineage: git + decision logs
+ source: Team's bounded context
+ boundaries: domain model
+ feedback: CI/CD + PR reviews
+ lineage: git + decision logs
 
 coherence_enforcement:
-  - schema validation
-  - classifier pipeline
-  - approval workflow
-  - drift alerts
+ - schema validation
+ - classifier pipeline
+ - approval workflow
+ - drift alerts
 ```
 
 ### Level 2: Department (Semantic Layer)
 
 ```yaml
 context:
-  source: Department glossary + metrics
-  boundaries: context map with other departments
-  feedback: weekly coherence dashboards
-  lineage: data catalog + provenance
+ source: Department glossary + metrics
+ boundaries: context map with other departments
+ feedback: weekly coherence dashboards
+ lineage: data catalog + provenance
 
 coherence_enforcement:
-  - semantic layer (dbt, LookML)
-  - metric definitions
-  - cross-team alignment reviews
-  - SC threshold gates
+ - semantic layer (dbt, LookML)
+ - metric definitions
+ - cross-team alignment reviews
+ - SC threshold gates
 ```
 
 ### Level 3: Organization (SemOps)
 
 ```yaml
 context:
-  source: Enterprise ontology
-  boundaries: strategic business units
-  feedback: continuous SC monitoring
-  lineage: enterprise knowledge graph
+ source: Enterprise ontology
+ boundaries: strategic business units
+ feedback: continuous SC monitoring
+ lineage: enterprise knowledge graph
 
 coherence_enforcement:
-  - canonical concept governance
-  - cross-boundary translation rules
-  - automated drift detection
-  - coherence as OKR
+ - canonical concept governance
+ - cross-boundary translation rules
+ - automated drift detection
+ - coherence as OKR
 ```
 
 ---
@@ -381,15 +381,15 @@ coherence_enforcement:
 This project demonstrates the pattern. See [GLOBAL_ARCHITECTURE.md](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/GLOBAL_ARCHITECTURE.md) for the full multi-repo structure modeling an organization with bounded contexts.
 
 ```
-semops-dx-orchestrator (Platform/DX)             <- Orchestrator, process docs, global architecture
-    │
-    └── semops-core (Schema/Infrastructure) <- Schema, shared services
-            │
-            ├── semops-publisher (Publishing/Content)
-            ├── semops-docs (Documents/Theory) <- You are here
-            ├── semops-data (Product/Data Eng)
-            │
-            └── semops-sites (Frontend/Deployment)
+semops-dx-orchestrator (Platform/DX) <- Orchestrator, process docs, global architecture
+ │
+ └── semops-core (Schema/Infrastructure) <- Schema, shared services
+ │
+ ├── semops-publisher (Publishing/Content)
+ ├── semops-docs (Documents/Theory) <- You are here
+ ├── semops-data (Product/Data Eng)
+ │
+ └── semops-sites (Frontend/Deployment)
 ```
 
 **What makes it work:**
@@ -462,25 +462,25 @@ Why does agentic coding work at dev level but fail at org level?
 ## Key Takeaways
 
 1. **[SemOps](../README.md) = Claude Code for organizations**
-   - Same pattern: explicit context + boundaries + feedback + lineage
-   - Different scope: codebase → organizational knowledge
+ - Same pattern: explicit context + boundaries + feedback + lineage
+ - Different scope: codebase → organizational knowledge
 
 2. **Three prerequisites are non-negotiable**
-   - DDD provides structure
-   - Data systems provide ground truth
-   - Coherence KPI provides feedback
+ - DDD provides structure
+ - Data systems provide ground truth
+ - Coherence KPI provides feedback
 
 3. **The type system analogy is exact**
-   - SC = (A × C × S)^(1/3) is organizational type safety
-   - If any dimension fails, coherence fails
+ - SC = (A × C × S)^(1/3) is organizational type safety
+ - If any dimension fails, coherence fails
 
 4. **Scaling requires infrastructure, not just process**
-   - Can't do org-level agentic with documents and meetings
-   - Need actual systems: knowledge graphs, semantic layers, classifiers
+ - Can't do org-level agentic with documents and meetings
+ - Need actual systems: knowledge graphs, semantic layers, classifiers
 
 5. **This is why AI transformation fails**
-   - Organizations try to scale AI without the semantic infrastructure
-   - Like trying to run Claude Code without CLAUDE.md, types, or tests
+ - Organizations try to scale AI without the semantic infrastructure
+ - Like trying to run Claude Code without CLAUDE.md, types, or tests
 
 ---
 

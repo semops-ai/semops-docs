@@ -6,8 +6,8 @@ pattern: patterns-and-bounded-contexts
 provenance: 3p
 
 metadata:
-    pattern_type: concept
-    brand_strength: low
+ pattern_type: concept
+ brand_strength: low
 ---
 
 # Patterns and Bounded Contexts
@@ -101,16 +101,16 @@ DDD defines **canonical patterns** for how contexts relate. These patterns ARE t
 
 ### Context Map Patterns (Summary)
 
-| Pattern               | Power Dynamic         | Semantic Drift Risk | Why                                                           |
+| Pattern | Power Dynamic | Semantic Drift Risk | Why |
 | --------------------- | --------------------- | ------------------- | ------------------------------------------------------------- |
-| **Partnership**       | Equal                 | LOW                 | Continuous alignment, shared responsibility                   |
-| **Shared Kernel**     | Shared                | MEDIUM              | Tight coupling—drift in kernel breaks both contexts           |
-| **Customer-Supplier** | Upstream > Downstream | MEDIUM              | Negotiation exists, but upstream can change semantics         |
-| **Conformist**        | Upstream >> Downstream | HIGH                | Downstream has NO influence—must accept upstream changes      |
-| **Anti-Corruption**   | Upstream isolated     | LOW (Internal)      | Translation layer protects downstream semantics               |
-| **Open Host Service** | Upstream stable       | LOW                 | Versioned, stable API—semantic contract is formalized         |
-| **Published Language**| Standard governs      | LOW                 | Shared semantic contract—all parties conform to standard      |
-| **Separate Ways**     | Independent           | NONE                | No integration = no drift (but also no coherence across them) |
+| **Partnership** | Equal | LOW | Continuous alignment, shared responsibility |
+| **Shared Kernel** | Shared | MEDIUM | Tight coupling—drift in kernel breaks both contexts |
+| **Customer-Supplier** | Upstream > Downstream | MEDIUM | Negotiation exists, but upstream can change semantics |
+| **Conformist** | Upstream >> Downstream | HIGH | Downstream has NO influence—must accept upstream changes |
+| **Anti-Corruption** | Upstream isolated | LOW (Internal) | Translation layer protects downstream semantics |
+| **Open Host Service** | Upstream stable | LOW | Versioned, stable API—semantic contract is formalized |
+| **Published Language**| Standard governs | LOW | Shared semantic contract—all parties conform to standard |
+| **Separate Ways** | Independent | NONE | No integration = no drift (but also no coherence across them) |
 
 **For detailed pattern descriptions, see [Appendix: Context Map Patterns](#appendix-context-map-patterns).**
 
@@ -119,24 +119,24 @@ DDD defines **canonical patterns** for how contexts relate. These patterns ARE t
 **Semantic drift occurs when:**
 
 1. **Unequal power without contracts** (Conformist pattern)
-   - Downstream context has no influence over upstream
-   - Upstream changes semantics, downstream must adapt
-   - **Result:** Downstream meaning drifts to match upstream changes
+ - Downstream context has no influence over upstream
+ - Upstream changes semantics, downstream must adapt
+ - **Result:** Downstream meaning drifts to match upstream changes
 
 2. **Implicit translation** (Missing Anti-Corruption Layer)
-   - No explicit translation at boundary
-   - Teams assume concepts are "the same" when they're not
-   - **Result:** Subtle semantic misalignment compounds over time
+ - No explicit translation at boundary
+ - Teams assume concepts are "the same" when they're not
+ - **Result:** Subtle semantic misalignment compounds over time
 
 3. **Shared ownership without governance** (Shared Kernel misuse)
-   - Multiple contexts share a model
-   - Changes require consensus but governance is weak
-   - **Result:** Model drifts as each context pulls it in different directions
+ - Multiple contexts share a model
+ - Changes require consensus but governance is weak
+ - **Result:** Model drifts as each context pulls it in different directions
 
 4. **Missing semantic authority** (No clear pattern)
-   - Nobody knows who owns the canonical definition
-   - Teams create local definitions
-   - **Result:** Fragmentation—same term, multiple incompatible meanings
+ - Nobody knows who owns the canonical definition
+ - Teams create local definitions
+ - **Result:** Fragmentation—same term, multiple incompatible meanings
 
 **Context mapping prevents drift by:**
 - Making power dynamics **explicit** (who can change what)

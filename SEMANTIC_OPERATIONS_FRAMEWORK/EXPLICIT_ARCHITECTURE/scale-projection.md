@@ -6,8 +6,8 @@ pattern: scale-projection
 provenance: 1p
 
 metadata:
-    pattern_type: concept
-    brand_strength: medium
+ pattern_type: concept
+ brand_strength: medium
 ---
 
 # Scale Projection
@@ -25,7 +25,7 @@ Scale Projection inverts the conventional framing of scaling problems. The stand
 This connects directly to [Explicit Architecture](what-is-architecture.md): if architecture is truly explicit — domain rules encoded independently of implementation — then changing the infrastructure should not require changing the domain logic. Scale Projection is the test for that claim.
 
 ```text
-Traditional:      "We need better infrastructure to scale"
+Traditional: "We need better infrastructure to scale"
 Scale Projection: "Infrastructure is obvious — if it isn't, your architecture needs work"
 ```
 
@@ -50,14 +50,14 @@ Clean gaps are expected and healthy. They confirm that architecture and infrastr
 Scale Projection defines 8 levels representing progressive domain understanding, not operational maturity:
 
 ```text
-Level 1: Chat          → Exploratory conversation, no structure
-Level 2: Script        → Single-file automation, manual execution
-Level 3: Project       → Multi-file, version-controlled, documented
-Level 4: Service       → Running process, API boundary, configuration
-Level 5: Composed      → Multiple services, defined interfaces
-Level 6: Orchestrated  → Workflow coordination, state management
-Level 7: Governed      → Policy enforcement, audit, compliance
-Level 8: Scaled        → Multi-instance, distributed, production-grade
+Level 1: Chat → Exploratory conversation, no structure
+Level 2: Script → Single-file automation, manual execution
+Level 3: Project → Multi-file, version-controlled, documented
+Level 4: Service → Running process, API boundary, configuration
+Level 5: Composed → Multiple services, defined interfaces
+Level 6: Orchestrated → Workflow coordination, state management
+Level 7: Governed → Policy enforcement, audit, compliance
+Level 8: Scaled → Multi-instance, distributed, production-grade
 ```
 
 The key insight: **each level represents how well you understand the domain, not how much infrastructure you have.** A system at Level 3 that has clean gaps to Level 8 has better architecture than a system at Level 8 with blocking gaps.
@@ -80,9 +80,9 @@ Six independent dimensions of formalization. A system can be at different levels
 Business logic is the portable artifact across all levels. Infrastructure is just the wrapper.
 
 ```text
-Level 3 (Project):     python ingest.py --source semops-docs
-Level 5 (Composed):    docker compose run ingest --source semops-docs
-Level 8 (Scaled):      kubectl apply -f jobs/ingest-semops-docs.yaml
+Level 3 (Project): python ingest.py --source semops-docs
+Level 5 (Composed): docker compose run ingest --source semops-docs
+Level 8 (Scaled): kubectl apply -f jobs/ingest-semops-docs.yaml
 
 Same business logic. Different wrappers.
 ```
@@ -123,7 +123,7 @@ The SemOps ecosystem already demonstrates this separation. The [architecture-to-
 
 ```text
 Pattern → Capability → Script → Library → Service → Port
-(why)      (what)       (how)    (with)    (where)   (address)
+(why) (what) (how) (with) (where) (address)
 ```
 
 Scale Projection asks: **if you change everything to the right of "Script," does anything to the left change?** If not, the architecture is explicit. If it does, implicit assumptions have leaked across the boundary.
@@ -131,13 +131,13 @@ Scale Projection asks: **if you change everything to the right of "Script," does
 ### The SemOps Proof
 
 ```text
-LOCAL DEVELOPMENT              CLOUD DEPLOYMENT
-laptop                         AWS / GCP / Azure
-└── docker compose up          └── kubernetes / ECS
-      ├── postgres:5434              ├── RDS Postgres
-      ├── neo4j:7474                 ├── Neo4j Aura
-      ├── qdrant:6333                └── Qdrant Cloud
-      └── docling:5001
+LOCAL DEVELOPMENT CLOUD DEPLOYMENT
+laptop AWS / GCP / Azure
+└── docker compose up └── kubernetes / ECS
+ ├── postgres:5434 ├── RDS Postgres
+ ├── neo4j:7474 ├── Neo4j Aura
+ ├── qdrant:6333 └── Qdrant Cloud
+ └── docling:5001
 
 What changes: connection strings, scaling parameters
 What doesn't change: architecture, data flows, API contracts, business logic
