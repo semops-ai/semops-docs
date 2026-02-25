@@ -8,18 +8,10 @@ provenance: 1p
 metadata:
  pattern_type: concept
  brand_strength: medium
-# This structure doc needs a re-write, see inline comments. This pattern name does not have strong unique "name" brand-strenght, but it is one of the FRAMEWORK pillars, and I believe it is novel enough as a synthesis of best practices. 
+
 ---
 
 # Strategic Data
-<!--need to add some reference to why its "strategic" data
-Because to be strategic about data is to think about what your priorities are wrt to data and accepting the realities to make those choices. When you define your overall strategy, you are looking at what domain, industry, niche you want to fit in - customer profile, competition, product vector - that outcome you are aiming at has predictable data requirements even just for table stakes operation - (4 systems) and if you want decent basic analytics or fancy analytics (Ml, data science, experimentation), or agentic AI awesomeness, the investment and roadmap are knowable, but only if the problem is understood and scoped from strategy down which means domain, industry, product scope, surface area
-
-Make it about neutral understanding and transparency to semantic reality - if you want a particular metric from a certain surface, and you want accuracy, timeliness, dimensionality, availability, etc. the cost and method is knowable - there are options, but those options simply trade off those qualities, or they increase complexity and cost - if you want it as fast and as good as possible, it means that you have more and better rules
-
-AI and data management - AI is particularly good at this sort of thing and how I got started was building tools and agents to do the more “heavy lifting” tasks of data engineering, analytics, and data science - this is how I stumbled on provenance and lineage being so powerful for semantic quality and Ai.
-
-Ai and sql, Ai needs structure, so good at schema -->
 > A playbook for making data a first-class strategic asset for AI and all decision processes.
 
 Data and analytics should be a first-class citizen in any organization wishing to employ technology to achieve their business goals. This is more true now for those who wish to participate in Ai integration and agentic operations.
