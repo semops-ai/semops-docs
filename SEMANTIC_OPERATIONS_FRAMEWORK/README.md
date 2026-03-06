@@ -16,6 +16,15 @@ metadata:
 
 Why "Semantic Operations"? Because semantics is meaning—and meaning is the critical currency in knowledge work. Every business system, every decision process, every AI integration ultimately depends on shared meaning.
 
+Patterns and coherence are the core of SemOps. Together they produce two architectural properties:
+
+> **Data governance** is *elevated* from system operations to strategic tool.
+> **Reference architecture** is *operationalized* from strategy into semantically encoded systems.
+
+Patterns provide the reference architecture: they encode domain knowledge into formal, machine-legible structures that persist from design through to running infrastructure. Coherence provides the governance side: it measures alignment between the system's current state and the patterns it claims to follow, turning governance from a manual audit into a continuous, semantic process. Neither property works without the other — reference architecture without governance drifts silently; governance without reference architecture has nothing to measure against.
+
+Provenance and lineage make both properties auditable. Provenance (3P/1P classification) gives a detailed understanding of what is adopted consensus versus what is original innovation — the boundary between established practice and novel synthesis. Lineage (SKOS edges) provides the chain of thought: which patterns a decision built on, which it narrowed or broadened, and why the current shape was chosen over alternatives. Together they turn the pattern model from a snapshot into a traceable history of architectural reasoning in a domain-solution context.
+
 For the full narrative, see [SemOps Overview](semops-overview.md).
 
 ---
