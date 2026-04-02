@@ -6,8 +6,8 @@ pattern: scale-projection
 provenance: 1p
 
 metadata:
- pattern_type: concept
- brand_strength: medium
+    pattern_type: concept
+    brand_strength: medium
 ---
 
 # Scale Projection
@@ -25,7 +25,7 @@ Scale Projection inverts the conventional framing of scaling problems. The stand
 This connects directly to [Explicit Architecture](what-is-architecture.md): if architecture is truly explicit — domain rules encoded independently of implementation — then changing the infrastructure should not require changing the domain logic. Scale Projection is the test for that claim.
 
 ```text
-Traditional: "We need better infrastructure to scale"
+Traditional:      "We need better infrastructure to scale"
 Scale Projection: "Infrastructure is obvious — if it isn't, your architecture needs work"
 ```
 
@@ -50,14 +50,14 @@ Clean gaps are expected and healthy. They confirm that architecture and infrastr
 Scale Projection defines 8 levels representing progressive domain understanding, not operational maturity:
 
 ```text
-Level 1: Chat → Exploratory conversation, no structure
-Level 2: Script → Single-file automation, manual execution
-Level 3: Project → Multi-file, version-controlled, documented
-Level 4: Service → Running process, API boundary, configuration
-Level 5: Composed → Multiple services, defined interfaces
-Level 6: Orchestrated → Workflow coordination, state management
-Level 7: Governed → Policy enforcement, audit, compliance
-Level 8: Scaled → Multi-instance, distributed, production-grade
+Level 1: Chat          → Exploratory conversation, no structure
+Level 2: Script        → Single-file automation, manual execution
+Level 3: Project       → Multi-file, version-controlled, documented
+Level 4: Service       → Running process, API boundary, configuration
+Level 5: Composed      → Multiple services, defined interfaces
+Level 6: Orchestrated  → Workflow coordination, state management
+Level 7: Governed      → Policy enforcement, audit, compliance
+Level 8: Scaled        → Multi-instance, distributed, production-grade
 ```
 
 The key insight: **each level represents how well you understand the domain, not how much infrastructure you have.** A system at Level 3 that has clean gaps to Level 8 has better architecture than a system at Level 8 with blocking gaps.
@@ -80,9 +80,9 @@ Six independent dimensions of formalization. A system can be at different levels
 Business logic is the portable artifact across all levels. Infrastructure is just the wrapper.
 
 ```text
-Level 3 (Project): python ingest.py --source semops-docs
-Level 5 (Composed): docker compose run ingest --source semops-docs
-Level 8 (Scaled): kubectl apply -f jobs/ingest-semops-docs.yaml
+Level 3 (Project):     python ingest.py --source docs-pr
+Level 5 (Composed):    docker compose run ingest --source docs-pr
+Level 8 (Scaled):      kubectl apply -f jobs/ingest-docs-pr.yaml
 
 Same business logic. Different wrappers.
 ```
@@ -119,11 +119,11 @@ Scale Projection validates the central claim of [Explicit Architecture](what-is-
 
 ### The Architecture-Infrastructure Crosswalk
 
-The SemOps ecosystem already demonstrates this separation. The [architecture-to-infrastructure crosswalk](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/GLOBAL_INFRASTRUCTURE.md) traces the full chain:
+The SemOps ecosystem already demonstrates this separation. The [architecture-to-infrastructure crosswalk](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/GLOBAL_INFRASTRUCTURE.md) traces the full chain:
 
 ```text
 Pattern → Capability → Script → Library → Service → Port
-(why) (what) (how) (with) (where) (address)
+(why)      (what)       (how)    (with)    (where)   (address)
 ```
 
 Scale Projection asks: **if you change everything to the right of "Script," does anything to the left change?** If not, the architecture is explicit. If it does, implicit assumptions have leaked across the boundary.
@@ -131,19 +131,19 @@ Scale Projection asks: **if you change everything to the right of "Script," does
 ### The SemOps Proof
 
 ```text
-LOCAL DEVELOPMENT CLOUD DEPLOYMENT
-laptop AWS / GCP / Azure
-└── docker compose up └── kubernetes / ECS
- ├── postgres:5434 ├── RDS Postgres
- ├── neo4j:7474 ├── Neo4j Aura
- ├── qdrant:6333 └── Qdrant Cloud
- └── docling:5001
+LOCAL DEVELOPMENT              CLOUD DEPLOYMENT
+laptop                         AWS / GCP / Azure
+└── docker compose up          └── kubernetes / ECS
+      ├── postgres:5434              ├── RDS Postgres
+      ├── neo4j:7474                 ├── Neo4j Aura
+      ├── qdrant:6333                └── Qdrant Cloud
+      └── docling:5001
 
 What changes: connection strings, scaling parameters
 What doesn't change: architecture, data flows, API contracts, business logic
 ```
 
-The [STRATEGIC_DDD](https://github.com/semops-ai/semops-core/blob/main/docs/STRATEGIC_DDD.md) capabilities, integration patterns, and traceability chains remain identical. The queries that govern the system (`SELECT` your architecture) work the same regardless of whether PostgreSQL is local Docker or managed RDS.
+The [STRATEGIC_DDD](https://github.com/semops-ai/semops-data/blob/main/docs/STRATEGIC_DDD.md) capabilities, integration patterns, and traceability chains remain identical. The queries that govern the system (`SELECT` your architecture) work the same regardless of whether PostgreSQL is local Docker or managed RDS.
 
 ### Projection at Real Scale: A SaaS Product
 
@@ -151,7 +151,7 @@ The SemOps Proof above is a clean example — local to cloud, same stack. But Sc
 
 In this scenario, a **tenant** is a customer — an organization that subscribes to the product. **Users** are individuals within that tenant who have roles and permissions. Tenants are not flat: a tenant admin typically has significant control over internal structure — creating sub-organizations by region, department, or team, delegating permissions, and defining policies that apply within those boundaries. (This is how cloud services like AWS Organizations and Azure Management Groups work.) The tenant boundary is the top-level unit for isolation, billing, data residency, and compliance — but those concerns can cascade through the tenant's internal hierarchy. The scaling decisions below happen at the tenant boundary, not the user boundary.
 
-A mature SaaS product operates across all [Four Data System Types](../STRATEGIC_DATA/four-data-system-types.md): the **Application Data System** (transactional, OLTP — where DDD Aggregates live and the Repository pattern applies), the **Analytics Data System** (OLAP — coherence scoring, product analytics, dimensional modeling), the **Enterprise Work System** (unstructured knowledge — issues, project boards, support tickets), and the **Enterprise Record System** (canonical truth — billing, compliance, audit). A typical SaaS mix is 60% Application + 25% Analytics + 10% Work + 5% Record. The scaling challenges below apply primarily to the Application Data System — where DDD discipline most directly determines whether gaps are Clean or Blocking. The other system types have different scaling physics (dimensional modeling for analytics, AI extraction for work data, regulatory enforcement for records), but the architectural question is the same: **does scaling require changing your domain logic?**
+A mature SaaS product operates across all [Data System Classification](../STRATEGIC_DATA/data-system-classification.md) types: the **Application Data System** (transactional, OLTP — where DDD Aggregates live and the Repository pattern applies), the **Analytics Data System** (OLAP — coherence scoring, product analytics, dimensional modeling), the **Enterprise Work System** (unstructured knowledge — issues, project boards, support tickets), and the **Enterprise Record System** (canonical truth — billing, compliance, audit). A typical SaaS mix is 60% Application + 25% Analytics + 10% Work + 5% Record. The scaling challenges below apply primarily to the Application Data System — where DDD discipline most directly determines whether gaps are Clean or Blocking. The other system types have different scaling physics (dimensional modeling for analytics, AI extraction for work data, regulatory enforcement for records), but the architectural question is the same: **does scaling require changing your domain logic?**
 
 The complications are real: multi-region latency (US East to EU West adds 80-120ms RTT), data sovereignty laws that constrain where data can physically reside, databases that need partitioning beyond 1TB, compute clusters that require dedicated platform teams at 500+ nodes, egress costs that become a top-3 line item at 50TB/month, and observability bills that can reach millions per year.
 
@@ -292,9 +292,10 @@ Clean gaps mean the structural rules (schemas, contracts) are properly separated
 - [Semantic Coherence](../SEMANTIC_OPTIMIZATION/semantic-coherence.md) - What Scale Projection measures
 
 ### Implementation
-- [PROJECT-25: Scale Projection](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/project-specs/PROJECT-25-scale-projection.md) - Project spec and execution plan
-- [STRATEGIC_DDD](https://github.com/semops-ai/semops-core/blob/main/docs/STRATEGIC_DDD.md) - Architecture encoded in SQL
-- [GLOBAL_INFRASTRUCTURE](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/GLOBAL_INFRASTRUCTURE.md) - Architecture-to-infrastructure crosswalk
+- [Scale Projection Pattern (authoritative)](https://github.com/semops-ai/semops-data/blob/main/docs/domain-patterns/scale-projection.md) - Full pattern doc including IDE-native validation, scale vectors, infrastructure tiers, resourcing methodology
+- [PROJECT-25: Scale Projection](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/project-specs/PROJECT-25-scale-projection.md) - Project spec and execution plan
+- [STRATEGIC_DDD](https://github.com/semops-ai/semops-data/blob/main/docs/STRATEGIC_DDD.md) - Architecture encoded in SQL
+- [GLOBAL_INFRASTRUCTURE](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/GLOBAL_INFRASTRUCTURE.md) - Architecture-to-infrastructure crosswalk
 
 ### 3P References
 - Cockburn, Alistair. *Hexagonal Architecture*. 2005.

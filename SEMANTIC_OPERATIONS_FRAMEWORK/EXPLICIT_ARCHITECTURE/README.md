@@ -6,8 +6,8 @@ pattern: explicit-architecture
 provenance: 1p
 
 metadata:
- pattern_type: concept
- brand_strength: medium
+    pattern_type: concept
+    brand_strength: medium
 ---
 
 # Explicit Architecture
@@ -25,14 +25,14 @@ Every system has architecture — rules that govern behavior. The question is wh
 Architecture represents the most important rules encoded in the scaffolding of an organization. Explicit Architecture spans all three transitions of the [Semantic Funnel](../../RESEARCH/FOUNDATIONS/semantic-funnel.md) — it provides the structural scaffolding through which data objects flow and meaning is constructed.
 
 ```text
- Objects: DATA ══════> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
- │ │ │ │
- Rules: Structural Interpretive Normative Meta
- (schemas, (business logic, (policies, (principles,
- contracts) patterns) governance) strategy)
- │ │ │ │
- Agents: — Domain Services Architects, Leadership
- governance
+  Objects:  DATA ══════> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
+               │                │                  │               │
+  Rules:  Structural       Interpretive        Normative       Meta
+          (schemas,        (business logic,    (policies,      (principles,
+           contracts)       patterns)           governance)     strategy)
+               │                │                  │               │
+  Agents:     —           Domain Services    Architects,     Leadership
+                                              governance
 ```
 
 | Element | D → I | I → K | K → W |
@@ -50,6 +50,14 @@ See [What is Understanding?](../../RESEARCH/FOUNDATIONS/what-is-understanding.md
 
 ---
 
+## Comparison to "Agentic Enterprise"
+
+"Agentic Enterprise" describes either the general idea that enterprise operations are open to agents, or — more commonly — it is a marketing label for SaaS systems with agentic features.
+
+The critical difference: Agentic Enterprise adds AI to existing (often implicit) architecture. Explicit Enterprise makes the architecture itself inspectable and queryable, so that agents — and humans — can determine what rules apply by examining the structure. Agentic Enterprise asks "where can we add agents?" Explicit Enterprise asks "is our architecture legible enough that any agent could operate within it?" One adds capabilities; the other changes the foundation.
+
+---
+
 ## Understand It, Be Intentional, Make It Explicit
 
 ### 1. Understand It
@@ -60,9 +68,8 @@ The industry has conflated these terms for decades. Search "data architecture" a
 
 Every canonical authority on software architecture disagrees with this mainstream usage. Grady Booch: "the significant design decisions that shape a system, where significant is measured by cost of change." Martin Fowler, via Ralph Johnson: "the shared understanding that expert developers have of the system design." Eric Evans: "the heart of software is its ability to solve domain-related problems for its user." Gregor Hohpe: "I sell options" — architecture creates the ability to defer infrastructure commitment, not the commitment itself.
 
-**Architecture is encoded business rules** — what entities exist, how they relate, what constraints apply, and where decisions happen. Infrastructure is where that runs and what tools are used. You can swap every tool and keep the same architecture. You can keep every tool and completely change the architecture. They are independent concerns.
-
-> [What Architecture Actually Is](what-is-architecture.md) — the full treatment, including industry evidence and practitioner definitions
+**Architecture is encoded business rules** — what entities exist, how they relate, what constraints apply, and where decisions happen. Infrastructure i
+> [What Architecture Actually Is](what-is-architecture.md) — the full treatment of architecture vs. infrastructure, rule types, enforcement mechanisms, and design approaches
 
 ### 2. Be Intentional
 
@@ -88,11 +95,7 @@ Explicit architecture means:
 - **Queryable:** Governance questions that other organizations answer with meetings and wikis, Explicit Architecture answers with `SELECT`
 - **Versioned:** Architecture changes are pull requests, not wiki updates — with review, approval, and audit trail
 
-**Why this step matters now:** AI agents cannot navigate tribal knowledge. They cannot infer undocumented boundaries. They cannot operate reliably when business rules are scattered across codebases and people's heads. The level of explicitness that humans could work around, machines cannot. What was "nice to have" rigor is now a prerequisite for AI operations.
-
-**Why this step is now achievable:** The [Semantic Flywheel](semantic-flywheel.md) makes this sustainable. Better structure enables AI to understand the system. AI helps maintain and extend the structure. When coherence drops — when a simple change requires a complex prompt — AI helps refactor until coherence is restored. The rigor that would be impractical to maintain manually becomes self-reinforcing with AI assistance.
-
-This is the core claim of Explicit Architecture: **the semantic integrity that AI demands is the same semantic integrity that AI enables.**
+> [What Architecture Actually Is](what-is-architecture.md) — the full treatment of architecture vs. infrastructure, rule types, enforcement mechanisms, and design approaches
 
 ---
 
@@ -104,40 +107,27 @@ Step 2 says "choose an approach." SemOps chose [Domain-Driven Design](domain-dri
 
 **DDD found the problem.** SemOps did not start from DDD theory. It started from a goal: capture the semantics of an entire business — entities, boundaries, rules, relationships — in a form that both humans and machines could operate from. When that need was articulated, DDD was already there. Bounded contexts mapped to repositories. Ubiquitous language mapped to shared schemas. Aggregates mapped to domain models. Context maps mapped to integration contracts. The fit was not forced — it was discovered.
 
-### How DDD Maps to Explicit Architecture
+### What Explicit Architecture Adds to DDD
 
-DDD provides the concepts and mechanisms; Explicit Architecture is what happens when those concepts are encoded as inspectable, queryable structure rather than left as documentation or tribal knowledge.
+DDD provides the model. Explicit Architecture provides the **full encoding**.
 
-| DDD Concept | What It Provides | Explicit Architecture Application |
-| ----------- | ---------------- | --------------------------------- |
-| **Bounded Contexts** | Semantic boundaries where a particular model applies | Repos are bounded contexts — each scopes what an agent needs to do useful work |
-| **Ubiquitous Language** | Shared vocabulary between domain experts and engineers | [UBIQUITOUS_LANGUAGE.md](https://github.com/semops-ai/semops-core/blob/main/schemas/UBIQUITOUS_LANGUAGE.md) is the canonical source, versioned in git |
-| **Aggregates** | Clusters of entities with enforced invariants | Pattern is the aggregate root of the SemOps domain model |
-| **Context Maps** | Explicit relationships between domain boundaries | DDD integration patterns (Shared Kernel, Customer-Supplier, Conformist, ACL) encoded as typed edges between repository entities |
-| **Anti-Corruption Layers** | Semantic firewalls at boundaries | Translation boundaries that protect domain model integrity across contexts |
+Traditional DDD encodes business rules in code — correct and necessary, but still partially implicit. An engineer must read source code to discover what rules apply. Explicit Architecture takes the DDD model and encodes it into structured, queryable artifacts so that domain patterns, capabilities, processes, metrics, repositories, and infrastructure all trace to each other — and none of it is implicit.
 
-The principle matters more than the specific approach: choose deliberately, commit consistently, and require justification for deviations.
+The difference is scope and depth:
 
-> [Domain-Driven Design](domain-driven-design.md) — detailed treatment
-> [Anti-Corruption Layers](ddd-acl-governance-aas.md) — semantic firewalls at boundaries
-> [AI-Ready Architecture](ai-ready-architecture.md) — DDD principles applied to AI-forward code
-> [Semantic Flywheel](semantic-flywheel.md) — the self-reinforcing loop
+| DDD gives you | Explicit Architecture adds |
+| ------------- | ------------------------- |
+| Bounded contexts | Every context encoded in SQL with ownership, capabilities, and integration patterns |
+| Aggregates and entities | Every entity, attribute, and relationship queryable — including edge predicates between them |
+| Domain events | Processes encoded as sagas and choreographies, traceable from business goal to event sequence |
+| Ubiquitous language | Language enforced as schema — column names, API fields, and agent prompts use the same terms |
+| Context maps | Integration patterns encoded with relationship types, direction, and governance rules |
+| — | Analytics patterns — KPIs and metrics as domain entities, derived from aggregates, not invented separately |
+| — | Full traceability: Pattern → Capability → Script → Library → Service → Port |
 
----
+**The test is queryability.** In a traditionally architected organization, answering "which capabilities implement the order-to-cash pattern?" requires meetings, wiki searches, and asking the person who built it. With Explicit Architecture, it is a `SELECT` statement. The same applies to processes ("what are the saga steps for order fulfillment?"), metrics ("which KPIs trace to the Customer context?"), and governance gaps ("which capabilities lack pattern justification?").
 
-## The Implicit-Explicit Distinction
-
-The three steps — understand, be intentional, make it explicit — address a spectrum. Most organizations sit somewhere on this spectrum without knowing where:
-
-| Property | Implicit Architecture | Explicit Architecture |
-| -------- | --------------------- | --------------------- |
-| **Rules** | In code, scattered and inconsistent | Documented, versioned, machine-readable |
-| **Boundaries** | Discovered through production incidents | Designed before implementation |
-| **Contracts** | Whatever the current implementation does | Specified and validated |
-| **Knowledge** | In people's heads | Encoded in artifacts |
-| **Change impact** | "Would have to check" | Traceable from domain model to implementation |
-
-> [What Architecture Actually Is](what-is-architecture.md) — the full treatment of architecture vs. infrastructure, rule types, enforcement mechanisms, and design approaches
+This is what it means to align business architecture with technical architecture. The business model — its entities, processes, metrics, and boundaries — is not a separate artifact maintained by business architects. It is the same artifact that engineers work in, encoded in the same schemas and repositories. When a process changes, the saga definition changes. When a metric is added, it traces to the aggregate it measures. There is no translation gap because there is no translation.
 
 ---
 
@@ -147,7 +137,9 @@ Some frameworks achieve explicit architecture at one level. [TOGAF's ArchiMate](
 
 SemOps is explicit at every level — from [high-level concept patterns through implementation patterns](../SEMANTIC_OPTIMIZATION/patterns.md), across all domains, sub-domains, bounded contexts, and infrastructure. The architecture is not just documented or modeled. It is encoded as structured, traceable artifacts in SQL schemas, git repositories, and typed relationships — and each layer traces to the others.
 
-The [Strategic DDD](https://github.com/semops-ai/semops-core/blob/main/docs/STRATEGIC_DDD.md) document defines capabilities, repositories, and integration patterns as queryable data. These are not documentation *about* the architecture — they *are* the architecture:
+## The Implicit-Explicit Distinction
+
+> [What Architecture Actually Is](what-is-architecture.md) — the full treatment of architecture vs. infrastructure, rule types, enforcement mechanisms, and design approaches
 
 ```sql
 -- Which patterns does a capability implement?
@@ -180,12 +172,12 @@ Explicit Architecture creates a full traceability chain from meaning to implemen
 
 ```text
 Pattern → Capability → Script → Library → Service → Port
-(why) (what) (how) (with) (where) (address)
+(why)      (what)       (how)    (with)    (where)   (address)
 ```
 
 - **Pattern → Capability** — every capability must trace to at least one pattern. Gaps indicate missing patterns or unjustified capabilities.
 - **Capability → Script** — capabilities decompose into small, focused scripts. Each is a bounded piece of executable functionality that can be replaced and audited independently.
-- **Script → Library → Service → Port** — the [architecture-to-infrastructure crosswalk](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/GLOBAL_INFRASTRUCTURE.md) maps where implementation meets deployment.
+- **Script → Library → Service → Port** — the [architecture-to-infrastructure crosswalk](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/GLOBAL_INFRASTRUCTURE.md) maps where implementation meets deployment.
 
 This chain is a measurable coherence signal: a script without capability traceability is unjustified code; a capability without a pattern is unjustified intent; a pattern without a capability is unimplemented theory.
 
@@ -194,13 +186,13 @@ This chain is a measurable coherence signal: a script without capability traceab
 The chain makes the architecture-infrastructure boundary visible:
 
 ```text
- ARCHITECTURE │ INFRASTRUCTURE
- │
-Pattern → Capability → Script │ Library → Service → Port
-(domain meaning, boundaries, rules) │ (tools, deployment, networking)
- │
-Changes here = domain changes │ Changes here = operational changes
-Require semantic review │ Require ops review
+                    ARCHITECTURE              │  INFRASTRUCTURE
+                                              │
+Pattern → Capability → Script                 │  Library → Service → Port
+(domain meaning, boundaries, rules)           │  (tools, deployment, networking)
+                                              │
+Changes here = domain changes                 │  Changes here = operational changes
+Require semantic review                       │  Require ops review
 ```
 
 If a change to the right side of the boundary forces a change to the left side, that is an architectural problem — domain logic has leaked into infrastructure. [Scale Projection](scale-projection.md) formalizes this as a diagnostic.
@@ -212,19 +204,19 @@ If a change to the right side of the boundary forces a change to the left side, 
 [Scale Projection](scale-projection.md) is the validation mechanism for Explicit Architecture. Project your current architecture to a scaled deployment and measure the gap:
 
 | Gap Category | What Changes | Signal |
-|-------------|-------------|--------|
+| ----------- | ----------- | ------ |
 | **Clean** | Connection strings, queue config, containers | Architecture is explicit — domain rules are independent of infrastructure |
 | **Concerning** | Business logic with hardcoded assumptions | Domain debt — implicit architecture leaking through |
 | **Blocking** | Wrong boundaries, entity definitions coupled to infrastructure | Architecture was never explicit — fix abstractions before scaling |
 
 ```text
-LOCAL DEVELOPMENT CLOUD DEPLOYMENT
-laptop AWS / GCP / Azure
-└── docker compose up └── kubernetes / ECS
- ├── postgres:5434 ├── RDS Postgres
- ├── neo4j:7474 ├── Neo4j Aura
- ├── qdrant:6333 └── Qdrant Cloud
- └── docling:5001
+LOCAL DEVELOPMENT              CLOUD DEPLOYMENT
+laptop                         AWS / GCP / Azure
+└── docker compose up          └── kubernetes / ECS
+      ├── postgres:5434              ├── RDS Postgres
+      ├── neo4j:7474                 ├── Neo4j Aura
+      ├── qdrant:6333                └── Qdrant Cloud
+      └── docling:5001
 
 What changes: connection strings, scaling parameters
 What doesn't change: architecture, data flows, API contracts, business logic
@@ -326,8 +318,8 @@ Without Explicit Architecture, semantic objects exist but drift freely — no sc
 
 ### Implementation
 
-- [STRATEGIC_DDD](https://github.com/semops-ai/semops-core/blob/main/docs/STRATEGIC_DDD.md) - Architecture encoded in SQL
-- [GLOBAL_INFRASTRUCTURE](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/GLOBAL_INFRASTRUCTURE.md) - Architecture-to-infrastructure crosswalk
+- [STRATEGIC_DDD](https://github.com/semops-ai/semops-data/blob/main/docs/STRATEGIC_DDD.md) - Architecture encoded in SQL
+- [GLOBAL_INFRASTRUCTURE](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/GLOBAL_INFRASTRUCTURE.md) - Architecture-to-infrastructure crosswalk
 
 ### Foundations
 

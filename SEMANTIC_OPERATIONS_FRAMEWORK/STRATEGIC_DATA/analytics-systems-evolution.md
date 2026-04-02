@@ -6,8 +6,8 @@ pattern: analytics-systems-evolution
 provenance: 3p
 
 metadata:
- pattern_type: concept
- brand_strength: low
+    pattern_type: concept
+    brand_strength: low
 ---
 
 # Evolution of Analytics Data Systems
@@ -199,7 +199,7 @@ Throughout all eras, one divide remained constant:
 ### Parent Concepts
 
 - [Data Systems Essentials](data-systems-essentials.md) - Hub for Analytics Data Systems
-- [Data System Types](four-data-system-types.md) - Where Analytics Data Systems fit in the typology
+- [Data System Classification](data-system-classification.md) - Where Analytics Data Systems fit in the typology
 
 ### Complementary Frameworks
 

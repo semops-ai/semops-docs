@@ -6,8 +6,8 @@ pattern: scale-projection
 provenance: 1p
 
 metadata:
- pattern_type: concept
- brand_strength: medium
+    pattern_type: concept
+    brand_strength: medium
 ---
 
 # Scale Projection
@@ -69,7 +69,7 @@ Synthetic data can test assumptions at 10x scale without waiting for organic gro
 
 The full implementation pattern and project are maintained in the platform repo:
 
-- [Scale Projection pattern (semops-dx-orchestrator)](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/domain-patterns/scale-projection.md) — Selection criteria, decision framework, implementation details
+- [Scale Projection pattern (semops-orchestrator)](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/domain-patterns/scale-projection.md) — Selection criteria, decision framework, implementation details
 
 ---
 
@@ -89,5 +89,5 @@ The full implementation pattern and project are maintained in the platform repo:
 
 ### Implementation
 
-- [Scale Projection (semops-dx-orchestrator)](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/domain-patterns/scale-projection.md) - Full pattern documentation
-- [Open Primitive Pattern](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/domain-patterns/open-primitive-pattern.md) - Infrastructure selection criteria
+- [Scale Projection (semops-orchestrator)](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/domain-patterns/scale-projection.md) - Full pattern documentation
+- [Open Primitive Pattern](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/domain-patterns/open-primitive-pattern.md) - Infrastructure selection criteria

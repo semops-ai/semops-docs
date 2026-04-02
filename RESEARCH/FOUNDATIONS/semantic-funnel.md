@@ -6,8 +6,8 @@ pattern: semantic-funnel
 provenance: 1p
 
 metadata:
- pattern_type: concept
- brand_strength: high
+    pattern_type: concept
+    brand_strength: high
 # Semantic Funnel is the core mental model combining OAR (Objects, Agents, Rules) with DIKW hierarchy. Renamed from "DIKW Mental Model" per ADR-0001.
 ---
 
@@ -17,20 +17,20 @@ metadata:
 
 <!-- fix this diagram -->
 ```
- Objects + Agents + Rules (OAR)
- ↓
- ┌──────────────────────┐
- │ DATA │ ← Raw objects, no meaning
- │ ┌──────────────┐ │
- │ │ INFORMATION │ │ ← Structural rules applied
- │ │ ┌────────┐ │ │
- │ │ │KNOWLEDGE│ │ │ ← Interpretive rules applied
- │ │ │ ┌────┐ │ │ │
- │ │ │ │ W │ │ │ │ ← Normative rules applied
- │ │ │ └────┘ │ │ │
- │ │ └────────┘ │ │
- │ └──────────────┘ │
- └──────────────────────┘
+        Objects + Agents + Rules (OAR)
+                    ↓
+         ┌──────────────────────┐
+         │        DATA          │  ← Raw objects, no meaning
+         │    ┌──────────────┐  │
+         │    │ INFORMATION  │  │  ← Structural rules applied
+         │    │  ┌────────┐  │  │
+         │    │  │KNOWLEDGE│  │  │  ← Interpretive rules applied
+         │    │  │ ┌────┐ │  │  │
+         │    │  │ │ W  │ │  │  │  ← Normative rules applied
+         │    │  │ └────┘ │  │  │
+         │    │  └────────┘  │  │
+         │    └──────────────┘  │
+         └──────────────────────┘
 
 Each level narrows as meaning increases and uncertainty decreases.
 ```
@@ -39,7 +39,7 @@ Each level narrows as meaning increases and uncertainty decreases.
 
 ## Objects, Agents, Rules (OAR)
 
-This mental model reduces complex systems, processes, and organizations to a very simple and fundamental set. With guidance from [Agent-Based Modeling](https://en.wikipedia.org/wiki/Agent-based_model) and [Business Rules](https://en.wikipedia.org/wiki/Business_rule) this model enables thinking about only a few entities:
+This mental model reduces complex systems, processes, and organizations to a very simple and fundamental set.  With guidance from [Agent-Based Modeling](https://en.wikipedia.org/wiki/Agent-based_model) and [Business Rules](https://en.wikipedia.org/wiki/Business_rule) this model enables thinking about only a few entities:
 
 | Entity | Definition | Examples |
 |--------|------------|----------|
@@ -70,11 +70,11 @@ With OAR as the foundation, the next step is describing how Objects transform th
 
 ```
 Data ──────> Information ──────> Knowledge ──────> Wisdom
- │ │ │
- Relationships Patterns Principles
- Structure Causality Values
- ↑ ↑ ↑
-[ Understanding (Process) ]
+         │                │                │
+    Relationships     Patterns        Principles
+      Structure       Causality         Values
+         ↑                ↑                ↑
+[              Understanding (Process)                   ]
 
 Each transformation requires cognitive investment to add meaning.
 ```
@@ -110,10 +110,10 @@ This maps directly to where errors come from:
 1. **Distinct stages**: Each level is qualitatively different and not interchangeable—K cannot be reached without developing I first
 2. **Transformational progression**: Moving up requires active processing of increasing complexity and uncertainty, not passive accumulation
 3. **Level definitions**:
- - **Data**: Raw facts with no inherent meaning—isolated symbols, measurements, observations ("know nothing")
- - **Information**: Data organized and contextualized with relationships answering *who, what, where, when* ("know-what")
- - **Knowledge**: Information revealing patterns and actionable signals, answering *how* ("know-how")
- - **Wisdom**: Knowledge evaluated through principles, values, and ethics—predicting long-term consequences, understanding *why* it matters
+   - **Data**: Raw facts with no inherent meaning—isolated symbols, measurements, observations ("know nothing")
+   - **Information**: Data organized and contextualized with relationships answering *who, what, where, when* ("know-what")
+   - **Knowledge**: Information revealing patterns and actionable signals, answering *how* ("know-how")
+   - **Wisdom**: Knowledge evaluated through principles, values, and ethics—predicting long-term consequences, understanding *why* it matters
 4. **Human judgment essential**: Wisdom requires uniquely human capabilities—values, ethics, and long-term contextual reasoning
 5. **Normatively true**: The framework assumes no such thing as false information or false knowledge—that simply means it does not meet the definition
 
@@ -207,27 +207,27 @@ This connects directly to [Semantic Coherence](../../SEMANTIC_OPERATIONS_FRAMEWO
 The three [framework pillars](../../SEMANTIC_OPERATIONS_FRAMEWORK/README.md) map to the OAR dimensions of the Semantic Funnel — not to specific DIKW transitions, but as concerns that span the entire funnel. The pillars interact through a cycle: objects produce analytics that feed the understanding process, which produces patterns and decisions that change the rules, which constrain how objects are managed.
 
 ```text
- D I K W
- ┌───────────┬────────────┬─────────────┬────────────┐
-STRATEGIC │ raw data, │ structured │ value │ aggregate │ Objects
-DATA │ streams │ records │ objects │ root ents │
- └─────┬─────┴─────┬──────┴──────┬──────┴─────┬──────┘
- │ │ │ │
- │ rules, schemas, constraints, boundaries
- │ ↓ ↓ │
- ┌─────┴─────┬─────┴──────┬──────┴──────┬─────┴──────┐
-EXPLICIT │ structural │ bounded │ domain │ aggregate │ Rules
-ARCH. │ (flexible) │ contexts │ patterns │ root │
- └─────┬─────┴─────┬──────┴──────┬──────┴─────┬──────┘
- │ │ │ │
- │ analytics, KPIs, performance, coherence
- │ ↓ ↓ │
- ┌─────┴─────┬─────┴──────┬──────┴──────┬─────┴──────┐
-SEMANTIC │ measure │──► Patterns │──► Strategic│ │ Understanding
-OPTIM. │ │ (I→K) │ Decisions │ │ (Agents)
- └─────┴─────┴─────┴──────┴──────┴──────┴──◄── W ────┘
- │
- decisions feed back to rules + objects
+                D            I              K              W
+          ┌───────────┬────────────┬─────────────┬────────────┐
+STRATEGIC │ raw data,  │ structured  │   value     │ aggregate  │  Objects
+DATA      │ streams    │ records     │  objects    │ root ents  │
+          └─────┬─────┴─────┬──────┴──────┬──────┴─────┬──────┘
+                │           │             │            │
+                │  rules, schemas, constraints, boundaries
+                │           ↓             ↓            │
+          ┌─────┴─────┬─────┴──────┬──────┴──────┬─────┴──────┐
+EXPLICIT  │ structural │  bounded    │   domain    │ aggregate  │  Rules
+ARCH.     │ (flexible) │  contexts   │   patterns  │   root     │
+          └─────┬─────┴─────┬──────┴──────┬──────┴─────┬──────┘
+                │           │             │            │
+                │  analytics, KPIs, performance, coherence
+                │           ↓             ↓            │
+          ┌─────┴─────┬─────┴──────┬──────┴──────┬─────┴──────┐
+SEMANTIC  │ measure    │──► Patterns │──► Strategic│            │  Understanding
+OPTIM.    │            │    (I→K)    │  Decisions  │            │  (Agents)
+          └─────┴─────┴─────┴──────┴──────┴──────┴──◄── W ────┘
+                                                       │
+                         decisions feed back to rules + objects
 ```
 
 ### Strategic Data: D→I Transformation

@@ -6,8 +6,8 @@ pattern: explicit-architecture
 provenance: 1p
 
 metadata:
- pattern_type: concept
- brand_strength: medium
+    pattern_type: concept
+    brand_strength: medium
 ---
 
 # Explicit Architecture
@@ -25,14 +25,14 @@ A useful test: can an agent (human or AI) determine what rules apply in a given 
 Within this framework, architecture represents the most important rules encoded in the scaffolding of an organization. Explicit Architecture spans all three transitions of the [Semantic Funnel](../../RESEARCH/FOUNDATIONS/semantic-funnel.md)—it provides the structural scaffolding through which data objects flow and meaning is constructed.
 
 ```
- Objects: DATA ══════> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
- │ │ │ │
- Rules: Structural Interpretive Normative Meta
- (schemas, (business logic, (policies, (principles,
- contracts) patterns) governance) strategy)
- │ │ │ │
- Agents: — Domain Services Architects, Leadership
- governance
+  Objects:  DATA ══════> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
+               │                │                  │               │
+  Rules:  Structural       Interpretive        Normative       Meta
+          (schemas,        (business logic,    (policies,      (principles,
+           contracts)       patterns)           governance)     strategy)
+               │                │                  │               │
+  Agents:     —           Domain Services    Architects,     Leadership
+                                              governance
 ```
 
 Rules are crystallized understanding—decisions that already happened, now encoded so operations can proceed without requiring fresh decisions every time. Architecture captures the rules that are proven, critical, and core to the domain. When rules reach this level of importance, they graduate from documentation to architecture—encoded into the structural scaffolding itself.

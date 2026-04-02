@@ -6,13 +6,13 @@ pattern: data-systems-architecture-map
 provenance: 1p
 
 metadata:
- pattern_type: concept
- brand_strength: low
+    pattern_type: concept
+    brand_strength: low
 ---
 
 # Data Systems & Domain Architecture Map
 
-> A relationship map connecting the Strategic Data frameworks (Four Data System Types, Data Engineering Core Framework, Surface Analysis) with Domain-Driven Design concepts (Bounded Context, Repository, Domain, Context Mapping).
+> A relationship map connecting the Strategic Data frameworks (Data System Classification, Data Engineering Core Framework, Surface Analysis) with Domain-Driven Design concepts (Bounded Context, Repository, Domain, Context Mapping).
 
 **Why this matters:** These frameworks already describe the same reality from different angles. Making the connections explicit prevents redundant explanation, enables cross-referencing, and reveals that DDD is not a separate concern from data systems thinking — it is the structural glue that holds data system relationships together.
 
@@ -24,27 +24,27 @@ Three documents in Strategic Data operate at different zoom levels on the same s
 
 | Document | Question It Answers | Zoom Level |
 |---|---|---|
-| **[Four Data System Types](four-data-system-types.md)** | "What kinds of data systems exist?" | Macro — the 4 categories |
+| **[Data System Classification](data-system-classification.md)** | "What kinds of data systems exist?" | Macro — the 4 categories |
 | **[Data Engineering Core Framework](data-engineering-core-framework.md)** | "What's inside an Analytics Data System?" | Internal — architecture of one type |
 | **[Surface Analysis](surface-analysis.md)** | "Where does data cross boundaries?" | Boundaries — interfaces between types |
 
 ```
-Four Data System Types (the WHAT — 4 categories)
- │
- ├── Application Data ──┐
- ├── Analytics Data ────┤── Surface Analysis (the WHERE — boundaries between them)
- ├── Enterprise Work ───┤
- └── Enterprise Record ─┘
- │
- └── Analytics Data ── Data Engineering Core Framework (the HOW — internal architecture)
- 7 components, 5 lifecycle stages, 6 undercurrents
+Data System Classification (the WHAT — 4 categories)
+    │
+    ├── Application Data ──┐
+    ├── Analytics Data ────┤── Surface Analysis (the WHERE — boundaries between them)
+    ├── Enterprise Work ───┤
+    └── Enterprise Record ─┘
+         │
+         └── Analytics Data ── Data Engineering Core Framework (the HOW — internal architecture)
+                               7 components, 5 lifecycle stages, 6 undercurrents
 ```
 
-### Four Data System Types → Data Engineering Core Framework
+### Data System Classification → Data Engineering Core Framework
 
-Data Engineering Core Framework describes the internal architecture of the Analytics Data System type. The 7 components (ingestion, storage, table layer, compute, orchestration, catalog, ML/AI), 5 lifecycle stages, and 6 undercurrents are the anatomy of what Four Data System Types calls "the complete analytical data ecosystem." Data Engineering Core Framework is the deep dive into one of the four types.
+Data Engineering Core Framework describes the internal architecture of the Analytics Data System type. The 7 components (ingestion, storage, table layer, compute, orchestration, catalog, ML/AI), 5 lifecycle stages, and 6 undercurrents are the anatomy of what Data System Classification calls "the complete analytical data ecosystem." Data Engineering Core Framework is the deep dive into one of the four types.
 
-### Four Data System Types → Surface Analysis
+### Data System Classification → Surface Analysis
 
 Surface Analysis describes where data crosses boundaries between the four system types. Each type has characteristic surface patterns:
 
@@ -88,13 +88,13 @@ Same business events. Four different representations. Four different physics.
 
 **DDD concept:** An explicit boundary within which a particular domain model applies, with its own ubiquitous language.
 
-**How it connects:** At the macro level, each of the Four Data System Types is a bounded context:
+**How it connects:** At the macro level, each of the four data system types is a bounded context:
 
 - Each has different semantic rules (normalized vs dimensional vs unstructured vs constrained)
 - Each has different governance approaches ("don't unify" vs "model before ETL" vs "add scaffolding" vs "recognize as canonical")
 - Each has its own "ubiquitous language" — an "order" means different things in OLTP vs OLAP vs the knowledge graph
 
-This is why Four Data System Types says "don't try to unify everything" — the same principle as DDD's "respect bounded context boundaries."
+This is why Data System Classification says "don't try to unify everything" — the same principle as DDD's "respect bounded context boundaries."
 
 Within Application Data Systems, there are further bounded contexts (microservices, domain services). But the four system types are the first-order boundaries.
 
@@ -142,16 +142,16 @@ Surface Analysis's **provenance position** maps directly to DDD upstream/downstr
 
 ```
 Aggregate (Application Data)
- │
- └── Domain Event
- │
- ├── Surface Analysis: this is a boundary source
- │ for the Analytics Data System
- │
- └── CDC → Ingestion → Storage → Transform → Serving
- │
- └── Data Engineering Core Framework: this is the lifecycle
- the event follows through Analytics
+    │
+    └── Domain Event
+            │
+            ├── Surface Analysis: this is a boundary source
+            │                     for the Analytics Data System
+            │
+            └── CDC → Ingestion → Storage → Transform → Serving
+                       │
+                       └── Data Engineering Core Framework: this is the lifecycle
+                           the event follows through Analytics
 ```
 
 The DDD concept (Domain Event) becomes the Surface Analysis concept (boundary source) which enters the Data Engineering Core Framework pipeline (lifecycle stages). Three frameworks, one flow.
@@ -162,34 +162,34 @@ The DDD concept (Domain Event) becomes the Surface Analysis concept (boundary so
 
 ```
 Domain (the business reality — same events everywhere)
- │
- ├── Manifests in 4 System Types ─────────── four-data-system-types.md
- │ │
- │ ├── Application Data ── Bounded Contexts (DDD)
- │ │ │ Repository pattern (data access)
- │ │ │ OLTP query interface
- │ │ └── Aggregates, Domain Events, Services
- │ │
- │ ├── Analytics Data ──── data-engineering-core-framework.md
- │ │ │ OLAP query interface
- │ │ └── 7 Components, 5 Lifecycle, 6 Undercurrents
- │ │
- │ ├── Enterprise Work ── SemOps / Knowledge Graphs
- │ │ └── Unstructured, semi-structured
- │ │
- │ └── Enterprise Record ── Canonical truth
- │ └── Constraint enforcement, regulatory compliance
- │
- ├── Boundaries between types ─── surface-analysis.md
- │ ├── Sources (technical tuples)
- │ ├── Surfaces (sources in lineage context)
- │ ├── Provenance position → DDD upstream/downstream
- │ └── Surface Topology (strategic map)
- │
- └── Integration patterns ──────── DDD Context Mapping
- ├── ACL, Published Language, Open Host Service
- ├── CDC: Application → Analytics (domain events changing physics)
- └── AI extraction: Work → Knowledge Graph
+    │
+    ├── Manifests in 4 System Types ─────────── data-system-classification
+    │   │
+    │   ├── Application Data ── Bounded Contexts (DDD)
+    │   │   │                   Repository pattern (data access)
+    │   │   │                   OLTP query interface
+    │   │   └── Aggregates, Domain Events, Services
+    │   │
+    │   ├── Analytics Data ──── data-engineering-core-framework.md
+    │   │   │                   OLAP query interface
+    │   │   └── 7 Components, 5 Lifecycle, 6 Undercurrents
+    │   │
+    │   ├── Enterprise Work ── SemOps / Knowledge Graphs
+    │   │   └── Unstructured, semi-structured
+    │   │
+    │   └── Enterprise Record ── Canonical truth
+    │       └── Constraint enforcement, regulatory compliance
+    │
+    ├── Boundaries between types ─── surface-analysis.md
+    │   ├── Sources (technical tuples)
+    │   ├── Surfaces (sources in lineage context)
+    │   ├── Provenance position → DDD upstream/downstream
+    │   └── Surface Topology (strategic map)
+    │
+    └── Integration patterns ──────── DDD Context Mapping
+        ├── ACL, Published Language, Open Host Service
+        ├── CDC: Application → Analytics (domain events changing physics)
+        └── AI extraction: Work → Knowledge Graph
 ```
 
 ---
@@ -200,34 +200,34 @@ The same architecture without DDD overlay — pure data engineering terms.
 
 ```
 Data Domain (the business reality — same events across all systems)
- │
- ├── Manifests in 4 System Types
- │ │
- │ ├── Application Data ──── Transactional systems
- │ │ │ Data access layer
- │ │ │ OLTP query interface
- │ │ └── Entities, change events, business logic - org alignment critical
- │ │
- │ ├── Analytical Data ───── Pipeline architecture
- │ │ │ OLAP query interface
- │ │ └── Ingestion, Storage, Transform, Serving, Governance- where AI lives
- │ │
- │ ├── Enterprise Work ───── Knowledge & content systems
- │ │ └── Unstructured, semi‑structured content, now focus for AI
- │ │
- │ └── Enterprise Record ── System of record
- │ └── Constraint enforcement, compliance, now focus for AI
- │
- ├── Boundaries between types
- │ ├── Data sources (origin points)
- │ ├── Integration surfaces (sources in lineage context)
- │ ├── Flow direction → producer / consumer relationships
- │ └── System topology (strategic map)
- │
- └── Integration patterns
- ├── Translation layers, shared schemas, standard APIs
- ├── CDC: Operational → Analytical (change events crossing system boundaries)
- └── AI extraction: Work → Knowledge graph, Record → Validation, Analytical → Governance
+    │
+    ├── Manifests in 4 System Types
+    │   │
+    │   ├── Application Data ──── Transactional systems
+    │   │   │                     Data access layer
+    │   │   │                     OLTP query interface
+    │   │   └── Entities, change events, business logic - org alignment critical
+    │   │
+    │   ├── Analytical Data ───── Pipeline architecture
+    │   │   │                     OLAP query interface
+    │   │   └── Ingestion, Storage, Transform, Serving, Governance- where AI lives
+    │   │
+    │   ├── Enterprise Work ───── Knowledge & content systems
+    │   │   └── Unstructured, semi‑structured content, now focus for AI
+    │   │
+    │   └── Enterprise Record ── System of record
+    │       └── Constraint enforcement, compliance, now focus for AI
+    │
+    ├── Boundaries between types
+    │   ├── Data sources (origin points)
+    │   ├── Integration surfaces (sources in lineage context)
+    │   ├── Flow direction → producer / consumer relationships
+    │   └── System topology (strategic map)
+    │
+    └── Integration patterns
+        ├── Translation layers, shared schemas, standard APIs
+        ├── CDC: Operational → Analytical (change events crossing system boundaries)
+        └── AI extraction: Work → Knowledge graph, Record → Validation, Analytical → Governance
 ```
 
 ---
@@ -236,7 +236,7 @@ Data Domain (the business reality — same events across all systems)
 
 These relationships exist but are not yet explicit in the source documents:
 
-### four-data-system-types.md
+### data-system-classification (data-system-classification.md)
 
 - Should reference Data Engineering Core Framework as "the internal architecture of the Analytics Data System"
 - Should name Bounded Context as the DDD pattern that explains why each type has different semantic rules and governance
@@ -245,7 +245,7 @@ These relationships exist but are not yet explicit in the source documents:
 
 - Should reference Surface Analysis — the ingestion component is the boundary surface for Analytics
 - Should note that CDC/ETL ingestion represents DDD Domain Events crossing from Application Data into Analytics
-- Should reference Four Data System Types to position itself as "the anatomy of one type"
+- Should reference Data System Classification to position itself as "the anatomy of one type"
 
 ### surface-analysis.md
 
@@ -254,7 +254,7 @@ These relationships exist but are not yet explicit in the source documents:
 
 ### what-is-architecture.md
 
-- Should reference Four Data System Types as concrete examples of bounded contexts at the data layer
+- Should reference Data System Classification as concrete examples of bounded contexts at the data layer
 - The "DDD is the foundation" argument would be strengthened by showing how the four system types are bounded contexts that DDD governs
 
 ---
@@ -263,7 +263,7 @@ These relationships exist but are not yet explicit in the source documents:
 
 ### Strategic Data Frameworks
 
-- [Four Data System Types](four-data-system-types.md) - Macro categorization of data systems
+- [Data System Classification](data-system-classification.md) - Macro categorization of data systems
 - [Data Engineering Core Framework Data Systems](data-engineering-core-framework.md) - Analytics internal architecture (Reis & Housley)
 - [Surface Analysis](surface-analysis.md) - Boundary and interface analysis
 - [Data Silos](data-silos.md) - "Same events, different physics"

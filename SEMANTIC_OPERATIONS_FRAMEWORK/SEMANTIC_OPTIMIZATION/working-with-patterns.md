@@ -6,8 +6,8 @@ pattern: working-with-patterns
 provenance: 1p
 
 metadata:
- pattern_type: concept
- brand_strength: high
+    pattern_type: concept
+    brand_strength: high
 ---
 
 # Working with Patterns
@@ -63,7 +63,7 @@ The pattern describes what the domain says is correct. The implementation follow
 
 ### Architecture-Level Pattern Sources
 
-SemOps leans heavily into [SKOS](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/domain-patterns/skos-pattern.md)/W3C for architecture-level patterns, and that is "technical" in a sense. But look at how the patterns are used — we are adopting their **schema and definitions**, not their infrastructure. W3C standards make excellent pattern sources because they are:
+SemOps leans heavily into [SKOS](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/domain-patterns/skos-pattern.md)/W3C for architecture-level patterns, and that is "technical" in a sense. But look at how the patterns are used — we are adopting their **schema and definitions**, not their infrastructure. W3C standards make excellent pattern sources because they are:
 
 - **Open** — no vendor lock-in, no licensing constraints
 - **Stable** — decades of community validation
@@ -88,7 +88,7 @@ Even when you pick a vendor for convenience, **unpack the pattern** so that the 
 
 **Example:** SemOps uses Supabase. But everything we use in Supabase, our agents and we understand as individual components — Postgres, pgvector, the UI layer. We know why we selected it: its ability to operate as shared infrastructure in self-hosted and local environments, then scale to cloud. But we know this, and we still know what the components are, and we know we do not use all of them. We could build our own Supabase equivalent and swap it — no architecture changes.
 
-The pattern is "relational database + vector store + API layer for shared local-to-cloud infrastructure." The vendor is an implementation choice within that pattern. See the [Open Primitive Pattern](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/domain-patterns/open-primitive-pattern.md) for the full decision framework.
+The pattern is "relational database + vector store + API layer for shared local-to-cloud infrastructure." The vendor is an implementation choice within that pattern. See the [Open Primitive Pattern](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/domain-patterns/open-primitive-pattern.md) for the full decision framework.
 
 ---
 
@@ -134,7 +134,7 @@ Some sizing decisions will be limited by scale. [Scale Projection](scale-project
 
 Once a 3P pattern is adopted and in use, you may find you want to change it. The good news: a 3P pattern's boundaries are probably well-understood, and your proposed change already has a validation check — you know what you think you are solving, and the baseline tells you whether the pattern already handles it.
 
-**First check:** It could be that the pattern already has a standard way to do what you want, but you had not gotten there yet. This is the most common and most desirable outcome — nothing new is needed, keep following the pattern. This happens frequently with mature standards like SKOS, [PROV-O](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/domain-patterns/edge-predicates.md), or dimensional modeling, where the specification is deep and the full capability set takes time to discover.
+**First check:** It could be that the pattern already has a standard way to do what you want, but you had not gotten there yet. This is the most common and most desirable outcome — nothing new is needed, keep following the pattern. This happens frequently with mature standards like SKOS, [PROV-O](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/domain-patterns/edge-predicates.md), or dimensional modeling, where the specification is deep and the full capability set takes time to discover.
 
 ### Vendor Capability Adoption
 
@@ -167,17 +167,17 @@ You may also find that you need to discover more patterns to solve more defined 
 
 ```text
 3P Adopted → Used in Context → Change Needed?
- │
- ┌─────────────────┼─────────────────┐
- │ │ │
- Already Handled Vendor Aligns Genuine 1P Need
- (stay 3P) (3P + vendor) (tracked deviation)
- │
- Fits Architecture?
- Well-defined goal?
- │
- 1P Pattern Created
- (lineage: derives from 3P)
+                                      │
+                    ┌─────────────────┼─────────────────┐
+                    │                 │                   │
+               Already Handled   Vendor Aligns      Genuine 1P Need
+               (stay 3P)         (3P + vendor)      (tracked deviation)
+                                                          │
+                                                    Fits Architecture?
+                                                    Well-defined goal?
+                                                          │
+                                                    1P Pattern Created
+                                                    (lineage: derives from 3P)
 ```
 
 | Trigger | Result | Provenance | Risk |
@@ -246,5 +246,5 @@ This reframes competitive analysis from "what features do they have?" to **"what
 
 - [Domain Pattern Examples](../../Publicv1_Supplemental/examples/domain-pattern-examples.md) - W3C mappings, industry alignment, emergence narrative
 - [3P Domain Patterns](../../Publicv1_Supplemental/examples/3p-domain-patterns.md) - SemOps implementation example
-- [Open Primitive Pattern](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/domain-patterns/open-primitive-pattern.md) - Infrastructure pattern selection criteria
-- [Domain Pattern Registry](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/domain-patterns/) - Registered patterns across the ecosystem
+- [Open Primitive Pattern](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/domain-patterns/open-primitive-pattern.md) - Infrastructure pattern selection criteria
+- [Domain Pattern Registry](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/domain-patterns/) - Registered patterns across the ecosystem

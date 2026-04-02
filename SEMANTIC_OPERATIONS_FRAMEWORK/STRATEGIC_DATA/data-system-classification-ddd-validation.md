@@ -1,23 +1,23 @@
 ---
 doc_type: hub
 
-pattern: four-data-system-types-ddd-validation
+pattern: data-system-classification-ddd-validation
 
 provenance: 1p
 
 metadata:
- pattern_type: validation
- brand_strength: low
+    pattern_type: validation
+    brand_strength: low
 ---
 
-# Four Data System Types: DDD Validation
+# Data System Classification: DDD Validation
 
-> Validating the [Four Data System Types](four-data-system-types.md) framework against Domain-Driven Design research. The core finding: DDD concepts map **differently** to each type — different patterns apply, different governance is needed, different integration patterns emerge. Arbitrary categories wouldn't produce this. The four types carve reality at genuine architectural joints.
+> Validating the [Data System Classification](data-system-classification.md) framework against Domain-Driven Design research. The core finding: DDD concepts map **differently** to each type — different patterns apply, different governance is needed, different integration patterns emerge. Arbitrary categories wouldn't produce this. The four types carve reality at genuine architectural joints.
 
 **Why it matters:**
-The Four Data System Types framework claims that every organization's data landscape decomposes into four bounded contexts (Application, Analytics, Work, Record) — each with distinct physics, governance, and integration patterns. This document presents the evidence from DDD research that supports, refines, or challenges that claim.
+The Data System Classification framework claims that every organization's data landscape decomposes into four bounded contexts (Application, Analytics, Work, Record) — each with distinct physics, governance, and integration patterns. This document presents the evidence from DDD research that supports, refines, or challenges that claim.
 
-**Source research:** [Data Architecture Through the DDD Lens](https://github.com/semops-ai/semops-data/blob/main/docs/research/ddd-data-architecture.md) 
+**Source research:** [Data Architecture Through the DDD Lens](https://github.com/semops-ai/data-pr/blob/main/docs/research/ddd-data-architecture.md) 
 
 ---
 
@@ -42,7 +42,7 @@ Each type requires different architectural patterns from the same toolkit. This 
 
 ### 1. "Same Events, Different Physics" — Mechanism Identified
 
-The four-types doc claims Application and Analytics represent "the same data with different physics." The DDD research identifies the specific mechanism: when an `OrderPlaced` domain event becomes a CDC row change, **five things are lost**:
+The data-system-classification doc claims Application and Analytics represent "the same data with different physics." The DDD research identifies the specific mechanism: when an `OrderPlaced` domain event becomes a CDC row change, **five things are lost**:
 
 | Lost in Translation | What It Means |
 |---|---|
@@ -52,34 +52,34 @@ The four-types doc claims Application and Analytics represent "the same data wit
 | **Invariant context** | CDC cannot tell you which business rule was satisfied |
 | **Causal chain** | CDC captures isolated changes; domain events carry correlation IDs |
 
-The physics genuinely differ — not just in query optimization, but in semantic preservation. The four-types framework correctly identifies this as a fundamental boundary, not a deployment convenience.
+The physics genuinely differ — not just in query optimization, but in semantic preservation. The data-system-classification framework correctly identifies this as a fundamental boundary, not a deployment convenience.
 
-**Source:** [Domain Events → Event-Driven Data Architecture](https://github.com/semops-ai/semops-data/blob/main/docs/research/ddd-data-architecture.-domain-events--event-driven-data-architecture)
+**Source:** [Domain Events → Event-Driven Data Architecture](https://github.com/semops-ai/data-pr/blob/main/docs/research/ddd-data-architecture.-domain-events--event-driven-data-architecture)
 
 ### 2. "Don't Try to Unify" — SSOT Failure Cascade Documented
 
-The four-types framework says: respect bounded contexts, don't unify across types. The DDD research documents the specific failure cascade when this principle is violated:
+The data-system-classification framework says: respect bounded contexts, don't unify across types. The DDD research documents the specific failure cascade when this principle is violated:
 
 ```
 "We need a Single Source of Truth"
- → Normalize everything into one model (Inmon / MDM)
- → Force incompatible domain concepts into shared namespace
- → Anemic model that serves no context well
- → Teams route around it (shadow analytics, local spreadsheets)
- → "We can't trust the warehouse"
- → Buy new platform / start Data Mesh initiative
- → "We need a Single Source of Truth" (cycle repeats)
+    → Normalize everything into one model (Inmon / MDM)
+    → Force incompatible domain concepts into shared namespace
+    → Anemic model that serves no context well
+    → Teams route around it (shadow analytics, local spreadsheets)
+    → "We can't trust the warehouse"
+    → Buy new platform / start Data Mesh initiative
+    → "We need a Single Source of Truth" (cycle repeats)
 ```
 
 **The alternative trust model:** Lineage replaces SSOT. Multiple valid representations are fine — Sales' Customer, Finance's Customer, Support's Customer — as long as lineage lets you trace any value back to its boundary source and understand which context's definition you're looking at.
 
-This reframes the four-types integration principle from "don't unify" (negative) to "trust through traceability" (positive).
+This reframes the data-system-classification integration principle from "don't unify" (negative) to "trust through traceability" (positive).
 
-**Source:** [Lineage Replaces SSOT](https://github.com/semops-ai/semops-data/blob/main/docs/research/ddd-data-architecture.md#lineage-replaces-ssot)
+**Source:** [Lineage Replaces SSOT](https://github.com/semops-ai/data-pr/blob/main/docs/research/ddd-data-architecture.md#lineage-replaces-ssot)
 
 ### 3. Integration Patterns per Type — Confirmed by Context Mapping
 
-The four-types framework assigns each type a distinct integration challenge and pattern. DDD context mapping confirms each one:
+The data-system-classification framework assigns each type a distinct integration challenge and pattern. DDD context mapping confirms each one:
 
 | System Type | Claimed Pattern | DDD Confirmation |
 |---|---|---|
@@ -88,9 +88,9 @@ The four-types framework assigns each type a distinct integration challenge and 
 | **Work** | AI extraction + ontologies | DDD has no pattern for pre-model data — this is genuinely distinct territory |
 | **Record** | Anti-corruption layers | Record system rigidity means ACLs absorb the translation cost |
 
-These patterns weren't derived from the four-types framework — they fell out independently from the DDD context mapping analysis.
+These patterns weren't derived from the data-system-classification framework — they fell out independently from the DDD context mapping analysis.
 
-**Source:** [Context Maps → Data Flow Architecture](https://github.com/semops-ai/semops-data/blob/main/docs/research/ddd-data-architecture.-context-maps--data-flow-architecture)
+**Source:** [Context Maps → Data Flow Architecture](https://github.com/semops-ai/data-pr/blob/main/docs/research/ddd-data-architecture.-context-maps--data-flow-architecture)
 
 ### 4. Kimball Validates Analytics as Its Own Bounded Context
 
@@ -98,7 +98,7 @@ Kimball's business-process orientation produces star schemas that are essentiall
 
 This independently validates that Analytics Data Systems have their own architectural logic — dimensional modeling, semantic layers, conformed dimensions — that is structurally different from OLTP domain modeling.
 
-**Source:** [Kimball vs. Inmon Through the DDD Lens](https://github.com/semops-ai/semops-data/blob/main/docs/research/ddd-data-architecture.md#kimball-vs-inmon-through-the-ddd-lens)
+**Source:** [Kimball vs. Inmon Through the DDD Lens](https://github.com/semops-ai/data-pr/blob/main/docs/research/ddd-data-architecture.md#kimball-vs-inmon-through-the-ddd-lens)
 
 ### 5. Data Mesh Validates the Application ↔ Analytics Boundary
 
@@ -106,7 +106,7 @@ Dehghani's founding argument is that domain boundaries should persist across the
 
 > "Though we have adopted domain oriented decomposition and ownership when implementing operational capabilities, curiously we have disregarded the notion of business domains when it comes to data."
 
-Her framework is evidence that Application and Analytics are genuinely different system types requiring explicit boundary management — the core claim of the four-types framework.
+Her framework is evidence that Application and Analytics are genuinely different system types requiring explicit boundary management — the core claim of the data-system-classification framework.
 
 ### 6. dbt Validates Analytics Governance Is Structurally Different
 
@@ -122,11 +122,11 @@ dbt independently converged on DDD principles from the data engineering side:
 
 You don't govern a dbt project the way you govern a microservice. The governance discipline is genuinely different.
 
-**Source:** [dbt: Independent Convergence on DDD Principles](https://github.com/semops-ai/semops-data/blob/main/docs/research/ddd-data-architecture.-dbt-independent-convergence-on-ddd-principles)
+**Source:** [dbt: Independent Convergence on DDD Principles](https://github.com/semops-ai/data-pr/blob/main/docs/research/ddd-data-architecture.-dbt-independent-convergence-on-ddd-principles)
 
 ### 7. Enterprise Record Governance Resembles DDD Invariants
 
-The four-types framework claims finance works because "semantics are explicit and enforced." DDD's aggregate invariant pattern describes the same mechanism:
+The data-system-classification framework claims finance works because "semantics are explicit and enforced." DDD's aggregate invariant pattern describes the same mechanism:
 
 | Finance Governance | DDD Equivalent |
 |---|---|
@@ -135,7 +135,7 @@ The four-types framework claims finance works because "semantics are explicit an
 | Audit trail | Domain event log — complete history of state changes |
 | Period close | Aggregate boundary — consistency boundary in time |
 
-Enterprise Record systems independently implement DDD governance patterns through regulatory enforcement rather than software design. This validates the four-types claim that Record systems have the "highest semantic integrity" — they achieve it through the same mechanisms DDD prescribes.
+Enterprise Record systems independently implement DDD governance patterns through regulatory enforcement rather than software design. This validates the data-system-classification claim that Record systems have the "highest semantic integrity" — they achieve it through the same mechanisms DDD prescribes.
 
 ---
 
@@ -143,7 +143,7 @@ Enterprise Record systems independently implement DDD governance patterns throug
 
 ### 1. Bounded Context Nesting
 
-The four-types framework says each type IS a bounded context. The research found that within Analytics, you need **multiple** bounded contexts (Finance mart, Sales mart, HR Gold layer). Databricks explicitly recommends "multiple Gold layers by business need" — which is bounded contexts at the Gold tier.
+The data-system-classification framework says each type IS a bounded context. The research found that within Analytics, you need **multiple** bounded contexts (Finance mart, Sales mart, HR Gold layer). Databricks explicitly recommends "multiple Gold layers by business need" — which is bounded contexts at the Gold tier.
 
 **Resolution:** The four types are **first-order** boundaries. Within each type, there are second-order bounded contexts. The framework is correct at its level of abstraction but could be more explicit about the nesting.
 
@@ -184,7 +184,7 @@ The mix predictions (SaaS: 60% App, 25% Analytics, etc.) are directional heurist
 
 ### Strategic Data
 
-- [Four Data System Types](four-data-system-types.md) — The framework being validated
+- [Data System Classification](data-system-classification.md) — The framework being validated
 - [Data Systems Architecture Map](data-systems-architecture-map.md) — DDD as connective tissue between Strategic Data frameworks
 - [Data Silos](data-silos.md) — "Same events, different physics"
 - [Surface Analysis](surface-analysis.md) — Boundary and interface analysis
@@ -196,7 +196,7 @@ The mix predictions (SaaS: 60% App, 25% Analytics, etc.) are directional heurist
 - [Domain-Driven Design](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) — Core DDD concepts
 - [Anti-Corruption Layers](../EXPLICIT_ARCHITECTURE/ddd-acl-governance-aas.md) — Boundary integration patterns
 
-### Research (semops-data)
+### Research (data-pr)
 
-- [Data Architecture Through the DDD Lens](https://github.com/semops-ai/semops-data/blob/main/docs/research/ddd-data-architecture.md) — Full research document
-- [Four Data System Types (semops-data reference copy)](https://github.com/semops-ai/semops-data/blob/main/docs/research/four-data-system-types.md) — Due diligence reference copy
+- [Data Architecture Through the DDD Lens](https://github.com/semops-ai/data-pr/blob/main/docs/research/ddd-data-architecture.md) — Full research document
+- [Data System Classification (data-pr reference copy)](https://github.com/semops-ai/data-pr/blob/main/docs/research/data-system-classification.md) — Due diligence reference copy

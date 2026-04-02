@@ -5,15 +5,15 @@ pattern: data-systems-essentials
 
 provenance: 3p
 metadata:
- pattern_type: concept
- brand-strength: low
+  pattern_type: concept
+  brand-strength: low
 ---
 
 # Analytics Data Systems Essentials
 
 > The conceptual foundation and practical framework for understanding modern data systems with a focus on analytics and AI platforms.
 
-**Analytics Data Systems** are one of the four [Data System Types](four-data-system-types.md) — the ecosystem where analytical workloads, ML/AI training, and business intelligence operate. This document serves as the hub for understanding how these systems work.
+**Analytics Data Systems** are one of the [Data System Classification](data-system-classification.md) types — the ecosystem where analytical workloads, ML/AI training, and business intelligence operate. This document serves as the hub for understanding how these systems work.
 
 **Why Analytics Data Systems are the focus:** AI and ML live here. Training data, feature stores, model evaluation, and the feedback loops that improve models all operate within the analytical layer. Even when AI touches other system types (serving predictions, ingesting documents), the heavy lifting happens here.
 
@@ -77,20 +77,20 @@ This makes analytics instrumentation a "political orphan" — analytics wants de
 | **Functions** (6) | Engineering discipline | "How do we do it well?" | Practices (cross-cutting) |
 
 ```
- Functions ("how")
- ┌────────────────────────────────────────────────────────┐
- │ Security │ Data Mgmt │ DataOps │ Arch │ Tic │ SWE │
- └────────────────────────────────────────────────────────┘
- ↕ ↕ ↕ ↕ ↕
- ┌────────────────────────────────────────────────────────┐
- │ Generation → Ingestion → Storage → Transform → Serving │
- └────────────────────────────────────────────────────────┘
- LIFECYCLE (process - the "what")
- ↕ ↕ ↕ ↕ ↕
- ┌────────────────────────────────────────────────────────┐
- │ Ingestion │ Storage │ Table │ Compute │ Catalog │ ML │
- └────────────────────────────────────────────────────────┘
- COMPONENTS (layers - the "with what")
+                        Functions ("how")
+   ┌────────────────────────────────────────────────────────┐
+   │ Security │ Data Mgmt │ DataOps │ Arch │ Tic │ SWE     │
+   └────────────────────────────────────────────────────────┘
+                         ↕ ↕ ↕ ↕ ↕
+   ┌────────────────────────────────────────────────────────┐
+   │ Generation → Ingestion → Storage → Transform → Serving │
+   └────────────────────────────────────────────────────────┘
+                    LIFECYCLE (process - the "what")
+                         ↕ ↕ ↕ ↕ ↕
+   ┌────────────────────────────────────────────────────────┐
+   │ Ingestion │ Storage │ Table │ Compute │ Catalog │ ML  │
+   └────────────────────────────────────────────────────────┘
+                 COMPONENTS (layers - the "with what")
 ```
 
 **Key insights:**
@@ -171,7 +171,7 @@ This makes analytics instrumentation a "political orphan" — analytics wants de
 - Enterprise Record data (ERP, finance) dominates
 - The challenge: **Integrating across legitimate domain boundaries**
 
-**For more context:** See [Data System Types](four-data-system-types.md) for industry-specific patterns.
+**For more context:** See [Data System Classification](data-system-classification.md) for industry-specific patterns.
 
 ---
 
@@ -179,7 +179,7 @@ This makes analytics instrumentation a "political orphan" — analytics wants de
 
 > Where analytical and operational workloads overlap.
 
-These patterns represent cases where the [Four Data System Types](four-data-system-types.md) blur together.
+These patterns represent cases where the [Data System Classification](data-system-classification.md) types blur together.
 
 Some analytical workloads happen at runtime in operational systems:
 
@@ -267,7 +267,7 @@ Some analytical workloads happen at runtime in operational systems:
 
 ### Parent Concepts
 
-- [Data System Types](four-data-system-types.md) - Where Analytics Data Systems fit in the typology
+- [Data System Classification](data-system-classification.md) - Where Analytics Data Systems fit in the typology
 
 ### Deep Dives
 

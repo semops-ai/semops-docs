@@ -4,8 +4,8 @@ pattern: research-foundations
 provenance: 3p
 
 metadata: 
- doc_type: structure
- brand-strength: low
+    doc_type: structure
+    brand-strength: low
 # this doc is a fairly straight ahead structure doc that's synthesizing 3p concepts - reviewed and merged content from semantic-foundations.md and hub-first-principles.md (now deleted)
 ---
 
@@ -211,7 +211,7 @@ This is the theoretical foundation for why data architecture matters and why "fl
 - [Dimensional Modeling](foundations-data.md#dimensional-modeling)
 - [Data Warehouse Architecture](foundations-data.md#data-warehouse-architecture)
 - [Statistical Foundations](foundations-data.md#statistical-foundations)
-- [Data Profiling](foundations-data.md#semops-dataofiling)
+- [Data Profiling](foundations-data.md#data-profiling)
 - [Data Lineage & Provenance](foundations-data.md#data-lineage--provenance)
 - [CAP Theorem](foundations-data.md#cap-theorem)
 - [Data Governance (DAMA-DMBOK)](foundations-data.md#data-governance-dama-dmbok)
