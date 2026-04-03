@@ -80,9 +80,9 @@ Six independent dimensions of formalization. A system can be at different levels
 Business logic is the portable artifact across all levels. Infrastructure is just the wrapper.
 
 ```text
-Level 3 (Project):     python ingest.py --source docs-pr
-Level 5 (Composed):    docker compose run ingest --source docs-pr
-Level 8 (Scaled):      kubectl apply -f jobs/ingest-docs-pr.yaml
+Level 3 (Project):     python ingest.py --source semops-docs
+Level 5 (Composed):    docker compose run ingest --source semops-docs
+Level 8 (Scaled):      kubectl apply -f jobs/ingest-semops-docs.yaml
 
 Same business logic. Different wrappers.
 ```

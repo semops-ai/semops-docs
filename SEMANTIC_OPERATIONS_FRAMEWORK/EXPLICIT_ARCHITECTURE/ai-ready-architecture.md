@@ -505,7 +505,7 @@ AI-Ready Architecture aligns with good architecture generally. The practices tha
 
 ## Semantic Operations Lens
 
-Real Example: ike-semantic-ops
+Real Example: semops-data
 
 Example: [Aggregate Root](semops-aggregate-root.md) represented in Python class:
 

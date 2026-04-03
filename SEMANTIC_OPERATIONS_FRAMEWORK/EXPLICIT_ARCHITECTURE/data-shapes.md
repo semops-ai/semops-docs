@@ -16,7 +16,7 @@ metadata:
 
 **Provenance:** 3p (W3C SHACL, JSON Schema community)
 **Derives From:** SHACL, JSON Schema, data modeling practice
-**Pattern Registry:** [ai-workflow-kit/schemas/pattern_v1.yaml](https://github.com/semops-ai/ai-workflow-kit/blob/main/schemas/pattern_v1.yaml)
+**Pattern Registry:** [semops-orchestrator/schemas/pattern_v1.yaml](https://github.com/semops-ai/semops-orchestrator/blob/main/schemas/pattern_v1.yaml)
 
 ---
 
@@ -32,7 +32,7 @@ metadata:
 - **Shape** is the specification for one type of brick
 
 **In our context:**
-- `ike-semantic-ops` owns the **schema** (`phase2-schema.sql`, all tables)
+- `semops-data` owns the **schema** (`phase2-schema.sql`, all tables)
 - Each **pattern** has a **shape** (its specific data structure within that schema)
 
 When we say `shape: TBD` on a pattern, we mean "the concrete attributes this pattern contributes to the schema are not yet defined."
@@ -146,7 +146,7 @@ This JSON Schema IS our SHACL shape - it constrains what fields an entity's meta
 
 ### Pattern Shape Definition
 
-In `ai-workflow-kit/schemas/pattern_v1.yaml`, each pattern has a `shape` field:
+In `semops-orchestrator/schemas/pattern_v1.yaml`, each pattern has a `shape` field:
 
 ```yaml
 pattern:
@@ -168,8 +168,8 @@ The shape will define:
 
 | Aspect | Schema | Shape |
 |--------|--------|-------|
-| **Scope** | All of `ike-semantic-ops` | One pattern |
-| **Owner** | `ike-semantic-ops` | Defined per pattern |
+| **Scope** | All of `semops-data` | One pattern |
+| **Owner** | `semops-data` | Defined per pattern |
 | **File** | `phase2-schema.sql` | `pattern_v1.yaml` |
 | **Granularity** | System-wide | Single concern |
 | **Evolution** | Migrations | Lineage (`derives_from`) |

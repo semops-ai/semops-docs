@@ -17,7 +17,7 @@ metadata:
 **Why it matters:**
 The Data System Classification framework claims that every organization's data landscape decomposes into four bounded contexts (Application, Analytics, Work, Record) — each with distinct physics, governance, and integration patterns. This document presents the evidence from DDD research that supports, refines, or challenges that claim.
 
-**Source research:** [Data Architecture Through the DDD Lens](https://github.com/semops-ai/data-pr/blob/main/docs/research/ddd-data-architecture.md) 
+**Source research:** Data Architecture Through the DDD Lens (semops-analytics)
 
 ---
 
@@ -54,7 +54,7 @@ The data-system-classification doc claims Application and Analytics represent "t
 
 The physics genuinely differ — not just in query optimization, but in semantic preservation. The data-system-classification framework correctly identifies this as a fundamental boundary, not a deployment convenience.
 
-**Source:** [Domain Events → Event-Driven Data Architecture](https://github.com/semops-ai/data-pr/blob/main/docs/research/ddd-data-architecture.-domain-events--event-driven-data-architecture)
+**Source:** Domain Events → Event-Driven Data Architecture (semops-analytics)
 
 ### 2. "Don't Try to Unify" — SSOT Failure Cascade Documented
 
@@ -75,7 +75,7 @@ The data-system-classification framework says: respect bounded contexts, don't u
 
 This reframes the data-system-classification integration principle from "don't unify" (negative) to "trust through traceability" (positive).
 
-**Source:** [Lineage Replaces SSOT](https://github.com/semops-ai/data-pr/blob/main/docs/research/ddd-data-architecture.md#lineage-replaces-ssot)
+**Source:** Lineage Replaces SSOT (semops-analytics)
 
 ### 3. Integration Patterns per Type — Confirmed by Context Mapping
 
@@ -90,7 +90,7 @@ The data-system-classification framework assigns each type a distinct integratio
 
 These patterns weren't derived from the data-system-classification framework — they fell out independently from the DDD context mapping analysis.
 
-**Source:** [Context Maps → Data Flow Architecture](https://github.com/semops-ai/data-pr/blob/main/docs/research/ddd-data-architecture.-context-maps--data-flow-architecture)
+**Source:** Context Maps → Data Flow Architecture (semops-analytics)
 
 ### 4. Kimball Validates Analytics as Its Own Bounded Context
 
@@ -98,7 +98,7 @@ Kimball's business-process orientation produces star schemas that are essentiall
 
 This independently validates that Analytics Data Systems have their own architectural logic — dimensional modeling, semantic layers, conformed dimensions — that is structurally different from OLTP domain modeling.
 
-**Source:** [Kimball vs. Inmon Through the DDD Lens](https://github.com/semops-ai/data-pr/blob/main/docs/research/ddd-data-architecture.md#kimball-vs-inmon-through-the-ddd-lens)
+**Source:** Kimball vs. Inmon Through the DDD Lens (semops-analytics)
 
 ### 5. Data Mesh Validates the Application ↔ Analytics Boundary
 
@@ -122,7 +122,7 @@ dbt independently converged on DDD principles from the data engineering side:
 
 You don't govern a dbt project the way you govern a microservice. The governance discipline is genuinely different.
 
-**Source:** [dbt: Independent Convergence on DDD Principles](https://github.com/semops-ai/data-pr/blob/main/docs/research/ddd-data-architecture.-dbt-independent-convergence-on-ddd-principles)
+**Source:** dbt: Independent Convergence on DDD Principles (semops-analytics)
 
 ### 7. Enterprise Record Governance Resembles DDD Invariants
 
@@ -196,7 +196,7 @@ The mix predictions (SaaS: 60% App, 25% Analytics, etc.) are directional heurist
 - [Domain-Driven Design](../EXPLICIT_ARCHITECTURE/domain-driven-design.md) — Core DDD concepts
 - [Anti-Corruption Layers](../EXPLICIT_ARCHITECTURE/ddd-acl-governance-aas.md) — Boundary integration patterns
 
-### Research (data-pr)
+### Research (semops-analytics)
 
-- [Data Architecture Through the DDD Lens](https://github.com/semops-ai/data-pr/blob/main/docs/research/ddd-data-architecture.md) — Full research document
-- [Data System Classification (data-pr reference copy)](https://github.com/semops-ai/data-pr/blob/main/docs/research/data-system-classification.md) — Due diligence reference copy
+- Data Architecture Through the DDD Lens — Full research document
+- Data System Classification — Due diligence reference copy

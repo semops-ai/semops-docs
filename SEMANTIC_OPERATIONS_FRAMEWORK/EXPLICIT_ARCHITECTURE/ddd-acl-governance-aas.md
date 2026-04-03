@@ -254,7 +254,7 @@ Anti-corruption layers are **semantic firewalls**—they enforce boundaries wher
 
 ### Real Example SemOps
 
-The `ike-semantic-ops` repository uses ACLs when integrating external semantic standards:
+The `semops-data` repository uses ACLs when integrating external semantic standards:
 
 ### Edge Predicates as ACL
 

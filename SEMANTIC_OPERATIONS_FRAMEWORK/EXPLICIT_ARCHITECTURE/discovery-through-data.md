@@ -139,8 +139,8 @@ SIMULATION
 - Compare the simulation to reality when access is obtained
 
 This pairs with:
-- **[Agentic Lineage](https://github.com/semops-ai/data-pr/issues/27)** — Discovers "what actually is" through event logs and lineage tracking
-- **Stack Simulation** ([data-pr branch: 001-stack-simulation-lineage](https://github.com/semops-ai/data-pr/tree/001-stack-simulation-lineage)) — Provides the simulation infrastructure: synthetic data generation, dbt transforms on DuckDB, OpenLineage events to Marquez
+- **Agentic Lineage** — Discovers "what actually is" through event logs and lineage tracking
+- **Stack Simulation** — Provides the simulation infrastructure: synthetic data generation, dbt transforms on DuckDB, OpenLineage events to Marquez
 
 Together, these provide both the "should be" reference architecture and the "actually is" discovery—plus the ability to simulate the gap before touching real systems.
 
@@ -381,7 +381,7 @@ Design instrumentation at the source. Retrofit integration never catches up.
 ### Implementation
 
 - [SemOps Ingestion v2 Architecture](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/GLOBAL_ARCHITECTURE.proposed.md) - Episode-centric provenance implementation
-- [Agentic Lineage Project](https://github.com/semops-ai/data-pr/issues/27) - Open source agent provenance system
+- Agentic Lineage Project — Open source agent provenance system (semops-analytics)
 
 ### Problem Space
 

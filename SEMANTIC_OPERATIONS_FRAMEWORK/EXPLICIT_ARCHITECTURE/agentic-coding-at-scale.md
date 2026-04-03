@@ -80,12 +80,12 @@ What makes agentic coding work? Let's decompose the Claude Code pattern:
 ### 2. DDD Scaffolding
 
 ```
-ike-semantic-ops/           # Orchestrator
+semops-data/           # Orchestrator
 ├── schemas/                # Ground truth definitions
 ├── scripts/classifiers/    # Domain logic
 └── docs/domain-patterns/   # Pattern catalog
 
-docs-pr/        # Knowledge assets
+semops-docs/        # Knowledge assets
 ├── docs/1p-bounded-concepts/   # First-party hypotheses
 ├── docs/atoms/                 # Value objects
 └── docs/_legacy/               # Deprecated but tracked
@@ -386,7 +386,7 @@ semops-orchestrator (Platform/DX)             <- Orchestrator, process docs, glo
     └── semops-data (Schema/Infrastructure) <- Schema, shared services
             │
             ├── publisher-pr (Publishing/Content)
-            ├── docs-pr (Documents/Theory) <- You are here
+            ├── semops-docs (Documents/Theory) <- You are here
             ├── data-pr (Product/Data Eng)
             │
             └── sites-pr (Frontend/Deployment)

@@ -289,7 +289,7 @@ Not everything needs compression. The investment should match the reuse:
 - [everything-is-github.md](everything-is-github.md) - Repos as semantic functions
 
 ### Practice
-- [UBIQUITOUS_LANGUAGE.md](https://github.com/semops-ai/ike-semantic-ops/blob/main/schemas/UBIQUITOUS_LANGUAGE.md) - Compressed domain definitions
+- [UBIQUITOUS_LANGUAGE.md](https://github.com/semops-ai/semops-data/blob/main/schemas/UBIQUITOUS_LANGUAGE.md) - Compressed domain definitions
 
 ### Citations
 - [Semantic Compression with Information Lattice Learning](https://arxiv.org/abs/2404.03131) - Lattice theory framing of "abstraction as lossy semantic compression"

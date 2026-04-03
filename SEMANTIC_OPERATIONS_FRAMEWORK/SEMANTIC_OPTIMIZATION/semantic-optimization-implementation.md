@@ -50,7 +50,7 @@ The **pattern** ( = [aggregate root](../EXPLICIT_ARCHITECTURE/semops-aggregate-r
 
 ### The Meta-Design
 
-From [SYSTEM_CONTEXT.md](https://github.com/semops-ai/ike-semantic-ops/blob/main/docs/SYSTEM_CONTEXT.md):
+From [SYSTEM_CONTEXT.md](https://github.com/semops-ai/semops-data/blob/main/docs/SYSTEM_CONTEXT.md):
 
 > "Instead of building features, **apply whole patterns**. Start with the best standard, time-tested pattern that fits."
 
@@ -91,10 +91,10 @@ Innovation occurs only in the core. Everything else follows proven patterns.
 
 | Component | Implementation | Location |
 |-----------|---------------|----------|
-| **Classifier Pipeline** | 4-tier evaluation (Rule → Embed → Graph → LLM) | ike-semantic-ops/scripts/classifiers/ |
-| **Content Classification** | 5-phase decomposition pipeline | ike-semantic-ops/docs/domain-patterns/content-classify-pattern.md |
-| **Promotion Workflow** | 6-phase execution plan | ike-semantic-ops/docs/domain-patterns/concept-promotion-plan.md |
-| **Schema** | PostgreSQL + pgvector + Neo4j | ike-semantic-ops/schemas/ |
+| **Classifier Pipeline** | 4-tier evaluation (Rule → Embed → Graph → LLM) | semops-data/scripts/classifiers/ |
+| **Content Classification** | 5-phase decomposition pipeline | semops-data/docs/domain-patterns/content-classify-pattern.md |
+| **Promotion Workflow** | 6-phase execution plan | semops-data/docs/domain-patterns/concept-promotion-plan.md |
+| **Schema** | PostgreSQL + pgvector + Neo4j | semops-data/schemas/ |
 
 ---
 
@@ -661,20 +661,20 @@ Coherence is not a "score"—it is the **operating substrate**. The agents need:
 - Real-time provenance signals (is this 3p that can be trusted or 1p that should be flagged?)
 - Immediate feedback on consistency (does this match existing definitions?)
 
-### Example: DX Hub Pattern (ai-workflow-kit)
+### Example: DX Hub Pattern (semops-orchestrator)
 
-The **ai-workflow-kit** repo (soon to be `semantic-ops/dx`) is a concrete implementation of the DX Hub pattern. It serves both human developers AND AI agents as the shared context substrate.
+The **semops-orchestrator** repo (soon to be `semantic-ops/dx`) is a concrete implementation of the DX Hub pattern. It serves both human developers AND AI agents as the shared context substrate.
 
 **See:**
-- [ai-workflow-kit/docs/PROCESS.md](https://github.com/semops-ai/ai-workflow-kit/blob/main/docs/PROCESS.md) - Development processes, ADR aggregation
-- [ai-workflow-kit/docs/INFRASTRUCTURE.md](https://github.com/semops-ai/ai-workflow-kit/blob/main/docs/INFRASTRUCTURE.md) - Shared services, stack decisions
-- [ai-workflow-kit ADR-0001](https://github.com/semops-ai/ai-workflow-kit/blob/main/docs/decisions/ADR-0001-semops-organization-migration.md) - Multi-repo architecture
+- [semops-orchestrator/docs/PROCESS.md](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/PROCESS.md) - Development processes, ADR aggregation
+- [semops-orchestrator/docs/INFRASTRUCTURE.md](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/INFRASTRUCTURE.md) - Shared services, stack decisions
+- [semops-orchestrator ADR-0001](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/decisions/ADR-0001-semops-organization-migration.md) - Multi-repo architecture
 
 #### How It Works
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  DX HUB (ai-workflow-kit / semantic-ops/dx)                          │
+│  DX HUB (semops-orchestrator / semantic-ops/dx)                          │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                      │
 │  AGGREGATED CONTEXT (from all repos):                                │
@@ -701,16 +701,14 @@ The **ai-workflow-kit** repo (soon to be `semantic-ops/dx`) is a concrete implem
 
 #### The Multi-Repo Pattern (Like Departments in a Company)
 
-From [ADR-0001](https://github.com/semops-ai/ai-workflow-kit/blob/main/docs/decisions/ADR-0001-semops-organization-migration.md):
+From [ADR-0001](https://github.com/semops-ai/semops-orchestrator/blob/main/docs/decisions/ADR-0001-semops-organization-migration.md):
 
 | Repo | Role | Bounded Context |
 |------|------|-----------------|
-| **dx** (ai-workflow-kit) | Developer/Agent experience | Process, tooling, global docs |
-| **orchestrator** (ike-semantic-ops) | Infrastructure owner | Schema, services, knowledge graph |
-| **docs** (docs-pr) | Theory, implementation docs | Concepts, patterns, research |
-| **publisher** (ike-publisher) | Content workflow | Blog agents, publishing |
-| **sites** (resumator) | Frontend, deployed apps | User-facing surfaces |
-| **data-kit** (data-systems-toolkit) | Data eng/DS utilities | Product analytics |
+| **semops-orchestrator** | Developer/Agent experience | Process, tooling, global docs |
+| **semops-data** | Infrastructure owner | Schema, services, knowledge graph |
+| **semops-docs** | Theory, framework docs | Concepts, patterns, research |
+| **semops-research** | Corpus analysis, reference generation | Research RAG, due diligence |
 
 **This is exactly like departments in a company:**
 - Each repo has a bounded context (clear responsibility)

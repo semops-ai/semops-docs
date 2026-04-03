@@ -13,7 +13,7 @@ role_in_method: "Foundation for decision matrix in  (Explicit Enterprise Data To
 
 ## Purpose
 
-This document maps DDD concepts to concrete data architecture decisions. Not "DDD is good for data" (established in [what-is-architecture.md](../../docs-pr-refs/what-is-architecture.md) and [data-systems-architecture-map.md](../../docs-pr-refs/data-systems-architecture-map.md)) but **how** each DDD concept translates into a specific architectural choice that a generalist can follow.
+This document maps DDD concepts to concrete data architecture decisions. Not "DDD is good for data" (established in [what-is-architecture.md](../../semops-docs-refs/what-is-architecture.md) and [data-systems-architecture-map.md](../../semops-docs-refs/data-systems-architecture-map.md)) but **how** each DDD concept translates into a specific architectural choice that a generalist can follow.
 
 The goal: architecture defines data structures, data structures select infrastructure. This document covers the architecture layer. Infrastructure choices come after.
 
@@ -758,7 +758,7 @@ SSOT assumes a single observer who needs one canonical answer. Multi-agent syste
 
 ## Related Documents
 
-### In docs-pr (Canonical Frameworks)
+### In semops-docs (Canonical Frameworks)
 - `EXPLICIT_ARCHITECTURE/what-is-architecture.md` — Architecture ≠ infrastructure
 - `EXPLICIT_ARCHITECTURE/domain-driven-design.md` — Core DDD concepts
 - `EXPLICIT_ARCHITECTURE/ddd-acl-governance-aas.md` — ACL patterns

@@ -384,7 +384,7 @@ When outlining DDD's value very quickly:
 
 ## The Symbiotic Loop: How DDD and AI Reinforce Each Other
 
-This section provides the **bottom-up validation** of DDD + AI—discovered through building ike-semantic-ops as a "1-man army."
+This section provides the **bottom-up validation** of DDD + AI—discovered through building semops-data as a "1-man army."
 
 ### The Phenomenon: Bidirectional Reinforcement
 
@@ -412,7 +412,7 @@ DDD forces explicitness:
 - Aggregates and value objects encode invariants
 - Specifications make business rules explicit
 
-**Example from ike-semantic-ops:**
+**Example from semops-data:**
 ```python
 class Entity:
     """
@@ -473,7 +473,7 @@ Because AI understands system boundaries:
 - It generates code that **fits the logic** (respects invariants)
 - It generates code that **matches the domain** (uses ubiquitous language)
 
-**Example: AI-generated code in ike-semantic-ops**
+**Example: AI-generated code in semops-data**
 
 **Prompt:** "Add a method to Entity that calculates semantic coherence score against a corpus"
 

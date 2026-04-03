@@ -64,11 +64,10 @@ SemOps is both theory and practice:
 
 | Repo | Purpose | Status |
 |------|---------|--------|
-| [semops-dx-orchestrator](https://github.com/semops-ai/semops-dx-orchestrator) | Orchestration layer - process, tooling, global architecture | Active |
-| [semops-core](https://github.com/semops-ai/semops-core) | Schema and infrastructure - knowledge graph, shared services | Active |
-| [semops-publisher](https://github.com/semops-ai/semops-publisher) | AI-assisted content publishing workflow | Active |
-| [semops-data](https://github.com/semops-ai/semops-data) | Data engineering utilities and research RAG pipeline | Active |
-| [semops-sites](https://github.com/semops-ai/semops-sites) | Public-facing websites and deployed applications | Active |
+| [semops-orchestrator](https://github.com/semops-ai/semops-orchestrator) | Orchestration layer - process, tooling, global architecture | Active |
+| [semops-data](https://github.com/semops-ai/semops-data) | Schema and infrastructure - knowledge graph, shared services | Active |
+| [semops-research](https://github.com/semops-ai/semops-research) | Corpus meta-analysis, data due diligence, reference generation | Active |
+| semops-docs | AI-assisted content publishing workflow (this repo) | Active |
 
 ---
 

@@ -192,11 +192,10 @@ The [SemOps-ai](https://github.com/semops-ai) organization demonstrates these pa
 ### Multi-Repo Structure
 
 ```text
-semops-dx-orchestrator/  → Platform/DX (process, tooling, global architecture)
-semops-core/             → Schema/Infrastructure (knowledge graph, shared services)
-semops-publisher/        → Publishing (content workflow)
-semops-data/             → Product (data engineering, research RAG)
-semops-sites/            → Frontend (deployed apps)
+semops-orchestrator/     → Platform/DX (process, tooling, global architecture)
+semops-data/             → Schema/Infrastructure (knowledge graph, shared services)
+semops-docs/             → Publishing (content workflow)
+semops-research/         → Research (corpus analysis, reference generation)
 ```
 
 Each repo = bounded context = semantic function.
@@ -207,10 +206,10 @@ Think of each repo as exposing an API to other repos:
 
 | Repo | Exports | Imports |
 |------|---------|---------|
-| `semops-core` | Schema, types, concepts | External data sources |
-| `semops-publisher` | Published content | Concepts, entities |
-| `semops-data` | Data pipelines, research | Schema definitions |
-| `semops-sites` | User-facing apps | Content, data |
+| `semops-data` | Schema, types, concepts | External data sources |
+| `semops-docs` | Published content | Concepts, entities |
+| `semops-research` | Research, reference generation | Schema definitions |
+| `semops-orchestrator` | Process, tooling, architecture | All repos |
 
 This is DDD's "Context Map" implemented via repository structure.
 

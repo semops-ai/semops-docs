@@ -1,20 +1,14 @@
-# semops-docs
+# SemOps Documents
 
-Framework theory, concept documentation, and research foundations for [Semantic Operations (SemOps)](https://semops.ai). This is the "why" and "what" behind the implementation in the [semops-ai](https://github.com/semops-ai) organization.
-
-## What This Is
-
-This repo owns the theoretical foundations — the frameworks, research, and concept definitions that the implementation repos exhibit. When other repos mention a SemOps concept (Semantic Coherence, Patterns, the Semantic Funnel), links will resolve here.
+These are the framework theory, concept documentation, and research foundations for [Semantic Operations (SemOps)](https://semops.ai). This is the "why" and "what" behind the implementation in the [semops-ai](https://github.com/semops-ai) organization. This repo is not an implementation. It is structured Markdown with a reading order.
 
 The documentation includes several concept documents organized by directory into [Research](RESEARCH/) and three framework pillars: [Strategic Data](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/), [Explicit Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/), and [Semantic Optimization](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/). Documents are written for a mixed audience: technical enough for engineers to map concepts to architecture, accessible enough for leadership to understand the strategic rationale.
 
-This repo is not an implementation. There is no code to run, no services to deploy, no dependencies to install. It is structured Markdown with a reading order.
-
-Part of the [semops-ai](https://github.com/semops-ai) organization. For system-level architecture and how all repos relate, see [semops-dx-orchestrator](https://github.com/semops-ai/semops-dx-orchestrator).
+Part of the [semops-ai](https://github.com/semops-ai) organization. For system-level architecture and how all repos relate, see [semops-orchestrator](https://github.com/semops-ai/semops-orchestrator).
 
 **What this repo is NOT:**
 
-- Not implementation documentation — for how the system is built, see the implementation repos ([semops-core](https://github.com/semops-ai/semops-core), [semops-dx-orchestrator](https://github.com/semops-ai/semops-dx-orchestrator))
+- Not implementation documentation — for how the system is built, see the implementation repos ([semops-data](https://github.com/semops-ai/semops-data), [semops-orchestrator](https://github.com/semops-ai/semops-orchestrator))
 - Not a blog or narrative content — for published articles and thought leadership, see [semops.ai](https://semops.ai) and [semops-ai.com](https://semops-ai.com)
 - Not a textbook — concepts are explained at the depth needed to inform architecture and strategy decisions, not for academic completeness
 
@@ -22,7 +16,7 @@ Part of the [semops-ai](https://github.com/semops-ai) organization. For system-l
 
 These documents are not just files to read — they are structured content designed to be machine-readable and composable. Each document carries YAML frontmatter with metadata (content type, provenance, related concepts) and follows a convention where each H2 section is a self-contained unit of meaning.
 
-The [knowledge base](https://github.com/semops-ai/semops-core) ingests these documents using an atom-hub decomposition model. Each concept document (H1) is a hub — the identity of the concept. Each H2 section within it is an atom — independently embeddable, retrievable, and linkable. When the knowledge base processes this repo, it decomposes documents into atoms, embeds them, and discovers relationships between atoms across documents through structural analysis (markdown cross-references), semantic similarity (vector embeddings), and content analysis.
+The [knowledge base](https://github.com/semops-ai/semops-data) ingests these documents using an atom-hub decomposition model. Each concept document (H1) is a hub — the identity of the concept. Each H2 section within it is an atom — independently embeddable, retrievable, and linkable. When the knowledge base processes this repo, it decomposes documents into atoms, embeds them, and discovers relationships between atoms across documents through structural analysis (markdown cross-references), semantic similarity (vector embeddings), and content analysis.
 
 This means a query to the knowledge base doesn't return whole documents. It assembles a response from atoms across multiple concept hubs, guided by the edges between them. The documents are the source of truth; the knowledge graph is a derived, queryable view of the same content.
 
@@ -71,11 +65,11 @@ The three pillars map to implementation repos:
 
 | Pillar | Primary Implementation |
 | ------ | --------------------- |
-| Strategic Data | [semops-core](https://github.com/semops-ai/semops-core) — quality tiers, knowledge base, coherence measurement |
-| Explicit Architecture | [semops-dx-orchestrator](https://github.com/semops-ai/semops-dx-orchestrator) — DDD repo structure, Pattern as aggregate root, integration patterns |
-| Semantic Optimization | [semops-publisher](https://github.com/semops-ai/semops-publisher) — edit capture for style learning, content coherence |
+| Strategic Data | [semops-data](https://github.com/semops-ai/semops-data) — quality tiers, knowledge base, coherence measurement |
+| Explicit Architecture | [semops-orchestrator](https://github.com/semops-ai/semops-orchestrator) — DDD repo structure, Pattern as aggregate root, integration patterns |
+| Semantic Optimization | semops-docs — edit capture for style learning, content coherence |
 
-[semops-data](https://github.com/semops-ai/semops-data) implements measurement capabilities described across all three pillars. [semops-sites](https://github.com/semops-ai/semops-sites) implements the delivery surface where concepts become published web content.
+[semops-data](https://github.com/semops-ai/semops-data) implements measurement capabilities described across all three pillars. semops-sites implements the delivery surface where concepts become published web content.
 
 ## Status
 
@@ -94,11 +88,10 @@ This is a living documentation set. Concepts stabilize as they are validated thr
 
 ### Related
 
-- **[semops-dx-orchestrator](https://github.com/semops-ai/semops-dx-orchestrator)** — System architecture, cross-repo coordination, and design principles for the implementation
-- **[semops-core](https://github.com/semops-ai/semops-core)** — Schema, knowledge graph, and shared infrastructure that implements concepts from this repo
-- **[semops-publisher](https://github.com/semops-ai/semops-publisher)** — AI-assisted content creation, where concepts become published content
-- **[semops-data](https://github.com/semops-ai/semops-data)** — Data platform implementing measurement and analytics concepts
-- **[semops-sites](https://github.com/semops-ai/semops-sites)** — Web surfaces where framework content is published
+- **[semops-orchestrator](https://github.com/semops-ai/semops-orchestrator)** — System architecture, cross-repo coordination, and design principles for the implementation
+- **[semops-data](https://github.com/semops-ai/semops-data)** — Schema, knowledge graph, and shared infrastructure that implements concepts from this repo
+- **semops-docs** — AI-assisted content creation, where concepts become published content (this repo)
+- **semops-sites** — Web surfaces where framework content is published
 - **[semops.ai](https://semops.ai)** — Narrative introduction to SemOps for a general audience
 - **[semops-ai.com](https://semops-ai.com)** — Blog, thought leadership, and project narrative
 
