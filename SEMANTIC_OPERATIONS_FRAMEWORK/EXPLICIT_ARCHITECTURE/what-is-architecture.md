@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: what-is-architecture
-
-provenance: 3p
-
-metadata:
-    pattern_type: concept
-    brand_strength: low
----
-
 # What is Architecture?
 
 > Architecture is the organization and business rules defined by the domain.  encoded as a data structure. Most organizations do not have explicit architecture—they have accumulated infrastructure that has been labeled "architecture."

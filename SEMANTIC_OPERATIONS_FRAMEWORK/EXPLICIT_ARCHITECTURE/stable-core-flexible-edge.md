@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: stable-core-flexible-edge
-
-provenance: 1p
-
-metadata:
-    pattern_type: concept
-    brand_strength: high
----
-
 # Stable Core, Flexible Edge
 
 An architectural principle for managing semantic evolution: protect invariant meaning at the core while enabling controlled experimentation and adaptation at the edges.

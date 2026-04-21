@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: wisdom-aggregate-root
-
-provenance: 1p
-
-metadata:
-    pattern_type: concept
-    brand_strength: medium
----
-
 # What is Wisdom?
 
 Wisdom (W), in the DIKW framework, can be described as "principles," "purpose," or "values."

@@ -1,14 +1,3 @@
----
-doc_type: structure
-
-pattern: data-systems-essentials
-
-provenance: 3p
-metadata:
-  pattern_type: concept
-  brand-strength: low
----
-
 # Analytics Data Systems Essentials
 
 > The conceptual foundation and practical framework for understanding modern data systems with a focus on analytics and AI platforms.

@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: data-shapes
-
-provenance: 3p
-
-metadata: 
-    pattern_type: concept
-    brand_strength: low
----
-
 # Data Shape
 
 > A pattern for defining the concrete data structure of an entity or pattern, distinct from the system-wide schema.

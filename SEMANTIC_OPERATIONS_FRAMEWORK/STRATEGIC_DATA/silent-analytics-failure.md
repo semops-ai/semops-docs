@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: silent-analytics-failure
-
-provenance: 1p
-
-metadata:
-    pattern_type: concept
-    brand_strength: low
----
-
 # Silent Analytics Failure
 
 > **Silent analytics failure** occurs when incorrect dashboards, reports, and metrics are widely distributed and used for decision-making before anyone detects the errors. Unlike software bugs that crash visibly, analytics failures produce plausible-looking numbers that silently mislead.

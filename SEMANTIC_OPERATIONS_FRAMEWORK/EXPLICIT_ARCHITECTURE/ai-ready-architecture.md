@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: ai-ready-architecture
-
-provenance: 3p
-
-metadata:
-    pattern_type: concept
-    brand_strength: low
----
-
 # AI-Ready Architecture
 
 **AI-Ready Architecture** (also called **Machine-Readable Architecture**) is the principle that clean code is AI-ready code. Code that is well-structured, explicit, and self-documenting for humans is also optimized for LLM understanding and generation.

@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: semantic-compression
-
-provenance: 1p
-
-metadata:
-    pattern_type: concept
-    brand_strength: high
----
-
 # Semantic Compression
 
 > The investment of energy and meaning to encode knowledge into reusable structures that enable efficient understanding.

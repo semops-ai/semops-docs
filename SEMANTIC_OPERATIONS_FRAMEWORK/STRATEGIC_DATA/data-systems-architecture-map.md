@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: data-systems-architecture-map
-
-provenance: 1p
-
-metadata:
-    pattern_type: concept
-    brand_strength: low
----
-
 # Data Systems & Domain Architecture Map
 
 > A relationship map connecting the Strategic Data frameworks (Data System Classification, Data Engineering Core Framework, Surface Analysis) with Domain-Driven Design concepts (Bounded Context, Repository, Domain, Context Mapping).

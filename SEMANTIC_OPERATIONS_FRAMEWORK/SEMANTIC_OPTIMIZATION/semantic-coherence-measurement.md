@@ -1,12 +1,3 @@
----
-doc_type: hub
-pattern: semantic-coherence-measurement
-provenance: 1p
-metadata:
-  pattern_type: concept
-  brand-strength: high
-# 
----
 # Semantic Coherence Measurement
 
 > How to measure semantic coherence: audit methodology, technical implementation, and operational validation.

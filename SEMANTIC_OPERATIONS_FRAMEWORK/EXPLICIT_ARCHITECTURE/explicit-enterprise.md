@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: explicit-enterprise
-
-provenance: 1p
-
-metadata:
-    pattern_type: concept
-    brand-strength: medium
----
-
 # Explicit Enterprise
 
 **Explicit Enterprise** are enterprise systems that treat [architecture](README.md), [data](../STRATEGIC_DATA/README.md), and AI as first class, and infrastructure choices as resulting requirements.

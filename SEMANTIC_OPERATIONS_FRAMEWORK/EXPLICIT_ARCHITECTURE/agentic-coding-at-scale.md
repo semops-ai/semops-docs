@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: agentic-coding-at-scale
-
-provenance: 1p
-
-metadata:
-    pattern_type: concept
-    brand_strength: medium
----
-
 # Agentic Coding at Scale
 
 > The Semantic Operations Framework can be viewed as a means to achieve the accerating benefits of agentic coding but at the scale of an organization and business.
@@ -385,7 +373,7 @@ semops-orchestrator (Platform/DX)             <- Orchestrator, process docs, glo
     │
     └── semops-data (Schema/Infrastructure) <- Schema, shared services
             │
-            ├── publisher-pr (Publishing/Content)
+            ├── semops-publisher (Publishing/Content)
             ├── semops-docs (Documents/Theory) <- You are here
             ├── data-pr (Product/Data Eng)
             │

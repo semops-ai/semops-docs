@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: ddd-acl-governance-aas
-
-provenance: 3p
-
-metadata:
-    pattern_type: concept
-    brand_strength: low
----
-
 # Anti-Corruption Layer (ACL)
 
 An **anti-corruption layer** is an isolating layer that sits between two [bounded contexts](domain-driven-design.md), translating requests and responses to prevent the downstream context's domain model from being corrupted by the upstream context's model. It protects the integrity of the core domain.

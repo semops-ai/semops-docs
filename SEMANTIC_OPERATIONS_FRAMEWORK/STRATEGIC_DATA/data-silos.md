@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: data-silos-explained
-
-provenance: 3p
-
-metadata:
-    pattern_type: concept
-    brand_strength: low
----
-
 # Data Silos Explained
 
 > **Data silos** is a term used frequently in discussions of AI readiness and system integration. However, the concept is often misdiagnosed—what companies call "silos" are usually semantic coherence failures, governance gaps, or simply different bounded contexts doing their job.

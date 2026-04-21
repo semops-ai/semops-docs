@@ -1,12 +1,3 @@
----
-doc_type: hub
-pattern: semantic-optimization-implementation
-provenance: 1p
-metadata:
-  pattern_type: concept
-  brand-strength: high
----
-
 # Semantic Optimization Implementation
 
 > Technical implementation of semantic optimization: classifier pipelines, DDD object mapping, ML processes, corpus-artifact delta, and decision cadence.

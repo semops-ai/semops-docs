@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: data-system-classification-ddd-validation
-
-provenance: 1p
-
-metadata:
-    pattern_type: validation
-    brand_strength: low
----
-
 # Data System Classification: DDD Validation
 
 > Validating the [Data System Classification](data-system-classification.md) framework against Domain-Driven Design research. The core finding: DDD concepts map **differently** to each type — different patterns apply, different governance is needed, different integration patterns emerge. Arbitrary categories wouldn't produce this. The four types carve reality at genuine architectural joints.

@@ -1,12 +1,3 @@
----
-doc_type: hub
-pattern: discovery-through-data
-provenance: 1p
-metadata:
-  pattern_type: concept
-  brand_strength: medium
----
-
 # Discovery Through Data
 
 > Observable data reveals organizational truth. Your business model, processes, customers, and operations are all represented in data structures and event logs—and therefore can be discovered, validated, and improved.

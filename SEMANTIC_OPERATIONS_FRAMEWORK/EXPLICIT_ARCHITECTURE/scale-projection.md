@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: scale-projection
-
-provenance: 1p
-
-metadata:
-    pattern_type: concept
-    brand_strength: medium
----
-
 # Scale Projection
 
 > Production-readiness is a property of your abstractions, not your infrastructure.

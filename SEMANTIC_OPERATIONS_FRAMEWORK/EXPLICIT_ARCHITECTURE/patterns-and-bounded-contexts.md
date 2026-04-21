@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: patterns-and-bounded-contexts
-
-provenance: 3p
-
-metadata:
-    pattern_type: concept
-    brand_strength: low
----
-
 # Patterns and Bounded Contexts
 
 > Understanding Semantic Operations use of "Patterns" with Domain Driven Design's application of the `bounded context`.
@@ -66,6 +54,26 @@ Each context has:
 - **Semantic variance across** — "Customer" in Sales may differ from "Customer" in Support
 - **Explicit translation at boundaries** — Context maps define how concepts translate when crossing boundaries
 - **Autonomy** — Each context can evolve independently within its boundary
+
+### Ubiquitous Language in Practice
+
+In DDD, ubiquitous language is shared vocabulary between domain experts and developers. Applied to Patterns, shared vocabulary within a Pattern boundary becomes the semantic contract:
+
+```text
+Before Patterns:
+  Sales:   "customer" = anyone in CRM
+  Finance: "customer" = paying account
+  Product: "customer" = registered user
+  = Three meanings, constant reconciliation
+
+After Patterns:
+  Customer Pattern defines: "customer" = account with completed purchase
+  All systems use same definition
+  Context-specific variants explicitly documented
+  = Semantic coherence by design
+```
+
+Without explicit Pattern boundaries, the same term carries different meanings in different teams. With them, each bounded context owns its definition and context maps handle translation at the boundaries.
 
 ### Why Bounded Contexts Enable Semantic Coherence
 
@@ -235,7 +243,7 @@ With DDD pattern thinking:
 
 **Result:** AI operates within coherent semantic boundaries, using proven patterns, grounded in organizational meaning.
 
-This is why [Explicit Architecture](README.md) emphasizes DDD—it is not just about system design, it is about **semantic architecture** that enables AI to maintain coherence.
+This is why [Explicit Architecture](explicit-architecture.md) emphasizes DDD—it is not just about system design, it is about **semantic architecture** that enables AI to maintain coherence.
 
 ---
 
@@ -372,7 +380,7 @@ DDD provides the **formal technical language** for discussing semantic boundarie
 ## Related Concepts
 
 - [Domain-Driven Design](domain-driven-design.md) — Core DDD concepts and definitions
-- [Explicit Architecture](README.md) — Architecture as semantic encoding
+- [Explicit Architecture](explicit-architecture.md) — Architecture as semantic encoding
 - [Semantic Operations](../README.md) — Operational framework for coherence
 - [Semantic Coherence](../SEMANTIC_OPTIMIZATION/semantic-coherence.md) — Measuring organizational alignment
 - [The Regression Paradox](../../RESEARCH/CURRENT_CONTEXT/AI_TRANSFORMATION/regression-paradox.md) — Why "regressing to the mean" might be progress

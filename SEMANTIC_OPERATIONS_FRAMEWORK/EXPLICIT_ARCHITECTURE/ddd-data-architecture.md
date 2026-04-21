@@ -1,10 +1,3 @@
----
-doc_type: reference
-provenance: 1p
-canonical_source: data-pr/docs/research/ddd-data-architecture.md
-role_in_method: "Foundation for decision matrix in  (Explicit Enterprise Data Toolkit)"
----
-
 # Data Architecture Through the DDD Lens
 
 > **Issue:** 

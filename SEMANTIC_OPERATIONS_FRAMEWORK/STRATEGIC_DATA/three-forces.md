@@ -1,14 +1,3 @@
----
-doc_type: hub
-
-pattern: three-forces
-
-provenance: 3p
-
-metadata:
-    pattern_type: concept
-    brand_strength: low
----
 # The Three Forces of Data Architecture
 
 > Every data architecture decision is shaped by three fundamental forces: **Volume & Velocity**, **Latency**, and **Structure & Variability**. These forces are physics, not preferences—they determine what is possible and what trade-offs emerge.

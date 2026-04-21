@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: working-with-patterns
-
-provenance: 1p
-
-metadata:
-    pattern_type: concept
-    brand_strength: high
----
-
 # Working with Patterns
 
 > Practical guidance for finding, sizing, adopting, and evolving domain patterns — the judgment-driven work that turns pattern theory into operational reality.

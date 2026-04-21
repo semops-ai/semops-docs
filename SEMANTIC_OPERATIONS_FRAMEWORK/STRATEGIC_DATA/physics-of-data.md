@@ -1,16 +1,3 @@
----
-doc_type: hub
-
-pattern: the-physics-of-data
-
-provenance: 1p
-
-metadata:
-    pattern_type: concept
-    brand_strength: medium
-
----
-
 # The Physics of Data
 
 >A framing that emphasizes data's physical and mathematical properties to ground the understanding of what data actually is and what is required to make it useful.

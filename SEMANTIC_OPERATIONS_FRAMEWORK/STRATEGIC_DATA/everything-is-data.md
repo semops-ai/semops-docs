@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: everything-is-data
-
-provenance: 1p
-
-metadata:
-    pattern_type: concept
-    brand_strength: medium
----
-
 # Everything is Data
 
 > In the AI era, the boundary between "data" and "everything else" collapses. Code, documents, models, patterns, decisions, and conversations all become inputs to agentic systems. This expands the scope of Strategic Data from "managing databases" to "managing all semantic artifacts."

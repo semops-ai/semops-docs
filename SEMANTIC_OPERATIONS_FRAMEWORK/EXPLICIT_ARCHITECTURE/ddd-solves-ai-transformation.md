@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: ddd-solves-ai-transformation
-
-provenance: 1p
-
-metadata:
-    pattern_type: concept
-    brand_strength: medium
----
-
 # Domain-Driven Design Solves the AI Transformation Problem
 
 Why Domain-Driven Design (DDD) has become unexpectedly essential for AI transformation—not because the methodology changed, but because AI makes what was once difficult now tractable.

@@ -1,14 +1,3 @@
----
-doc_type: hub
-
-pattern: surface-analysis
-
-provenance: 1p
-
-metadata:
-    pattern_type: concept
-    brand_strength: medium
----
 # Surface Analysis
 
 > **Surface Analysis** is a frame for understanding where business actually happens by interpreting data sources in their lineage context. Sources describe *what* data is and *where* it comes from; Surfaces reveal *what it means* for the business.

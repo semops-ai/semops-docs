@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: data-is-organizational-challenge
-
-provenance: 3p
-
-metadata:
-    pattern_type: concept
-    brand_strength: low
----
-
 # Data Is an Organizational Challenge
 
 > Data management failures are organizational, not technical. The technology exists. What's missing is literacy, ownership, and alignment with business domain reality.

@@ -1,16 +1,3 @@
----
-doc_type: hub
-
-concept: governance-as-strategy
-
-provenance: 1p
-
-metadata:
-    type: concept
-    reclassified_from: pattern
-    brand_strength: high
----
-
 # Governance as Strategy
 
 > Provenance and Lineage are two data management practices that are often seen as uninteresting compliance and pipeline management methods, but as data categories grow and AI integrations consume more and more context, they become critical and can provide added value.

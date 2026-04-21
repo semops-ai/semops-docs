@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: why-structure-matters
-
-provenance: 3p
-
-metadata:
-    pattern_type: concept
-    brand_strength: low
----
-
 # Why Structure Matters: Analytics, AI
 
 > Good analytics require structure. AI requires even more structure. There is no free lunch - someone must inject meaning into data through disciplined modeling.

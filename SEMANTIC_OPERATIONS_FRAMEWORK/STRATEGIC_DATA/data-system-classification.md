@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: data-system-classification
-
-provenance: 1p
-
-metadata:
-    pattern_type: concept
-    brand_strength: low
----
-
 # Data System Classification
 > A framework for more precisely categorizing data systems to better understand vague reference terminology and tie it to discreet concepts that align with concrete data objects and integration patterns.
 

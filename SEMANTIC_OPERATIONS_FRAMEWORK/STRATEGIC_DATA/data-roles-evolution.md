@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: data-roles-evolution
-
-provenance: 3p
-
-metadata:
-    pattern_type: concept
-    brand_strength: low
----
-
 # Evolution of Data Roles
 
 > How organizational structure and skills shifted from centralized data ownership to fragmented specialization — and what emerged to fill the gaps.

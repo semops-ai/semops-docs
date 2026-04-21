@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: business-analytics-patterns
-
-provenance: 3p
-
-metadata:
-    pattern_type: concept
-    brand_strength: low
----
-
 # Business Analytics Patterns
 
 >This document covers **function-based analytics** (BI, Product, Marketing, Customer) - defined by WHAT business question they answer.

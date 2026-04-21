@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: analytics-systems-evolution
-
-provenance: 3p
-
-metadata:
-    pattern_type: concept
-    brand_strength: low
----
-
 # Evolution of Analytics Data Systems
 
 > How analytical data architecture evolved from relational foundations through NoSQL disruption to the modern lakehouse paradigm.

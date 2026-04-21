@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: data-engineering-core-framework
-
-provenance: 3p
-
-metadata:
-    pattern_type: concept
-    brand_strength: low
----
-
 # Data Engineering Core Framework
 
 > A framework for understanding the internal architecture of analytics data systems through three views: what you build with (Components), what happens to data (Lifecycle), and how you do it well (Functions).

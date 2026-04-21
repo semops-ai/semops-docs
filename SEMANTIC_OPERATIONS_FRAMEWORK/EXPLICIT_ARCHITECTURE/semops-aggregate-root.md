@@ -1,12 +1,3 @@
----
-doc_type: hub
-pattern: aggregate-root
-provenance: 1p
-metadata:
-    pattern_type: concept
-    brand_strength: medium
----
-
 # Aggregate Root for SemOps Agentic Enterprise
 
 In Domain Driven Design, **Aggregate Root** is the single entity in an aggregate through which all access to the aggregate occurs. It enforces invariants for the entire aggregate and defines the transactional consistency boundary.

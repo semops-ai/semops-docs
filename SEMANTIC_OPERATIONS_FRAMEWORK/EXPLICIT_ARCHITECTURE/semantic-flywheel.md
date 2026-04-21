@@ -1,15 +1,3 @@
----
-doc_type: hub
-
-pattern: semantic-flywheel
-
-provenance: 1p
-
-metadata:
-    pattern_type: concept
-    brand_strength: medium
----
-
 # Semantic Flywheel
 
 > The phenomenon that the appropriate architecture and data management to enable the real benefits from Ai and agents is much easier to achieve by also using Ai and agents, and so on.
