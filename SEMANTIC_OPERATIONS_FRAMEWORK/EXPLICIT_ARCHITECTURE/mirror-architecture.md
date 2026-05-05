@@ -1,6 +1,6 @@
 # Mirror Architecture
 
-> Mirror Architecture is how SemOps engages with a company's systems, data, processes, and documents in a deep, structural way and implements solutions (including agents and AI) without modifying existing systems or disrupting operations.
+> Mirror Architecture is how SemOps engages with a company's systems, data, and processes. It enables knowledge transfer in a deep, structural way and implements solutions without modifying existing systems or disrupting operations.
 
 ---
 
@@ -287,3 +287,9 @@ Note: The original ADR-0004 constructs (8-level formalization continuum, indepen
 | 0.2.0 | 2026-03-29 | Extracted to design doc format; ADR-0004 revised note: Continuum/Axes absorbed into Scale Projection | dx-hub ADR-0004 |
 | 0.3.0 | 2026-04-07 | Reframed formalization continuum for consulting (Level 2-3 + tool overlays). Added dbt project + observability to mirror structure and axes. Added Data tooling axis. Per semops-dx-orchestrator#294 (#284 mirror architecture alignment). | — |
 | 0.4.0 | 2026-04-16 | Added conceptual framing: Introduction, Core Insight, Three Layers, What Gets Mirrored, Infrastructure Model, Mirror as Operational Interface. Replaced Engagement Model with Infrastructure Model (metadata layers, corpus architecture, three-agent pipeline, knowledge access, governing external systems). Added Ridgeline demo examples. Expanded glossary. | — |
+
+---
+
+## Related Links
+
+- [Discovery through Data](discovery-through-data.md)

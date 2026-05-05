@@ -1,6 +1,6 @@
 # Explicit Enterprise
 
-**Explicit Enterprise** are enterprise systems that treat [architecture](README.md), [data](../STRATEGIC_DATA/README.md), and AI as first class, and infrastructure choices as resulting requirements.
+> **Explicit Enterprise** are enterprise systems that open, transparent, and based on consensus standards. It is enterprise software that that biases for AI agent access, headless operation, and ease of access to user data.
 
 ---
 

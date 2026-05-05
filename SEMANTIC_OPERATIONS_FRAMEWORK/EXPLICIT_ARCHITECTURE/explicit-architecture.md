@@ -1,48 +1,10 @@
 # Explicit Architecture
 
-> **Explicit Architecture** is the SemOps application of [Domain-Driven Design](domain-driven-design) that encoded an entire business into explicit architectural data structures which are queryable an connected.
+> **Explicit Architecture** is all of the rules, components, and goals of a business, expressed as architecture and explicitly encoded into data structures which are queryable an connected. It is the SemOps application of [Domain-Driven Design](domain-driven-design).
 
-Every system has architecture — rules that govern behavior. The question is whether that architecture is understood, intentional, and explicit. Understanding what architecture actually is, choosing to have it, and making it inspectable by both humans and machines are three distinct steps. Most organizations have not completed the first.
+Every system has architecture — rules that govern behavior. The goal is to make the architecture understood, intentional, and explicit.
 
 **The test:** Can an agent (human or AI) determine what rules apply in a given context by inspecting the architecture? If so, the architecture is serving its purpose. If not, what exists is emergent structure rather than intentional architecture.
-
----
-
-## How Explicit Architecture Maps to the Semantic Funnel
-
-Architecture represents the most important rules encoded in the scaffolding of an organization. Explicit Architecture spans all three transitions of the [Semantic Funnel](../../RESEARCH/FOUNDATIONS/semantic-funnel.md) — it provides the structural scaffolding through which data objects flow and meaning is constructed.
-
-```text
-  Objects:  DATA ══════> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
-               │                │                  │               │
-  Rules:  Structural       Interpretive        Normative       Meta
-          (schemas,        (business logic,    (policies,      (principles,
-           contracts)       patterns)           governance)     strategy)
-               │                │                  │               │
-  Agents:     —           Domain Services    Architects,     Leadership
-                                              governance
-```
-
-| Element | D → I | I → K | K → W |
-| ------- | ----- | ----- | ----- |
-| **Objects** | Schema definitions, type systems, entity models | Bounded contexts, invariants, integration contracts | Governance policies, domain boundaries, architectural principles |
-| **Agents** | Data engineers, modelers (encode structural rules) | Domain services, teams (encode business logic into architecture) | Architects, governance bodies (encode normative rules into boundaries) |
-| **Rules** | Structural — schemas, contracts, dimensional models | Interpretive — business logic, patterns, invariants encoded in system structure | Normative — policies, ownership, approval processes encoded in governance |
-| **Determinism** | High — structural rules are deterministic once encoded | Medium — interpretive rules require judgment to encode but execute deterministically | Low — normative rules require ongoing human judgment |
-| **Mechanism** | Make entity definitions, relationships, and constraints machine-readable and queryable | Encode business rules as inspectable architectural artifacts (bounded contexts, anti-corruption layers, context maps) rather than tribal knowledge | Encode governance as architectural constraints (who owns what, what changes require approval, where exceptions require escalation) |
-| **Failure mode** | Architecture exists only as infrastructure diagrams; rules are implicit in code | Business logic is scattered, inconsistent, discoverable only through production incidents; AI inherits ambiguity | No governance mechanism for architectural change; semantic drift unchecked; Conway's Law operates by default |
-
-Rules are crystallized understanding — decisions that already happened, now encoded so operations can proceed without requiring fresh decisions every time. Architecture captures the rules that are proven, critical, and core to the domain. When rules reach this level of importance, they graduate from documentation to architecture — encoded into the structural scaffolding itself.
-
-See [What is Understanding?](../../RESEARCH/FOUNDATIONS/what-is-understanding.md) for how rules encode understanding and reduce decision uncertainty.
-
----
-
-## Comparison to "Agentic Enterprise"
-
-"Agentic Enterprise" describes either the general idea that enterprise operations are open to agents, or — more commonly — it is a marketing label for SaaS systems with agentic features.
-
-The critical difference: Agentic Enterprise adds AI to existing (often implicit) architecture. Explicit Enterprise makes the architecture itself inspectable and queryable, so that agents — and humans — can determine what rules apply by examining the structure. Agentic Enterprise asks "where can we add agents?" Explicit Enterprise asks "is our architecture legible enough that any agent could operate within it?" One adds capabilities; the other changes the foundation.
 
 ---
 
@@ -291,6 +253,44 @@ Apply Explicit Architecture to the entire enterprise stack. When every layer is 
 How the principles of Explicit Architecture apply specifically to AI-assisted software development and agentic coding workflows.
 
 > [Agentic Coding at Scale](agentic-coding-at-scale.md)
+
+---
+
+## Comparison to "Explicit Enterprise"
+
+"[Explicit Enterprise](explicit-enterprise.md)" describes either the general idea that enterprise operations are open to agents, or — more commonly — it is a marketing label for SaaS systems with agentic features.
+
+The critical difference: Agentic Enterprise adds AI to existing (often implicit) architecture. Explicit Enterprise makes the architecture itself inspectable and queryable, so that agents — and humans — can determine what rules apply by examining the structure. Agentic Enterprise asks "where can we add agents?" Explicit Enterprise asks "is our architecture legible enough that any agent could operate within it?" One adds capabilities; the other changes the foundation.
+
+---
+
+## How Explicit Architecture Maps to the Semantic Funnel
+
+Architecture represents the most important rules encoded in the scaffolding of an organization. Explicit Architecture spans all three transitions of the [Semantic Funnel](../../RESEARCH/FOUNDATIONS/semantic-funnel.md) — it provides the structural scaffolding through which data objects flow and meaning is constructed.
+
+```text
+  Objects:  DATA ══════> INFORMATION ══════> KNOWLEDGE ══════> WISDOM
+               │                │                  │               │
+  Rules:  Structural       Interpretive        Normative       Meta
+          (schemas,        (business logic,    (policies,      (principles,
+           contracts)       patterns)           governance)     strategy)
+               │                │                  │               │
+  Agents:     —           Domain Services    Architects,     Leadership
+                                              governance
+```
+
+| Element | D → I | I → K | K → W |
+| ------- | ----- | ----- | ----- |
+| **Objects** | Schema definitions, type systems, entity models | Bounded contexts, invariants, integration contracts | Governance policies, domain boundaries, architectural principles |
+| **Agents** | Data engineers, modelers (encode structural rules) | Domain services, teams (encode business logic into architecture) | Architects, governance bodies (encode normative rules into boundaries) |
+| **Rules** | Structural — schemas, contracts, dimensional models | Interpretive — business logic, patterns, invariants encoded in system structure | Normative — policies, ownership, approval processes encoded in governance |
+| **Determinism** | High — structural rules are deterministic once encoded | Medium — interpretive rules require judgment to encode but execute deterministically | Low — normative rules require ongoing human judgment |
+| **Mechanism** | Make entity definitions, relationships, and constraints machine-readable and queryable | Encode business rules as inspectable architectural artifacts (bounded contexts, anti-corruption layers, context maps) rather than tribal knowledge | Encode governance as architectural constraints (who owns what, what changes require approval, where exceptions require escalation) |
+| **Failure mode** | Architecture exists only as infrastructure diagrams; rules are implicit in code | Business logic is scattered, inconsistent, discoverable only through production incidents; AI inherits ambiguity | No governance mechanism for architectural change; semantic drift unchecked; Conway's Law operates by default |
+
+Rules are crystallized understanding — decisions that already happened, now encoded so operations can proceed without requiring fresh decisions every time. Architecture captures the rules that are proven, critical, and core to the domain. When rules reach this level of importance, they graduate from documentation to architecture — encoded into the structural scaffolding itself.
+
+See [What is Understanding?](../../RESEARCH/FOUNDATIONS/what-is-understanding.md) for how rules encode understanding and reduce decision uncertainty.
 
 ---
 
