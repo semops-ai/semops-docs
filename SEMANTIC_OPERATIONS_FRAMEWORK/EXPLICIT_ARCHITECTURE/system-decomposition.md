@@ -132,9 +132,9 @@ The two phases mirror the domain decomposition workflow. Phase 1 is analogous to
 
 - [DD-0021: Implementation Pattern Decomposition and Classification](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/design-docs/DD-0021-implementation-pattern-decomposition-and-classification.md) -- composite backbone, worked examples
 - [System Primitive Decomposition](https://github.com/semops-ai/semops-research/blob/main/docs/research/system-primitive-decomposition.md) -- methodology doc
-- [Decomposition Catalog Schema](https://github.com/semops-ai/semops-research/blob/main/data/catalogs/decompositions/_schema.yaml) -- YAML schema definition
+- [Decomposition Catalog Schema](https://github.com/timjmitchell/semops-hub-pr/blob/main/data/catalogs/decompositions/_schema.yaml) -- YAML schema definition
 
 ### Implementation
 
-- [Decomposition Catalog](https://github.com/semops-ai/semops-research/tree/main/data/catalogs/decompositions) -- 40+ vendor product decompositions
-- [SemOps Self-Decomposition](https://github.com/semops-ai/semops-research/blob/main/data/catalogs/decompositions/semops-platform.yaml) -- 1P meta-infrastructure decomposition
+- [Decomposition Catalog](https://github.com/timjmitchell/semops-hub-pr/tree/main/data/catalogs/decompositions) -- 40+ vendor product decompositions. Referenced from registries via `derives_from: vendor-decomp:<key>` per [ADR-0025 A5](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/decisions/ADR-0025-engagement-architecture-lifecycle.md)
+- [SemOps Self-Decomposition](https://github.com/timjmitchell/semops-hub-pr/blob/main/data/catalogs/decompositions/semops-platform.yaml) -- 1P meta-infrastructure decomposition

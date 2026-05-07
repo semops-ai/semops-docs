@@ -63,7 +63,7 @@ The repos themselves trace down to concrete infrastructure:
 
 The full stack plus non-technical rules, goals, and strategic intent is a single connected graph. An agent can traverse from "when was this strategic core pattern changed?" all the way down to "what capability changed using which code?" because every layer is an edge in the same data model.
 
-Every entity carries provenance: 1P (first-party), 2P (partner, contract), 3P (external) and lifecycle (planning, in-progreess, active, retired). This isn't metadata added later — it's structural, embedded at ingestion. The physical boundary provided strategic insight (differentiation), as well as solid governance virtually everywhere. Validated knowledge lives in governed SQL (the core), while experimental or unvalidated data stays in the flexible edge (vectors, graph) until explicitly promoted through review.
+Every entity carries provenance: 1P (first-party), 2P (partner, contract), 3P (external) and lifecycle (`planned`, `draft`, `in_progress`, `active`, `retired` — Backstage vocabulary). This isn't metadata added later — it's structural, embedded at ingestion. The physical boundary provided strategic insight (differentiation), as well as solid governance virtually everywhere. Validated knowledge lives in governed SQL (the core), while experimental or unvalidated data stays in the flexible edge (vectors, graph) until explicitly promoted through review.
 
 The data layer IS the RAG corpus and the database. There's no separate retrieval system bolted on after the fact:
 

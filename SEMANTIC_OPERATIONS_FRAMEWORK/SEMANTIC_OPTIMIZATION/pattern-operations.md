@@ -224,7 +224,7 @@ ORGANIZATIONAL UNDERSTANDING
 
 Agile operates on **tickets** (stories, tasks, bugs).
 
-[Semantic Operations](../README.md) operates on **Patterns** (bounded contexts, aggregates).
+[Semantic Operations](../README.md) operates on **Patterns** (named assemblies of capabilities, classified by subdomain, often aligned with DDD aggregates).
 
 | Agile                           | Semantic Ops                            |
 | ------------------------------- | --------------------------------------- |
@@ -301,7 +301,7 @@ These questions were open during early development. Each has been resolved throu
 | Pattern vs. Concept | Separate entities. Classification specifications (decomposition test, infrastructure binding test, edge-only test) determine type at intake. | [DD-0016](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/design-docs/DD-0016-concept-entity-model.md) |
 | Pattern granularity | Granularity follows domain complexity (Tenet 2). Narrow tools decompose into ~10 capabilities; broad platforms decompose into 14-26. | [DD-0009 Tenets](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/design-docs/DD-0009-pattern-capability-foundational-model.md) |
 | Pattern composition | `derives_from` tracks assembly lineage. A composition of two Patterns (e.g., CQRS + Event Sourcing) is a new 1P Pattern with both in its lineage. | [DD-0009 Composition](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/design-docs/DD-0009-pattern-capability-foundational-model.md) |
-| 1P lifecycle maturity | Lifecycle transitions (planned, active, deprecated) are aggregate methods with domain events. Maturity is measured by capability coverage and infrastructure binding, not time. | [DD-0022 Lifecycle](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/design-docs/DD-0022-pattern-capability-registry-governance.md) |
+| 1P lifecycle maturity | Lifecycle transitions (`planned`, `draft`, `in_progress`, `active`, `retired` — Backstage vocabulary) are aggregate methods with domain events. Maturity is measured by capability coverage and infrastructure binding, not time. | [DD-0022 Lifecycle](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/design-docs/DD-0022-pattern-capability-registry-governance.md) |
 | Validation thresholds | Specification engine with composable predicates. Each spec returns pass/fail with context and severity, not similarity scores. | [DD-0009 Specifications](https://github.com/semops-ai/semops-dx-orchestrator/blob/main/docs/design-docs/DD-0009-pattern-capability-foundational-model.md) |
 
 ---

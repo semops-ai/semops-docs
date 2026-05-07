@@ -310,6 +310,8 @@ Decomposition uses a classification framework appropriate to the Pattern type to
 
 ## The Audit Layer
 
+Pattern is one of two co-equal core aggregates in SemOps; **Coherence Assessment** is its peer. Pattern names what should exist (prescriptive); Coherence Assessment measures whether reality matches and drives action — adopt, refine, retire, or revert (evaluative and directive). The audit layer described here is what Coherence Assessment reads when it asks its questions. See [semops-hub-pr ADR-0012](https://github.com/timjmitchell/semops-hub-pr/blob/main/docs/decisions/ADR-0012-pattern-coherence-co-equal-aggregates.md).
+
 Provenance does not carry operational value. The capability `contact-management` behaves exactly the same whether it was sourced from Salesforce or composed from scratch. At runtime, at query time, in materialization, provenance does not matter. What matters operationally: does the capability exist, what are its properties, where does it bind to infrastructure.
 
 Provenance matters when someone asks decision support questions:

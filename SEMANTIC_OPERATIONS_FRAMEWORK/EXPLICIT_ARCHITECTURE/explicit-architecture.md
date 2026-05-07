@@ -134,14 +134,17 @@ SELECT capability_id, capability_name, pattern_count
 FROM capability_coverage
 WHERE pattern_count = 0;
 
--- Full traceability: pattern → capability → repo
-SELECT p.name AS pattern, c.title AS capability, r.title AS repository
+-- Full traceability: pattern → capability → delivering repo
+-- Per dx-hub-pr ADR-0024, repos are YAML config (not SQL entities). The edge
+-- target carries the repo identifier; the join to repos.yaml happens externally.
+SELECT p.name AS pattern, c.title AS capability, ed.dst_id AS delivered_by_repo
 FROM pattern p
 JOIN edge ei ON ei.dst_id = p.id AND ei.predicate = 'implements'
 JOIN entity c ON c.id = ei.src_id AND c.entity_type = 'capability'
-JOIN edge ed ON ed.src_id = c.id AND ed.predicate = 'delivered_by'
-JOIN entity r ON r.id = ed.dst_id AND r.entity_type = 'repository';
+JOIN edge ed ON ed.src_id = c.id AND ed.predicate = 'delivered_by';
 ```
+
+Note: the SQL `entity` table holds Patterns, Capabilities, Agents, and (as a relationship via `capability_infrastructure`) Infrastructure — four first-class entity types per [ADR-0024](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/decisions/ADR-0024-sql-entity-model-scope.md). Repos stay as YAML config (small, stable, operational); design docs and other document-shaped content enter through RAG corpus ingestion rather than as SQL entities.
 
 Governance questions that other organizations answer with meetings and wikis, SemOps answers with `SELECT`. But queryability is one mechanism, not the point. The point is that concept patterns, implementation patterns, domain boundaries, capabilities, and infrastructure all trace to each other — and none of it is implicit.
 

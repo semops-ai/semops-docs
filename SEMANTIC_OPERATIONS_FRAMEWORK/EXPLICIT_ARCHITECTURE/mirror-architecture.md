@@ -36,42 +36,60 @@ Three properties define a mirror:
 
 ---
 
-## The Three Layers
+## Lifecycle as Depth: One Registry, Three Views
 
-The mirror is not a flat replica. It holds three views of the same architecture simultaneously, and the value comes from the comparison between them.
+The mirror is not three separate stores. It is **one registry** of entities (Patterns, Capabilities, Concepts, Edges) where the lifecycle field provides depth — per [dx-hub-pr ADR-0025](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/decisions/ADR-0025-engagement-architecture-lifecycle.md). The Backstage lifecycle vocabulary (`planned → draft → in_progress → active → retired`) is what distinguishes a reference projection from operational reality from active improvement work.
 
 ```text
 ┌─────────────────────────────────────────────────────┐
 │  IMPROVEMENTS (what could be)                       │
-│  Gap-filling capabilities, agent processes,         │
-│  system replacements, new integrations, WIP         │
-│  solutions, prescriptions under evaluation          │
+│  lifecycle: draft, in_progress                      │
+│  WIP solutions, prescriptions under evaluation,     │
+│  candidate Patterns, system replacements            │
 ├─────────────────────────────────────────────────────┤
 │  REALITY (what actually is)                         │
-│  Validated schemas, real data profiles,             │
-│  confirmed systems, actual processes,               │
-│  discovered dark data, observed gaps                │
+│  lifecycle: active                                  │
+│  Operational entities — validated schemas,          │
+│  confirmed systems, observed processes,             │
+│  discovered dark data                               │
 ├─────────────────────────────────────────────────────┤
 │  REFERENCE (what should be)                         │
-│  Predicted architecture from outside-in analysis,   │
-│  industry patterns, business model classification,  │
-│  DDD-derived bounded contexts, ideal processes      │
+│  lifecycle: planned, provenance: 3P                 │
+│  Framework references (APQC, BIZBOK), category      │
+│  catalogs, vendor decompositions, predicted         │
+│  architecture from outside-in analysis              │
 └─────────────────────────────────────────────────────┘
 ```
 
-**Reference layer (bottom):** The predicted architecture. What this company's systems, data, and processes *should* look like given its industry, business model, and scale. Built from structured catalogs and industry frameworks before any system access. This layer persists throughout the engagement as the benchmark.
+Every entity in the registry carries three orthogonal dimensions per ADR-0025:
 
-**Reality layer (middle):** The faithful replica. What the company's architecture *actually* looks like based on validated schemas, data profiles, confirmed systems, and observed processes. This layer is where outside-in predictions meet inside-out discovery. Divergences between reference and reality are the gap analysis.
+| Field | Values | Question it answers |
+| --- | --- | --- |
+| **Provenance** | `1P`, `2P`, `3P` | Authorship origin: created internally (`1P`), genuinely co-created (`2P`), external (`3P`) |
+| **Lifecycle** | `planned`, `draft`, `in_progress`, `active`, `retired` | Engagement state — Backstage vocabulary |
+| **`derives_from`** | typed pointer | Upstream source via prefix scheme: `catalog:apqc/...`, `catalog:bizbok/...`, `catalog:category/<key>`, `vendor-decomp:<key>`, `pattern:<id>`, `silver:<path>`, `bronze:<path>`, or `null` |
 
-**Improvements layer (top):** The active work. Solutions being prototyped, agent processes being designed, capabilities being filled, system replacements being evaluated, new integrations under development. This layer is where prescriptions live before they become deployments. Agents operate here: reasoning over reference and reality to derive, test, and refine improvements without touching production.
+The three dimensions are independent. A wholesale-adopted vendor pattern is `provenance: 3P, lifecycle: active, derives_from: vendor-decomp:<key>` — operational at the engagement while remaining 3P-authored. A 1P refinement of an APQC reference is `provenance: 1P, lifecycle: active, derives_from: catalog:apqc/...`.
 
-Critically, the improvements layer can hold **multiple competing versions** simultaneously. A gap in the reality layer (say, manual demand forecasting) might have three candidate solutions being explored in parallel: a lightweight script that automates the existing spreadsheet process, an agent-driven pipeline that integrates dark data signals, and a full system replacement. Each version has its own schemas, its own synthetic data, and its own coherence score against the reference layer. They can be compared, tested, and evaluated before any commitment is made.
+**Reference layer (bottom):** `lifecycle: planned, provenance: 3P`. Per [ADR-0030](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/decisions/ADR-0030-engagement-architecture-layering.md), four kinds of authored content are *peers* at the model level — framework references (APQC, BIZBOK), category catalogs, vendor decompositions, and 1P refinements/originals — distinguished only by `derives_from`. The reference layer is **goal-defined** (provide a complete capability-grain, DDD-cohesive picture of "what a company like this looks like") not source-defined.
 
-Synthetic data runs through all three layers. The reference layer uses synthetic data to make the predicted architecture queryable and testable before any real data exists. The reality layer uses synthetic data alongside real data where access is partial or sensitive. The improvements layer uses synthetic data to simulate how proposed changes would behave at scale, under load, or with edge cases that the current system has not yet encountered.
+**Reality layer (middle):** `lifecycle: active`. Operational truth: confirmed by client data, deployment evidence, or vendor confirmation. Pattern lifecycle has a floor — a Pattern cannot be `active` if zero of its Capabilities are.
 
-All three layers are queryable at the same time. An agent evaluating a problem can see what the architecture *should* look like (reference), what it *actually* looks like (reality), and what is already being done about the gaps (improvements, possibly in multiple versions). A coherence score measures the distance between reference and reality. A prescription traces from a gap in the reality layer to a specific improvement in the top layer, grounded in the pattern expectations from the reference layer.
+**Improvements layer (top):** `lifecycle: draft` or `in_progress`. Active work scoped through project specs and acceptance criteria — see [Spec-Driven Design](../SEMANTIC_OPTIMIZATION/spec-driven-design.md). Multiple competing versions can coexist at this state, each with their own schemas, synthetic data, and coherence scores against the reference layer.
 
-This is what makes the mirror a workspace, not a report. Reports capture a single point in time. The mirror holds the entire state of the engagement: where the company should be, where it is, and what is being done to close the distance, including multiple paths forward being evaluated in parallel.
+### Three View Modes
+
+Because everything lives in one registry, the "three layers" are queries, not separate stores. Per ADR-0030, the canonical visualization is a per-context grid with three view modes:
+
+| View mode | Question answered | Required signals |
+| --- | --- | --- |
+| **Engaged** | What's operational? | `lifecycle: active` |
+| **Latent** | What's available but not adopted? | `lifecycle: planned` AND `derives_from` points at a vendor decomp |
+| **Gap** | What's needed but neither active nor available? | `lifecycle: planned` AND `derives_from` points at framework reference or category, no vendor decomp covers it |
+
+These are query categories, not stored states. A coherence score measures the distance between reference (`planned`) and reality (`active`). A prescription traces from a `planned` gap to a `draft` or `in_progress` improvement.
+
+This is what makes the mirror a workspace, not a report. Reports capture a single point in time; the mirror holds the entire state of the engagement and the audit trail (every lifecycle transition emits an episode), and the three views are simultaneously queryable.
 
 ---
 
@@ -179,40 +197,49 @@ The governance layer wraps around the data without moving it. The metadata graph
 
 [Ridgeline Outdoor Co.](https://github.com/semops-ai/ridgeline-demo) is a complete, open-source SemOps engagement demo for a fictional $35M D2C outdoor gear brand. The mirror directory shows the infrastructure model in concrete terms.
 
-**The mirror directory structure maps directly to the three layers:**
+**The mirror directory structure holds the single registry plus the medallion data and engagement intake:**
 
 ```
 mirror/
-├── domain/                          # REFERENCE LAYER
-│   ├── outside-in/                  # Predicted architecture
+├── domain/                          # SINGLE REGISTRY (lifecycle is depth)
+│   ├── outside-in/                  # Outside-in synthesis artifacts
 │   │   ├── business-model.yaml      # Revenue model, segments, metrics
 │   │   ├── reference-model.yaml     # Predicted system landscape
 │   │   ├── system-classification.yaml
-│   │   ├── STRATEGIC_DDD.md         # 15 bounded contexts
+│   │   ├── classification.yaml      # Industry/business model axes
 │   │   └── UBIQUITOUS_LANGUAGE.md   # Shared vocabulary
-│   ├── registry.yaml                # 142 capabilities across 15 contexts
-│   └── patterns/                    # Process, analytics, domain patterns
+│   ├── registry.yaml                # 142 Capabilities across 15 contexts
+│   ├── vendor-catalogs/             # 11 vendor decompositions (Shopify, Akeneo, ...)
+│   └── patterns/                    # Process, analytics, domain Patterns
 │
-├── infrastructure/                  # REALITY LAYER (source systems)
+├── infrastructure/                  # Source-system inventory
 │   └── manifest.yaml                # 18 source systems with connection specs
 │
-├── data/                            # REALITY LAYER (medallion pipeline)
+├── data/                            # Medallion pipeline + discovery layer
 │   ├── manifest.yaml                # Mirror state, divergences, layer refs
-│   ├── bronze/manifest.yaml         # Per-extraction contracts (raw)
-│   ├── silver/manifest.yaml         # ACL transforms (conforming)
+│   ├── bronze/                      # Raw extractions, per source system
+│   │   ├── shopify/                 # Operational system extracts
+│   │   ├── recharge/                # ...
+│   │   └── discovery/               # Engagement intake (interviews, transcripts,
+│   │                                # disclosures, vendor walkthroughs) — see
+│   │                                # ADR-0032
+│   ├── silver/                      # Typed/cleaned tables
+│   │   ├── ...                      # Operational silver tables
+│   │   └── discovery/               # Structured fact extraction (claims.yaml)
 │   ├── gold/manifest.yaml           # Fact tables + metrics
-│   └── gold/corpus/                 # Dark data: 7 vector collections
-│       ├── routing.yaml             # Dark data → bounded context mapping
-│       └── manifest.yaml            # 31K entities, 34K chunks
+│   ├── gold/corpus/                 # Dark data: 7 vector collections
+│   │   ├── routing.yaml             # Dark data → context mapping
+│   │   └── manifest.yaml            # 31K entities, 34K chunks
+│   └── governance/manifest.yaml     # Cross-layer governance rules
 │
-├── application/                     # IMPROVEMENTS LAYER
-│   ├── scale-projection/
-│   │   └── gaps-by-capability.yaml  # 147 capabilities: Clean/Concerning/Blocking
-│   └── topology/
-│       └── repos.yaml               # Recommended repo structure
-│
-└── data/governance/manifest.yaml    # Cross-layer governance rules
+└── application/                     # Operational layer (agents, scripts, projection)
+    ├── scale-projection/
+    │   └── gaps-by-capability.yaml  # 147 capabilities: Clean/Concerning/Blocking
+    └── topology/
+        └── repos.yaml               # Recommended repo structure
 ```
+
+The `discovery/` namespaces under `bronze/` and `silver/` are peers to operational system folders, not nested under them — they hold what consulting-style discovery actually produces (raw intake artifacts in bronze, structured fact extraction in silver). Living-doc claims thread through the audit chain via the `silver:` and `bronze:` `derives_from` prefixes — a synthesis output's row points at `silver:discovery/claims.yaml#<id>`, which in turn points at `bronze:discovery/<artifact>.md`. Every 1P claim resolves to a concrete intake artifact rather than disappearing behind `derives_from: null`. See [ADR-0032](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/decisions/ADR-0032-discovery-layer-and-engagement-relative-derives-from.md) for the full convention.
 
 **Source system inventory** (`infrastructure/manifest.yaml`) declares every system with connection metadata. Ridgeline has 18 systems spanning commerce (Shopify Plus), PIM (Akeneo), fulfillment (ShipBob), returns (Loop), marketing (Klaviyo), support (Gorgias), and more. Each entry declares bounded contexts, API protocols, auth methods, and rate limits.
 
@@ -244,7 +271,12 @@ Once populated, the mirror stops being an assessment artifact and becomes an ope
 
 | ADR | Decision | How reflected here |
 |-----|----------|--------------------|
-| [dx-hub ADR-0004](../decisions/ADR-0004-mirror-architecture.md) | Mirror Architecture framework: system-mirroring methodology for data consulting and AI integration | Core concept, three layers, infrastructure model |
+| [dx-hub ADR-0004](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/decisions/ADR-0004-mirror-architecture.md) | Mirror Architecture framework: system-mirroring methodology for data consulting and AI integration | Core concept, three layers, infrastructure model |
+| [dx-hub ADR-0023](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/decisions/ADR-0023-core-engagement-data-boundary.md) | Core/engagement boundary; SemOps as meta-system; three-tier engagement model (core / synthetic / production) | Mirror is the boundary; engagement gets its own complete entity population |
+| [dx-hub ADR-0024](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/decisions/ADR-0024-sql-entity-model-scope.md) | Four SQL entity types: Patterns, Capabilities, Agents, Infrastructure (as relationship). Design docs/research enter via RAG corpus | Single registry holds the four entity types; corpus holds documents |
+| [dx-hub ADR-0025](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/decisions/ADR-0025-engagement-architecture-lifecycle.md) | One registry per engagement; lifecycle is depth; provenance/lifecycle/`derives_from` as orthogonal dimensions; `signal_source` retired | Lifecycle as Depth section; orthogonal-dimensions table |
+| [dx-hub ADR-0030](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/decisions/ADR-0030-engagement-architecture-layering.md) | Reference content (frameworks, category catalogs, vendor decomps, 1P) are peers; three view modes (engaged/latent/gap) | Layering peers in Reference layer; three view modes table |
+| [dx-hub ADR-0032](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/decisions/ADR-0032-discovery-layer-and-engagement-relative-derives-from.md) | `bronze/discovery/` + `silver/discovery/` namespaces; `silver:` and `bronze:` `derives_from` prefixes for engagement-relative paths | Discovery layer in directory tree; audit chain explanation |
 
 Note: The original ADR-0004 constructs (8-level formalization continuum, independent axes, GAPS.md discipline, Mirror Test) have been absorbed into [Scale Projection](scale-projection.md). This document focuses on the mirror concept itself.
 
@@ -258,12 +290,16 @@ Note: The original ADR-0004 constructs (8-level formalization continuum, indepen
 | **Computed Layer** | The derived metadata layer: divergence reports, coherence scores, gap classification. How reality compares to expectations |
 | **Dark Data** | Unstructured or semi-structured information trapped in systems (free-text fields, Slack channels, PDFs, support tickets) that carries real business signal but is not currently queryable or connected to processes |
 | **Gap Classification** | Categorization of divergences between reference and reality as Clean (infrastructure only), Concerning (logic changes needed), or Blocking (fundamental rethink required). See [Scale Projection](scale-projection.md) |
-| **Improvements Layer** | The top layer of the mirror: active work including gap-filling capabilities, agent processes, system replacements, and WIP solutions. Can hold multiple competing versions simultaneously, each with its own schemas and synthetic data |
+| **`derives_from`** | Typed pointer on every entity to its upstream source. Prefix vocabulary: `catalog:apqc/...`, `catalog:bizbok/...`, `catalog:category/<key>`, `vendor-decomp:<key>`, `pattern:<id>`, `silver:<engagement-relative-path>`, `bronze:<engagement-relative-path>`, or `null` for genuinely original 1P content. See ADR-0025 A5 + ADR-0032 |
+| **Discovery Layer** | `mirror/data/bronze/discovery/` and `mirror/data/silver/discovery/` — the canonical home for engagement intake (interviews, transcripts, financial disclosures, vendor walkthroughs) and the structured fact extraction derived from it. Threads 1P claims through the audit chain |
+| **Improvements Layer** | The top layer of the mirror, queried via `lifecycle: draft` or `lifecycle: in_progress`: active work including gap-filling capabilities, agent processes, system replacements, and WIP solutions. Can hold multiple competing versions simultaneously, each with its own schemas and synthetic data |
+| **Lifecycle** | Engagement state on every entity, drawn from the Backstage five: `planned → draft → in_progress → active → retired`. Provides the depth dimension of the registry — `planned` is reference, `active` is reality, WIP sits on top, retired is kept for lineage |
 | **Medallion Architecture** | Staged data quality pattern (Bronze, Silver, Gold) applied to the mirror. Bronze is raw ingestion, Silver is entity extraction and cross-source conforming, Gold is consumption-ready fact tables and metrics |
-| **Mirror** | A layered, running, non-disruptive workspace holding three simultaneous views of a company's architecture: reference (what should be), reality (what is), and improvements (what could be). Not an abstract model or diagram, but a queryable system that agents and humans operate against |
+| **Mirror** | A non-disruptive workspace holding a single registry queryable in three views: reference (`lifecycle: planned`), reality (`lifecycle: active`), and improvements (`lifecycle: draft`/`in_progress`). Not an abstract model or diagram, but a queryable system that agents and humans operate against |
 | **Non-disruptive** | The property of operating alongside existing systems without production queries, schema modifications, or agent access to live data |
-| **Reality Layer** | The middle layer of the mirror: the faithful replica of current state, built from validated schemas, real data profiles, confirmed systems, and observed processes |
-| **Reference Layer** | The bottom layer of the mirror: the predicted architecture from outside-in analysis. Persists throughout the engagement as the benchmark against which reality is measured |
+| **Provenance** | Authorship origin on every entity: `1P` (created internally), `2P` (genuinely co-created), `3P` (external). Orthogonal to lifecycle — a 3P pattern can be `active` (wholesale-adopted) or `planned` (reference projection); the two facts are independent. See ADR-0025 A3 |
+| **Reality Layer** | The middle layer of the mirror, queried via `lifecycle: active`: confirmed by client data, deployment evidence, or vendor confirmation |
+| **Reference Layer** | The bottom layer of the mirror, queried via `lifecycle: planned, provenance: 3P`: framework references (APQC, BIZBOK), category catalogs, vendor decompositions — peers at the model level, distinguished by `derives_from`. The benchmark against which reality is measured |
 | **Reference Model** | The predicted architecture of a company. Contains bounded contexts, entity definitions, system inventory, and confidence levels. Every prediction is a testable hypothesis |
 | **Synthetic Data** | Schema-aware generated data that preserves entity relationships, foreign key integrity, and statistical distributions without using real customer or business data. Used across all three mirror layers: to make the reference queryable, to fill gaps in reality where access is partial, and to simulate proposed improvements |
 | **Telemetry Layer** | The observed metadata layer: profiling results, actual schemas, cardinalities, distributions, agent episodes, lineage events. What *actually happened* |
@@ -287,6 +323,7 @@ Note: The original ADR-0004 constructs (8-level formalization continuum, indepen
 | 0.2.0 | 2026-03-29 | Extracted to design doc format; ADR-0004 revised note: Continuum/Axes absorbed into Scale Projection | dx-hub ADR-0004 |
 | 0.3.0 | 2026-04-07 | Reframed formalization continuum for consulting (Level 2-3 + tool overlays). Added dbt project + observability to mirror structure and axes. Added Data tooling axis. Per semops-dx-orchestrator#294 (#284 mirror architecture alignment). | — |
 | 0.4.0 | 2026-04-16 | Added conceptual framing: Introduction, Core Insight, Three Layers, What Gets Mirrored, Infrastructure Model, Mirror as Operational Interface. Replaced Engagement Model with Infrastructure Model (metadata layers, corpus architecture, three-agent pipeline, knowledge access, governing external systems). Added Ridgeline demo examples. Expanded glossary. | — |
+| 0.5.0 | 2026-05-06 | Reframed Three Layers as Lifecycle as Depth: one registry, three views via `lifecycle` field. Added orthogonal-dimensions model (provenance/lifecycle/`derives_from`) and three view modes (engaged/latent/gap). Added discovery layer (`bronze/discovery/`, `silver/discovery/`) and `silver:`/`bronze:` `derives_from` prefixes. Removed retired STRATEGIC_DDD.md reference. Added ADRs 0023, 0024, 0025, 0030, 0032 to alignment table. | dx-hub ADR-0023, ADR-0024, ADR-0025, ADR-0030, ADR-0032 |
 
 ---
 

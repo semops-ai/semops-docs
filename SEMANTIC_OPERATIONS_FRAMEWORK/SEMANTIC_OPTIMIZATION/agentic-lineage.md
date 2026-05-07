@@ -166,6 +166,12 @@ Every ingestion episode is simultaneously a pipeline lineage event and an archit
 
 ---
 
+## Lineage as One of Four Input Surfaces
+
+Agentic lineage is one of four input surfaces feeding coherence-measurement (per [dx-hub-pr ADR-0031](https://github.com/timjmitchell/dx-hub-pr/blob/main/docs/decisions/ADR-0031-catalog-governance-vs-spec-driven-design.md)), alongside [Spec-Driven Design](spec-driven-design.md) (future state — project specs and ACs at lifecycle `planned`/`draft`/`in_progress`), catalog governance (current state — predicates over the active entity catalog), and the KB corpus (materialized prose and embeddings). Lineage contributes the continuous telemetry stream — what agents did, when, and to what — while the other three surfaces contribute future-state intent, current-state truth, and content state. The analytics layer fuses all four to produce drift signals, coherence trajectories, and PR-time checks.
+
+---
+
 ## Compute: Processing Episodes into Analytics
 
 Generating events (emitting episodes) is one workstream. Processing those episodes into actionable analytics is the other.
