@@ -12,77 +12,68 @@ Part of the [semops-ai](https://github.com/semops-ai) organization. For system-l
 - Not a blog or narrative content — for published articles and thought leadership, see [semops.ai](https://semops.ai) and [semops-ai.com](https://semops-ai.com)
 - Not a textbook — concepts are explained at the depth needed to inform architecture and strategy decisions, not for academic completeness
 
-## Documents as Operational Knowledge
-
-These documents are not just files to read — they are structured content designed to be machine-readable and composable. Each document carries YAML frontmatter with metadata (content type, provenance, related concepts) and follows a convention where each H2 section is a self-contained unit of meaning.
-
-The [knowledge base](https://github.com/semops-ai/semops-data) ingests these documents using an atom-hub decomposition model. Each concept document (H1) is a hub — the identity of the concept. Each H2 section within it is an atom — independently embeddable, retrievable, and linkable. When the knowledge base processes this repo, it decomposes documents into atoms, embeds them, and discovers relationships between atoms across documents through structural analysis (markdown cross-references), semantic similarity (vector embeddings), and content analysis.
-
-This means a query to the knowledge base doesn't return whole documents. It assembles a response from atoms across multiple concept hubs, guided by the edges between them. The documents are the source of truth; the knowledge graph is a derived, queryable view of the same content.
-
-The practical consequence for authors: each H2 section should be independently coherent. It should make sense when retrieved on its own, outside the context of the surrounding document. Cross-references between sections and documents create the navigational structure that both human readers and the knowledge base use.
-
-## How to Read This Repo
-
-**If you want the executive summary:**
-Start with the [framework introduction](SEMANTIC_OPERATIONS_FRAMEWORK/README.md), which covers what SemOps is, the core value proposition, and how the three pillars fit together.
-
-**If you want the foundational mental model:**
-Read [Semantic Funnel](RESEARCH/FOUNDATIONS/semantic-funnel.md) first. It introduces the three entities (Objects, Agents, Rules) and the knowledge process (Data → Information → Knowledge → Understanding → Wisdom) that ground the entire framework.
-
-**If you want to understand one pillar in depth:**
-Each pillar has its own README that serves as a reading guide with recommended order:
-- [Strategic Data](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/README.md) — Data as a first-class strategic asset
-- [Explicit Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/README.md) — Encoding strategy into system structure
-- [Semantic Optimization](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/README.md) — Measuring and governing shared meaning
-
-**If you're coming from an implementation repo:**
-You likely followed a concept link. Each concept document is self-contained — read it, then follow its cross-references to related concepts. The pillar READMEs provide broader context if you want to understand where the concept fits.
-
-**If you want the research behind the framework:**
-The [Research](RESEARCH/) section contains theoretical foundations (DIKW theory, DDD, ontology, cognitive science) and a current-context analysis of AI transformation challenges.
-
 ## What's Here
 
-### Research Foundations
-
-| Section | Documents | What It Covers |
-| ------- | --------- | -------------- |
-| [Foundations](RESEARCH/FOUNDATIONS/) | 6 | Semantic Funnel (core mental model), DIKW theory comparison, cognition, data theory, semantic theory, understanding |
-| [Current Context](RESEARCH/CURRENT_CONTEXT/) | AI transformation meta-analysis | Why organizational AI adoption isn't meeting ROI expectations, and what the gap reveals about meaning |
-
-### Semantic Operations Framework
-
-| Pillar | Documents | What It Covers |
-| ------ | --------- | -------------- |
-| [Strategic Data](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/) | 16 | Data as strategic asset, four data system types, governance as strategy, data physics, analytics evolution |
-| [Explicit Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/) | 15 | Domain-Driven Design, explicit architecture, AI-ready systems, semantic flywheel, agentic coding, stable core / flexible edge |
-| [Semantic Optimization](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/) | 7 | Semantic coherence (measurement + governance), Patterns as semantic units, pattern operations, compression |
-
-### How Concepts Connect to Implementation
-
-The three pillars map to implementation repos:
-
-| Pillar | Primary Implementation |
-| ------ | --------------------- |
-| Strategic Data | [semops-data](https://github.com/semops-ai/semops-data) — quality tiers, knowledge base, coherence measurement |
-| Explicit Architecture | [semops-orchestrator](https://github.com/semops-ai/semops-orchestrator) — DDD repo structure, Pattern as aggregate root, integration patterns |
-| Semantic Optimization | semops-docs — edit capture for style learning, content coherence |
-
-[semops-data](https://github.com/semops-ai/semops-data) implements measurement capabilities described across all three pillars. semops-sites implements the delivery surface where concepts become published web content.
-
-## Status
-
-| Section | Maturity | Notes |
-| ------- | -------- | ----- |
-| Semantic Funnel | Stable | Core mental model, foundational to everything else |
-| Research Foundations | Stable | Theoretical grounding complete |
-| Current Context | Stable | AI transformation analysis |
-| Strategic Data | Stable | 16 concept documents |
-| Explicit Architecture | Stable | 15 concept documents |
-| Semantic Optimization | Maturing | 7 concept documents, coherence measurement evolving with implementation |
-
-This is a living documentation set. Concepts stabilize as they are validated through implementation in the semops-ai repos. Documents are updated when implementation reveals new understanding or when the framework's language evolves.
+| Directory | Doc | Description |
+| --- | --- | --- |
+| Research | [DIKW Theory Comparison](RESEARCH/FOUNDATIONS/dikw-theory-comparison.md) | Detailed comparison of the three foundational formulations of the DIKW hierarchy: Zeleny (1987), Ackoff (1989), and Bellinger et al. (2004). |
+| Research | [Foundations: Human Cognition and Organization](RESEARCH/FOUNDATIONS/foundations-cognition.md) | Foundational theories explaining how humans process information, construct knowledge, and organize work. These inform why semantic coherence functions as a socio-technical property. |
+| Research | [Foundations: Data Systems](RESEARCH/FOUNDATIONS/foundations-data.md) | Foundational principles for understanding **how data and data systems actually work** and **how meaning and knowledge are derived**. These aren't best practices or trends—they're the immutable constraints and realities that determine whether data systems function. |
+| Research | [Foundations: Semantic Systems and Architecture](RESEARCH/FOUNDATIONS/foundations-semantic.md) | Foundational theories for defining, representing, and managing meaning in technical systems. These provide the philosophical and logical basis for semantic precision, grounding, and consistency. |
+| Research | [The Semantic Funnel](RESEARCH/FOUNDATIONS/semantic-funnel.md) | A mental model combining **Objects, Agents, Rules (OAR)** with the **DIKW hierarchy** to describe how meaning flows through organizations and systems. |
+| Research | [What is Understanding?](RESEARCH/FOUNDATIONS/what-is-understanding.md) | A concise definition can be derived from this brief military radio communication standard. |
+| Strategic Data | [Strategic Data](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/strategic-data.md) | A playbook for making data a first-class strategic asset for AI and all decision processes. |
+| Strategic Data | [Everything is Data](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/everything-is-data.md) | In the AI era, the boundary between "data" and "everything else" collapses. Code, documents, models, patterns, decisions, and conversations all become inputs to agentic systems. This expands the scope of Strategic Data from "managing databases" to "managing all semantic artifacts." |
+| Strategic Data | [The Physics of Data](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/physics-of-data.md) | A framing that emphasizes data's physical and mathematical properties to ground the understanding of what data actually is and what is required to make it useful. |
+| Strategic Data | [The Three Forces of Data Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/three-forces.md) | Every data architecture decision is shaped by three fundamental forces: **Volume & Velocity**, **Latency**, and **Structure & Variability**. These forces are physics, not preferences—they determine what is possible and what trade-offs emerge. |
+| Strategic Data | [Why Structure Matters: Analytics, AI](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/why-structure-matters.md) | Good analytics require structure. AI requires even more structure. There is no free lunch - someone must inject meaning into data through disciplined modeling. |
+| Strategic Data | [Data Is an Organizational Challenge](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/data-is-organizational-challenge.md) | Data management failures are organizational, not technical. The technology exists. What's missing is literacy, ownership, and alignment with business domain reality. |
+| Strategic Data | [Data Silos Explained](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/data-silos.md) | **Data silos** is a term used frequently in discussions of AI readiness and system integration. However, the concept is often misdiagnosed—what companies call "silos" are usually semantic coherence failures, governance gaps, or simply different bounded contexts doing their job. |
+| Strategic Data | [Silent Analytics Failure](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/silent-analytics-failure.md) | **Silent analytics failure** occurs when incorrect dashboards, reports, and metrics are widely distributed and used for decision-making before anyone detects the errors. Unlike software bugs that crash visibly, analytics failures produce plausible-looking numbers that silently mislead. |
+| Strategic Data | [Surface Analysis](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/surface-analysis.md) | **Surface Analysis** is a frame for understanding where business actually happens by interpreting data sources in their lineage context. Sources describe *what* data is and *where* it comes from; Surfaces reveal *what it means* for the business. |
+| Strategic Data | [Data System Classification](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/data-system-classification.md) | A framework for more precisely categorizing data systems to better understand vague reference terminology and tie it to discreet concepts that align with concrete data objects and integration patterns. |
+| Strategic Data | [Data System Classification: DDD Validation](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/data-system-classification-ddd-validation.md) | Validating the Data System Classification framework against Domain-Driven Design research. The core finding: DDD concepts map **differently** to each type — different patterns apply, different governance is needed, different integration patterns emerge. Arbitrary categories wouldn't produce this. The four types carve reality at genuine architectural joints. |
+| Strategic Data | [Data Systems & Domain Architecture Map](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/data-systems-architecture-map.md) | A relationship map connecting the Strategic Data frameworks (Data System Classification, Data Engineering Core Framework, Surface Analysis) with Domain-Driven Design concepts (Bounded Context, Repository, Domain, Context Mapping). |
+| Strategic Data | [Analytics Data Systems Essentials](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/data-systems-essentials.md) | The conceptual foundation and practical framework for understanding modern data systems with a focus on analytics and AI platforms. |
+| Strategic Data | [Data Engineering Core Framework](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/data-engineering-core-framework.md) | A framework for understanding the internal architecture of analytics data systems through three views: what you build with (Components), what happens to data (Lifecycle), and how you do it well (Functions). |
+| Strategic Data | [Evolution of Analytics Data Systems](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/analytics-systems-evolution.md) | How analytical data architecture evolved from relational foundations through NoSQL disruption to the modern lakehouse paradigm. |
+| Strategic Data | [Evolution of Data Roles](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/data-roles-evolution.md) | How organizational structure and skills shifted from centralized data ownership to fragmented specialization — and what emerged to fill the gaps. |
+| Strategic Data | [Business Analytics Patterns](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/business-analytics-patterns.md) | This document covers **function-based analytics** (BI, Product, Marketing, Customer) - defined by WHAT business question they answer. |
+| Strategic Data | [Data Collection & EL Methods: A Comprehensive Guide](SEMANTIC_OPERATIONS_FRAMEWORK/STRATEGIC_DATA/data-collection-el-methods.md) | Understanding when to use different Extract-Load approaches—from managed platforms like Fivetran to code-first frameworks like DLT—requires examining both the technical properties of data sources and the business contexts that drive data movement. |
+| Explicit Architecture | [What is Architecture?](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/what-is-architecture.md) | Architecture is the organization and business rules defined by the domain encoded as a data structure. Most organizations do not have explicit architecture—they have accumulated infrastructure that has been labeled "architecture." |
+| Explicit Architecture | [Explicit Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/explicit-architecture.md) | **Explicit Architecture** is all of the rules, components, and goals of a business, expressed as architecture and explicitly encoded into data structures which are queryable and connected. It is the SemOps application of Domain-Driven Design. |
+| Explicit Architecture | [Explicit Enterprise](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/explicit-enterprise.md) | **Explicit Enterprise** are enterprise systems that are open, transparent, and based on consensus standards. It is enterprise software that biases for AI agent access, headless operation, and ease of access to user data. |
+| Explicit Architecture | [Business Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/business-architecture.md) | **Business Architecture** defines what a business does, what it knows, how it delivers value, and who does the work. |
+| Explicit Architecture | [Domain-Driven Design](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/domain-driven-design.md) | Domain-Driven Design (DDD) is a software design philosophy that says: software models should be deeply tied to the business domain they serve. SemOps adopts DDD as its primary architectural framework because it provides the scaffolding for encoding business knowledge at every level — from entity schemas through business processes to strategic governance. |
+| Explicit Architecture | [Domain-Driven Design Solves the AI Transformation Problem](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/ddd-solves-ai-transformation.md) | Why Domain-Driven Design (DDD) is a useful framework for implementing AI at scale. |
+| Explicit Architecture | [Data Architecture Through the DDD Lens](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/ddd-data-architecture.md) | SemOps chosen data architecture which aligns to cross-cutting architecture (DDD) and doesn't artificially compress to a monolith. |
+| Explicit Architecture | [BIZBOK → DDD Overlay: Financial Services Worked Example](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/bizbok-ddd-overlay.md) | Derived from BIZBOK Guide v14 §8.1 Financial Services Reference Model. |
+| Explicit Architecture | [System Decomposition](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/system-decomposition.md) | System decomposition breaks named abstractions such as vendor products, platforms, and design patterns into neutral, functional primitives. It is the mechanism through which SemOps derives Semantic Patterns and Capabilities and the building blocks of Explicit Enterprise. |
+| Explicit Architecture | [Patterns and Bounded Contexts](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/patterns-and-bounded-contexts.md) | Understanding Semantic Operations use of "Patterns" with Domain Driven Design's application of the `bounded context`. |
+| Explicit Architecture | [Aggregate Root for SemOps Agentic Enterprise](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/semops-aggregate-root.md) | "Each aggregate has a root entity (the aggregate root) and a boundary. The root is the only member of the aggregate that outside objects are allowed to hold references to. Invariants must be maintained for all changes within the aggregate boundary." — Eric Evans, Domain-Driven Design (2003) |
+| Explicit Architecture | [What is Wisdom?](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/wisdom-aggregate-root.md) | Wisdom (W), in the DIKW framework, can be described as "principles," "purpose," or "values." It is the highest level in the hierarchy, requires the most energy to achieve, and its state has the highest uncertainty. |
+| Explicit Architecture | [Anti-Corruption Layer (ACL)](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/ddd-acl-governance-aas.md) | An **anti-corruption layer** is a layer that isolates two distinct components (bounded contexts in DDD) to prevent the downstream domain model from being corrupted by the upstream model. It protects the integrity of the core domain. |
+| Explicit Architecture | [Data Shape](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/data-shapes.md) | A pattern for defining the concrete data structure of an entity or pattern, distinct from the system-wide schema. |
+| Explicit Architecture | [Mirror Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/mirror-architecture.md) | Mirror Architecture is how SemOps engages with a company's systems, data, and processes. It enables knowledge transfer in a deep, structural way and implements solutions without modifying existing systems or disrupting operations. |
+| Explicit Architecture | [Discovery Through Data](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/discovery-through-data.md) | Observable data reveals organizational truth. Your business model, processes, customers, and operations are all represented in data structures and event logs—and therefore can be discovered, validated, and improved. |
+| Explicit Architecture | [AI-Ready Architecture](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/ai-ready-architecture.md) | **AI-Ready Architecture** (also called **Machine-Readable Architecture**) is the principle that clean code is AI-ready code. Code that is well-structured, explicit, and self-documenting for humans is also optimized for LLM understanding and generation. |
+| Explicit Architecture | [Stable Core, Flexible Edge](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/stable-core-flexible-edge.md) | An architectural principle for managing schemas and semantic evolution. It instructs protection of the foundational and slow-changing "core" while enabling experimentation and deferred committment at the "edge". |
+| Explicit Architecture | [Scale Projection](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/scale-projection.md) | Production-readiness is a property of your abstractions, not your infrastructure. |
+| Explicit Architecture | [Semantic Flywheel](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/semantic-flywheel.md) | The phenomenon that the appropriate architecture and data management to enable the real benefits from AI and agents is much easier to achieve by also using AI and agents, and so on. |
+| Explicit Architecture | [Agentic Coding at Scale](SEMANTIC_OPERATIONS_FRAMEWORK/EXPLICIT_ARCHITECTURE/agentic-coding-at-scale.md) | The Semantic Operations Framework can be viewed as a means to achieve the accelerating benefits of agentic coding but at the scale of an organization and business. |
+| Semantic Optimization | [Semantic Optimization](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/semantic-optimization.md) | **Semantic Optimization** is business growth through agentic execution with rich semantic Patterns, while continually aligning semantic coherence of systems, goals, and organizations towards goals and optimal decisions. |
+| Semantic Optimization | [Semantic Optimization Implementation](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/semantic-optimization-implementation.md) | Technical implementation of semantic optimization: classifier pipelines, DDD object mapping, ML processes, corpus-artifact delta, and decision cadence. |
+| Semantic Optimization | [Semantic Coherence](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/semantic-coherence.md) | **Semantic Coherence** is the degree to which human and machine knowledge is available, consistent, and stable across organizations and their systems. |
+| Semantic Optimization | [Semantic Coherence Measurement](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/semantic-coherence-measurement.md) | How to measure semantic coherence: audit methodology, technical implementation, and operational validation. |
+| Semantic Optimization | [Semantic Compression](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/semantic-compression.md) | The investment of energy and meaning to encode knowledge into reusable structures that enable efficient understanding. |
+| Semantic Optimization | [Semantic Patterns](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/semantic-patterns.md) | A **Pattern** is an architectural building block. It is a named assembly of capabilities that conveys enough implicit knowledge that both humans and machines can recognize the shape well enough to make decisions, and operate in architecture at a semantically simple level. |
+| Semantic Optimization | [Pattern Operations](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/pattern-operations.md) | How Patterns are operationalized: the lifecycle that produces them, the promotion loop from flexible edge to stable core, the optimization cycle that balances growth with coherence, and the governance layers that maintain semantic integrity. |
+| Semantic Optimization | [Working with Patterns](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/working-with-patterns.md) | Practical guidance for finding, sizing, adopting, and evolving domain patterns — the judgment-driven work that turns pattern theory into operational reality. |
+| Semantic Optimization | [Scale Projection](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/scale-projection.md) | Scale Projection is a validation technique that tests domain model coherence by projecting current architecture to a scaled deployment and measuring the gap. If the gap is purely infrastructure, the domain model is coherent. If it requires logic changes, the abstractions are wrong. |
+| Semantic Optimization | [Spec-Driven Design](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/spec-driven-design.md) | Spec-driven design treats a structured specification, not documentation, as the primary artifact that drives implementation. SemOps extends this by creating a specification engine that creates a governed spec object, evaluates it, validates lifecycle, and tracks provenance. |
+| Semantic Optimization | [SemOps as Context Engineering](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/semops-context-engineering.md) | An explanation of how SemOps solves for Context Engineering systematically, based on its fundamental design. |
+| Semantic Optimization | [Agentic Lineage](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/agentic-lineage.md) | **Agentic Lineage** extends data lineage to track AI agent interactions as first-class provenance events in the knowledge graph. It is the telemetry foundation for Semantic Coherence measurement: without structured records of what agents did, what context informed their decisions, and what artifacts they produced, scoring algorithms have nothing to score. |
+| Semantic Optimization | [Governance as Strategy](SEMANTIC_OPERATIONS_FRAMEWORK/SEMANTIC_OPTIMIZATION/governance-as-strategy.md) | Provenance and Lineage are two data management practices that are often seen as uninteresting compliance and pipeline management methods, but as data categories grow and AI integrations consume more and more context, they become critical and can provide added value. |
 
 ## References
 

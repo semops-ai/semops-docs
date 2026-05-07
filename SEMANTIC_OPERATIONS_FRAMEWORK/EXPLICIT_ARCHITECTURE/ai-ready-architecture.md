@@ -1,6 +1,6 @@
 # AI-Ready Architecture
 
-**AI-Ready Architecture** (also called **Machine-Readable Architecture**) is the principle that clean code is AI-ready code. Code that is well-structured, explicit, and self-documenting for humans is also optimized for LLM understanding and generation.
+> **AI-Ready Architecture** (also called **Machine-Readable Architecture**) is the principle that clean code is AI-ready code. Code that is well-structured, explicit, and self-documenting for humans is also optimized for LLM understanding and generation.
 
 The same practices that make code maintainable for humans also make it legible for AI:
 - **Explicit over implicit** (types, boundaries, invariants)

@@ -1,6 +1,6 @@
 # Data Collection & EL Methods: A Comprehensive Guide
 
-Understanding when to use different Extract-Load approaches—from managed platforms like Fivetran to code-first frameworks like DLT—requires examining both the technical properties of data sources and the business contexts that drive data movement.
+> Understanding when to use different Extract-Load approaches—from managed platforms like Fivetran to code-first frameworks like DLT—requires examining both the technical properties of data sources and the business contexts that drive data movement.
 
 ---
 

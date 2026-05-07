@@ -1,5 +1,7 @@
 # SemOps as Context Engineering
 
+> An explanation of how SemOps solves for Context Engineering systematically, based on its fundamental design.
+
 ## What SemOps Is
 
 SemOps is a stack-neutral data management system that works in tandem with AI agents to maintain semantic consistency across an entire company through governance.

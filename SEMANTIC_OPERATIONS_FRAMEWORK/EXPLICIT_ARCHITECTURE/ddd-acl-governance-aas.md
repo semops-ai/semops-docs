@@ -1,6 +1,6 @@
 # Anti-Corruption Layer (ACL)
 
-An **anti-corruption layer** is an isolating layer that sits between two [bounded contexts](domain-driven-design.md), translating requests and responses to prevent the downstream context's domain model from being corrupted by the upstream context's model. It protects the integrity of the core domain.
+> An **anti-corruption layer** is a layer that isolates two distinct components ([bounded contexts](domain-driven-design.md) in DDD) to prevent the downstream domain model from being corrupted by the upstream model. It protects the integrity of the core domain.
 
 ## Definition (Evans)
 

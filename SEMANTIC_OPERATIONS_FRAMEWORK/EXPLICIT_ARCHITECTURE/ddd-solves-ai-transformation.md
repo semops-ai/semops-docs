@@ -1,6 +1,6 @@
 # Domain-Driven Design Solves the AI Transformation Problem
 
-Why Domain-Driven Design (DDD) has become unexpectedly essential for AI transformation—not because the methodology changed, but because AI makes what was once difficult now tractable.
+> Why Domain-Driven Design (DDD) is a useful framework for implementing AI at scale.
 
 ---
 

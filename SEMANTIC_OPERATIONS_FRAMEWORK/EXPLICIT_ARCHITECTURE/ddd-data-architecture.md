@@ -1,12 +1,8 @@
 # Data Architecture Through the DDD Lens
 
-> **Issue:** 
-> **Parent:**  (Explicit Enterprise Data Toolkit)
-> **Date:** 2026-02-21
+> SemOps chosen data architecture which aligns to cross-cutting architecture (DDD) and doesn't artificially compress to a monolith.
 
-## Purpose
-
-This document maps DDD concepts to concrete data architecture decisions. Not "DDD is good for data" (established in [what-is-architecture.md](../../semops-docs-refs/what-is-architecture.md) and [data-systems-architecture-map.md](../../semops-docs-refs/data-systems-architecture-map.md)) but **how** each DDD concept translates into a specific architectural choice that a generalist can follow.
+See also: "DDD is good for data" (established in [what-is-architecture.md](../../semops-docs-refs/what-is-architecture.md) and [data-systems-architecture-map.md](../../semops-docs-refs/data-systems-architecture-map.md)) but **how** each DDD concept translates into a specific architectural choice that a generalist can follow.
 
 The goal: architecture defines data structures, data structures select infrastructure. This document covers the architecture layer. Infrastructure choices come after.
 

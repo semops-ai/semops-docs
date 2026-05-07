@@ -11,7 +11,7 @@ metadata:
 ---
 # Foundations: Human Cognition and Organization
 
-Foundational theories explaining how humans process information, construct knowledge, and organize work. These inform why semantic coherence functions as a socio-technical property.
+> Foundational theories explaining how humans process information, construct knowledge, and organize work. These inform why semantic coherence functions as a socio-technical property.
 
 ---
 

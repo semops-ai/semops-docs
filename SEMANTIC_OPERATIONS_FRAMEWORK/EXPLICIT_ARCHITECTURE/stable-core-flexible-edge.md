@@ -1,6 +1,6 @@
 # Stable Core, Flexible Edge
 
-An architectural principle for managing semantic evolution: protect invariant meaning at the core while enabling controlled experimentation and adaptation at the edges.
+> An architectural principle for managing schemas and semantic evolution. It instructs protection of the foundational and slow-changing "core" while enabling experimentation and deferred committment at the "edge".
 
 **Provenance:** 1p (Original SemOps framing)
 **Related Patterns:** Hexagonal Architecture (Cockburn 2005), Clean Architecture (Martin 2012), Onion Architecture (Palermo 2008)

@@ -13,7 +13,7 @@ metadata:
 
 # DIKW Theory Comparison
 
-Detailed comparison of the three foundational formulations of the DIKW hierarchy: Zeleny (1987), Ackoff (1989), and Bellinger et al. (2004).
+> Detailed comparison of the three foundational formulations of the DIKW hierarchy: Zeleny (1987), Ackoff (1989), and Bellinger et al. (2004).
 
 ---
 

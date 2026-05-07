@@ -11,7 +11,7 @@ metadata:
 ---
 # Foundations: Semantic Systems and Architecture
 
-Foundational theories for defining, representing, and managing meaning in technical systems. These provide the philosophical and logical basis for semantic precision, grounding, and consistency.
+> Foundational theories for defining, representing, and managing meaning in technical systems. These provide the philosophical and logical basis for semantic precision, grounding, and consistency.
 
 ---
 

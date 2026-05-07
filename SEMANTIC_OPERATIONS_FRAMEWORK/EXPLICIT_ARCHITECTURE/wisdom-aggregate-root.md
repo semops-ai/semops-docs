@@ -1,7 +1,6 @@
 # What is Wisdom?
 
-Wisdom (W), in the DIKW framework, can be described as "principles," "purpose," or "values."
-It is the highest level in the hierarchy, requires the most energy to achieve, and its state has the highest uncertainty.
+> Wisdom (W), in the DIKW framework, can be described as "principles," "purpose," or "values." It is the highest level in the hierarchy, requires the most energy to achieve, and its state has the highest uncertainty.
 
 ## How Wisdom Maps to the Semantic Funnel
 
