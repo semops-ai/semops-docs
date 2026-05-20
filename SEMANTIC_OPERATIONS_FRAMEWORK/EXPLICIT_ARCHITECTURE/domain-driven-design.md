@@ -148,6 +148,38 @@ One bounded context adopts another's model as-is, without translation. The downs
 
 This is pragmatic when the cost of building a translation layer exceeds the benefit. It trades model purity for simplicity — appropriate when the upstream model is close enough to the downstream context's needs.
 
+### Partnership
+
+Two bounded contexts whose teams work as partners on mutually-dependent systems. Failures on one side become mutual failures; success requires coordinated planning, shared roadmaps, and tight communication.
+
+**In plain language:** When two groups have to win together. Their systems are so intertwined that if one breaks, both fall. So they plan releases together, share decisions, and accept they sink or swim as a pair.
+
+**Example:** A payment-processing context and an order-management context where both must release coordinated changes for new payment methods. Neither can move forward independently without breaking the other.
+
+### Open Host Service
+
+A bounded context publishes a well-designed protocol or API specifically intended for many consumers. Instead of negotiating with each downstream context separately, the upstream invests in a single clean interface that anyone can use.
+
+**In plain language:** A "front door" designed for many guests. The host context publishes one well-documented interface; any consumer can use it without bilateral arrangements.
+
+**Example:** A public-facing payments API (Stripe-style) where many internal and external consumers integrate without each negotiating their own contract. The host publishes; consumers conform.
+
+### Separate Ways
+
+Two bounded contexts deliberately do not integrate. The cost or risk of integration outweighs the benefit, so each operates independently.
+
+**In plain language:** A "we just don't talk to each other" relationship by design. Sometimes the cleanest answer is no integration at all — same physical environment, different worlds, no surprises crossing the boundary.
+
+**Example:** A scheduling system (Homebase) and a field-service system (Jobber) where the same employees are managed in both, but there's no data exchange between them. Each operates independently. If integration ever becomes worth it, the relationship re-types — but until then, separate is honest.
+
+### Big Ball of Mud
+
+A part of the system where there is no clear model — code and data have grown without architectural discipline. Recognized explicitly so the clean parts of the system can guard against accidental integration with it.
+
+**In plain language:** A messy area nobody wants to touch. Naming it explicitly is half the battle — once it's acknowledged, the clean parts of the system can protect themselves from getting pulled into the mess.
+
+**Example:** A legacy CRM database table that holds notes, attachments, and account history in a free-text "comments" column. Reading from it requires guesswork. Any new context that depends on it would inherit the mess — so the new contexts wrap their access in an Anti-Corruption Layer and treat the legacy table as the Big Ball of Mud it is.
+
 ### Edge Predicates
 
 The relationships between entities, patterns, and bounded contexts are expressed as typed **edge predicates**. Each predicate carries precise semantics — it defines what the relationship means, not just that one exists.
@@ -190,6 +222,14 @@ A multi-step business process that coordinates across aggregate boundaries. Each
 Event-driven coordination where each bounded context reacts to domain events independently. No central orchestrator — each context knows what to do when it sees a relevant event. The overall process emerges from individual reactions.
 
 **Example:** When an order is placed: Inventory reacts by reserving stock, Finance reacts by authorizing payment, Fulfillment reacts by queuing the pick. Each context acts independently.
+
+### Process Manager
+
+A centralized coordinator that owns the state of a multi-step process within a single bounded context. Subscribes to events from the aggregates it coordinates and issues commands back to them, maintaining its own state machine that tracks where the process is.
+
+**In plain language:** A traffic controller for a workflow inside one part of the business. The controller holds the workflow's progress, decides what happens next, and tells the right systems to act. Unlike a saga (which coordinates across many parts of the business), a process manager stays inside one context.
+
+**Example:** A loan origination process manager owns the state of a loan application — received, credit check pending, underwriter assigned, decision pending, signed. It tells Credit Check to run, waits for the result, then tells Underwriting to start. All within the Lending bounded context.
 
 ### Goal
 
